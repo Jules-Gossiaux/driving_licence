@@ -1,0 +1,29 @@
+id: ch02-q007
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: Quelle règle s'applique aux conducteurs de tram ?
+options:
+  - id: a
+    label: Ils suivent un règlement spécifique, mais obéissent aux agents, aux feux et aux véhicules prioritaires.
+  - id: b
+    label: Ils sont soumis au Code de la route comme tous les autres conducteurs.
+  - id: c
+    label: Ils sont dispensés de toute règle de circulation.
+  - id: d
+    label: Ils doivent seulement céder le passage aux piétons.
+correctOptionId: a
+explanation: Les trams relèvent d'un règlement spécifique. Ils doivent néanmoins respecter les injonctions des agents qualifiés, les feux lumineux et céder le passage aux véhicules prioritaires.
+difficulty: medium
+severity: normal
+tags:
+  - tram
+  - usagers
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

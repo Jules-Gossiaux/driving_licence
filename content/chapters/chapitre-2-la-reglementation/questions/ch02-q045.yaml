@@ -1,0 +1,31 @@
+id: ch02-q045
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Que doit faire le conducteur pendant une interdiction temporaire décidée par un agent ?
+options:
+  - id: a
+    label: Remettre son permis à la police pour la durée de l'interdiction.
+  - id: b
+    label: Conserver son permis et ne pas conduire.
+  - id: c
+    label: Envoyer son permis au tribunal.
+  - id: d
+    label: Rien, l'interdiction est automatique.
+correctOptionId: a
+explanation: Le conducteur est prié de remettre son permis au policier pour la durée de l'interdiction temporaire. C'est une différence avec le retrait immédiat décidé par un officier de police judiciaire ou le procureur.
+difficulty: medium
+severity: normal
+tags:
+  - permis
+  - interdiction-temporaire
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

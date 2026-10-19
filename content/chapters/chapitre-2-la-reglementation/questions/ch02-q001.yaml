@@ -1,0 +1,29 @@
+id: ch02-q001
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: Qui est tenu de respecter les règles du Code de la route ?
+options:
+  - id: a
+    label: Tous les usagers de la voie publique
+  - id: b
+    label: Uniquement les conducteurs de véhicules à moteur
+  - id: c
+    label: Uniquement les conducteurs et leurs passagers
+  - id: d
+    label: Uniquement les personnes majeures
+correctOptionId: a
+explanation: "Le Code s'adresse à tous les usagers : conducteurs, passagers et piétons. Le type de véhicule ou l'âge n'y change rien."
+difficulty: easy
+severity: normal
+tags:
+  - usagers
+  - code-de-la-route
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

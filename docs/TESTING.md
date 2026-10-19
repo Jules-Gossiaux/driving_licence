@@ -29,7 +29,7 @@ pnpm check:full                                  # check + build + E2E
 
 ## Inventaire actuel
 
-Vérifié lors de la dernière exécution : **12 fichiers, 91 tests Vitest** et **3 tests Playwright**.
+Vérifié lors de la dernière exécution : **13 fichiers, 99 tests Vitest** et **3 tests Playwright**.
 
 ### Unitaires
 
@@ -40,7 +40,8 @@ Vérifié lors de la dernière exécution : **12 fichiers, 91 tests Vitest** et 
 | `tests/unit/domain/selection.test.ts`             | Mélange déterministe, immutabilité, sélection, pool insuffisant, count invalide |
 | `tests/unit/domain/schemas.test.ts`               | Sources, dates UTC, droits des médias, publication, options, presets            |
 | `tests/unit/domain/catalog.test.ts`               | Éligibilité, avertissements, tri, doublons, références inconnues, images        |
-| `tests/unit/content/loader.test.ts`               | Contenu réel : 1 chapitre, 2 leçons, 5 questions, avertissement de pool         |
+| `tests/unit/domain/snapshot.test.ts`              | Média d'option conservé, média nul pour une réponse non illustrée               |
+| `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 9 leçons, 61 questions, avertissement de pool       |
 | `tests/unit/infrastructure/database-path.test.ts` | Chemins mémoire/relatifs, refus de `public/` et `data/`                         |
 
 ### Intégration
@@ -50,7 +51,7 @@ Vérifié lors de la dernière exécution : **12 fichiers, 91 tests Vitest** et 
 | `tests/integration/migrations.test.ts`                | Application unique, checksum modifié, rollback sur SQL invalide, répertoire absent                                |
 | `tests/integration/repository.test.ts`                | Snapshots, conflits de réponse, clôture, unicité de l'examen actif, statistiques, progression, snapshot altéré    |
 | `tests/integration/application/exam-flow.test.ts`     | Démarrage/reprise, DTO publics, temps serveur, réponses invalides, temps écoulé, grâce, clôture, pool insuffisant |
-| `tests/integration/application/practice-flow.test.ts` | Session publique, correction, complétion, plafond de 10, révision, absence d'erreurs                              |
+| `tests/integration/application/practice-flow.test.ts` | Session publique, entraînement de leçon, correction, complétion, plafond de 10, révision, absence d'erreurs       |
 | `tests/integration/application/queries.test.ts`       | Résultat complet, tentative en cours, tableau de bord, révision, chapitres/leçons                                 |
 
 ### E2E
@@ -81,8 +82,8 @@ En complément des tests automatisés :
 
 1. `pnpm content:validate` ne signale aucune erreur ; lire les avertissements.
 2. Tableau de bord : statistiques, reprise d'examen, presets verrouillés/disponibles.
-3. Leçon : lecture, marquage lu/non lu, sources affichées, rendu Markdown.
-4. Entraînement : correction immédiate, explication, médias, fin de session.
+3. Leçon : lecture, marquage lu/non lu, sources affichées, rendu Markdown, entraînement de leçon.
+4. Entraînement : correction immédiate, explication, médias, options illustrées, fin de session.
 5. Examen : compte à rebours, passage automatique après expiration, résultat et détail.
 6. Révision : une erreur récente apparaît ; une bonne réponse ultérieure la retire.
 7. Rafraîchissement en cours d'examen : la tentative reprend sans réinitialiser le temps.
@@ -94,6 +95,7 @@ En complément des tests automatisés :
 - Pas de tests de régression visuelle ni d'audit d'accessibilité automatisé.
 - Pas de test multi-profils ni d'authentification : ces fonctionnalités n'existent pas.
 - Pas de test de montée en charge : l'application est locale et mono-utilisateur.
-- Le contenu réel se limite à 1 chapitre, 2 leçons et 5 questions de démonstration.
+- Le contenu réel se limite à 2 chapitres, 9 leçons et 61 questions, toutes en brouillon ; le
+  chapitre 2 n'est couvert que par le pilote 2.1.
 - L'abandon de tentative n'est pas exposé dans l'interface ; seul le repository le couvre.
 - Les avertissements Turbopack du build sont attendus et ne sont pas traités comme des échecs.

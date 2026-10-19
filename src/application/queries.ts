@@ -6,6 +6,7 @@ import {
   listChapterOverviews,
   listExamPresetOverviews,
   resolveMedia,
+  resolveOptionViews,
   resolveSourceLabels,
   toLessonSummary,
   type AppDependencies,
@@ -14,6 +15,7 @@ import {
   type ExamPresetOverview,
   type LessonDetail,
   type QuestionMediaView,
+  type QuestionOptionView,
   type SourceLabel,
 } from "./content-views";
 import { ContentNotFoundError } from "./errors";
@@ -55,7 +57,7 @@ export type ReviewItem = {
   chapterTitle: string;
   lessonTitles: string[];
   prompt: string;
-  options: Array<{ id: string; label: string }>;
+  options: QuestionOptionView[];
   correctOptionId: string;
   explanation: string;
   media: QuestionMediaView | null;
@@ -66,7 +68,7 @@ export type ResultQuestion = {
   position: number;
   questionId: string;
   prompt: string;
-  options: Array<{ id: string; label: string }>;
+  options: QuestionOptionView[];
   selectedOptionId: string | null;
   correctOptionId: string;
   isCorrect: boolean;
@@ -250,7 +252,7 @@ export function getReviewItems(deps: AppDependencies): ReviewItem[] {
           (lessonId) => deps.catalog.lessonById.get(lessonId)?.lesson.title ?? lessonId,
         ),
         prompt: question.prompt,
-        options: question.options,
+        options: resolveOptionViews(deps.catalog, question.options),
         correctOptionId: question.correctOptionId,
         explanation: question.explanation,
         media: resolveMedia(deps.catalog, question.mediaId),
@@ -317,7 +319,7 @@ export function getAttemptResult(deps: AppDependencies, attemptId: string): Atte
         position: question.position,
         questionId: question.snapshot.questionId,
         prompt: question.snapshot.prompt,
-        options: question.snapshot.options,
+        options: resolveOptionViews(deps.catalog, question.snapshot.options),
         selectedOptionId: question.selectedOptionId,
         correctOptionId: question.snapshot.correctOptionId,
         isCorrect: question.isCorrect === true,

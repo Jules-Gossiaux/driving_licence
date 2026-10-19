@@ -1,0 +1,30 @@
+id: ch02-q039
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Qui décide de la suspension du droit de conduire lorsqu'un ordre de paiement reste impayé ?
+options:
+  - id: a
+    label: Le procureur du Roi
+  - id: b
+    label: Le juge
+  - id: c
+    label: L'agent qualifié
+  - id: d
+    label: Le ministre de la Justice
+correctOptionId: a
+explanation: Cette suspension est décidée par le procureur du Roi, et non par un juge. C'est une différence importante avec la déchéance.
+difficulty: medium
+severity: normal
+tags:
+  - sanctions
+  - suspension
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

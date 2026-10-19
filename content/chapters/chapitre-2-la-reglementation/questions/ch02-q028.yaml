@@ -1,0 +1,31 @@
+id: ch02-q028
+chapterId: ch02
+lessonIds:
+  - ch02-l04
+prompt: À quel degré appartient le fait de brûler un feu rouge ?
+options:
+  - id: a
+    label: 3e degré
+  - id: b
+    label: 1er degré
+  - id: c
+    label: 2e degré
+  - id: d
+    label: 4e degré
+correctOptionId: a
+explanation: Brûler un feu rouge est une infraction grave de 3e degré, car elle met directement en danger la sécurité des personnes.
+difficulty: medium
+severity: severe
+tags:
+  - degres
+  - feux
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

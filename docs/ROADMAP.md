@@ -6,21 +6,24 @@
 
 - Application Next.js locale (aucun backend, aucun compte).
 - Modèle de contenu YAML/Markdown validé par Zod, avec sources, médias, statuts et relecture.
-- Chapitre de démonstration : 1 chapitre, 2 leçons, 5 questions en brouillon.
+- Chapitre 1 de démonstration (2 leçons, 5 questions) et pilote du chapitre 2.1 (7 leçons,
+  56 questions), tous en brouillon.
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
-- Entraînement par chapitre avec correction immédiate (10 questions maximum).
+- Entraînement par chapitre avec correction immédiate (10 questions maximum) et entraînement dédié
+  aux questions cœur d'une leçon.
+- Questions à options illustrées par des SVG originaux.
 - Révision des questions dont la dernière réponse est fausse.
 - Examen blanc chronométré, serveur autoritatif, reprise d'une tentative en cours.
 - Preset belge officiel (50 questions / 15 s / 41 sur 50), verrouillé tant que le pool publié est
   insuffisant ; preset de démonstration (5 questions, brouillons autorisés).
 - Résultats détaillés avec explications, médias et sources.
 - Persistance SQLite avec migrations versionnées et snapshots des questions.
-- Tests : 91 tests Vitest (12 fichiers) et 3 parcours Playwright.
+- Tests : 99 tests Vitest (13 fichiers) et 3 parcours Playwright.
 - Documentation d'architecture, de développement, de test, de contenu et de décisions.
 
 ### Limites connues
 
-- Le preset officiel est **verrouillé** : 5 questions de démonstration contre 50 requises.
+- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (61 brouillons).
 - Le contenu n'a pas été relu par un spécialiste et ne doit pas servir de seule préparation.
 - Pas d'interface pour abandonner un examen commencé.
 - Pas d'historique complet des tentatives au-delà des cinq dernières du tableau de bord.
@@ -32,14 +35,12 @@
 
 ## Prochaines étapes
 
-### 1. Constituer la vraie banque de questions
+### 1. Relire le pilote 2.1, puis poursuivre le chapitre 2
 
-Priorité absolue. Pour chaque chapitre du manuel :
-
-- rédiger les leçons et les questions à partir des pages et des sources officielles belges ;
-- vérifier chaque règle, notamment les panneaux, priorités, vitesses et masses ;
-- renseigner les sources et les médias ;
-- faire relire, puis publier avec `reviewedBy` / `reviewedAt` ;
+- relire les 7 leçons et 56 questions du pilote, corriger puis publier ;
+- rédiger le point 2.2 selon le même format ;
+- inventorier et illustrer tous les panneaux du point 2.3 avant de rédiger les questions ;
+- vérifier chaque règle sur les sources officielles belges, renseigner sources et médias ;
 - atteindre au moins 50 questions publiées pour débloquer le preset officiel.
 
 ### 2. Renforcer l'outillage de contenu

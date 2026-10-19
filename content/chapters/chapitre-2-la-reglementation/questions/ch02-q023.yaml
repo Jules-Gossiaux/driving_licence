@@ -1,0 +1,31 @@
+id: ch02-q023
+chapterId: ch02
+lessonIds:
+  - ch02-l03
+prompt: Un agent en civil vous donne une injonction. Que doit-il faire pour que son ordre soit valable ?
+options:
+  - id: a
+    label: Vous montrer sa carte de légitimation.
+  - id: b
+    label: Revêtir un gilet fluorescent.
+  - id: c
+    label: Appeler un collègue en uniforme.
+  - id: d
+    label: Rien de particulier.
+correctOptionId: a
+explanation: Un policier en civil doit d'abord montrer sa carte de légitimation pour que ses injonctions soient valables.
+difficulty: easy
+severity: normal
+tags:
+  - agents
+  - civil
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 12
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

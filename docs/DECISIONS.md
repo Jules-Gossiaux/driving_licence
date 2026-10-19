@@ -130,3 +130,29 @@ requêtes filtrent par profil, sans interface de gestion.
 
 **Conséquences** : pas de conflit ni de compte à gérer. L'ajout de profils demandera une interface,
 une authentification et des règles de séparation des données.
+
+## D-013 — Micro-leçons, questions cœur et grand pool
+
+**Contexte** : progression rapide de type Duolingo, avec un besoin de s'entraîner au-delà des
+questions vues dans la leçon.
+
+**Décision** : chaque leçon publiée déclare 4 ou 5 `coreQuestionIds` qui alimentent un entraînement
+dédié. Le pool d'un chapitre reste plus large (8 questions par leçon dans le pilote 2.1) et
+l'entraînement de chapitre en tire jusqu'à 10.
+
+**Conséquences** : la leçon reste courte, l'entraînement de leçon est immédiat et le pool permet des
+sessions supplémentaires. La validation refuse une leçon publiée sans questions cœur ou avec des
+identifiants incohérents.
+
+## D-014 — Options illustrées et médias par chapitre
+
+**Contexte** : les panneaux et situations de circulation se répondent par l'image ; le chapitre 2.3
+comptera des dizaines de médias.
+
+**Décision** : une option de question peut référencer un `mediaId`. Les médias sont déclarés dans
+`content/media.yaml` ou dans un `media.yaml` propre au chapitre. Les illustrations servies sont des
+SVG originaux, jamais des scans du manuel.
+
+**Conséquences** : les réponses illustrées ne nécessitent aucune migration, car le `mediaId` est
+conservé dans le snapshot JSON de la tentative ; les anciennes tentatives relisent `null`. Chaque
+média reste soumis à la validation d'existence, de droits et d'alternative textuelle.

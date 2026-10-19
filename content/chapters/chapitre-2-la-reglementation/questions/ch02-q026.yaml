@@ -1,0 +1,31 @@
+id: ch02-q026
+chapterId: ch02
+lessonIds:
+  - ch02-l04
+prompt: Combien de points perd-on à l'examen pour une erreur concernant une infraction de 3e degré ?
+options:
+  - id: a
+    label: 5 points
+  - id: b
+    label: 1 point
+  - id: c
+    label: 2 points
+  - id: d
+    label: 0 point
+correctOptionId: a
+explanation: Les erreurs de 3e et de 4e degré coûtent 5 points.
+difficulty: easy
+severity: normal
+tags:
+  - degres
+  - examen
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

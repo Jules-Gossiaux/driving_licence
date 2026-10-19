@@ -1,0 +1,16 @@
+id: ch02
+slug: chapitre-2-la-reglementation
+order: 2
+title: "Chapitre 2 — La réglementation"
+summary: >-
+  Qui doit respecter le Code de la route, où il s'applique, à qui obéir, les
+  quatre degrés d'infraction et les sanctions qui en découlent.
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+  - documentId: official-exam-brussels
+version: 1
+status: draft
+origin: ai_assisted

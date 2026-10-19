@@ -1,0 +1,117 @@
+- id: ch02-usagers
+  file: /media/ch02/usagers.svg
+  alt: >-
+    Quatre cartes présentant les conducteurs, les passagers, les piétons et les
+    conducteurs de tram, avec leurs obligations principales.
+  caption: "Les quatre catégories d'usagers de la route."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 10
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-voie-publique
+  file: /media/ch02/voie-publique.svg
+  alt: >-
+    Coupe d'une voie publique entre deux façades, montrant les trottoirs,
+    l'accotement, les pistes cyclables, les chaussées et la berme centrale.
+  caption: "La voie publique s'étend d'une façade à l'autre."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 11
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-agent-positions
+  file: /media/ch02/agent-positions.svg
+  alt: >-
+    Trois panneaux comparant la position de l'agent qualifié aux feux : de
+    profil pour le feu vert, bras levé pour le feu orange, de face ou de dos
+    pour le feu rouge.
+  caption: "Les positions de l'agent et leurs équivalents lumineux."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 12
+    - documentId: feu-vert-chap2-1
+      page: 13
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-degres-infractions
+  file: /media/ch02/degres-infractions.svg
+  alt: >-
+    Tableau des quatre degrés d'infraction, avec des exemples et le coût de
+    chaque degré à l'examen : un point pour les deux premiers, cinq points pour
+    les deux derniers.
+  caption: "Quatre degrés, deux barèmes de points."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 13
+    - documentId: feu-vert-chap2-1
+      page: 14
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-sanctions-paiement
+  file: /media/ch02/sanctions-paiement.svg
+  alt: >-
+    Schéma du parcours d'une amende impayée : perception immédiate, transaction,
+    ordre de paiement, puis suspension du permis après trois ans.
+  caption: "Les étapes du paiement jusqu'à la suspension."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 14
+    - documentId: feu-vert-chap2-synthese
+      page: 43
+
+- id: ch02-agent-profil
+  file: /media/ch02/agent-profil.svg
+  alt: "Agent qualifié vu de profil, le bras le long du corps."
+  kind: illustration
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+
+- id: ch02-agent-bras-leve
+  file: /media/ch02/agent-bras-leve.svg
+  alt: "Agent qualifié de face, un bras levé verticalement."
+  kind: illustration
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+
+- id: ch02-agent-face
+  file: /media/ch02/agent-face.svg
+  alt: "Agent qualifié de face, les deux bras tendus horizontalement."
+  kind: illustration
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"

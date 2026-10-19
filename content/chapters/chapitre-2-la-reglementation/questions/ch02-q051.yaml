@@ -1,0 +1,30 @@
+id: ch02-q051
+chapterId: ch02
+lessonIds:
+  - ch02-l07
+prompt: En cas de récidive dans les trois ans, à partir de quel seuil le juge doit-il imposer l'EAD ?
+options:
+  - id: a
+    label: 0,50 mg/l d'air alvéolaire ou 1,2 g/l de sang
+  - id: b
+    label: 0,35 mg/l d'air ou 0,8 g/l de sang
+  - id: c
+    label: 0,78 mg/l d'air ou 1,8 g/l de sang
+  - id: d
+    label: 0,50 mg/l d'air ou 1,8 g/l de sang
+correctOptionId: a
+explanation: En cas de récidive dans les trois ans, l'EAD est obligatoire dès 0,50 mg/l d'air alvéolaire ou 1,2 g/l de sang.
+difficulty: hard
+severity: normal
+tags:
+  - alcool
+  - ead
+  - recidive
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 16
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

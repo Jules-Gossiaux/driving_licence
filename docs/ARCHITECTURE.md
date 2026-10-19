@@ -80,7 +80,7 @@ var/                      base locale, ignorée par Git
 | `/`                                     | Tableau de bord : statistiques, reprise, chapitres, presets |
 | `/chapitres`                            | Liste des chapitres                                         |
 | `/chapitres/[slug]`                     | Détail d'un chapitre et de ses leçons                       |
-| `/chapitres/[slug]/lecons/[lessonSlug]` | Leçon Markdown, points clés, sources, marquage lu/non lu    |
+| `/chapitres/[slug]/lecons/[lessonSlug]` | Leçon Markdown, points clés, sources, entraînement dédié    |
 | `/entrainement`                         | Choix d'un entraînement par chapitre ou d'une révision      |
 | `/entrainement/[attemptId]`             | Runner d'entraînement ou de révision, correction immédiate  |
 | `/examen`                               | Presets disponibles, verrouillés ou non                     |
@@ -96,6 +96,7 @@ progression et les tentatives ne doivent jamais être servies depuis un cache st
 | Action                       | Effet                                                           |
 | ---------------------------- | --------------------------------------------------------------- |
 | `startPracticeAction`        | Crée une tentative `practice` pour un chapitre                  |
+| `startLessonPracticeAction`  | Crée un entraînement à partir des questions cœur d'une leçon    |
 | `startReviewAction`          | Crée une tentative `review` à partir des dernières erreurs      |
 | `startExamAction`            | Crée ou reprend l'examen actif d'un preset                      |
 | `submitTrainingAnswerAction` | Enregistre une réponse et renvoie la correction immédiate       |
@@ -145,6 +146,8 @@ serveur recalcule le temps restant à chaque ouverture. Le dépôt sait marquer 
 
 - Entraînement : jusqu'à 10 questions du chapitre, sans chronomètre, correction immédiate après
   chaque réponse, score final = nombre de bonnes réponses, sans seuil de réussite.
+- Entraînement de leçon : mêmes règles, à partir des `coreQuestionIds` de la leçon (4 ou 5
+  questions), accessible depuis la page de la leçon.
 - Révision : sélection des questions dont la **dernière** réponse en tentative terminée est fausse,
   éventuellement filtrées par chapitre, puis mêmes règles qu'un entraînement.
 - Une tentative d'entraînement terminée ne peut plus recevoir de réponse.
@@ -163,6 +166,7 @@ media.yaml            médias servis et leurs droits
 exam-presets/*.yaml   format et filtres d'un examen
 chapters/<slug>/
   chapter.yaml        métadonnées du chapitre
+  media.yaml          médias du chapitre (facultatif)
   lessons/*.md        front matter YAML + corps Markdown
   questions/*.yaml    énoncé, options, bonne réponse, explication, sévérité
 ```
@@ -176,6 +180,11 @@ Origine : `manual`, `ai_assisted`, `original`.
 Chaque question référence au moins un document source traçable (`sourceRefs`). Les médias servis
 vivent sous `/media/` et doivent exister dans `public/` ; les scans de `data/` ne sont jamais
 référencés.
+
+Une leçon peut déclarer `coreQuestionIds` (4 ou 5 à la publication) ; ces questions alimentent son
+entraînement dédié. Une option de question peut référencer un `mediaId` déclaré dans un manifeste
+média global ou de chapitre. Le lien est conservé dans le snapshot JSON, ce qui rend les réponses
+illustrées compatibles avec les tentatives existantes.
 
 ## Modèle SQLite
 

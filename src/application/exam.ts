@@ -23,9 +23,16 @@ import {
   remainingSeconds,
 } from "@/domain/exam/time";
 import { ContentNotFoundError, InvalidAnswerError } from "./errors";
-import { resolveMedia, type AppDependencies, type QuestionMediaView } from "./content-views";
+import {
+  resolveMedia,
+  resolveOptionViews,
+  type AppDependencies,
+  type QuestionMediaView,
+  type QuestionOptionView,
+} from "./content-views";
 
-export type ExamQuestionView = PublicQuestion & {
+export type ExamQuestionView = Omit<PublicQuestion, "options"> & {
+  options: QuestionOptionView[];
   media: QuestionMediaView | null;
 };
 
@@ -70,8 +77,11 @@ function toExamQuestion(
     throw new AttemptNotFoundError(`${attempt.id} (question ${position})`);
   }
 
+  const publicQuestion = toPublicQuestion(entry.snapshot);
+
   return {
-    ...toPublicQuestion(entry.snapshot),
+    ...publicQuestion,
+    options: resolveOptionViews(deps.catalog, publicQuestion.options),
     media: resolveMedia(deps.catalog, entry.snapshot.mediaId),
   };
 }

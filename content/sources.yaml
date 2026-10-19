@@ -10,6 +10,29 @@
     insuffisante pour servir de vérité seule : toute reprise doit être vérifiée
     sur les photos de pages et les sources officielles.
 
+- id: feu-vert-chap2-1
+  title: "Feu Vert — Chapitre 2.1 : Les règles"
+  kind: manual
+  publisher: "Feu Vert"
+  localPath: data/pdf_feu_vert/chap2/chap2.1.pdf
+  accessedAt: 2026-10-19T22:00:00Z
+  rights: personal_use
+  note: >-
+    Scan local non versionné, utilisé uniquement comme référence de travail.
+    Les pages 10 à 16 ont été vérifiées sur les photos de pages ; le contenu du
+    projet est reformulé et ne reproduit pas le texte du manuel.
+
+- id: feu-vert-chap2-synthese
+  title: "Feu Vert — Synthèse du chapitre 2 : La réglementation"
+  kind: manual
+  publisher: "Feu Vert"
+  localPath: data/pdf_feu_vert/chap2/chap2.synthese.pdf
+  accessedAt: 2026-10-19T22:00:00Z
+  rights: personal_use
+  note: >-
+    Synthèse locale non versionnée (pages 42 à 44), utilisée comme liste de
+    contrôle des notions essentielles du chapitre 2.1.
+
 - id: official-category-b
   title: "Voitures (catégorie B) — SPF Mobilité et Transports"
   kind: official

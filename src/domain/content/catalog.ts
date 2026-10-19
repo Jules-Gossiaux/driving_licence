@@ -50,6 +50,75 @@ export type CatalogBuildResult = {
   issues: ContentIssue[];
 };
 
+const CORE_QUESTION_MIN = 4;
+const CORE_QUESTION_MAX = 5;
+
+function validateCoreQuestionIds(
+  lesson: Lesson,
+  chapterQuestions: Question[],
+  issues: ContentIssue[],
+): void {
+  const coreQuestionIds = lesson.coreQuestionIds;
+
+  if (!coreQuestionIds || coreQuestionIds.length === 0) {
+    if (lesson.status === "published") {
+      issues.push({
+        level: "error",
+        code: "CORE_QUESTIONS_MISSING",
+        path: `lesson:${lesson.id}`,
+        message: `Une leçon publiée doit déclarer ${CORE_QUESTION_MIN} à ${CORE_QUESTION_MAX} questions cœur.`,
+      });
+    }
+    return;
+  }
+
+  if (new Set(coreQuestionIds).size !== coreQuestionIds.length) {
+    issues.push({
+      level: "error",
+      code: "DUPLICATE_CORE_QUESTION",
+      path: `lesson:${lesson.id}`,
+      message: "Une question cœur ne peut être déclarée qu'une seule fois dans une leçon.",
+    });
+  }
+
+  const chapterQuestionById = new Map(chapterQuestions.map((question) => [question.id, question]));
+
+  for (const questionId of coreQuestionIds) {
+    const question = chapterQuestionById.get(questionId);
+
+    if (!question) {
+      issues.push({
+        level: "error",
+        code: "UNKNOWN_CORE_QUESTION",
+        path: `lesson:${lesson.id}`,
+        message: `Question cœur absente du chapitre : ${questionId}.`,
+      });
+      continue;
+    }
+
+    if (!question.lessonIds.includes(lesson.id)) {
+      issues.push({
+        level: "error",
+        code: "CORE_QUESTION_LESSON_MISMATCH",
+        path: `lesson:${lesson.id}`,
+        message: `La question cœur ${questionId} ne référence pas cette leçon.`,
+      });
+    }
+  }
+
+  const outsideRange =
+    coreQuestionIds.length < CORE_QUESTION_MIN || coreQuestionIds.length > CORE_QUESTION_MAX;
+
+  if (outsideRange) {
+    issues.push({
+      level: lesson.status === "published" ? "error" : "warning",
+      code: "CORE_QUESTION_COUNT",
+      path: `lesson:${lesson.id}`,
+      message: `Une leçon doit proposer ${CORE_QUESTION_MIN} à ${CORE_QUESTION_MAX} questions cœur (${coreQuestionIds.length} déclarée(s)).`,
+    });
+  }
+}
+
 function compareByOrderThenSlug(
   left: { order: number; slug: string },
   right: { order: number; slug: string },
@@ -142,7 +211,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
   pushDuplicateIssues(
     issues,
     raw.media.map((asset) => asset.id),
-    "content/media.yaml",
+    "content/**/media.yaml",
     "Identifiant de média",
   );
   pushDuplicateIssues(
@@ -161,7 +230,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
       issues.push({
         level: "error",
         code: "DUPLICATE_MEDIA_FILE",
-        path: "content/media.yaml",
+        path: "content/**/media.yaml",
         message: `Le fichier média ${asset.file} est déclaré plusieurs fois.`,
       });
     }
@@ -221,6 +290,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
       }
 
       validateSourceRefs(lesson.sourceRefs, `lesson:${lesson.id}`, sources, issues);
+      validateCoreQuestionIds(lesson, entry.questions, issues);
 
       for (const target of extractMarkdownImageTargets(lesson.body)) {
         if (!target.startsWith("/media/")) {
@@ -238,7 +308,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
             level: "error",
             code: "UNKNOWN_MEDIA_FILE",
             path: `lesson:${lesson.id}`,
-            message: `Image non déclarée dans content/media.yaml : ${target}.`,
+            message: `Image non déclarée dans un manifeste média : ${target}.`,
           });
         }
       }
@@ -275,6 +345,17 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
           path: `question:${question.id}`,
           message: `Média inconnu : ${question.mediaId}.`,
         });
+      }
+
+      for (const option of question.options) {
+        if (option.mediaId && !media.has(option.mediaId)) {
+          issues.push({
+            level: "error",
+            code: "UNKNOWN_OPTION_MEDIA",
+            path: `question:${question.id}`,
+            message: `Média d'option inconnu : ${option.mediaId}.`,
+          });
+        }
       }
 
       validateSourceRefs(question.sourceRefs, `question:${question.id}`, sources, issues);

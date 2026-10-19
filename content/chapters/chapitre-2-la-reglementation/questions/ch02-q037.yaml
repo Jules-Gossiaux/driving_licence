@@ -1,0 +1,29 @@
+id: ch02-q037
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Quelles sont les durées possibles de la suspension prononcée pour un ordre de paiement impayé ?
+options:
+  - id: a
+    label: 8 jours, 15 jours ou 1 mois
+  - id: b
+    label: 2, 3, 6 ou 12 heures
+  - id: c
+    label: 3, 6 ou 9 mois
+  - id: d
+    label: 1, 3 ou 6 ans
+correctOptionId: a
+explanation: "La suspension varie selon la gravité de l'infraction : 8 jours, 15 jours ou 1 mois. Elle est décidée par le procureur du Roi."
+difficulty: medium
+severity: normal
+tags:
+  - sanctions
+  - suspension
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

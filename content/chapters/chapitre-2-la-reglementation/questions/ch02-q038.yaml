@@ -1,0 +1,29 @@
+id: ch02-q038
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Comment la perception immédiate peut-elle être payée ?
+options:
+  - id: a
+    label: Par virement bancaire ou par courrier postal
+  - id: b
+    label: Uniquement en espèces au commissariat
+  - id: c
+    label: Uniquement par carte bancaire sur place
+  - id: d
+    label: Uniquement par chèque
+correctOptionId: a
+explanation: Les policiers peuvent proposer un virement bancaire ou envoyer un formulaire de virement annexé au procès-verbal, par courrier.
+difficulty: easy
+severity: normal
+tags:
+  - sanctions
+  - perception-immediate
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

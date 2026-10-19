@@ -1,0 +1,29 @@
+id: ch02-q003
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: Parmi ces engins, lequel ne peut pas être poussé à la main tout en restant piéton ?
+options:
+  - id: a
+    label: Une moto
+  - id: b
+    label: Un vélo
+  - id: c
+    label: Une brouette
+  - id: d
+    label: Une chaise roulante
+correctOptionId: a
+explanation: Pousser une moto ne fait pas de vous un piéton. Le vélo, le cycle motorisé, la brouette, la voiture d'enfant et la chaise roulante, oui.
+difficulty: medium
+severity: normal
+tags:
+  - pietons
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

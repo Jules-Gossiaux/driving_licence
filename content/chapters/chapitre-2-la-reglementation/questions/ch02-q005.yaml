@@ -1,0 +1,29 @@
+id: ch02-q005
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: Une personne qui guide un cheval sur la voie publique est…
+options:
+  - id: a
+    label: un conducteur
+  - id: b
+    label: un piéton
+  - id: c
+    label: un passager
+  - id: d
+    label: un usager sans obligation
+correctOptionId: a
+explanation: La catégorie des conducteurs comprend aussi les personnes qui gardent ou guident des animaux de trait, de charge, de monte ou des bestiaux.
+difficulty: medium
+severity: normal
+tags:
+  - conducteurs
+  - animaux
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

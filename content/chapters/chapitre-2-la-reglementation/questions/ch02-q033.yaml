@@ -1,0 +1,29 @@
+id: ch02-q033
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Quelle formule de paiement est la moins chère ?
+options:
+  - id: a
+    label: La perception immédiate
+  - id: b
+    label: La transaction
+  - id: c
+    label: L'ordre de paiement
+  - id: d
+    label: La suspension du droit de conduire
+correctOptionId: a
+explanation: "Si vous ne contestez pas l'infraction, la perception immédiate est la formule la plus avantageuse : son montant est inférieur à celui des autres formules."
+difficulty: easy
+severity: normal
+tags:
+  - sanctions
+  - perception-immediate
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

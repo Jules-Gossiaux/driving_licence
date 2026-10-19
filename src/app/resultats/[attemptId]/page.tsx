@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getAttemptResult } from "@/application/queries";
+import { OptionContent } from "@/components/option-content";
 import { PageHeader } from "@/components/ui";
 import { AttemptNotFoundError } from "@/domain/learning/errors";
 import { getAppDependencies } from "@/infrastructure/container";
@@ -214,7 +215,7 @@ export default async function ResultPage({ params }: PageProps) {
                             : "border-slate-200 bg-white text-slate-600"
                       }`}
                     >
-                      <span>{option.label}</span>
+                      <OptionContent option={option} />
                       {isCorrectOption ? (
                         <span className="ml-2 text-xs font-semibold text-emerald-800">
                           Bonne réponse

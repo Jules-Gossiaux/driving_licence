@@ -6,13 +6,14 @@ révision des dernières erreurs.
 
 ## État actuel
 
-- Parcours fonctionnels : tableau de bord, chapitres et leçons, entraînement, examen blanc,
-  résultats détaillés, révision des erreurs.
-- Contenu de démonstration : **1 chapitre, 2 leçons, 5 questions en brouillon**. Ces questions
-  ne constituent pas une banque fiable pour l'examen.
+- Parcours fonctionnels : tableau de bord, chapitres et leçons, entraînement par chapitre ou par
+  leçon, examen blanc, résultats détaillés, révision des erreurs.
+- Contenu de démonstration : **2 chapitres, 9 leçons, 61 questions en brouillon**, dont un pilote
+  complet du chapitre 2.1 (7 micro-leçons, 56 questions). Certaines questions utilisent des
+  options illustrées. Ces contenus ne constituent pas encore une banque fiable pour l'examen.
 - Le preset officiel (`belgique-b-fr`, 50 questions / 15 s / 41 sur 50) reste **verrouillé**
   tant que la banque ne contient pas 50 questions publiées et validées. Le preset démo permet
-  de tester le format avec les brouillons.
+  de tester le format avec les brouillons du chapitre 1.
 - Données locales uniquement : aucun compte, aucun backend, aucune télémétrie applicative.
 
 ## Démarrage rapide

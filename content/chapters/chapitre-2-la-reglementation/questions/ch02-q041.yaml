@@ -1,0 +1,31 @@
+id: ch02-q041
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Quelle est la durée maximale d'une interdiction temporaire de conduire décidée par un agent ?
+options:
+  - id: a
+    label: 12 heures
+  - id: b
+    label: 24 heures
+  - id: c
+    label: 48 heures
+  - id: d
+    label: 7 jours
+correctOptionId: a
+explanation: L'agent qualifié peut prononcer une interdiction temporaire de 2, 3, 6 ou 12 heures. La durée maximale est donc de 12 heures.
+difficulty: easy
+severity: normal
+tags:
+  - permis
+  - interdiction-temporaire
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

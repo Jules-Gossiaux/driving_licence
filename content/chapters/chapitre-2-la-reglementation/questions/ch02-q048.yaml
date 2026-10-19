@@ -1,0 +1,31 @@
+id: ch02-q048
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Le retrait immédiat du permis peut notamment être décidé pour…
+options:
+  - id: a
+    label: un petit excès de vitesse et une conduite sous influence
+  - id: b
+    label: uniquement un meurtre
+  - id: c
+    label: uniquement un défaut de stationnement
+  - id: d
+    label: aucune infraction, le retrait est toujours judiciaire
+correctOptionId: a
+explanation: Les officiers de police judiciaire ou les inspecteurs principaux peuvent décider du retrait immédiat dans les cas de petit excès de vitesse et de conduite sous influence, notamment.
+difficulty: medium
+severity: normal
+tags:
+  - permis
+  - retrait-immediat
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

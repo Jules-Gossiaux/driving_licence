@@ -1,0 +1,32 @@
+id: ch02-q031
+chapterId: ch02
+lessonIds:
+  - ch02-l04
+prompt: À quel degré appartient le fait de ne pas attacher un enfant ?
+options:
+  - id: a
+    label: 3e degré
+  - id: b
+    label: 1er degré
+  - id: c
+    label: 2e degré
+  - id: d
+    label: 4e degré
+correctOptionId: a
+explanation: Ne pas imposer la ceinture aux enfants est une infraction grave de 3e degré. Pour un adulte qui n'attache pas sa propre ceinture, l'infraction est de 2e degré.
+difficulty: medium
+severity: severe
+tags:
+  - degres
+  - ceinture
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

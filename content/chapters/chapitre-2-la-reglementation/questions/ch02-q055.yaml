@@ -1,0 +1,28 @@
+id: ch02-q055
+chapterId: ch02
+lessonIds:
+  - ch02-l07
+prompt: Quelles sont les pénalités de base en cas de défaut d'assurance ?
+options:
+  - id: a
+    label: Une amende et/ou une déchéance et/ou un emprisonnement, ainsi que la confiscation du véhicule
+  - id: b
+    label: Une amende uniquement
+  - id: c
+    label: La confiscation du véhicule uniquement
+  - id: d
+    label: Aucune sanction si le véhicule ne roule pas
+correctOptionId: a
+explanation: Le défaut d'assurance expose à une amende et/ou une déchéance et/ou un emprisonnement, ainsi qu'à la confiscation du véhicule.
+difficulty: medium
+severity: normal
+tags:
+  - assurance
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 16
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

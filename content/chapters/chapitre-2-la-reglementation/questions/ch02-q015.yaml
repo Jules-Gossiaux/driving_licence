@@ -1,0 +1,29 @@
+id: ch02-q015
+chapterId: ch02
+lessonIds:
+  - ch02-l02
+prompt: Un surveillant de chantier établi sur la voie publique peut…
+options:
+  - id: a
+    label: arrêter la circulation
+  - id: b
+    label: dresser uniquement des amendes
+  - id: c
+    label: seulement avertir les piétons
+  - id: d
+    label: retirer le permis des conducteurs
+correctOptionId: a
+explanation: Les surveillants de chantiers établis sur la voie publique font partie des personnes habilitées à arrêter la circulation avec le signal C3. Ils ne peuvent pas retirer un permis.
+difficulty: medium
+severity: normal
+tags:
+  - personnes-habilitees
+  - chantier
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 11
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

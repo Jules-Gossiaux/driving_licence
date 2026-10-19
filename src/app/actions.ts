@@ -6,6 +6,7 @@ import { InvalidAnswerError } from "@/application/errors";
 import { submitExamAnswer, startExam } from "@/application/exam";
 import {
   startChapterPractice,
+  startLessonPractice,
   startReviewSession,
   submitTrainingAnswer,
   type TrainingAnswerActionResult,
@@ -20,6 +21,16 @@ export async function startPracticeAction(formData: FormData): Promise<void> {
   }
 
   const { attemptId } = startChapterPractice(getAppDependencies(), chapterId);
+  redirect(`/entrainement/${attemptId}`);
+}
+
+export async function startLessonPracticeAction(formData: FormData): Promise<void> {
+  const lessonId = formData.get("lessonId");
+  if (typeof lessonId !== "string" || lessonId.length === 0) {
+    throw new Error("Leçon manquante pour démarrer l'entraînement.");
+  }
+
+  const { attemptId } = startLessonPractice(getAppDependencies(), lessonId);
   redirect(`/entrainement/${attemptId}`);
 }
 

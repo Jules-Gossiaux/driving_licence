@@ -107,6 +107,10 @@ describe("buildContentCatalog", () => {
       id: "ch01-q001",
       lessonIds: ["lecon-inconnue"],
       mediaId: "media-inconnu",
+      options: [
+        { id: "a", label: "Réponse A", mediaId: "media-option-inconnu" },
+        { id: "b", label: "Réponse B" },
+      ],
       sourceRefs: [{ documentId: "source-inconnue" }],
     });
     chapter.questions.push(testQuestion({ id: "ch01-q001" }));
@@ -120,6 +124,7 @@ describe("buildContentCatalog", () => {
     expect(codes).toContain("DUPLICATE_ID");
     expect(codes).toContain("UNKNOWN_LESSON");
     expect(codes).toContain("UNKNOWN_MEDIA");
+    expect(codes).toContain("UNKNOWN_OPTION_MEDIA");
     expect(codes).toContain("UNKNOWN_SOURCE");
     expect(codes).toContain("EXTERNAL_IMAGE");
     expect(codes).toContain("UNKNOWN_MEDIA_FILE");
@@ -143,6 +148,57 @@ describe("buildContentCatalog", () => {
     const { issues } = buildContentCatalog(raw);
     expect(issues).toContainEqual(
       expect.objectContaining({ code: "CHAPTER_WITHOUT_QUESTIONS", level: "warning" }),
+    );
+  });
+
+  it("accepte quatre questions cœur rattachées à la leçon", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.questions.push(testQuestion({ id: "ch01-q004" }));
+    raw.chapters[0]!.lessons[0] = testLesson({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"],
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toEqual([]);
+  });
+
+  it("signale une question cœur inconnue", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.lessons[0] = testLesson({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q999"],
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "UNKNOWN_CORE_QUESTION", level: "error" }),
+    );
+  });
+
+  it("signale une question cœur qui ne référence pas la leçon", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.lessons = [
+      testLesson({ coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"] }),
+      testLesson({ id: "ch01-l02", slug: "lecon-2", order: 2 }),
+    ];
+    raw.chapters[0]!.questions.push(testQuestion({ id: "ch01-q004", lessonIds: ["ch01-l02"] }));
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "CORE_QUESTION_LESSON_MISMATCH", level: "error" }),
+    );
+  });
+
+  it("exige des questions cœur pour publier une leçon", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.lessons[0] = testLesson({
+      status: "published",
+      reviewedBy: "Relecteur",
+      reviewedAt: "2026-10-19T10:00:00.000Z",
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "CORE_QUESTIONS_MISSING", level: "error" }),
     );
   });
 });

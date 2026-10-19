@@ -1,0 +1,29 @@
+id: ch02-q040
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Que peut-il arriver au véhicule si l'ordre de paiement n'est pas payé ?
+options:
+  - id: a
+    label: Il peut être saisi.
+  - id: b
+    label: Il est automatiquement détruit.
+  - id: c
+    label: Il est automatiquement vendu.
+  - id: d
+    label: Il ne risque rien.
+correctOptionId: a
+explanation: Le véhicule du contrevenant, ou celui immatriculé à son nom, peut être saisi en cas de non-paiement de l'ordre de paiement.
+difficulty: medium
+severity: normal
+tags:
+  - sanctions
+  - saisie
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,29 @@
+id: ch02-q014
+chapterId: ch02
+lessonIds:
+  - ch02-l02
+prompt: Qui peut arrêter la circulation avec le signal C3 ?
+options:
+  - id: a
+    label: Les signaleurs, les capitaines de route, les patrouilleurs scolaires et les surveillants habilités
+  - id: b
+    label: Uniquement les policiers
+  - id: c
+    label: Uniquement les militaires
+  - id: d
+    label: Uniquement les agents des sociétés de transport en commun
+correctOptionId: a
+explanation: Les personnes habilitées à arrêter la circulation avec le signal C3 sont notamment les signaleurs, les capitaines de route, les patrouilleurs scolaires, les surveillants habilités, les militaires, les chefs de groupe de piétons ou de cavaliers et les surveillants de chantiers.
+difficulty: medium
+severity: normal
+tags:
+  - personnes-habilitees
+  - signal-c3
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 11
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

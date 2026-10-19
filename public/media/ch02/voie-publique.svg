@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre voie">
+  <title id="titre">La voie publique, d'une façade à l'autre</title>
+  <desc id="voie">Coupe schématique d'une voie publique : façades, trottoirs, accotements, pistes cyclables, chaussées et berme centrale.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="48" y="52" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">La voie publique, d'une façade à l'autre</text>
+  <text x="48" y="82" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#475569">Tout l'espace compris entre les deux façades fait partie de la voie publique.</text>
+
+  <line x1="130" y1="112" x2="810" y2="112" stroke="#0f766e" stroke-width="3"/>
+  <line x1="130" y1="102" x2="130" y2="122" stroke="#0f766e" stroke-width="3"/>
+  <line x1="810" y1="102" x2="810" y2="122" stroke="#0f766e" stroke-width="3"/>
+  <text x="470" y="102" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0f766e">d'une façade à l'autre</text>
+
+  <rect x="90" y="150" width="80" height="210" fill="#e2e8f0" stroke="#94a3b8"/>
+  <rect x="105" y="175" width="22" height="28" fill="#bfdbfe"/>
+  <rect x="135" y="175" width="22" height="28" fill="#bfdbfe"/>
+  <rect x="105" y="220" width="22" height="28" fill="#bfdbfe"/>
+  <rect x="135" y="220" width="22" height="28" fill="#bfdbfe"/>
+  <rect x="810" y="150" width="80" height="210" fill="#e2e8f0" stroke="#94a3b8"/>
+  <rect x="825" y="175" width="22" height="28" fill="#bfdbfe"/>
+  <rect x="855" y="175" width="22" height="28" fill="#bfdbfe"/>
+  <rect x="825" y="220" width="22" height="28" fill="#bfdbfe"/>
+  <rect x="855" y="220" width="22" height="28" fill="#bfdbfe"/>
+
+  <rect x="170" y="290" width="70" height="70" fill="#cbd5e1"/>
+  <rect x="740" y="290" width="70" height="70" fill="#cbd5e1"/>
+  <rect x="240" y="300" width="60" height="60" fill="#bbf7d0"/>
+  <rect x="300" y="300" width="60" height="60" fill="#fecaca"/>
+  <rect x="680" y="300" width="60" height="60" fill="#fecaca"/>
+  <rect x="360" y="300" width="140" height="60" fill="#475569"/>
+  <rect x="540" y="300" width="140" height="60" fill="#475569"/>
+  <rect x="500" y="300" width="40" height="60" fill="#86efac"/>
+
+  <g stroke="#e2e8f0" stroke-width="3" stroke-dasharray="14 12">
+    <line x1="370" y1="330" x2="490" y2="330"/>
+    <line x1="550" y1="330" x2="670" y2="330"/>
+  </g>
+  <line x1="90" y1="360" x2="890" y2="360" stroke="#64748b" stroke-width="2"/>
+
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <line x1="130" y1="360" x2="130" y2="391"/>
+    <line x1="205" y1="360" x2="205" y2="421"/>
+    <line x1="270" y1="360" x2="270" y2="391"/>
+    <line x1="330" y1="360" x2="330" y2="421"/>
+    <line x1="430" y1="360" x2="430" y2="391"/>
+    <line x1="520" y1="360" x2="520" y2="421"/>
+    <line x1="610" y1="360" x2="610" y2="391"/>
+    <line x1="710" y1="360" x2="710" y2="421"/>
+    <line x1="775" y1="360" x2="775" y2="391"/>
+    <line x1="850" y1="360" x2="850" y2="421"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155" text-anchor="middle">
+    <text x="130" y="407">Façade</text>
+    <text x="205" y="437">Trottoir</text>
+    <text x="270" y="407">Accotement</text>
+    <text x="330" y="437">Piste cyclable</text>
+    <text x="430" y="407">Chaussée</text>
+    <text x="520" y="437">Berme centrale</text>
+    <text x="610" y="407">Chaussée</text>
+    <text x="710" y="437">Piste cyclable</text>
+    <text x="775" y="407">Trottoir</text>
+    <text x="850" y="437">Façade</text>
+  </g>
+
+  <rect x="48" y="466" width="864" height="44" rx="10" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="66" y="493" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#065f46">La façade marque la limite avec la propriété privée. Les parkings des grandes surfaces sont assimilés à la voie publique.</text>
+</svg>

@@ -5,8 +5,9 @@
 `content/` est la source de vérité du contenu pédagogique. Tout est versionné avec le code. Aucun
 contenu n'est stocké en base : seules la progression et les tentatives le sont.
 
-Le contenu actuel est une **démonstration** : 1 chapitre, 2 leçons, 5 questions en brouillon. Il
-permet de tester les parcours, pas de préparer sérieusement l'examen.
+Le contenu actuel est une **démonstration** : 2 chapitres, 9 leçons et 61 questions en brouillon.
+Il permet de tester les parcours et le pilote du chapitre 2.1, pas de préparer sérieusement
+l'examen.
 
 ## Arborescence
 
@@ -25,6 +26,15 @@ content/
         tracter-une-remorque.md
       questions/
         ch01-q001.yaml
+        ...
+    chapitre-2-la-reglementation/
+      chapter.yaml
+      media.yaml               médias propres au chapitre (facultatif)
+      lessons/
+        qui-doit-respecter-les-regles.md
+        ...
+      questions/
+        ch02-q001.yaml
         ...
 ```
 
@@ -60,7 +70,7 @@ manuel sert de support, avec référence de page.
   file: /media/demo/voiture-remorque.svg
   alt: "Illustration neutre d'une voiture tractant une remorque sur une route."
   caption: "Un véhicule de catégorie B attelé à une remorque."
-  kind: illustration # diagram | photo | illustration | scan
+  kind: illustration # diagram | photo | illustration | scan | sign
   width: 960
   height: 540
   rights: original # original | personal_use | licensed | public_domain
@@ -72,6 +82,7 @@ manuel sert de support, avec référence de page.
 Contraintes :
 
 - le fichier doit exister sous `public/` et être servi depuis `/media/...` ;
+- un média peut être déclaré dans `content/media.yaml` ou dans le `media.yaml` d'un chapitre ;
 - les images externes sont interdites dans les leçons ;
 - un SVG servi doit être un original du projet (`rights: original`) ;
 - un scan du manuel ne peut pas être publié sans droits explicites ;
@@ -110,6 +121,11 @@ summary: "Résumé court."
 keyPoints:
   - "Point clé 1."
   - "Point clé 2."
+coreQuestionIds:
+  - ch01-q001
+  - ch01-q002
+  - ch01-q003
+  - ch01-q004
 sourceRefs:
   - documentId: official-category-b
 version: 1
@@ -119,10 +135,13 @@ origin: ai_assisted
 
 ## Titre
 
-Corps Markdown. Les images doivent pointer vers un fichier déclaré dans `content/media.yaml`.
+Corps Markdown. Les images doivent pointer vers un fichier déclaré dans `content/media.yaml` ou
+dans le `media.yaml` du chapitre.
 ```
 
-`keyPoints` contient 1 à 6 entrées. Le corps ne peut pas être vide.
+`keyPoints` contient 1 à 6 entrées. Le corps ne peut pas être vide. `coreQuestionIds` est
+facultatif, mais une leçon publiée doit déclarer **4 ou 5 questions cœur** appartenant à la leçon.
+Ces questions alimentent le bouton « S'entraîner sur cette leçon ».
 
 ## Question
 
@@ -138,6 +157,7 @@ options:
     label: "Réponse A"
   - id: b
     label: "Réponse B"
+    mediaId: demo-media-option # facultatif : option illustrée
   - id: c
     label: "Réponse C"
   - id: d
@@ -162,6 +182,8 @@ Contraintes :
 
 - 2 à 6 options, identifiants uniques ;
 - `correctOptionId` doit désigner une option existante ;
+- une option peut porter un `mediaId` déclaré dans un manifeste média ; elle affiche alors une
+  image au-dessus de son libellé ;
 - `lessonIds` doit référencer des leçons du même chapitre ;
 - `severity: severe` doit rester rare et justifié : la faute grave coûte 5 points dans le preset
   officiel ;
@@ -169,6 +191,17 @@ Contraintes :
 - l'explication doit expliquer la règle, pas seulement répéter la bonne réponse ;
 - les options sont mélangées à la création de la tentative : ne pas rédiger « la réponse A » dans
   l'explication.
+
+## Pilote du chapitre 2.1
+
+Le chapitre 2 est amorcé par un pilote limité au point 2.1 (« La réglementation ») : 7 leçons,
+8 questions par leçon et 56 questions au total, toutes en `draft` et `ai_assisted`. Chaque leçon
+déclare 4 questions cœur (`ch02-q001` à `ch02-q004` pour la première, etc.) et propose un
+entraînement dédié ; le reste du pool alimente l'entraînement du chapitre.
+
+Les faits sont tirés des pages 10 à 16 du manuel et recoupés avec la synthèse des pages 42 à 44.
+Les questions illustrées utilisent les SVG originaux de `public/media/ch02/`. Le contenu doit être
+relu avant publication : aucun élément du pilote n'est encore éligible à l'examen officiel.
 
 ## Preset d'examen
 
@@ -227,6 +260,8 @@ Le loader vérifie notamment :
 - interdiction des images externes dans les leçons ;
 - présence des fichiers sous `public/` ;
 - droits compatibles avec le type de média ;
+- `coreQuestionIds` : 4 ou 5 questions du chapitre, sans doublon, pour toute leçon publiée ;
+- médias d'options déclarés et résolus ;
 - pool d'examen suffisant (avertissement) ;
 - chapitre sans question (avertissement).
 

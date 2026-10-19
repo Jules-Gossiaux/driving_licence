@@ -1,0 +1,32 @@
+id: ch02-q046
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Quelle est la durée minimale de la déchéance en cas de première récidive élargie d'infractions très graves dans les trois ans ?
+options:
+  - id: a
+    label: 3 mois
+  - id: b
+    label: 8 jours
+  - id: c
+    label: 15 jours
+  - id: d
+    label: 1 mois
+correctOptionId: a
+explanation: La déchéance est de 3 mois minimum pour une première récidive élargie. Elle passe à 6 mois pour une deuxième et à 9 mois pour une troisième.
+difficulty: medium
+severity: normal
+tags:
+  - permis
+  - decheance
+  - recidive
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,29 @@
+id: ch02-q054
+chapterId: ch02
+lessonIds:
+  - ch02-l07
+prompt: Vous êtes titulaire de la plaque d'un véhicule avec lequel une infraction a été commise. Que devez-vous faire si vous n'en êtes pas l'auteur ?
+options:
+  - id: a
+    label: Communiquer le nom du conducteur.
+  - id: b
+    label: Payer l'amende sans discuter.
+  - id: c
+    label: Ne rien faire, le conducteur sera retrouvé automatiquement.
+  - id: d
+    label: Déclarer le véhicule volé.
+correctOptionId: a
+explanation: Le titulaire de la plaque doit communiquer le nom de la personne qui a commis l'infraction. S'il ne le fait pas, il peut être sévèrement puni, quelle que soit l'infraction.
+difficulty: medium
+severity: normal
+tags:
+  - vehicule
+  - conducteur
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 16
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

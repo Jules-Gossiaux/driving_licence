@@ -1,0 +1,31 @@
+id: ch02-q042
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Qui peut décider d'un retrait immédiat du permis de conduire ?
+options:
+  - id: a
+    label: Un officier de police judiciaire ou le procureur du Roi
+  - id: b
+    label: N'importe quel agent qualifié
+  - id: c
+    label: Uniquement un juge
+  - id: d
+    label: Le bourgmestre
+correctOptionId: a
+explanation: Le retrait immédiat peut être décidé par un officier de police judiciaire, un inspecteur principal ou le procureur du Roi. L'agent qualifié exécute la saisie du permis sur ordre.
+difficulty: medium
+severity: normal
+tags:
+  - permis
+  - retrait-immediat
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

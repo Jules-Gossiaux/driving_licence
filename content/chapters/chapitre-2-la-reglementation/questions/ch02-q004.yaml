@@ -1,0 +1,29 @@
+id: ch02-q004
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: Quelles obligations pèsent sur un passager ?
+options:
+  - id: a
+    label: Attacher sa ceinture et ouvrir sa portière avec prudence
+  - id: b
+    label: Uniquement attacher sa ceinture
+  - id: c
+    label: Uniquement surveiller la circulation
+  - id: d
+    label: Aucune, puisque le conducteur est responsable
+correctOptionId: a
+explanation: Le passager doit attacher sa ceinture et rester prudent avant d'ouvrir sa portière, pour ne pas surprendre les autres usagers.
+difficulty: easy
+severity: normal
+tags:
+  - passagers
+  - ceinture
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

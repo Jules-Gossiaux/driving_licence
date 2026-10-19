@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { startReviewAction } from "@/app/actions";
 import { getReviewItems } from "@/application/queries";
+import { OptionContent } from "@/components/option-content";
 import { EmptyState, PageHeader } from "@/components/ui";
 import { getAppDependencies } from "@/infrastructure/container";
 
@@ -79,7 +80,7 @@ export default function ReviewPage() {
                         : "border-slate-200 bg-white text-slate-600"
                     }`}
                   >
-                    {option.label}
+                    <OptionContent option={option} />
                     {option.id === item.correctOptionId ? (
                       <span className="ml-2 text-xs font-semibold text-emerald-800">
                         Bonne réponse

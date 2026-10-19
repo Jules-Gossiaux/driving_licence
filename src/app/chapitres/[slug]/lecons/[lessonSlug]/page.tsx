@@ -2,7 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { markLessonReadAction, startPracticeAction } from "@/app/actions";
+import {
+  markLessonReadAction,
+  startLessonPracticeAction,
+  startPracticeAction,
+} from "@/app/actions";
 import { ContentNotFoundError } from "@/application/errors";
 import { getChapterDetail, getLessonDetail } from "@/application/queries";
 import { PageHeader, StatusBadge } from "@/components/ui";
@@ -83,7 +87,17 @@ export default async function LessonPage({ params }: PageProps) {
                 {detail.readAt ? "Marquer comme non lue" : "Marquer comme lue"}
               </button>
             </form>
-            {chapter.questionCount > 0 ? (
+            {detail.lesson.coreQuestionIds && detail.lesson.coreQuestionIds.length > 0 ? (
+              <form action={startLessonPracticeAction}>
+                <input type="hidden" name="lessonId" value={detail.lesson.id} />
+                <button
+                  type="submit"
+                  className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700"
+                >
+                  S&apos;entraîner sur cette leçon
+                </button>
+              </form>
+            ) : chapter.questionCount > 0 ? (
               <form action={startPracticeAction}>
                 <input type="hidden" name="chapterId" value={chapter.id} />
                 <button

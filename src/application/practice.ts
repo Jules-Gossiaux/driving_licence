@@ -9,11 +9,18 @@ import { shuffle } from "@/domain/exam/selection";
 import type { Question } from "@/domain/content/schemas";
 import { ContentNotFoundError, InvalidAnswerError, PracticeUnavailableError } from "./errors";
 import { AttemptConflictError, AttemptNotFoundError } from "@/domain/learning/errors";
-import { resolveMedia, type AppDependencies, type QuestionMediaView } from "./content-views";
+import {
+  resolveMedia,
+  resolveOptionViews,
+  type AppDependencies,
+  type QuestionMediaView,
+  type QuestionOptionView,
+} from "./content-views";
 
 const PRACTICE_SESSION_SIZE = 10;
 
-export type TrainingQuestionView = PublicQuestion & {
+export type TrainingQuestionView = Omit<PublicQuestion, "options"> & {
+  options: QuestionOptionView[];
   media: QuestionMediaView | null;
 };
 
@@ -49,8 +56,11 @@ function toTrainingQuestion(
   deps: AppDependencies,
   snapshot: Attempt["questions"][number]["snapshot"],
 ): TrainingQuestionView {
+  const publicQuestion = toPublicQuestion(snapshot);
+
   return {
-    ...toPublicQuestion(snapshot),
+    ...publicQuestion,
+    options: resolveOptionViews(deps.catalog, publicQuestion.options),
     media: resolveMedia(deps.catalog, snapshot.mediaId),
   };
 }
@@ -122,6 +132,34 @@ export function startChapterPractice(
     mode: "practice",
     chapterId,
     questions: entry.questions,
+  });
+}
+
+export function startLessonPractice(
+  deps: AppDependencies,
+  lessonId: string,
+): { attemptId: string } {
+  const entry = deps.catalog.lessonById.get(lessonId);
+
+  if (!entry) {
+    throw new ContentNotFoundError(`leçon ${lessonId}`);
+  }
+
+  const questions = (entry.lesson.coreQuestionIds ?? []).flatMap((questionId) => {
+    const question = deps.catalog.questionById.get(questionId);
+    return question ? [question] : [];
+  });
+
+  if (questions.length === 0) {
+    throw new PracticeUnavailableError(
+      "Cette leçon n'a pas encore de questions cœur. Utilisez l'entraînement du chapitre.",
+    );
+  }
+
+  return createTrainingAttempt(deps, {
+    mode: "practice",
+    chapterId: entry.chapter.chapter.id,
+    questions,
   });
 }
 

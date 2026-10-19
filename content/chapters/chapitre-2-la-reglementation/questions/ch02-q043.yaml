@@ -1,0 +1,32 @@
+id: ch02-q043
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Qui peut prononcer une déchéance du droit de conduire ?
+options:
+  - id: a
+    label: Un juge
+  - id: b
+    label: Le procureur du Roi
+  - id: c
+    label: Un agent qualifié
+  - id: d
+    label: Le ministre de la Mobilité
+correctOptionId: a
+explanation: La déchéance du droit de conduire ne peut être prononcée que par un juge. Le procureur peut prononcer une suspension, mais pas une déchéance.
+difficulty: easy
+severity: normal
+tags:
+  - permis
+  - decheance
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

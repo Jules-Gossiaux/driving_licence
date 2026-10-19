@@ -75,6 +75,12 @@ export type LessonDetail = {
 
 export type QuestionMedia = QuestionMediaView;
 
+export type QuestionOptionView = {
+  id: string;
+  label: string;
+  media: QuestionMediaView | null;
+};
+
 export type ExamPresetOverview = {
   id: string;
   title: string;
@@ -89,7 +95,7 @@ export type ExamPresetOverview = {
 
 export type ResolvedQuestion = {
   question: Question;
-  options: Array<{ id: string; label: string }>;
+  options: QuestionOptionView[];
   correctOptionId: string;
   explanation: string;
   media: QuestionMediaView | null;
@@ -117,6 +123,17 @@ export function resolveMedia(
     width: asset.width,
     height: asset.height,
   };
+}
+
+export function resolveOptionViews(
+  catalog: ContentCatalog,
+  options: ReadonlyArray<{ id: string; label: string; mediaId?: string | null }>,
+): QuestionOptionView[] {
+  return options.map((option) => ({
+    id: option.id,
+    label: option.label,
+    media: resolveMedia(catalog, option.mediaId),
+  }));
 }
 
 export function resolveSourceLabels(
@@ -176,10 +193,7 @@ export function resolveQuestion(
 ): ResolvedQuestion {
   return {
     question,
-    options: (options ?? question.options).map((option) => ({
-      id: option.id,
-      label: option.label,
-    })),
+    options: resolveOptionViews(catalog, options ?? question.options),
     correctOptionId: question.correctOptionId,
     explanation: question.explanation,
     media: resolveMedia(catalog, question.mediaId),

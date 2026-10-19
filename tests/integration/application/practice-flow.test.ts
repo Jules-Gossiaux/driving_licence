@@ -4,6 +4,7 @@ import { InvalidAnswerError, PracticeUnavailableError } from "@/application/erro
 import {
   getTrainingSession,
   startChapterPractice,
+  startLessonPractice,
   startReviewSession,
   submitTrainingAnswer,
 } from "@/application/practice";
@@ -12,6 +13,7 @@ import { buildContentCatalog } from "@/domain/content/catalog";
 import { LOCAL_PROFILE_ID } from "@/domain/profile";
 import {
   createTestDependencies,
+  testLesson,
   testQuestion,
   testRawContent,
   type TestDependencies,
@@ -137,6 +139,30 @@ describe("sessions d'entraînement", () => {
       const { attemptId } = startChapterPractice(custom.deps, "ch01");
       expect(custom.deps.repository.getAttempt(LOCAL_PROFILE_ID, attemptId)?.questionCount).toBe(
         10,
+      );
+    } finally {
+      custom.close();
+    }
+  });
+
+  it("démarre un entraînement avec les questions cœur de la leçon", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.questions.push(testQuestion({ id: "ch01-q004" }));
+    raw.chapters[0]!.lessons[0] = testLesson({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"],
+    });
+
+    const custom = createTestDependencies({
+      catalog: buildContentCatalog(raw).catalog,
+    });
+
+    try {
+      const { attemptId } = startLessonPractice(custom.deps, "ch01-l01");
+      const attempt = custom.deps.repository.getAttempt(LOCAL_PROFILE_ID, attemptId);
+
+      expect(attempt?.questionCount).toBe(4);
+      expect(new Set(attempt?.questions.map((question) => question.snapshot.questionId))).toEqual(
+        new Set(["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"]),
       );
     } finally {
       custom.close();

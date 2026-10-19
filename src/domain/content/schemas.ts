@@ -86,7 +86,7 @@ export const mediaAssetSchema = z
     file: z.string().regex(mediaFilePattern, "Chemin média attendu sous /media/."),
     alt: z.string().min(1).max(500),
     caption: z.string().min(1).max(500).optional(),
-    kind: z.enum(["diagram", "photo", "illustration", "scan"]),
+    kind: z.enum(["diagram", "photo", "illustration", "scan", "sign"]),
     width: z.number().int().positive(),
     height: z.number().int().positive(),
     rights: z.enum(["original", "personal_use", "licensed", "public_domain"]),
@@ -173,6 +173,7 @@ export const lessonSchema = z
     title: z.string().min(1).max(160),
     summary: z.string().min(1).max(600),
     keyPoints: z.array(z.string().min(1).max(300)).min(1).max(6),
+    coreQuestionIds: z.array(contentIdSchema).max(8).optional(),
     sourceRefs: z.array(sourceRefSchema).min(1).max(20),
     version: z.number().int().positive(),
     body: z.string().min(1, "Le corps Markdown de la leçon est vide."),
@@ -185,6 +186,7 @@ export type Lesson = z.infer<typeof lessonSchema>;
 export const questionOptionSchema = z.strictObject({
   id: contentIdSchema,
   label: z.string().min(1).max(300),
+  mediaId: contentIdSchema.optional(),
 });
 
 export type QuestionOption = z.infer<typeof questionOptionSchema>;

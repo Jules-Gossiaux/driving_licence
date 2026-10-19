@@ -1,0 +1,33 @@
+id: ch02-q021
+chapterId: ch02
+lessonIds:
+  - ch02-l03
+prompt: Quelle position de l'agent correspond au feu orange ?
+options:
+  - id: a
+    label: Agent au bras levé
+    mediaId: ch02-agent-bras-leve
+  - id: b
+    label: Agent de profil
+    mediaId: ch02-agent-profil
+  - id: c
+    label: Agent de face, bras tendus
+    mediaId: ch02-agent-face
+correctOptionId: a
+explanation: Le bras levé correspond au feu orange. L'agent de profil correspond au vert, et l'agent de face ou de dos au rouge.
+difficulty: easy
+severity: normal
+tags:
+  - agents
+  - positions
+  - image
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 12
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted
