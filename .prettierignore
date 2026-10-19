@@ -1,0 +1,11 @@
+.next
+.next-e2e
+node_modules
+var
+data
+drizzle
+coverage
+playwright-report
+test-results
+pnpm-lock.yaml
+public/media
