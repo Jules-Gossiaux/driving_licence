@@ -1,0 +1,14 @@
+id: belgique-b-fr
+title: "Examen théorique B — Belgique francophone"
+description: >-
+  Preset de référence : 50 questions tirées du contenu publié, 15 secondes par
+  question, réussite à 41/50. Une erreur coûte 1 point, une faute grave 5 points.
+questionCount: 50
+secondsPerQuestion: 15
+passingScore: 41
+errorPenalty: 1
+severeErrorPenalty: 5
+allowUnpublished: false
+chapterIds: []
+sourceRefs:
+  - documentId: official-exam-brussels

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img">
+  <title>Règles belges de remorquage avec un véhicule de catégorie B</title>
+  <desc>Quatre situations selon la MMA de la remorque et celle de l'ensemble : permis B, code 96 ou permis BE.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <rect x="24" y="24" width="912" height="492" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+
+  <text x="60" y="62" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Tracter une remorque avec le permis B</text>
+  <text x="60" y="92" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#475569">Belgique — la règle dépend de la remorque ET de la MMA de l'ensemble.</text>
+
+  <g>
+    <rect x="60" y="120" width="840" height="82" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="86" y="154" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#64748b">CAS 1</text>
+    <text x="86" y="181" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#0f172a">Remorque jusqu'à 750 kg de MMA</text>
+    <rect x="700" y="138" width="172" height="46" rx="23" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text x="786" y="167" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#047857">Permis B</text>
+  </g>
+
+  <g>
+    <rect x="60" y="214" width="840" height="82" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="86" y="248" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#64748b">CAS 2</text>
+    <text x="86" y="275" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#0f172a">Remorque &gt; 750 kg • ensemble ≤ 3 500 kg</text>
+    <rect x="700" y="232" width="172" height="46" rx="23" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+    <text x="786" y="261" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#047857">Permis B</text>
+  </g>
+
+  <g>
+    <rect x="60" y="308" width="840" height="82" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="86" y="342" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#64748b">CAS 3</text>
+    <text x="86" y="369" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#0f172a">Remorque &gt; 750 kg • ensemble de 3 500 à 4 250 kg</text>
+    <rect x="700" y="326" width="172" height="46" rx="23" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <text x="786" y="355" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#b45309">B + code 96</text>
+  </g>
+
+  <g>
+    <rect x="60" y="402" width="840" height="82" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="86" y="436" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#64748b">CAS 4</text>
+    <text x="86" y="463" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#0f172a">Remorque &gt; 750 kg • ensemble de 4 250 à 7 000 kg</text>
+    <rect x="700" y="420" width="172" height="46" rx="23" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="786" y="449" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1d4ed8">Permis BE</text>
+  </g>
+
+  <text x="60" y="510" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">Source : SPF Mobilité et Transports, règles applicables en 2026. Vérifier la réglementation en vigueur.</text>
+</svg>

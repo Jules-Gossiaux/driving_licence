@@ -1,0 +1,38 @@
+- id: feu-vert-chap1
+  title: "Feu Vert — Chapitre 1 : Quel permis pour quel véhicule ?"
+  kind: manual
+  publisher: "Feu Vert"
+  localPath: data/pdf_feu_vert/chap1/scanned-document-ocr.pdf
+  accessedAt: 2026-10-19T17:56:00Z
+  rights: personal_use
+  note: >-
+    Scan OCR local, volontairement non versionné. La qualité de l'OCR est
+    insuffisante pour servir de vérité seule : toute reprise doit être vérifiée
+    sur les photos de pages et les sources officielles.
+
+- id: official-category-b
+  title: "Voitures (catégorie B) — SPF Mobilité et Transports"
+  kind: official
+  publisher: "SPF Mobilité et Transports"
+  url: https://mobilit.belgium.be/fr/route/conduire/permis-de-conduire/permis-de-conduire-belge/voitures-categorie-b
+  accessedAt: 2026-10-19T00:00:00Z
+  rights: external_reference
+
+- id: official-trailer
+  title: "Voitures et remorques (catégorie BE) — SPF Mobilité et Transports"
+  kind: official
+  publisher: "SPF Mobilité et Transports"
+  url: https://mobilit.belgium.be/fr/route/conduire/permis-de-conduire/permis-de-conduire-belge/voitures-et-remorques-categorie-be
+  accessedAt: 2026-10-19T00:00:00Z
+  rights: external_reference
+
+- id: official-exam-brussels
+  title: "Formation à la conduite et examens pour le permis B — Région de Bruxelles-Capitale"
+  kind: official
+  publisher: "be.brussels"
+  url: https://be.brussels/fr/transport-mobilite/permis-de-conduire-et-immatriculation/obtenir-son-permis/formation-la-conduite-et-examens-pour-le-permis-de-conduire-b
+  accessedAt: 2026-10-19T00:00:00Z
+  rights: external_reference
+  note: >-
+    Source du format d'examen : 50 questions, 15 secondes maximum par question,
+    réussite à 41/50, une erreur vaut 1 point et une faute grave 5 points.

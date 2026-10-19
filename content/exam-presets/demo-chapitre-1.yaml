@@ -1,0 +1,17 @@
+id: demo-chapitre-1
+title: "Examen démo — Chapitre 1"
+description: >-
+  Format réduit pour tester le parcours complet. Les questions sont des
+  brouillons non validés : ce mode ne remplace pas un examen officiel.
+questionCount: 5
+secondsPerQuestion: 15
+passingScore: 4
+errorPenalty: 1
+severeErrorPenalty: 5
+allowUnpublished: true
+chapterIds:
+  - ch01
+sourceRefs:
+  - documentId: official-exam-brussels
+  - documentId: feu-vert-chap1
+    page: 1

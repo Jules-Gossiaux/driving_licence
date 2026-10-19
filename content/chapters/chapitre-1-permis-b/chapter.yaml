@@ -1,0 +1,15 @@
+id: ch01
+slug: chapitre-1-permis-b
+order: 1
+title: "Chapitre 1 — Le permis B et le remorquage"
+summary: >-
+  Les limites de la catégorie B, le nombre de passagers, la masse maximale
+  autorisée et les règles belges pour tracter une remorque.
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+  - documentId: official-trailer
+version: 1
+status: draft
+origin: ai_assisted

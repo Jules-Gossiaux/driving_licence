@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img">
+  <title>Voiture tractant une remorque</title>
+  <desc>Illustration neutre, vue de côté, d'une voiture bleue attelée à une remorque sur une route.</desc>
+  <rect width="960" height="540" fill="#eff6ff"/>
+  <circle cx="780" cy="110" r="54" fill="#fef3c7"/>
+  <path d="M0 300 C130 250 240 270 360 300 C500 334 620 270 760 292 C850 306 910 300 960 286 L960 380 L0 380 Z" fill="#dbeafe"/>
+  <rect x="0" y="360" width="960" height="180" fill="#475569"/>
+  <rect x="0" y="360" width="960" height="12" fill="#94a3b8"/>
+  <g stroke="#f8fafc" stroke-width="8" stroke-linecap="round">
+    <line x1="40" y1="470" x2="160" y2="470"/>
+    <line x1="240" y1="470" x2="360" y2="470"/>
+    <line x1="440" y1="470" x2="560" y2="470"/>
+    <line x1="640" y1="470" x2="760" y2="470"/>
+    <line x1="840" y1="470" x2="960" y2="470"/>
+  </g>
+
+  <g>
+    <path d="M185 332 L205 270 C210 254 223 246 240 246 L340 246 C356 246 369 253 379 266 L410 310 L430 318 C440 322 446 331 446 342 L446 352 L175 352 L175 342 C175 337 179 333 185 332 Z" fill="#1d4ed8"/>
+    <path d="M236 266 L250 266 L250 300 L220 300 Z" fill="#bfdbfe"/>
+    <path d="M266 266 L332 266 C342 266 350 271 356 280 L374 304 L266 304 Z" fill="#bfdbfe"/>
+    <rect x="175" y="330" width="271" height="22" rx="8" fill="#1e40af"/>
+    <circle cx="238" cy="352" r="36" fill="#1e293b"/>
+    <circle cx="238" cy="352" r="17" fill="#cbd5e1"/>
+    <circle cx="390" cy="352" r="36" fill="#1e293b"/>
+    <circle cx="390" cy="352" r="17" fill="#cbd5e1"/>
+    <rect x="424" y="326" width="20" height="12" rx="4" fill="#fbbf24"/>
+  </g>
+
+  <g>
+    <line x1="446" y1="332" x2="535" y2="332" stroke="#334155" stroke-width="9" stroke-linecap="round"/>
+    <rect x="535" y="244" width="255" height="108" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="4"/>
+    <rect x="535" y="244" width="255" height="26" rx="12" fill="#1d4ed8"/>
+    <rect x="570" y="288" width="185" height="14" rx="7" fill="#e2e8f0"/>
+    <circle cx="590" cy="352" r="32" fill="#1e293b"/>
+    <circle cx="590" cy="352" r="15" fill="#cbd5e1"/>
+    <circle cx="735" cy="352" r="32" fill="#1e293b"/>
+    <circle cx="735" cy="352" r="15" fill="#cbd5e1"/>
+    <rect x="790" y="320" width="16" height="18" rx="5" fill="#ef4444"/>
+  </g>
+
+  <rect x="0" y="516" width="960" height="24" fill="#334155"/>
+</svg>

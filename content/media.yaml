@@ -1,0 +1,27 @@
+- id: demo-regles-remorque
+  file: /media/demo/regles-remorque.svg
+  alt: >-
+    Tableau des règles belges de remorquage : le permis B suffit jusqu'à 750 kg
+    de MMA de remorque ; au-delà, le permis B reste suffisant si la MMA de
+    l'ensemble ne dépasse pas 3 500 kg, le code 96 s'applique de 3 500 à
+    4 250 kg, et le permis BE de 4 250 à 7 000 kg.
+  caption: "Règles de remorquage avec un véhicule de catégorie B."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: official-trailer
+    - documentId: feu-vert-chap1
+      page: 2
+
+- id: demo-voiture-remorque
+  file: /media/demo/voiture-remorque.svg
+  alt: "Illustration neutre d'une voiture tractant une remorque sur une route."
+  caption: "Un véhicule de catégorie B attelé à une remorque."
+  kind: illustration
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
