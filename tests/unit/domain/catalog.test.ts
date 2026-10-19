@@ -1,0 +1,148 @@
+import { describe, expect, it } from "vitest";
+import {
+  buildContentCatalog,
+  countPublishedExamQuestions,
+  getEligibleQuestionsForPreset,
+} from "@/domain/content/catalog";
+import { testLesson, testPreset, testQuestion, testRawContent } from "../../helpers/fixtures";
+
+describe("getEligibleQuestionsForPreset", () => {
+  it("accepte les brouillons quand le preset le permet", () => {
+    const { catalog } = buildContentCatalog(testRawContent());
+    const preset = catalog.presetById.get("preset-demo")!;
+
+    expect(getEligibleQuestionsForPreset(preset, catalog)).toHaveLength(3);
+  });
+
+  it("exige une question et un chapitre publiés pour le preset officiel", () => {
+    const raw = testRawContent();
+    raw.presets = [
+      testPreset({ id: "preset-officiel", questionCount: 1, allowUnpublished: false }),
+    ];
+    raw.chapters[0]!.questions = [testQuestion({ id: "ch01-q001" })];
+
+    const drafts = buildContentCatalog(raw);
+    expect(
+      getEligibleQuestionsForPreset(
+        drafts.catalog.presetById.get("preset-officiel")!,
+        drafts.catalog,
+      ),
+    ).toHaveLength(0);
+
+    raw.chapters[0]!.chapter = {
+      ...raw.chapters[0]!.chapter,
+      status: "published",
+      reviewedBy: "Relecteur",
+      reviewedAt: "2026-10-19T10:00:00.000Z",
+    };
+    raw.chapters[0]!.questions[0] = {
+      ...raw.chapters[0]!.questions[0]!,
+      status: "published",
+      reviewedBy: "Relecteur",
+      reviewedAt: "2026-10-19T10:00:00.000Z",
+    };
+
+    const published = buildContentCatalog(raw);
+    expect(
+      getEligibleQuestionsForPreset(
+        published.catalog.presetById.get("preset-officiel")!,
+        published.catalog,
+      ),
+    ).toHaveLength(1);
+    expect(countPublishedExamQuestions(published.catalog)).toBe(1);
+  });
+
+  it("exclut les questions non éligibles et les chapitres hors preset", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.questions[0] = {
+      ...raw.chapters[0]!.questions[0]!,
+      examEligible: false,
+    };
+    raw.presets = [testPreset({ chapterIds: ["autre-chapitre"] })];
+
+    const { catalog } = buildContentCatalog(raw);
+    expect(
+      getEligibleQuestionsForPreset(catalog.presetById.get("preset-demo")!, catalog),
+    ).toHaveLength(0);
+  });
+});
+
+describe("buildContentCatalog", () => {
+  it("ne signale aucun problème sur un contenu cohérent", () => {
+    const { issues } = buildContentCatalog(testRawContent());
+    expect(issues).toEqual([]);
+  });
+
+  it("signale une banque insuffisante pour le preset officiel", () => {
+    const raw = testRawContent();
+    raw.presets = [
+      testPreset({ id: "preset-officiel", allowUnpublished: false, questionCount: 3 }),
+    ];
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({
+        level: "warning",
+        code: "EXAM_POOL_INSUFFICIENT",
+        path: "preset:preset-officiel",
+      }),
+    );
+  });
+
+  it("trie les chapitres et les leçons par ordre", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.lessons = [
+      testLesson({ id: "ch01-l02", slug: "lecon-2", order: 2 }),
+      testLesson({ id: "ch01-l01", slug: "lecon-1", order: 1 }),
+    ];
+
+    const { catalog } = buildContentCatalog(raw);
+    expect(catalog.lessons.map((lesson) => lesson.slug)).toEqual(["lecon-1", "lecon-2"]);
+  });
+
+  it("signale les identifiants dupliqués et les références inconnues", () => {
+    const raw = testRawContent();
+    const chapter = raw.chapters[0]!;
+    chapter.questions[0] = testQuestion({
+      id: "ch01-q001",
+      lessonIds: ["lecon-inconnue"],
+      mediaId: "media-inconnu",
+      sourceRefs: [{ documentId: "source-inconnue" }],
+    });
+    chapter.questions.push(testQuestion({ id: "ch01-q001" }));
+    chapter.lessons[0] = testLesson({
+      body: "![Image](https://example.com/externe.png)\n\n![Locale](/media/absente.svg)",
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    const codes = issues.map((issue) => issue.code);
+
+    expect(codes).toContain("DUPLICATE_ID");
+    expect(codes).toContain("UNKNOWN_LESSON");
+    expect(codes).toContain("UNKNOWN_MEDIA");
+    expect(codes).toContain("UNKNOWN_SOURCE");
+    expect(codes).toContain("EXTERNAL_IMAGE");
+    expect(codes).toContain("UNKNOWN_MEDIA_FILE");
+  });
+
+  it("signale un chapitre inconnu dans un preset", () => {
+    const raw = testRawContent();
+    raw.presets = [testPreset({ chapterIds: ["chapitre-inconnu"] })];
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "UNKNOWN_CHAPTER", level: "error" }),
+    );
+  });
+
+  it("signale un chapitre sans question", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.questions = [];
+    raw.presets = [];
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "CHAPTER_WITHOUT_QUESTIONS", level: "warning" }),
+    );
+  });
+});
