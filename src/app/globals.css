@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+* {
+  border-color: #e2e8f0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #fde68a;
+  color: #0f172a;
+}
+
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.lesson-body {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.lesson-body > * + * {
+  margin-top: 1.1rem;
+}
+
+.lesson-body h2 {
+  margin-top: 2.2rem;
+  color: #0f172a;
+  font-size: 1.4rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.lesson-body h3 {
+  margin-top: 1.8rem;
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.lesson-body strong {
+  color: #0f172a;
+  font-weight: 650;
+}
+
+.lesson-body ul,
+.lesson-body ol {
+  padding-left: 1.4rem;
+}
+
+.lesson-body ul {
+  list-style: disc;
+}
+
+.lesson-body ol {
+  list-style: decimal;
+}
+
+.lesson-body li + li {
+  margin-top: 0.4rem;
+}
+
+.lesson-body a {
+  color: #1d4ed8;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.lesson-body blockquote {
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 0.75rem 0.75rem 0;
+  background: #fffbeb;
+  padding: 0.9rem 1.1rem;
+  color: #78350f;
+}
+
+.lesson-body code {
+  border-radius: 0.3rem;
+  background: #f1f5f9;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.9em;
+}
+
+.lesson-body table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  font-size: 0.925rem;
+}
+
+.lesson-body th {
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 650;
+  text-align: left;
+}
+
+.lesson-body th,
+.lesson-body td {
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+.lesson-body img {
+  height: auto;
+  max-width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

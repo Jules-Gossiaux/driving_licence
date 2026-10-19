@@ -1,0 +1,178 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { markLessonReadAction, startPracticeAction } from "@/app/actions";
+import { ContentNotFoundError } from "@/application/errors";
+import { getChapterDetail, getLessonDetail } from "@/application/queries";
+import { PageHeader, StatusBadge } from "@/components/ui";
+import { getAppDependencies } from "@/infrastructure/container";
+import { formatDateTime } from "@/lib/format";
+
+type PageProps = {
+  params: Promise<{ slug: string; lessonSlug: string }>;
+};
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug, lessonSlug } = await params;
+
+  try {
+    const detail = getLessonDetail(getAppDependencies(), slug, lessonSlug);
+    return { title: detail.lesson.title };
+  } catch {
+    return { title: "Leçon introuvable" };
+  }
+}
+
+export default async function LessonPage({ params }: PageProps) {
+  const { slug, lessonSlug } = await params;
+  const deps = getAppDependencies();
+
+  let detail;
+  let chapter;
+  try {
+    detail = getLessonDetail(deps, slug, lessonSlug);
+    chapter = getChapterDetail(deps, slug);
+  } catch (error) {
+    if (error instanceof ContentNotFoundError) {
+      notFound();
+    }
+    throw error;
+  }
+
+  const lessonIndex = chapter.lessons.findIndex((entry) => entry.id === detail.lesson.id);
+  const previousLesson = lessonIndex > 0 ? chapter.lessons[lessonIndex - 1] : undefined;
+  const nextLesson =
+    lessonIndex >= 0 && lessonIndex < chapter.lessons.length - 1
+      ? chapter.lessons[lessonIndex + 1]
+      : undefined;
+
+  return (
+    <div>
+      <nav aria-label="Fil d'Ariane" className="mb-4 text-sm text-slate-500">
+        <Link href="/chapitres" className="hover:text-slate-900 hover:underline">
+          Chapitres
+        </Link>
+        <span aria-hidden="true"> / </span>
+        <Link href={`/chapitres/${chapter.slug}`} className="hover:text-slate-900 hover:underline">
+          {chapter.title}
+        </Link>
+        <span aria-hidden="true"> / </span>
+        <span className="text-slate-700">{detail.lesson.title}</span>
+      </nav>
+
+      <PageHeader
+        eyebrow={`Leçon ${detail.lesson.order}`}
+        title={detail.lesson.title}
+        description={detail.lesson.summary}
+        actions={
+          <>
+            <form action={markLessonReadAction}>
+              <input type="hidden" name="lessonId" value={detail.lesson.id} />
+              <input type="hidden" name="chapterSlug" value={chapter.slug} />
+              <input type="hidden" name="lessonSlug" value={detail.lesson.slug} />
+              <input type="hidden" name="read" value={detail.readAt ? "false" : "true"} />
+              <button
+                type="submit"
+                className={`rounded-xl px-4 py-2.5 text-sm font-semibold ${
+                  detail.readAt
+                    ? "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                    : "bg-emerald-700 text-white hover:bg-emerald-800"
+                }`}
+              >
+                {detail.readAt ? "Marquer comme non lue" : "Marquer comme lue"}
+              </button>
+            </form>
+            {chapter.questionCount > 0 ? (
+              <form action={startPracticeAction}>
+                <input type="hidden" name="chapterId" value={chapter.id} />
+                <button
+                  type="submit"
+                  className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700"
+                >
+                  S&apos;entraîner
+                </button>
+              </form>
+            ) : null}
+          </>
+        }
+      />
+
+      <div className="mb-5 flex flex-wrap items-center gap-2 text-sm">
+        <StatusBadge status={detail.lesson.status} />
+        {detail.readAt ? (
+          <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200 ring-inset">
+            Lue le {formatDateTime(detail.readAt)}
+          </span>
+        ) : (
+          <span className="text-xs text-slate-500">Pas encore marquée comme lue</span>
+        )}
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-3">
+        <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:col-span-2">
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+            <h2 className="text-sm font-semibold text-amber-950">À retenir</h2>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-amber-900">
+              {detail.lesson.keyPoints.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lesson-body mt-7">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{detail.lesson.body}</ReactMarkdown>
+          </div>
+        </article>
+
+        <aside className="space-y-6">
+          <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h2 className="text-sm font-semibold text-slate-950">Sources</h2>
+            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+              {detail.sources.map((source) => (
+                <li key={`${source.documentId}-${source.page ?? source.locator ?? ""}`}>
+                  {source.title}
+                  {source.page ? `, p. ${source.page}` : ""}
+                  {source.locator ? ` (${source.locator})` : ""}
+                  {source.note ? (
+                    <span className="mt-1 block text-xs text-slate-500">{source.note}</span>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <nav
+            aria-label="Navigation entre les leçons"
+            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+          >
+            <h2 className="text-sm font-semibold text-slate-950">Continuer</h2>
+            <div className="mt-3 space-y-3 text-sm">
+              {previousLesson ? (
+                <Link
+                  href={`/chapitres/${chapter.slug}/lecons/${previousLesson.slug}`}
+                  className="block rounded-lg border border-slate-200 p-3 text-slate-700 hover:bg-slate-50"
+                >
+                  <span className="block text-xs text-slate-500">Leçon précédente</span>
+                  {previousLesson.title}
+                </Link>
+              ) : null}
+              {nextLesson ? (
+                <Link
+                  href={`/chapitres/${chapter.slug}/lecons/${nextLesson.slug}`}
+                  className="block rounded-lg border border-slate-200 p-3 text-slate-700 hover:bg-slate-50"
+                >
+                  <span className="block text-xs text-slate-500">Leçon suivante</span>
+                  {nextLesson.title}
+                </Link>
+              ) : null}
+              {!previousLesson && !nextLesson ? (
+                <p className="text-slate-500">Cette leçon est la seule du chapitre.</p>
+              ) : null}
+            </div>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  );
+}
