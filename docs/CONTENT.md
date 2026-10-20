@@ -308,3 +308,15 @@ contenu :
 
 Toute commercialisation exigera des droits sur les contenus ou une réécriture entièrement
 originale.
+
+## Skill de production assistée
+
+Le pipeline de production est aussi encapsulé dans le skill projet
+[`.qoder/skills/produire-contenu-permis-b/SKILL.md`](../.qoder/skills/produire-contenu-permis-b/SKILL.md).
+Il sert à cadrer un lot, extraire et vérifier les faits, rédiger leçons et questions, produire les
+médias, puis valider avant livraison. Il ne publie jamais : il s'arrête à `draft` ou `in_review`.
+
+Ses références opérationnelles sont le contrat de contenu, le style éditorial, la vérification des
+sources et le pipeline média. Les gabarits de chapitre, leçon, question et média se trouvent dans
+`.qoder/skills/produire-contenu-permis-b/assets/templates/`. Les schémas Zod restent la source
+d'autorité ; le skill ne les remplace pas.

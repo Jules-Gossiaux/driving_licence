@@ -90,7 +90,9 @@ pnpm content:validate
 ```
 
 En cas d'erreur, l'application refuse de démarrer. Les détails et modèles de fichiers sont dans
-[docs/CONTENT.md](CONTENT.md).
+[docs/CONTENT.md](CONTENT.md). Pour une production assistée, le skill projet
+[`.qoder/skills/produire-contenu-permis-b/SKILL.md`](../.qoder/skills/produire-contenu-permis-b/SKILL.md)
+décrit le pipeline complet et les contrôles à effectuer avant livraison.
 
 ## Tests E2E
 

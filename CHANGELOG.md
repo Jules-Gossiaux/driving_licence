@@ -44,6 +44,8 @@ versionnage sémantique.
   5 parcours Playwright avec base et build isolés.
 - Documentation : README, règles de travail, contribution, architecture, développement, tests,
   contenu, décisions et feuille de route.
+- Skill projet `produire-contenu-permis-b` : pipeline de production du contenu (cadrage, sources,
+  rédaction, médias, validation), contrôles de publication et gabarits de fichiers.
 
 ### Modifié
 

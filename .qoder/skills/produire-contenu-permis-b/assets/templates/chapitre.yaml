@@ -1,0 +1,21 @@
+# Gabarit de chapitre. Remplacer les identifiants d'exemple et déclarer les sources réelles.
+# Un chapitre sans unité est autorisé, mais n'aura ni défi d'unité ni examen de chapitre.
+id: chxx
+slug: chapitre-x-sujet
+order: 0
+title: "Chapitre X — Sujet"
+summary: >-
+  Résumé en une ou deux phrases, orienté vers ce que l'utilisateur saura faire.
+units:
+  - id: chxx-u1
+    slug: unite-x
+    order: 1
+    label: "X.1"
+    title: "Titre de l'unité"
+    summary: "Ce que couvre l'unité et pourquoi elle forme un ensemble cohérent."
+sourceRefs:
+  - documentId: source-a-declarer
+    page: 1
+version: 1
+status: draft
+origin: ai_assisted

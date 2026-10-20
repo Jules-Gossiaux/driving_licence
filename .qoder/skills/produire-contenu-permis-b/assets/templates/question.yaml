@@ -1,0 +1,33 @@
+# Gabarit de question. Le fichier doit s'appeler <id>.yaml.
+# 4 options par défaut ; une seule bonne réponse ; explication de règle, pas de position d'option.
+id: chxx-q001
+chapterId: chxx
+lessonIds:
+  - chxx-l01
+prompt: >-
+  Énoncé autosuffisant, en une à trois phrases.
+options:
+  - id: a
+    label: "Proposition A"
+  - id: b
+    label: "Proposition B"
+    # mediaId: chxx-option-b # option illustrée, média déclaré
+  - id: c
+    label: "Proposition C"
+  - id: d
+    label: "Proposition D"
+correctOptionId: a
+explanation: >-
+  Rappeler la règle, justifier la bonne réponse et nommer l'erreur du distracteur le plus tentant.
+# mediaId: chxx-scene # image d'énoncé, média déclaré
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - tag-a-reutiliser
+sourceRefs:
+  - documentId: source-a-declarer
+    page: 1
+version: 1
+status: draft
+origin: ai_assisted
