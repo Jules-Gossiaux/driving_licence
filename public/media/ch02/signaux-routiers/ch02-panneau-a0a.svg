@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau additionnel A0a — longueur de la section dangereuse</title>
+  <desc id="description">Panneau bleu à texte blanc : le danger annoncé se prolonge sur 10 kilomètres.</desc>
+  <rect x="8" y="8" width="464" height="224" rx="12" fill="#005baa" stroke="#ffffff" stroke-width="10"/>
+  <rect x="86" y="104" width="30" height="72" rx="4" fill="#ffffff"/>
+  <polygon points="101,56 138,108 64,108" fill="#ffffff"/>
+  <text x="240" y="158" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700" fill="#ffffff">10 km</text>
+  <rect x="364" y="104" width="30" height="72" rx="4" fill="#ffffff"/>
+  <polygon points="379,56 416,108 342,108" fill="#ffffff"/>
+</svg>

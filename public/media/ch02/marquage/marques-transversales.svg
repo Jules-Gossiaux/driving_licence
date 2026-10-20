@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Quatre marques transversales</title>
+  <desc id="desc">Ligne d'arrêt continue, ligne de triangles de cédez le passage, passage pour piétons en bandes parallèles et passage pour deux-roues en lignes discontinues.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="32" y="52" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Quatre marques, quatre repères</text>
+  <text x="32" y="80" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Chaque marque indique une position ou une obligation différente.</text>
+
+  <g>
+    <rect x="32" y="100" width="440" height="194" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="52" y="132" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Ligne d'arrêt</text>
+    <rect x="52" y="148" width="400" height="92" rx="8" fill="#334155"/>
+    <line x1="72" y1="208" x2="432" y2="208" stroke="#f8fafc" stroke-width="9"/>
+    <rect x="64" y="164" width="12" height="18" fill="#f8fafc" opacity="0.25"/>
+    <rect x="64" y="198" width="12" height="18" fill="#f8fafc" opacity="0.25"/>
+    <rect x="64" y="232" width="12" height="18" fill="#f8fafc" opacity="0.25"/>
+    <text x="52" y="266" font-family="Arial, sans-serif" font-size="13" fill="#475569">Arrêt imposé par un STOP ou un feu de circulation.</text>
+  </g>
+
+  <g>
+    <rect x="488" y="100" width="440" height="194" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="508" y="132" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Triangles de cédez le passage</text>
+    <rect x="508" y="148" width="400" height="92" rx="8" fill="#334155"/>
+    <g fill="#f8fafc">
+      <polygon points="536,208 548,188 560,208"/>
+      <polygon points="578,208 590,188 602,208"/>
+      <polygon points="620,208 632,188 644,208"/>
+      <polygon points="662,208 674,188 686,208"/>
+      <polygon points="704,208 716,188 728,208"/>
+      <polygon points="746,208 758,188 770,208"/>
+      <polygon points="788,208 800,188 812,208"/>
+    </g>
+    <text x="508" y="266" font-family="Arial, sans-serif" font-size="13" fill="#475569">Arrêt seulement si nécessaire pour céder le passage.</text>
+  </g>
+
+  <g>
+    <rect x="32" y="310" width="440" height="194" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="52" y="342" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Passage pour piétons</text>
+    <rect x="52" y="358" width="400" height="92" rx="8" fill="#334155"/>
+    <g fill="#f8fafc">
+      <rect x="76" y="366" width="22" height="76"/>
+      <rect x="118" y="366" width="22" height="76"/>
+      <rect x="160" y="366" width="22" height="76"/>
+      <rect x="202" y="366" width="22" height="76"/>
+      <rect x="244" y="366" width="22" height="76"/>
+      <rect x="286" y="366" width="22" height="76"/>
+      <rect x="328" y="366" width="22" height="76"/>
+      <rect x="370" y="366" width="22" height="76"/>
+    </g>
+    <text x="52" y="476" font-family="Arial, sans-serif" font-size="13" fill="#475569">Bandes parallèles à l'axe de la chaussée.</text>
+  </g>
+
+  <g>
+    <rect x="488" y="310" width="440" height="194" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="508" y="342" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Passage pour deux-roues</text>
+    <rect x="508" y="358" width="400" height="92" rx="8" fill="#334155"/>
+    <g fill="#f8fafc">
+      <rect x="530" y="370" width="18" height="16"/>
+      <rect x="562" y="370" width="18" height="16"/>
+      <rect x="594" y="370" width="18" height="16"/>
+      <rect x="626" y="370" width="18" height="16"/>
+      <rect x="658" y="370" width="18" height="16"/>
+      <rect x="690" y="370" width="18" height="16"/>
+      <rect x="722" y="370" width="18" height="16"/>
+      <rect x="754" y="370" width="18" height="16"/>
+      <rect x="786" y="370" width="18" height="16"/>
+      <rect x="818" y="370" width="18" height="16"/>
+      <rect x="546" y="422" width="18" height="16"/>
+      <rect x="578" y="422" width="18" height="16"/>
+      <rect x="610" y="422" width="18" height="16"/>
+      <rect x="642" y="422" width="18" height="16"/>
+      <rect x="674" y="422" width="18" height="16"/>
+      <rect x="706" y="422" width="18" height="16"/>
+      <rect x="738" y="422" width="18" height="16"/>
+      <rect x="770" y="422" width="18" height="16"/>
+      <rect x="802" y="422" width="18" height="16"/>
+      <rect x="834" y="422" width="18" height="16"/>
+    </g>
+    <text x="508" y="476" font-family="Arial, sans-serif" font-size="13" fill="#475569">Deux lignes de carrés ou de parallélogrammes.</text>
+  </g>
+</svg>

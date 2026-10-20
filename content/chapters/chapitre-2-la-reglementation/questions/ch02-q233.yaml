@@ -1,0 +1,31 @@
+id: ch02-q233
+chapterId: ch02
+lessonIds:
+  - ch02-l31
+prompt: "Plusieurs indications se contredisent à une intersection. Quel ordre hiérarchique appliquez-vous ?"
+options:
+  - id: a
+    label: "Les feux, puis les injonctions d'un agent, puis la signalisation, puis les règles."
+  - id: b
+    label: "Les injonctions d'un agent, puis les feux, puis la signalisation routière, puis les règles de circulation."
+  - id: c
+    label: "La signalisation routière, puis les règles, puis les feux, puis l'agent."
+  - id: d
+    label: "Les règles de circulation, puis la signalisation, puis les feux, puis l'agent."
+correctOptionId: b
+explanation: "La hiérarchie place les injonctions des agents au sommet, puis les feux lumineux, puis la signalisation routière, et enfin les règles de circulation."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - hierarchie
+  - priorite
+  - agents
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "articles 6 et 12"
+version: 1
+status: draft
+origin: ai_assisted

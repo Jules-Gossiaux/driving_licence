@@ -1,0 +1,31 @@
+id: ch02-q093
+chapterId: ch02
+lessonIds:
+  - ch02-l12
+prompt: "Quel signal vous autorise à avancer avec une prudence supplémentaire ?"
+options:
+  - id: a
+    label: "Feu jaune-orange clignotant"
+    mediaId: ch02-signal-orange-clignotant
+  - id: b
+    label: "Feu rouge fixe"
+    mediaId: ch02-signal-rouge
+  - id: c
+    label: "Feu vert fixe"
+    mediaId: ch02-signal-vert
+correctOptionId: a
+explanation: "Le jaune-orange clignotant autorise à avancer avec une prudence supplémentaire et sans modifier les règles de priorité. Le rouge impose l'arrêt et le vert autorise le passage."
+difficulty: medium
+severity: normal
+tags:
+  - image
+  - clignotants
+  - orange
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 64.1"
+version: 1
+status: draft
+origin: ai_assisted

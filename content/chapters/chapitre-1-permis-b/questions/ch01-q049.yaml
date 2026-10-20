@@ -1,0 +1,29 @@
+id: ch01-q049
+chapterId: ch01
+lessonIds:
+  - ch01-l06
+prompt: Vous louez une remorque de 1 000 kg de MMA. La MMA de l'ensemble est de 4 200 kg. Quel permis faut-il ?
+options:
+  - id: a
+    label: Le permis B avec le code 96
+  - id: b
+    label: Le permis B seul
+  - id: c
+    label: Le permis BE
+  - id: d
+    label: Aucun des trois
+correctOptionId: a
+explanation: La remorque dépasse 750 kg et l'ensemble se situe entre 3 500 et 4 250 kg. C'est la zone du code 96.
+difficulty: medium
+severity: normal
+tags:
+  - code-96
+  - verifications
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

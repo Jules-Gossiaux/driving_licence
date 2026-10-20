@@ -1,0 +1,31 @@
+id: ch02-q158
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "Que signale le panneau F53 ?"
+options:
+  - id: a
+    label: "Un hôpital ou un établissement sanitaire"
+  - id: b
+    label: "Une station-service"
+  - id: c
+    label: "Un parking"
+  - id: d
+    label: "Un restaurant"
+correctOptionId: a
+explanation: "F53 signale un hôpital ou un établissement sanitaire. Les autres services ont leurs propres panneaux : F59 pour un parking, F63 pour une station-service, F67 pour un restaurant. Ces signaux informent sans imposer de s'arrêter."
+mediaId: ch02-panneau-f53
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - services
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 34
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

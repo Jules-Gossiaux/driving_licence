@@ -130,3 +130,83 @@ requêtes filtrent par profil, sans interface de gestion.
 
 **Conséquences** : pas de conflit ni de compte à gérer. L'ajout de profils demandera une interface,
 une authentification et des règles de séparation des données.
+
+## D-013 — Micro-leçons, questions cœur et grand pool
+
+**Contexte** : progression rapide de type Duolingo, avec un besoin de s'entraîner au-delà des
+questions vues dans la leçon.
+
+**Décision** : chaque leçon publiée déclare 4 ou 5 `coreQuestionIds` qui alimentent un entraînement
+dédié. Le pool d'un chapitre reste plus large (8 questions par leçon dans les pilotes 2.1 et 2.2) et
+l'entraînement de chapitre en tire jusqu'à 10.
+
+**Conséquences** : la leçon reste courte, l'entraînement de leçon est immédiat et le pool permet des
+sessions supplémentaires. La validation refuse une leçon publiée sans questions cœur ou avec des
+identifiants incohérents.
+
+## D-014 — Options illustrées et médias par chapitre
+
+**Contexte** : les panneaux et situations de circulation se répondent par l'image ; le chapitre 2.3
+comptera des dizaines de médias.
+
+**Décision** : une option de question peut référencer un `mediaId`. Les médias sont déclarés dans
+`content/media.yaml` ou dans un `media.yaml` propre au chapitre. Les illustrations servies sont des
+SVG originaux, jamais des scans du manuel.
+
+**Conséquences** : les réponses illustrées ne nécessitent aucune migration, car le `mediaId` est
+conservé dans le snapshot JSON de la tentative ; les anciennes tentatives relisent `null`. Chaque
+média reste soumis à la validation d'existence, de droits et d'alternative textuelle.
+
+## D-015 — Micro-sections, parcours linéaire et reprise persistée (2026-10-20)
+
+**Contexte** : les leçons restaient de longues pages ; l'objectif est une progression courte de type
+Duolingo, avec des questions intercalées et un déblocage progressif.
+
+**Décision** : découper le corps Markdown sur les titres `##` sans dupliquer le contenu en base.
+Placer une ou deux questions cœur après certaines sections via `sectionChecks`, garder les autres
+pour le quiz final. Persister un parcours comme une tentative `practice` portant `lesson_id`, avec
+`lesson_step` pour reprendre au bon endroit. Le déblocage est linéaire dans le chapitre ; une leçon
+terminée reste consultable.
+
+**Conséquences** : aucune nouvelle valeur de `mode` ni reconstruction de la table `attempts` (le
+`CHECK` SQLite imposerait de recréer la table et le runner de migrations applique chaque fichier
+dans une transaction). Les sections restent dérivées du Markdown, donc un renommage de titre change
+les identifiants utilisés par `sectionChecks` : la validation le signale. Le mode `practice` existant
+reste compatible avec les écrans d'entraînement et de résultats.
+
+## D-016 — Défi d'unité sans seuil, examen de chapitre avec seuil (2026-10-20)
+
+**Contexte** : le parcours linéaire des leçons manquait d'un jalon de fin d'unité et d'une
+évaluation finale de chapitre capable de valider les acquis avant de poursuivre.
+
+**Décision** : après lecture de toutes les leçons d'une unité, proposer un défi de 20 questions
+mélangées issues de l'unité, en mode entraînement (sans chronomètre ni seuil), avec affichage du
+dernier score. Après lecture de toutes les leçons du chapitre, proposer un examen de chapitre au
+format officiel (50 questions, 15 s, seuil 41/50, pénalités 1 et 5). Ajouter `attempts.unit_id`
+(migration `0004`) pour identifier les défis sans créer de nouveau `mode` ; identifier l'examen de
+chapitre par `mode = 'exam'`, `preset_id IS NULL` et `chapter_id`. Le déblocage est vérifié côté
+serveur et non seulement dans l'interface. Un chapitre sans unités n'obtient pas d'examen de
+chapitre.
+
+**Conséquences** : les défis restent des tentatives d'entraînement, réutilisent les écrans de
+correction et n'ont pas de reprise dédiée. L'examen de chapitre réutilise le moteur chronométré et
+les snapshots, mais accepte les brouillons pour rendre le pilote testable avant publication ; il
+partage l'unicité de l'examen actif avec les presets. Le seuil de 41/50 est cohérent avec le format
+belge et ne s'applique qu'à cette évaluation finale.
+
+## D-017 — Parcours visuel dérivé de la progression, sans état dédié (2026-10-20)
+
+**Contexte** : la page chapitre présentait les leçons comme une liste ; l'objectif est un parcours
+ludique de type Duolingo, lisible d'un coup d'œil, avec une notion claire d'étape courante.
+
+**Décision** : remplacer la liste par un chemin serpentin rendu côté serveur. Les nœuds alternent
+gauche, centre et droite ; un tracé SVG décoratif les relie. L'état est entièrement dérivé des
+données existantes : `readAt` pour terminé, `locked` pour verrouillé, sinon courant. Les leçons
+terminées restent des liens « Revoir » ; les nœuds verrouillés ne sont pas interactifs. Le défi
+d'unité est le dernier nœud de l'unité et l'examen de chapitre une carte d'évaluation finale. Aucun
+nouvel état de parcours n'est stocké.
+
+**Conséquences** : la progression reste une seule source de vérité (`lesson_progress`). La mise en
+page est calculée à partir du nombre de leçons et s'allonge avec les unités ; elle ne dépend
+d'aucune bibliothèque d'animation ni de composant client. Les tests E2E vérifient le nœud courant,
+le verrouillage et l'accès de révision.

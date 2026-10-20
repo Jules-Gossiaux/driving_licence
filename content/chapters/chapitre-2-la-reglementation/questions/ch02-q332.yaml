@@ -1,0 +1,30 @@
+id: ch02-q332
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Un damier blanc relie deux sites spéciaux franchissables. Pouvez-vous vous y arrêter pour déposer un passager ?"
+options:
+  - id: a
+    label: "Non, l'arrêt et le stationnement sont interdits sur ces marques."
+  - id: b
+    label: "Oui, si aucun bus n'arrive."
+  - id: c
+    label: "Oui, pendant cinq minutes au maximum."
+  - id: d
+    label: "Oui, si vous restez au volant."
+correctOptionId: a
+explanation: "Les marques en damier délimitent l'espace des transports en commun ou la liaison entre deux sites. L'arrêt et le stationnement y sont interdits, même brièvement."
+difficulty: hard
+severity: normal
+tags:
+  - marquage
+  - damier
+  - transports-en-commun
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 40
+  - documentId: official-code-route-1975
+    locator: "article 77.8"
+version: 1
+status: draft
+origin: ai_assisted

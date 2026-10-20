@@ -1,0 +1,31 @@
+id: ch02-q106
+chapterId: ch02
+lessonIds:
+  - ch02-l14
+prompt: "Un panneau triangulaire à bord rouge annonce un virage dangereux. Que devez-vous faire ?"
+options:
+  - id: a
+    label: "Accélérer pour franchir le virage avant les autres usagers"
+  - id: b
+    label: "Maintenir votre vitesse et klaxonner"
+  - id: c
+    label: "Ralentir et adapter votre conduite à la visibilité"
+  - id: d
+    label: "Vous arrêter obligatoirement avant le virage"
+correctOptionId: c
+explanation: "Un panneau de danger annonce une situation et demande de ralentir, pas de s'arrêter systématiquement. Il ne modifie pas les règles de priorité. La vitesse doit être adaptée à la visibilité et à l'état de la chaussée."
+mediaId: ch02-panneau-a1a
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - danger
+  - vitesse
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 21
+  - documentId: official-signaux-routiers
+    locator: "article 65"
+version: 1
+status: draft
+origin: ai_assisted

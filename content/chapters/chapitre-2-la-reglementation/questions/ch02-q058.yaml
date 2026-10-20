@@ -1,0 +1,31 @@
+id: ch02-q058
+chapterId: ch02
+lessonIds:
+  - ch02-l08
+prompt: "Le feu passe au jaune-orange fixe alors que vous êtes trop près pour vous arrêter sans danger. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous franchissez en veillant à ne pas mettre les autres usagers en danger"
+  - id: b
+    label: "Vous freinez brutalement pour vous arrêter avant la ligne"
+  - id: c
+    label: "Vous accélérez au maximum pour passer avant le rouge"
+  - id: d
+    label: "Vous reculez pour reprendre de la distance"
+correctOptionId: a
+explanation: "L'orange fixe impose normalement l'arrêt. L'exception existe lorsque le freinage ne peut pas se faire dans des conditions de sécurité suffisantes. Vous pouvez alors franchir, mais sans mettre les autres en danger."
+difficulty: medium
+severity: normal
+tags:
+  - feux
+  - orange
+  - franchissement
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1.2"
+version: 1
+status: draft
+origin: ai_assisted

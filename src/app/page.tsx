@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getDashboardView } from "@/application/queries";
-import { EmptyState, PageHeader, ProgressBar, StatusBadge } from "@/components/ui";
+import { EmptyState, PageHeader, ProgressBar } from "@/components/ui";
 import { getAppDependencies } from "@/infrastructure/container";
 import { formatDateTime, formatScore, modeLabel } from "@/lib/format";
 
@@ -13,11 +13,7 @@ export default function DashboardPage() {
 
   return (
     <div>
-      <PageHeader
-        eyebrow="Permis B · Belgique francophone"
-        title="Votre préparation, sans détour"
-        description="Révisez la théorie, confirmez chaque chapitre par des questions, puis mesurez-vous au format de l'examen."
-      />
+      <PageHeader title="Votre progression" />
 
       {view.activeExam ? (
         <div className="mb-6 flex flex-col justify-between gap-4 rounded-2xl border border-amber-300 bg-amber-50 p-5 sm:flex-row sm:items-center">
@@ -26,9 +22,6 @@ export default function DashboardPage() {
               Examen en cours
             </p>
             <p className="mt-1 font-semibold text-amber-950">{view.activeExam.title}</p>
-            <p className="mt-1 text-sm text-amber-800">
-              Le chronomètre de la question en cours continue de tourner.
-            </p>
           </div>
           <Link
             href={`/examen/${view.activeExam.attemptId}`}
@@ -52,19 +45,11 @@ export default function DashboardPage() {
                     <h2 className="mt-1 text-xl font-semibold text-slate-950">
                       {view.nextLesson.title}
                     </h2>
-                    <p className="mt-1 text-sm text-slate-600">
-                      Reprenez la théorie là où vous l&apos;avez laissée.
-                    </p>
                   </>
                 ) : (
-                  <>
-                    <h2 className="mt-1 text-xl font-semibold text-slate-950">
-                      Toutes les leçons sont lues
-                    </h2>
-                    <p className="mt-1 text-sm text-slate-600">
-                      Placez-vous en conditions d&apos;examen pour vérifier vos acquis.
-                    </p>
-                  </>
+                  <h2 className="mt-1 text-xl font-semibold text-slate-950">
+                    Toutes les leçons sont lues
+                  </h2>
                 )}
               </div>
               {view.nextLesson ? (
@@ -91,9 +76,6 @@ export default function DashboardPage() {
                 <h2 id="chapters-title" className="text-lg font-semibold text-slate-950">
                   Chapitres
                 </h2>
-                <p className="text-sm text-slate-600">
-                  Théorie, points clés et questions d&apos;entraînement.
-                </p>
               </div>
               <Link
                 href="/chapitres"
@@ -110,13 +92,7 @@ export default function DashboardPage() {
                     href={`/chapitres/${chapter.slug}`}
                     className="block p-5 transition-colors hover:bg-slate-50"
                   >
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-semibold text-slate-950">{chapter.title}</h3>
-                      <StatusBadge status={chapter.status} />
-                    </div>
-                    <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-slate-600">
-                      {chapter.summary}
-                    </p>
+                    <h3 className="font-semibold text-slate-950">{chapter.title}</h3>
                     <div className="mt-4 max-w-md">
                       <ProgressBar
                         label="Leçons lues"
@@ -141,7 +117,7 @@ export default function DashboardPage() {
             {view.recentAttempts.length === 0 ? (
               <EmptyState
                 title="Aucune tentative pour l'instant"
-                description="Terminez un entraînement ou un examen pour suivre votre progression ici."
+                description="Terminez une session pour la voir ici."
               />
             ) : (
               <ul className="divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -154,7 +130,14 @@ export default function DashboardPage() {
                       <div>
                         <p className="text-sm font-semibold text-slate-950">{attempt.title}</p>
                         <p className="text-xs text-slate-500">
-                          {modeLabel(attempt.mode)} · {formatDateTime(attempt.completedAt)}
+                          {attempt.kind === "lesson"
+                            ? "Leçon"
+                            : attempt.kind === "unit"
+                              ? "Défi"
+                              : attempt.kind === "chapter-exam"
+                                ? "Examen de chapitre"
+                                : modeLabel(attempt.mode)}{" "}
+                          · {formatDateTime(attempt.completedAt)}
                         </p>
                       </div>
                       <div className="flex items-center gap-3 text-sm">
@@ -222,23 +205,17 @@ export default function DashboardPage() {
                   {officialPreset.locked ? "Verrouillé" : "Disponible"}
                 </span>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                {officialPreset.questionCount} questions · {officialPreset.secondsPerQuestion} s par
-                question · {officialPreset.passingScore}/{officialPreset.questionCount} pour
-                réussir.
+              <p className="mt-2 text-sm text-slate-600">
+                {officialPreset.questionCount} questions · {officialPreset.secondsPerQuestion} s ·{" "}
+                seuil {officialPreset.passingScore}/{officialPreset.questionCount}
               </p>
               <div className="mt-4">
                 <ProgressBar
-                  label="Questions publiées et validées"
+                  label="Questions publiées"
                   value={officialPreset.availableQuestions}
                   max={officialPreset.questionCount}
                 />
               </div>
-              <p className="mt-3 text-xs leading-relaxed text-slate-500">
-                {officialPreset.locked
-                  ? "Le preset officiel reste verrouillé tant que la banque ne contient pas assez de questions publiées. L'examen démo permet déjà de tester le format."
-                  : "La banque contient assez de questions pour lancer un examen complet."}
-              </p>
               <Link
                 href="/examen"
                 className="mt-4 inline-flex text-sm font-semibold text-slate-800 underline underline-offset-4 hover:text-slate-950"
@@ -250,10 +227,10 @@ export default function DashboardPage() {
 
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-base font-semibold text-slate-950">Erreurs à revoir</h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            <p className="mt-2 text-sm text-slate-600">
               {view.reviewCount === 0
-                ? "Aucune erreur récente à réviser."
-                : `${view.reviewCount} question${view.reviewCount > 1 ? "s" : ""} répondue${view.reviewCount > 1 ? "s" : ""} incorrectement lors de votre dernière tentative.`}
+                ? "Aucune erreur à revoir."
+                : `${view.reviewCount} question${view.reviewCount > 1 ? "s" : ""} à revoir.`}
             </p>
             <Link
               href="/revision"
@@ -266,10 +243,9 @@ export default function DashboardPage() {
           {demoPreset ? (
             <section className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
               <h2 className="text-base font-semibold text-amber-950">{demoPreset.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-amber-900">
-                {demoPreset.questionCount} questions · {demoPreset.secondsPerQuestion} s par
-                question. Les questions sont des brouillons de démonstration, à ne pas confondre
-                avec une banque d&apos;examen validée.
+              <p className="mt-2 text-sm text-amber-900">
+                {demoPreset.questionCount} questions · {demoPreset.secondsPerQuestion} s ·
+                brouillons
               </p>
               <Link
                 href="/examen"

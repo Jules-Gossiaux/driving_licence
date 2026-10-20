@@ -1,0 +1,28 @@
+id: ch01-q013
+chapterId: ch01
+lessonIds:
+  - ch01-l03
+prompt: Quelle est la différence entre la masse à vide et la MMA ?
+options:
+  - id: a
+    label: La masse à vide est le véhicule sans passagers ni chargement ; la MMA est la limite maximale en charge.
+  - id: b
+    label: La masse à vide est toujours supérieure à la MMA.
+  - id: c
+    label: La MMA est le poids du véhicule sans carburant ; la masse à vide inclut les passagers.
+  - id: d
+    label: Les deux termes désignent la même valeur.
+correctOptionId: a
+explanation: La masse à vide sert de point de départ ; la MMA est le plafond absolu. La différence entre les deux donne la charge disponible.
+difficulty: medium
+severity: normal
+tags:
+  - masses
+  - mma
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,31 @@
+id: ch02-q163
+chapterId: ch02
+lessonIds:
+  - ch02-l21
+prompt: "Un signal placé au-dessus d'une bande de circulation s'applique à quoi ?"
+options:
+  - id: a
+    label: "À cette bande uniquement"
+  - id: b
+    label: "À toutes les bandes"
+  - id: c
+    label: "À la bande de droite uniquement"
+  - id: d
+    label: "Aux piétons"
+correctOptionId: a
+explanation: "Un signal placé au-dessus d'une bande ne s'applique qu'à cette bande. F89 et F91, par exemple, ne concernent que la bande située sous eux. Les autres bandes restent régies par leur propre signalisation."
+difficulty: medium
+severity: severe
+examEligible: true
+tags:
+  - panneaux-additionnels
+  - bandes
+  - portee
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 35
+  - documentId: official-signaux-routiers
+    locator: "articles 22bis et 71"
+version: 1
+status: draft
+origin: ai_assisted

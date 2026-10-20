@@ -22,6 +22,9 @@ export type Attempt = {
   status: AttemptStatus;
   presetId: string | null;
   chapterId: string | null;
+  unitId: string | null;
+  lessonId: string | null;
+  lessonStep: number;
   questionCount: number;
   secondsPerQuestion: number | null;
   passingScore: number | null;
@@ -42,6 +45,8 @@ export type AttemptSummary = {
   status: AttemptStatus;
   presetId: string | null;
   chapterId: string | null;
+  unitId: string | null;
+  lessonId: string | null;
   questionCount: number;
   passingScore: number | null;
   startedAt: string;
@@ -69,6 +74,8 @@ export type NewAttempt = {
   mode: AttemptMode;
   presetId: string | null;
   chapterId: string | null;
+  unitId?: string | null;
+  lessonId?: string | null;
   questionCount: number;
   secondsPerQuestion: number | null;
   passingScore: number | null;

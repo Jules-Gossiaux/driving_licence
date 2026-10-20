@@ -1,0 +1,31 @@
+id: ch02-q242
+chapterId: ch02
+lessonIds:
+  - ch02-l32
+prompt: "Un panneau de priorité est placé avant un carrefour. Un véhicule arrive de droite. Qui est prioritaire ?"
+options:
+  - id: a
+    label: "Le véhicule de droite, car la priorité à droite prime toujours."
+  - id: b
+    label: "Le véhicule le plus rapide."
+  - id: c
+    label: "La règle du panneau s'applique, et non la priorité à droite."
+  - id: d
+    label: "Le véhicule le plus lourd."
+correctOptionId: c
+explanation: "Un panneau de priorité placé avant le carrefour l'emporte sur la règle de la priorité à droite. C'est le panneau qui organise le passage."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - panneaux-priorite
+  - priorite-a-droite
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "articles 6 et 12"
+version: 1
+status: draft
+origin: ai_assisted

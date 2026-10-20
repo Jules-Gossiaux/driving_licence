@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { submitTrainingAnswerAction } from "@/app/actions";
 import type { TrainingFeedback, TrainingQuestionView } from "@/application/practice";
+import { OptionContent } from "./option-content";
 
 type Props = {
   attemptId: string;
+  eyebrow: string;
   title: string;
-  mode: "practice" | "review";
   questions: TrainingQuestionView[];
   initialPosition: number;
 };
@@ -18,7 +19,7 @@ function optionLetter(index: number): string {
   return String.fromCharCode(65 + index);
 }
 
-export function PracticeRunner({ attemptId, title, mode, questions, initialPosition }: Props) {
+export function PracticeRunner({ attemptId, eyebrow, title, questions, initialPosition }: Props) {
   const router = useRouter();
   const [position, setPosition] = useState(initialPosition);
   const [selected, setSelected] = useState<string | null>(null);
@@ -119,7 +120,7 @@ export function PracticeRunner({ attemptId, title, mode, questions, initialPosit
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <p className="text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase">
-            {mode === "review" ? "Révision" : "Entraînement"} · {title}
+            {eyebrow} · {title}
           </p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">
             Question {position + 1} sur {total}
@@ -181,7 +182,10 @@ export function PracticeRunner({ attemptId, title, mode, questions, initialPosit
                 >
                   {optionLetter(index)}
                 </span>
-                <span>{option.label}</span>
+                <OptionContent
+                  option={option}
+                  inverted={selected === option.id && !feedbackForThisQuestion}
+                />
               </button>
             ))}
           </div>
@@ -210,7 +214,13 @@ export function PracticeRunner({ attemptId, title, mode, questions, initialPosit
             </p>
             {!feedbackForThisQuestion.isCorrect && correctOption ? (
               <p className="mt-1 text-sm text-slate-700">
-                La bonne réponse est : <strong>{correctOption.label}</strong>
+                {correctOption.media ? (
+                  "La bonne réponse est mise en évidence ci-dessus."
+                ) : (
+                  <>
+                    La bonne réponse est : <strong>{correctOption.label}</strong>
+                  </>
+                )}
               </p>
             ) : null}
             <p className="mt-2 text-sm leading-relaxed text-slate-700">

@@ -5,8 +5,9 @@
 `content/` est la source de vérité du contenu pédagogique. Tout est versionné avec le code. Aucun
 contenu n'est stocké en base : seules la progression et les tentatives le sont.
 
-Le contenu actuel est une **démonstration** : 1 chapitre, 2 leçons, 5 questions en brouillon. Il
-permet de tester les parcours, pas de préparer sérieusement l'examen.
+Le contenu actuel est une **démonstration** : 2 chapitres, 34 leçons et 274 questions en brouillon.
+Il permet de tester les parcours et les sept unités (deux pour le chapitre 1, cinq pour le
+chapitre 2), pas de préparer sérieusement l'examen.
 
 ## Arborescence
 
@@ -22,9 +23,19 @@ content/
       chapter.yaml
       lessons/
         le-permis-b-et-ses-limites.md
-        tracter-une-remorque.md
+        comprendre-la-mma.md
+        ...
       questions/
         ch01-q001.yaml
+        ...
+    chapitre-2-la-reglementation/
+      chapter.yaml
+      media.yaml               médias propres au chapitre (facultatif)
+      lessons/
+        qui-doit-respecter-les-regles.md
+        ...
+      questions/
+        ch02-q001.yaml
         ...
 ```
 
@@ -60,7 +71,7 @@ manuel sert de support, avec référence de page.
   file: /media/demo/voiture-remorque.svg
   alt: "Illustration neutre d'une voiture tractant une remorque sur une route."
   caption: "Un véhicule de catégorie B attelé à une remorque."
-  kind: illustration # diagram | photo | illustration | scan
+  kind: illustration # diagram | photo | illustration | scan | sign
   width: 960
   height: 540
   rights: original # original | personal_use | licensed | public_domain
@@ -72,6 +83,7 @@ manuel sert de support, avec référence de page.
 Contraintes :
 
 - le fichier doit exister sous `public/` et être servi depuis `/media/...` ;
+- un média peut être déclaré dans `content/media.yaml` ou dans le `media.yaml` d'un chapitre ;
 - les images externes sont interdites dans les leçons ;
 - un SVG servi doit être un original du projet (`rights: original`) ;
 - un scan du manuel ne peut pas être publié sans droits explicites ;
@@ -86,6 +98,13 @@ order: 1
 title: "Chapitre 1 — Le permis B et le remorquage"
 summary: >-
   Résumé affiché dans la liste et le tableau de bord.
+units: # facultatif
+  - id: ch01-u1
+    slug: unites-de-base
+    order: 1
+    label: "1.1"
+    title: "Les unités de base"
+    summary: "Résumé facultatif de l'unité."
 sourceRefs:
   - documentId: official-category-b
 version: 1
@@ -95,6 +114,9 @@ reviewedBy: "Nom" # obligatoire si published
 reviewedAt: 2026-10-20T09:00:00Z # ISO 8601 UTC, obligatoire si published
 ```
 
+Lorsqu'un chapitre déclare des `units`, chaque leçon doit renseigner `unitId`. Un chapitre sans
+unité reste autorisé (les leçons sont alors listées à plat).
+
 ## Leçon
 
 Fichier Markdown avec front matter YAML :
@@ -103,6 +125,7 @@ Fichier Markdown avec front matter YAML :
 ---
 id: ch01-l01
 chapterId: ch01
+unitId: ch01-u1
 slug: le-permis-b-et-ses-limites
 order: 1
 title: "Le permis B et ses limites"
@@ -110,6 +133,18 @@ summary: "Résumé court."
 keyPoints:
   - "Point clé 1."
   - "Point clé 2."
+coreQuestionIds:
+  - ch01-q001
+  - ch01-q002
+  - ch01-q003
+  - ch01-q004
+sectionChecks: # facultatif
+  - section: les-categories
+    questionIds:
+      - ch01-q001
+  - section: les-limites
+    questionIds:
+      - ch01-q002
 sourceRefs:
   - documentId: official-category-b
 version: 1
@@ -119,10 +154,18 @@ origin: ai_assisted
 
 ## Titre
 
-Corps Markdown. Les images doivent pointer vers un fichier déclaré dans `content/media.yaml`.
+Corps Markdown. Les images doivent pointer vers un fichier déclaré dans `content/media.yaml` ou
+dans le `media.yaml` du chapitre.
 ```
 
-`keyPoints` contient 1 à 6 entrées. Le corps ne peut pas être vide.
+`keyPoints` contient 1 à 6 entrées. Le corps ne peut pas être vide. `coreQuestionIds` est
+facultatif, mais une leçon publiée doit déclarer **4 ou 5 questions cœur** appartenant à la leçon.
+
+Le parcours de leçon découpe le corps sur les titres `##` : le contenu avant le premier titre
+devient une section « Introduction ». Les titres `###` restent dans la section courante. Pour une
+leçon à parcours, `sectionChecks` place une ou deux questions cœur juste après une section, par son
+identifiant de slug (par exemple `les-categories`). Au moins une question cœur doit rester pour le
+quiz final. Les questions cœur restantes sont posées à la fin, dans l'ordre de `coreQuestionIds`.
 
 ## Question
 
@@ -138,6 +181,7 @@ options:
     label: "Réponse A"
   - id: b
     label: "Réponse B"
+    mediaId: demo-media-option # facultatif : option illustrée
   - id: c
     label: "Réponse C"
   - id: d
@@ -162,6 +206,8 @@ Contraintes :
 
 - 2 à 6 options, identifiants uniques ;
 - `correctOptionId` doit désigner une option existante ;
+- une option peut porter un `mediaId` déclaré dans un manifeste média ; elle affiche alors une
+  image au-dessus de son libellé ;
 - `lessonIds` doit référencer des leçons du même chapitre ;
 - `severity: severe` doit rester rare et justifié : la faute grave coûte 5 points dans le preset
   officiel ;
@@ -169,6 +215,42 @@ Contraintes :
 - l'explication doit expliquer la règle, pas seulement répéter la bonne réponse ;
 - les options sont mélangées à la création de la tentative : ne pas rédiger « la réponse A » dans
   l'explication.
+
+## Chapitre 1
+
+Le chapitre 1 couvre deux unités : `ch01-u1` (« Le permis B et ses limites ») et `ch01-u2`
+(« Tracter une remorque »). Il compte 6 leçons et 50 questions, toutes en `draft` et
+`ai_assisted` : 24 questions pour l'unité 1.1 et 26 pour l'unité 1.2. Chaque leçon déclare 4 ou
+5 questions cœur, deux vérifications de section et un quiz final ; le reste du pool alimente
+l'entraînement, le défi d'unité et l'examen de chapitre.
+
+Les faits sont tirés des pages 1 et 2 du manuel et recoupés avec les fiches officielles du SPF
+Mobilité sur les catégories B, AM et A1 et sur les remorques. Le chapitre doit être relu avant
+publication ; en particulier, la règle du speed pedelec avec un permis B définitif vient du
+manuel et demande une confirmation sur une source officielle.
+
+## Chapitre 2
+
+Le chapitre 2 couvre cinq unités : `ch02-u1` (« Les usagers et la réglementation »),
+`ch02-u2` (« Les signaux lumineux de circulation »), `ch02-u3` (« Les signaux routiers »),
+`ch02-u4` (« Le marquage au sol ») et `ch02-u5` (« L'ordre hiérarchique et les priorités »).
+Il compte 28 leçons et 224 questions, toutes en `draft` et
+`ai_assisted` : 56 questions pour 2.1, 48 pour 2.2, 64 pour 2.3, 32 pour 2.4 et 24 pour 2.5.
+Chaque leçon déclare
+4 questions cœur (par exemple `ch02-q001` à `ch02-q004` pour la première), deux vérifications de
+section et propose un parcours linéaire ; le reste du pool alimente l'entraînement du chapitre.
+
+Les faits du point 2.1 sont tirés des pages 10 à 16 du manuel et recoupés avec la synthèse des pages
+42 à 44. Ceux du point 2.2 viennent des pages 17 à 20 et sont vérifiés sur les articles 61 à 64 du
+règlement de 1975. Le point 2.3 s'appuie sur les pages 21 à 35 et les articles 65 à 71 ; le point
+2.4 sur les pages 36 à 40 et les articles 72 à 77. Le point 2.5 s'appuie sur la page 41, les
+articles 6 et 12 pour la hiérarchie et la priorité, et les fiches officielles des signaux B22, B23,
+C35 et E3. Les questions illustrées utilisent les SVG
+originaux de `public/media/ch02/`.
+
+Le nouveau Code de la voie publique n'entre en vigueur que le 1er juin 2027 : les règles de ce
+chapitre sont celles applicables à la date de consultation (20 octobre 2026). Le contenu doit être
+relu avant publication : aucun élément du chapitre n'est encore éligible à l'examen officiel.
 
 ## Preset d'examen
 
@@ -227,6 +309,12 @@ Le loader vérifie notamment :
 - interdiction des images externes dans les leçons ;
 - présence des fichiers sous `public/` ;
 - droits compatibles avec le type de média ;
+- `coreQuestionIds` : 4 ou 5 questions du chapitre, sans doublon, pour toute leçon publiée ;
+- unités : identifiants, slugs et ordres uniques, `unitId` obligatoire si le chapitre déclare des
+  unités ;
+- `sectionChecks` : section existante (slug dérivé du titre `##`), question cœur, pas de doublon,
+  au moins une question cœur restante pour la fin ;
+- médias d'options déclarés et résolus ;
 - pool d'examen suffisant (avertissement) ;
 - chapitre sans question (avertissement).
 
@@ -245,3 +333,15 @@ contenu :
 
 Toute commercialisation exigera des droits sur les contenus ou une réécriture entièrement
 originale.
+
+## Skill de production assistée
+
+Le pipeline de production est aussi encapsulé dans le skill projet
+[`.qoder/skills/produire-contenu-permis-b/SKILL.md`](../.qoder/skills/produire-contenu-permis-b/SKILL.md).
+Il sert à cadrer un lot, extraire et vérifier les faits, rédiger leçons et questions, produire les
+médias, puis valider avant livraison. Il ne publie jamais : il s'arrête à `draft` ou `in_review`.
+
+Ses références opérationnelles sont le contrat de contenu, le style éditorial, la vérification des
+sources et le pipeline média. Les gabarits de chapitre, leçon, question et média se trouvent dans
+`.qoder/skills/produire-contenu-permis-b/assets/templates/`. Les schémas Zod restent la source
+d'autorité ; le skill ne les remplace pas.

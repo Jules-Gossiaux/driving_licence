@@ -28,6 +28,10 @@ function createAttempt(
   options: {
     mode?: AttemptMode;
     startedAt?: string;
+    chapterId?: string | null;
+    presetId?: string | null;
+    unitId?: string | null;
+    lessonId?: string | null;
     secondsPerQuestion?: number | null;
     passingScore?: number | null;
     errorPenalty?: number | null;
@@ -41,8 +45,10 @@ function createAttempt(
     id,
     profileId: LOCAL_PROFILE_ID,
     mode,
-    presetId: isExam ? "preset-demo" : null,
-    chapterId: isExam ? null : "ch01",
+    presetId: options.presetId === undefined ? (isExam ? "preset-demo" : null) : options.presetId,
+    chapterId: options.chapterId === undefined ? (isExam ? null : "ch01") : options.chapterId,
+    unitId: options.unitId ?? null,
+    lessonId: options.lessonId ?? null,
     questionCount: questions.length,
     secondsPerQuestion: options.secondsPerQuestion ?? (isExam ? 15 : null),
     passingScore: options.passingScore ?? (isExam ? 2 : null),
@@ -206,6 +212,69 @@ describe("SqliteLearningRepository", () => {
       correctAnswers: 1,
       distinctQuestions: 2,
     });
+  });
+
+  it("retrouve le parcours actif d'une leçon et avance son étape", () => {
+    createAttempt("run-1", [q1, q2], { lessonId: "ch01-l01" });
+
+    expect(repository.getActiveLessonRun(LOCAL_PROFILE_ID, "ch01-l01")?.id).toBe("run-1");
+    expect(repository.getActiveLessonRun(LOCAL_PROFILE_ID, "ch01-l02")).toBeNull();
+
+    const initial = repository.getAttempt(LOCAL_PROFILE_ID, "run-1");
+    expect(initial).toMatchObject({ lessonId: "ch01-l01", lessonStep: 0 });
+
+    repository.setLessonStep(LOCAL_PROFILE_ID, "run-1", 3);
+    expect(repository.getAttempt(LOCAL_PROFILE_ID, "run-1")?.lessonStep).toBe(3);
+
+    repository.setLessonStep(LOCAL_PROFILE_ID, "run-1", 1);
+    expect(repository.getAttempt(LOCAL_PROFILE_ID, "run-1")?.lessonStep).toBe(3);
+
+    repository.completeAttempt({
+      attemptId: "run-1",
+      completedAt: "2026-10-19T10:05:00.000Z",
+      score: 2,
+      passed: null,
+      durationMs: 300_000,
+    });
+    expect(repository.getActiveLessonRun(LOCAL_PROFILE_ID, "ch01-l01")).toBeNull();
+  });
+
+  it("retrouve le dernier défi d'unité et le dernier examen de chapitre terminés", () => {
+    createAttempt("unit-1", [q1], { unitId: "ch01-u1" });
+    repository.completeAttempt({
+      attemptId: "unit-1",
+      completedAt: "2026-10-19T10:05:00.000Z",
+      score: 1,
+      passed: null,
+      durationMs: 60_000,
+    });
+
+    expect(repository.getLatestCompletedUnitChallenge(LOCAL_PROFILE_ID, "ch01-u1")).toMatchObject({
+      id: "unit-1",
+      unitId: "ch01-u1",
+      score: 1,
+    });
+    expect(repository.getLatestCompletedUnitChallenge(LOCAL_PROFILE_ID, "ch01-u2")).toBeNull();
+
+    createAttempt("exam-chapter", [q1], {
+      mode: "exam",
+      presetId: null,
+      chapterId: "ch01",
+    });
+    repository.completeAttempt({
+      attemptId: "exam-chapter",
+      completedAt: "2026-10-19T10:10:00.000Z",
+      score: 1,
+      passed: true,
+      durationMs: 60_000,
+    });
+
+    expect(repository.getLatestCompletedChapterExam(LOCAL_PROFILE_ID, "ch01")).toMatchObject({
+      id: "exam-chapter",
+      chapterId: "ch01",
+      passed: true,
+    });
+    expect(repository.getLatestCompletedChapterExam(LOCAL_PROFILE_ID, "ch02")).toBeNull();
   });
 
   it("gère la progression des leçons", () => {

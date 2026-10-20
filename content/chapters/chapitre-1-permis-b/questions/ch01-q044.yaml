@@ -1,0 +1,29 @@
+id: ch01-q044
+chapterId: ch01
+lessonIds:
+  - ch01-l06
+prompt: Une remorque de 600 kg de MMA forme un ensemble de 3 900 kg de MMA. Quel permis suffit ?
+options:
+  - id: a
+    label: Le permis B
+  - id: b
+    label: Le permis B avec le code 96
+  - id: c
+    label: Le permis BE
+  - id: d
+    label: Aucun des trois
+correctOptionId: a
+explanation: "La remorque ne dépasse pas 750 kg : le permis B suffit, même si l'ensemble atteint 3 900 kg. C'est la remorque légère qui prime."
+difficulty: hard
+severity: normal
+tags:
+  - remorque
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

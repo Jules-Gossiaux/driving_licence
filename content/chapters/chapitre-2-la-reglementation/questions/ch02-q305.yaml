@@ -1,0 +1,30 @@
+id: ch02-q305
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Une bande est délimitée par une ligne discontinue à traits plus rapprochés et plus longs, avec des feux au-dessus. Que devez-vous faire ?"
+options:
+  - id: a
+    label: "Vérifier les feux de bande et ne l'emprunter que si elle est ouverte."
+  - id: b
+    label: "L'utiliser librement, comme une bande de circulation ordinaire."
+  - id: c
+    label: "Y stationner si elle est vide."
+  - id: d
+    label: "La considérer comme une bande d'arrêt d'urgence."
+correctOptionId: a
+explanation: "Ce marquage délimite une bande réservée à certains véhicules. Son usage est réglé par les feux placés au-dessus ; elle ne s'emprunte que lorsqu'un signal l'ouvre."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - bande-reservee
+  - feux-de-bandes
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "articles 62bis et 72.7"
+version: 1
+status: draft
+origin: ai_assisted

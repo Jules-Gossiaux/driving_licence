@@ -1,0 +1,29 @@
+id: ch02-q035
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Que peut ordonner le procureur du Roi si l'ordre de paiement reste impayé ?
+options:
+  - id: a
+    label: Une suspension du droit de conduire
+  - id: b
+    label: Une peine de prison immédiate
+  - id: c
+    label: Le retrait définitif du permis par un juge
+  - id: d
+    label: Rien, l'ordre de paiement est la dernière étape
+correctOptionId: a
+explanation: Si l'ordre de paiement n'est toujours pas payé trois ans après sa délivrance, le procureur ordonne une suspension du droit de conduire.
+difficulty: medium
+severity: normal
+tags:
+  - sanctions
+  - suspension
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,29 @@
+id: ch02-q008
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: Une personne à mobilité réduite qui se déplace lentement en chaise roulante est considérée comme…
+options:
+  - id: a
+    label: un piéton
+  - id: b
+    label: un conducteur
+  - id: c
+    label: un passager
+  - id: d
+    label: un véhicule
+correctOptionId: a
+explanation: Les personnes à mobilité réduite qui avancent lentement en chaise roulante sont assimilées à des piétons.
+difficulty: easy
+severity: normal
+tags:
+  - pietons
+  - pmr
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

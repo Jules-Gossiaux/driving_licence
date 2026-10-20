@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Cinq lignes blanches et leur consigne</title>
+  <desc id="desc">Ligne continue, ligne discontinue, lignes juxtaposées, marquage provisoire orange et bande réservée avec ses feux.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="40" y="50" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Cinq lignes, cinq consignes</text>
+  <text x="40" y="78" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Le marquage longitudinal se lit avant la manœuvre.</text>
+
+  <g>
+    <rect x="40" y="100" width="380" height="68" rx="8" fill="#334155"/>
+    <line x1="230" y1="100" x2="230" y2="168" stroke="#f8fafc" stroke-width="5"/>
+    <text x="448" y="122" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Ligne continue</text>
+    <text x="448" y="145" font-family="Arial, sans-serif" font-size="13" fill="#475569">Ne pas franchir. Si elle sépare les sens, ne pas circuler à sa gauche.</text>
+  </g>
+
+  <g>
+    <rect x="40" y="182" width="380" height="68" rx="8" fill="#334155"/>
+    <line x1="230" y1="182" x2="230" y2="250" stroke="#f8fafc" stroke-width="5" stroke-dasharray="14 12"/>
+    <text x="448" y="204" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Ligne discontinue</text>
+    <text x="448" y="227" font-family="Arial, sans-serif" font-size="13" fill="#475569">Franchir seulement pour dépasser, tourner à gauche, faire demi-tour ou changer de bande.</text>
+  </g>
+
+  <g>
+    <rect x="40" y="264" width="380" height="68" rx="8" fill="#334155"/>
+    <line x1="220" y1="264" x2="220" y2="332" stroke="#f8fafc" stroke-width="5"/>
+    <line x1="244" y1="264" x2="244" y2="332" stroke="#f8fafc" stroke-width="5" stroke-dasharray="14 12"/>
+    <text x="448" y="286" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Lignes juxtaposées</text>
+    <text x="448" y="309" font-family="Arial, sans-serif" font-size="13" fill="#475569">Seule la ligne située de votre côté compte.</text>
+  </g>
+
+  <g>
+    <rect x="40" y="346" width="380" height="68" rx="8" fill="#334155"/>
+    <line x1="220" y1="346" x2="220" y2="414" stroke="#f8fafc" stroke-width="5"/>
+    <line x1="246" y1="346" x2="246" y2="414" stroke="#ea580c" stroke-width="5"/>
+    <text x="448" y="368" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Marquage provisoire orange</text>
+    <text x="448" y="391" font-family="Arial, sans-serif" font-size="13" fill="#475569">Même valeur que le blanc ; il remplace les lignes blanches au même endroit.</text>
+  </g>
+
+  <g>
+    <rect x="40" y="428" width="380" height="68" rx="8" fill="#334155"/>
+    <line x1="230" y1="428" x2="230" y2="496" stroke="#f8fafc" stroke-width="6" stroke-dasharray="28 10"/>
+    <rect x="344" y="438" width="34" height="30" rx="3" fill="#0f172a" stroke="#f8fafc" stroke-width="2"/>
+    <line x1="350" y1="447" x2="372" y2="459" stroke="#ef4444" stroke-width="4"/>
+    <line x1="372" y1="447" x2="350" y2="459" stroke="#ef4444" stroke-width="4"/>
+    <text x="448" y="450" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Bande réservée</text>
+    <text x="448" y="473" font-family="Arial, sans-serif" font-size="13" fill="#475569">Traits plus longs et rapprochés ; usage réglé par les feux de bande.</text>
+  </g>
+
+  <text x="40" y="524" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Schéma pédagogique — les proportions ne sont pas contractuelles.</text>
+</svg>

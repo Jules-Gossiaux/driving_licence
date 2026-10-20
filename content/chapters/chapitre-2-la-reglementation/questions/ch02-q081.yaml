@@ -1,0 +1,30 @@
+id: ch02-q081
+chapterId: ch02
+lessonIds:
+  - ch02-l11
+prompt: "Une flèche verte s'allume en même temps qu'un feu rouge. Que devez-vous faire ?"
+options:
+  - id: a
+    label: "Avancer uniquement dans la direction de la flèche, en cédant le passage aux autres directions et aux piétons"
+  - id: b
+    label: "Attendre le feu vert avant de bouger"
+  - id: c
+    label: "Avancer dans toutes les directions"
+  - id: d
+    label: "Klaxonner pour signaler votre passage"
+correctOptionId: a
+explanation: "Une flèche verte accompagnée d'un feu rouge autorise le franchissement uniquement dans sa direction. Vous devez céder le passage aux conducteurs venant régulièrement d'autres directions et aux piétons."
+difficulty: medium
+severity: severe
+tags:
+  - fleches-vertes
+  - priorite
+  - pietons
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 61.1.5"
+version: 1
+status: draft
+origin: ai_assisted

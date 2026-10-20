@@ -1,0 +1,30 @@
+id: ch02-q323
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "Vous êtes dans une bande portant une flèche de sélection vers la gauche. Pouvez-vous continuer tout droit au carrefour ?"
+options:
+  - id: a
+    label: "Non, vous devez suivre la ou l'une des directions indiquées par la bande."
+  - id: b
+    label: "Oui, toujours."
+  - id: c
+    label: "Oui, si vous mettez votre clignotant."
+  - id: d
+    label: "Oui, si aucun agent n'est présent."
+correctOptionId: a
+explanation: "Au carrefour, les conducteurs doivent suivre la ou l'une des directions indiquées sur la bande dans laquelle ils se trouvent. Le clignotant ne modifie pas cette obligation."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - fleches
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "article 77.1"
+version: 1
+status: draft
+origin: ai_assisted

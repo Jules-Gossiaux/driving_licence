@@ -1,0 +1,30 @@
+id: ch02-q096
+chapterId: ch02
+lessonIds:
+  - ch02-l12
+prompt: "Les deux feux rouges d'un passage à niveau clignotent alors que les barrières sont encore levées. Pouvez-vous franchir ?"
+options:
+  - id: a
+    label: "Non, les feux rouges l'interdisent"
+  - id: b
+    label: "Oui, tant que la barrière est levée"
+  - id: c
+    label: "Oui, si vous roulez vite"
+  - id: d
+    label: "Oui, la nuit"
+correctOptionId: a
+explanation: "Les feux rouges alternés interdisent le franchissement, même si les barrières sont levées. Le feu prime sur l'apparence de la voie."
+difficulty: hard
+severity: severe
+tags:
+  - clignotants
+  - passage-a-niveau
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 64.2"
+version: 1
+status: draft
+origin: ai_assisted

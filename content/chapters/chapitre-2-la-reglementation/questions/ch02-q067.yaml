@@ -1,0 +1,30 @@
+id: ch02-q067
+chapterId: ch02
+lessonIds:
+  - ch02-l09
+prompt: "La silhouette de bicyclette est allumée en vert. À qui s'adresse ce feu ?"
+options:
+  - id: a
+    label: "Aux cyclistes et aux cyclomoteurs à deux roues"
+  - id: b
+    label: "À tous les véhicules"
+  - id: c
+    label: "Aux piétons"
+  - id: d
+    label: "Aux trams"
+correctOptionId: a
+explanation: "La silhouette de bicyclette ne concerne que les cyclistes et les cyclomoteurs à deux roues (classes A et B). Les autres usagers obéissent à leurs propres signaux."
+difficulty: medium
+severity: normal
+tags:
+  - cyclistes
+  - feux
+  - signalisation-lumineuse
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1.6"
+version: 1
+status: draft
+origin: ai_assisted

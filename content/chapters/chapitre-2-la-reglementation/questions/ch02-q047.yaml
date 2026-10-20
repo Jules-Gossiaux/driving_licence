@@ -1,0 +1,32 @@
+id: ch02-q047
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Parmi ces situations, laquelle permet au juge de prononcer une déchéance possible, sans y être obligé ?
+options:
+  - id: a
+    label: La conduite sous influence
+  - id: b
+    label: Une seule infraction de 4e degré
+  - id: c
+    label: Un grand excès de vitesse
+  - id: d
+    label: Un délit de fuite aggravé avec blessures
+correctOptionId: a
+explanation: La conduite sous influence figure parmi les cas de déchéance possible. Une infraction de 4e degré, un grand excès de vitesse ou un délit de fuite aggravé imposent la déchéance.
+difficulty: medium
+severity: normal
+tags:
+  - permis
+  - decheance
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

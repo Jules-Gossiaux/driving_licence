@@ -1,0 +1,31 @@
+id: ch02-q162
+chapterId: ch02
+lessonIds:
+  - ch02-l21
+prompt: "Que signifie le panneau M2 placé sous un panneau d'interdiction ?"
+options:
+  - id: a
+    label: "L'interdiction s'applique seulement aux cyclistes"
+  - id: b
+    label: "La piste cyclable est obligatoire"
+  - id: c
+    label: "Le stationnement des vélos est interdit"
+  - id: d
+    label: "L'interdiction ne s'applique pas aux cyclistes"
+correctOptionId: d
+explanation: "M2 excepte les cyclistes de l'interdiction du panneau principal. Il ne rend pas la piste cyclable obligatoire et ne concerne pas le stationnement des vélos. Le panneau additionnel précise la portée du panneau qu'il accompagne."
+mediaId: ch02-panneau-m2
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - panneaux-additionnels
+  - cyclistes
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 27
+  - documentId: official-signaux-routiers
+    locator: "articles 22bis et 71"
+version: 1
+status: draft
+origin: ai_assisted

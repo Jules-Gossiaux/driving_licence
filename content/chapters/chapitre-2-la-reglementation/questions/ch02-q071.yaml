@@ -1,0 +1,30 @@
+id: ch02-q071
+chapterId: ch02
+lessonIds:
+  - ch02-l09
+prompt: "Une flèche jaune-orange fixe s'allume. Que signifie-t-elle ?"
+options:
+  - id: a
+    label: "L'interdiction de franchir dans la direction indiquée, sauf si vous êtes trop près pour vous arrêter sans danger"
+  - id: b
+    label: "L'autorisation de franchir dans toutes les directions"
+  - id: c
+    label: "L'obligation de tourner dans la direction indiquée"
+  - id: d
+    label: "Un feu réservé aux piétons"
+correctOptionId: a
+explanation: "Une flèche jaune-orange a la même signification que le feu jaune-orange, mais seulement pour la direction indiquée : arrêt, sauf impossibilité de s'arrêter dans des conditions de sécurité suffisantes."
+difficulty: hard
+severity: normal
+tags:
+  - fleches
+  - orange
+  - feux
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "articles 61.1.2 et 61.1.4"
+version: 1
+status: draft
+origin: ai_assisted

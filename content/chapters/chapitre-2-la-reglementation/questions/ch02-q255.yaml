@@ -1,0 +1,31 @@
+id: ch02-q255
+chapterId: ch02
+lessonIds:
+  - ch02-l33
+prompt: "Un panneau E3 est placé d'un côté de la chaussée. Où s'applique l'interdiction ?"
+options:
+  - id: a
+    label: "Des deux côtés de la chaussée."
+  - id: b
+    label: "Uniquement sur le trottoir."
+  - id: c
+    label: "Du côté où le panneau est placé."
+  - id: d
+    label: "Uniquement à l'endroit exact du panneau."
+correctOptionId: c
+explanation: "Le E3 s'applique du côté de la chaussée où le panneau est placé, à partir de celui-ci. Une inscription peut en limiter les heures."
+difficulty: medium
+severity: normal
+examEligible: true
+mediaId: ch02-signal-e3
+tags:
+  - e3
+  - stationnement
+  - portee
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: securotheque-e3
+version: 1
+status: draft
+origin: ai_assisted

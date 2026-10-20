@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { submitExamAnswerAction } from "@/app/actions";
 import type { ExamSessionView } from "@/application/exam";
+import { OptionContent } from "./option-content";
 
 function optionLetter(index: number): string {
   return String.fromCharCode(65 + index);
@@ -147,7 +148,7 @@ export function ExamRunner({ session }: { session: ExamSessionView }) {
                 >
                   {optionLetter(index)}
                 </span>
-                <span>{option.label}</span>
+                <OptionContent option={option} inverted={selected === option.id} />
               </button>
             ))}
           </div>

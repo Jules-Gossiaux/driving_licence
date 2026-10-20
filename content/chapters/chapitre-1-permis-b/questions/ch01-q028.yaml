@@ -1,0 +1,28 @@
+id: ch01-q028
+chapterId: ch01
+lessonIds:
+  - ch01-l02
+prompt: Vous tractez une remorque de 700 kg de MMA. La MMA de l'ensemble est de 4 200 kg. Quel permis suffit ?
+options:
+  - id: a
+    label: Le permis B
+  - id: b
+    label: Le permis B avec le code 96
+  - id: c
+    label: Le permis BE
+  - id: d
+    label: Le permis C
+correctOptionId: a
+explanation: La remorque ne dépasse pas 750 kg de MMA. Le permis B suffit donc, même si l'ensemble dépasse 3 500 kg.
+difficulty: medium
+severity: normal
+tags:
+  - remorque
+  - categories
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+version: 1
+status: draft
+origin: ai_assisted

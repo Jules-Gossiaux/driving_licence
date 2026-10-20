@@ -1,0 +1,28 @@
+id: ch01-q015
+chapterId: ch01
+lessonIds:
+  - ch01-l03
+prompt: Un véhicule a une MMA de 3 800 kg. Il circule à vide et pèse 2 900 kg sur la balance. Peut-on le conduire avec le permis B ?
+options:
+  - id: a
+    label: Non, car sa MMA dépasse 3 500 kg
+  - id: b
+    label: Oui, car son poids réel est inférieur à 3 500 kg
+  - id: c
+    label: Oui, à condition de rouler à vide
+  - id: d
+    label: Oui, avec le code 96
+correctOptionId: a
+explanation: La catégorie B se décide sur la MMA, pas sur le poids réel. Un véhicule de 3 800 kg de MMA reste hors catégorie B même lorsqu'il est vide.
+difficulty: medium
+severity: normal
+tags:
+  - mma
+  - categories
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

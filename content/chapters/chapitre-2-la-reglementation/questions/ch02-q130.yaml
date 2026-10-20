@@ -1,0 +1,30 @@
+id: ch02-q130
+chapterId: ch02
+lessonIds:
+  - ch02-l17
+prompt: "Que signifie le panneau D3 ?"
+options:
+  - id: a
+    label: "Il impose de suivre l'une des directions indiquées par les flèches"
+  - id: b
+    label: "Il impose de suivre toutes les directions"
+  - id: c
+    label: "Il impose de tourner à droite uniquement"
+  - id: d
+    label: "Il impose de s'arrêter"
+correctOptionId: a
+explanation: "D3 impose de suivre l'une des directions représentées par les flèches. Le conducteur choisit celle qui correspond à son itinéraire, mais ne peut pas aller dans une direction non indiquée."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - obligation
+  - direction
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 28
+  - documentId: official-signaux-routiers
+    locator: "article 68"
+version: 1
+status: draft
+origin: ai_assisted

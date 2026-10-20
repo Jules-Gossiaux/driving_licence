@@ -1,0 +1,30 @@
+id: ch02-q157
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "Que délimitent F111 et F113 ?"
+options:
+  - id: a
+    label: "Une piste cyclable obligatoire"
+  - id: b
+    label: "Une zone piétonne"
+  - id: c
+    label: "Une zone cyclable"
+  - id: d
+    label: "Une autoroute"
+correctOptionId: c
+explanation: "F111 délimite une zone cyclable et F113 en marque la fin. Il ne faut pas la confondre avec D7, qui impose une piste cyclable. La zone cyclable est un espace délimité par des panneaux d'entrée et de fin, avec ses propres règles de circulation."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - zones
+  - cyclistes
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 33
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

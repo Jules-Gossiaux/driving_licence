@@ -1,50 +1,79 @@
 ---
 id: ch01-l01
 chapterId: ch01
+unitId: ch01-u1
 slug: le-permis-b-et-ses-limites
 order: 1
 title: "Le permis B et ses limites"
-summary: "Ce que la catégorie B autorise à conduire, et les deux plafonds à retenir : 3 500 kg et 8 passagers."
+summary: "Deux plafonds à retenir : 3 500 kg de MMA et 8 passagers en plus du conducteur."
 keyPoints:
-  - "Le permis B couvre les véhicules dont la masse maximale autorisée (MMA) ne dépasse pas 3 500 kg."
-  - "Un véhicule de catégorie B transporte au maximum 8 passagers, en plus du conducteur."
-  - "La MMA est une limite technique et légale : elle ne doit jamais être dépassée, même ponctuellement."
+  - "Le permis B couvre les véhicules de transport de personnes ou de choses dont la MMA ne dépasse pas 3 500 kg."
+  - "Un véhicule de catégorie B transporte au maximum 8 passagers en plus du conducteur, soit 9 personnes à bord."
+  - "Les deux limites sont indépendantes : il faut respecter à la fois la MMA et le nombre de passagers."
+  - "La catégorie dépend de la MMA, pas de la masse réelle du véhicule au moment du trajet."
+coreQuestionIds:
+  - ch01-q001
+  - ch01-q002
+  - ch01-q006
+  - ch01-q007
+  - ch01-q008
+sectionChecks:
+  - section: le-plafond-de-3-500-kg
+    questionIds:
+      - ch01-q001
+  - section: huit-passagers-en-plus-du-conducteur
+    questionIds:
+      - ch01-q002
 sourceRefs:
   - documentId: feu-vert-chap1
     page: 1
   - documentId: official-category-b
-version: 1
+version: 2
 status: draft
 origin: ai_assisted
 ---
 
-## Ce que permet la catégorie B
+Le permis B est souvent résumé à « la voiture ». En réalité, il couvre deux
+grandes familles de véhicules et fixe deux plafonds indépendants. Les confondre
+est l'une des erreurs les plus fréquentes à l'examen.
 
-Le permis B est le permis de la voiture. Il autorise la conduite d'un véhicule de
-transport de personnes ou de choses dont la **masse maximale autorisée (MMA)** ne
-dépasse pas **3 500 kg**.
+## Un permis pour les personnes et les marchandises
 
-Un véhicule de catégorie B peut accueillir au maximum **8 passagers en plus du
-conducteur**, soit 9 personnes à bord au total.
+La catégorie B concerne les véhicules de **transport de personnes** : voiture,
+minibus, break. Elle concerne aussi les véhicules de **transport de choses** :
+camionnette, fourgon, véhicule utilitaire léger.
 
-> **À retenir** — 3 500 kg pour le véhicule, 8 passagers en plus du conducteur.
-> Ces deux limites sont indépendantes : un véhicule léger mais conçu pour trop de
-> passagers ne relève pas de la catégorie B.
+Dans les deux cas, la même condition s'applique : la **masse maximale autorisée
+(MMA)** du véhicule ne doit pas dépasser **3 500 kg**. Le nombre de places assises
+et la carrosserie ne changent pas cette limite.
 
-## Comprendre la MMA
+## Le plafond de 3 500 kg
 
-La MMA est la masse maximale que le véhicule peut atteindre en charge, passagers
-et chargement compris. Elle est fixée par le constructeur et figure sur les
-documents du véhicule.
+La MMA est une caractéristique du véhicule, fixée par le constructeur et reprise
+sur ses documents. Elle représente la masse maximale que le véhicule peut
+atteindre en charge, passagers et chargement compris.
 
-Ne confonds pas :
+Un véhicule dont la MMA est de 3 500 kg reste donc dans la catégorie B, même s'il
+est vide au moment du trajet. À l'inverse, un véhicule dont la MMA est de
+3 600 kg n'entre pas dans la catégorie B, même si son poids réel est inférieur à
+3 500 kg ce jour-là.
 
-- la **masse à vide**, qui est la masse du véhicule prêt à rouler mais sans
-  chargement utile ;
-- la **MMA**, qui est la limite absolue à ne jamais dépasser.
+> **Piège d'examen** — La catégorie se décide sur la **MMA**, pas sur la balance.
+> Un véhicule lourd à vide mais immatriculé sous 3 500 kg de MMA reste un
+> véhicule B.
 
-## Et la remorque ?
+## Huit passagers en plus du conducteur
 
-Le permis B permet aussi de tracter une remorque légère. Les règles combinent la
-MMA de la remorque et celle de l'ensemble : elles sont détaillées dans la leçon
-suivante.
+Le second plafond concerne les personnes transportées. Un véhicule de catégorie
+B accueille au maximum **8 passagers en plus du conducteur**, soit **9 personnes
+à bord au total**.
+
+Cette limite est indépendante de la MMA. Un minibus léger mais conçu pour
+9 passagers ne relève pas de la catégorie B, même si sa MMA est inférieure à
+3 500 kg. Il faut donc toujours vérifier les deux critères.
+
+## À retenir
+
+Pour savoir si un véhicule relève du permis B, posez deux questions : sa MMA
+dépasse-t-elle 3 500 kg ? Peut-il transporter plus de 8 passagers en plus du
+conducteur ? Si l'une des réponses est oui, le permis B ne suffit pas.

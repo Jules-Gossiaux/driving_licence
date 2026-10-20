@@ -1,0 +1,34 @@
+# Gabarit de média. Déclarer dans content/media.yaml ou dans le media.yaml du chapitre.
+# Le fichier doit exister sous public/media/ et les dimensions doivent être celles du fichier réel.
+- id: chxx-panneau-exemple
+  file: /media/chxx/panneau-exemple.svg
+  alt: "Description de l'information utile, sans révéler la réponse."
+  caption: "Légende facultative."
+  kind: sign # diagram | photo | illustration | scan | sign
+  width: 480
+  height: 480
+  rights: original # un SVG servi doit être original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: source-a-declarer
+      page: 1
+
+- id: chxx-scene-exemple
+  file: /media/chxx/scene-exemple.png
+  alt: >-
+    Description de la situation de conduite : point de vue, voie, usagers et éléments utiles à la
+    question.
+  kind: photo
+  width: 1536
+  height: 1024
+  rights: original
+  credit: "Projet Permis B — scène générée et vérifiée"
+  sourceRefs:
+    - documentId: source-a-declarer
+      page: 1
+  generator:
+    tool: "Outil de génération d'images"
+    prompt: >-
+      Brief complet : point de vue, route, voies, usagers, météo, absence de texte, de logo, de
+      plaque et de panneau généré.
+    generatedAt: 2026-10-20T00:00:00Z

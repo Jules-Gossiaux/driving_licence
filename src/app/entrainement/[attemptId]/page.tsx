@@ -32,8 +32,8 @@ export default async function TrainingPage({ params }: PageProps) {
     <div>
       <PracticeRunner
         attemptId={session.attemptId}
+        eyebrow={session.eyebrow}
         title={session.title}
-        mode={session.mode}
         questions={session.questions}
         initialPosition={session.initialPosition}
       />

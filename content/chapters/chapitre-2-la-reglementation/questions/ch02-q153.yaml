@@ -1,0 +1,31 @@
+id: ch02-q153
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "Que délimite le panneau F4a ?"
+options:
+  - id: a
+    label: "Une zone à 30 km/h"
+  - id: b
+    label: "Une zone piétonne"
+  - id: c
+    label: "Une zone résidentielle à 20 km/h"
+  - id: d
+    label: "Une autoroute"
+correctOptionId: a
+explanation: "F4a délimite une zone à 30 km/h. La limitation s'applique dans toute la zone jusqu'au signal de fin F4b. Elle ne se confond pas avec C43, qui limite la vitesse sur une voie jusqu'au prochain carrefour."
+mediaId: ch02-panneau-f4a
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - zones
+  - vitesse
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

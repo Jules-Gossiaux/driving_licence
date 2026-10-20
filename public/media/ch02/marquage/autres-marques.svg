@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Inscriptions, îlot directionnel et emplacements de stationnement</title>
+  <desc id="desc">Trois cartes présentant les inscriptions blanches qui rappellent un panneau, un îlot directionnel hachuré interdit à la circulation, et des emplacements de stationnement délimités.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="32" y="52" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Trois autres repères peints</text>
+  <text x="32" y="80" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Ils rappellent une règle, interdisent une surface ou organisent le stationnement.</text>
+
+  <g>
+    <rect x="32" y="104" width="288" height="400" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="56" y="140" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Inscriptions</text>
+    <rect x="56" y="160" width="240" height="250" rx="10" fill="#334155"/>
+    <text x="72" y="232" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#f8fafc">STOP</text>
+    <g fill="#f8fafc">
+      <rect x="204" y="300" width="56" height="12"/>
+      <polygon points="260,288 282,306 260,324"/>
+    </g>
+    <text x="56" y="438" font-family="Arial, sans-serif" font-size="13" fill="#475569">Elles répètent un panneau ou</text>
+    <text x="56" y="458" font-family="Arial, sans-serif" font-size="13" fill="#475569">précisent la direction d'une bande.</text>
+  </g>
+
+  <g>
+    <rect x="336" y="104" width="288" height="400" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="360" y="140" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Îlot directionnel</text>
+    <rect x="360" y="160" width="240" height="250" rx="10" fill="#334155"/>
+    <polygon points="480,180 548,360 412,360" fill="#f8fafc"/>
+    <g stroke="#334155" stroke-width="7">
+      <line x1="480" y1="206" x2="432" y2="344"/>
+      <line x1="480" y1="230" x2="446" y2="330"/>
+      <line x1="480" y1="254" x2="460" y2="316"/>
+      <line x1="480" y1="278" x2="474" y2="302"/>
+    </g>
+    <text x="360" y="438" font-family="Arial, sans-serif" font-size="13" fill="#475569">Interdit d'y circuler, de s'y arrêter</text>
+    <text x="360" y="458" font-family="Arial, sans-serif" font-size="13" fill="#475569">et d'y stationner.</text>
+  </g>
+
+  <g>
+    <rect x="640" y="104" width="288" height="400" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="664" y="140" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Stationnement</text>
+    <rect x="664" y="160" width="240" height="250" rx="10" fill="#334155"/>
+    <g stroke="#f8fafc" stroke-width="4">
+      <line x1="688" y1="190" x2="880" y2="190"/>
+      <line x1="688" y1="250" x2="880" y2="250"/>
+      <line x1="688" y1="310" x2="880" y2="310"/>
+      <line x1="688" y1="370" x2="880" y2="370"/>
+      <line x1="688" y1="190" x2="688" y2="370"/>
+      <line x1="784" y1="190" x2="784" y2="370"/>
+    </g>
+    <rect x="708" y="208" width="56" height="28" rx="6" fill="#94a3b8"/>
+    <rect x="804" y="268" width="56" height="28" rx="6" fill="#94a3b8"/>
+    <text x="664" y="438" font-family="Arial, sans-serif" font-size="13" fill="#475569">Les véhicules occupent les</text>
+    <text x="664" y="458" font-family="Arial, sans-serif" font-size="13" fill="#475569">emplacements délimités.</text>
+  </g>
+</svg>

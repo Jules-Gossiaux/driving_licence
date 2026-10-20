@@ -1,0 +1,30 @@
+id: ch02-q072
+chapterId: ch02
+lessonIds:
+  - ch02-l09
+prompt: "La silhouette de bicyclette entourée de flèches est allumée en rouge. Que signifie-t-elle ?"
+options:
+  - id: a
+    label: "L'interdiction pour les cyclistes et cyclomoteurs à deux roues d'emprunter la piste cyclable dans les directions concernées"
+  - id: b
+    label: "L'interdiction pour tous les véhicules de circuler"
+  - id: c
+    label: "L'autorisation pour les cyclistes de passer dans toutes les directions"
+  - id: d
+    label: "Un feu en panne"
+correctOptionId: a
+explanation: "Ce signal est réservé aux cyclistes et aux cyclomoteurs à deux roues autorisés sur la piste cyclable. Allumé en rouge, il leur interdit le passage dans les directions concernées."
+difficulty: hard
+severity: normal
+tags:
+  - cyclistes
+  - feux
+  - signalisation-lumineuse
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 61.1.7"
+version: 1
+status: draft
+origin: ai_assisted

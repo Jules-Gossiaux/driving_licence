@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau C43 — vitesse limitée à 50 km/h</title>
+  <desc id="description">Anneau rouge avec la mention 50 km : la vitesse est limitée à 50 km/h jusqu'au prochain carrefour ou jusqu'à un autre signal.</desc>
+  <circle cx="240" cy="240" r="171" fill="#ffffff" stroke="#d21f2b" stroke-width="38"/>
+  <text x="240" y="276" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="132" font-weight="700" fill="#111827">50</text>
+  <text x="240" y="322" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#111827">km</text>
+</svg>

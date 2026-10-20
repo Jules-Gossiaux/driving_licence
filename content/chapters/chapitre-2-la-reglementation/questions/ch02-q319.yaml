@@ -1,0 +1,29 @@
+id: ch02-q319
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "Comment reconnaître un passage pour piétons ?"
+options:
+  - id: a
+    label: "Par des bandes blanches parallèles à l'axe de la chaussée."
+  - id: b
+    label: "Par deux lignes discontinues faites de carrés."
+  - id: c
+    label: "Par une ligne continue unique en travers de la chaussée."
+  - id: d
+    label: "Par un damier de carrés blancs."
+correctOptionId: a
+explanation: "Le passage pour piétons est délimité par des bandes blanches parallèles à l'axe de la chaussée. Approchez-vous à allure réduite et cédez le passage aux piétons."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - passage-pietons
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "article 76.3"
+version: 1
+status: draft
+origin: ai_assisted

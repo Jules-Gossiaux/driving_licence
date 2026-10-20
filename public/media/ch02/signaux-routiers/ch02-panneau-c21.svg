@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau C21 — masse limitée à 5 tonnes</title>
+  <desc id="description">Anneau rouge avec la mention 5 t : l'accès est interdit aux véhicules dont la masse en charge dépasse 5 tonnes.</desc>
+  <circle cx="240" cy="240" r="171" fill="#ffffff" stroke="#d21f2b" stroke-width="38"/>
+  <text x="240" y="296" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="138" font-weight="700" fill="#111827">5<tspan font-size="64" dy="-54"> t</tspan></text>
+</svg>

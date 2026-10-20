@@ -1,0 +1,29 @@
+id: ch02-q012
+chapterId: ch02
+lessonIds:
+  - ch02-l02
+prompt: Les règles de circulation s'appliquent-elles sur le parking d'une grande surface ?
+options:
+  - id: a
+    label: Oui, car ce parking est assimilé à la voie publique.
+  - id: b
+    label: Non, car c'est toujours un lieu privé sans règles.
+  - id: c
+    label: Oui, mais uniquement pour les piétons.
+  - id: d
+    label: Non, sauf la nuit.
+correctOptionId: a
+explanation: Un parking de grande surface est seulement assimilé à la voie publique. Les règles de circulation y sont applicables, même si ce n'est pas une voie publique au sens strict.
+difficulty: medium
+severity: normal
+tags:
+  - voie-publique
+  - parking
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 11
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

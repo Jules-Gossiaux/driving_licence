@@ -1,0 +1,30 @@
+id: ch02-q159
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "Comment se comportent les signaux de service F53 à F77 ?"
+options:
+  - id: a
+    label: "Ils imposent de s'arrêter"
+  - id: b
+    label: "Ils donnent la priorité"
+  - id: c
+    label: "Ils interdisent l'accès"
+  - id: d
+    label: "Ils informent sans imposer de s'arrêter"
+correctOptionId: d
+explanation: "Les signaux de service indiquent la présence d'un équipement utile : hôpital, secours, parking, station-service, hôtel ou restaurant. Ils informent le conducteur, mais ne l'obligent pas à s'arrêter et ne modifient pas la priorité."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - services
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 33
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

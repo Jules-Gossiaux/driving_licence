@@ -1,0 +1,28 @@
+id: ch01-q011
+chapterId: ch01
+lessonIds:
+  - ch01-l01
+prompt: Un véhicule de transport de marchandises a une MMA de 3 600 kg. Peut-on le conduire avec le permis B ?
+options:
+  - id: a
+    label: Non, car sa MMA dépasse 3 500 kg
+  - id: b
+    label: Oui, car il est vide
+  - id: c
+    label: Oui, avec le code 96
+  - id: d
+    label: Oui, si le chargement reste sous 3 500 kg
+correctOptionId: a
+explanation: La catégorie B s'apprécie sur la MMA du véhicule, fixée à 3 600 kg. Le poids réel ou le chargement du jour ne change pas la catégorie.
+difficulty: medium
+severity: normal
+tags:
+  - masses
+  - categories
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

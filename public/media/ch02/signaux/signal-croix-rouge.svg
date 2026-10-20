@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre croix">
+  <title id="titre">Croix rouge d'une bande de circulation</title>
+  <desc id="croix">Un signal carré noir avec une grande croix rouge, qui interdit le sens sur la bande.</desc>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <rect x="80" y="80" width="320" height="320" rx="28" fill="#1f2937"/>
+  <rect x="100" y="100" width="280" height="280" rx="18" fill="#111827"/>
+  <g stroke="#dc2626" stroke-width="46" stroke-linecap="round">
+    <path d="M150 150l180 180"/>
+    <path d="M330 150l-180 180"/>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+id: ch02-q044
+chapterId: ch02
+lessonIds:
+  - ch02-l06
+prompt: Un conducteur détient son permis B depuis moins de deux ans. Il commet une infraction pouvant donner lieu à une déchéance avec un véhicule à moteur. Que prévoit la loi ?
+options:
+  - id: a
+    label: La déchéance est obligatoire.
+  - id: b
+    label: La déchéance est seulement possible.
+  - id: c
+    label: Il reçoit un simple avertissement.
+  - id: d
+    label: Seule une amende est prévue.
+correctOptionId: a
+explanation: La déchéance obligatoire pour les conducteurs débutants vise les détenteurs d'un permis B délivré depuis moins de deux ans qui commettent une infraction pouvant donner lieu à une déchéance, avec un véhicule à moteur.
+difficulty: medium
+severity: normal
+tags:
+  - permis
+  - decheance
+  - debutant
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 15
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

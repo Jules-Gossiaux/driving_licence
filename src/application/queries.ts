@@ -1,20 +1,31 @@
 import { countPublishedExamQuestions } from "@/domain/content/catalog";
+import { splitLessonSections } from "@/domain/content/sections";
 import { AttemptConflictError, AttemptNotFoundError } from "@/domain/learning/errors";
+import {
+  CHAPTER_EXAM,
+  UNIT_CHALLENGE_QUESTION_COUNT,
+  isChapterExamUnlocked,
+  isUnitChallengeUnlocked,
+} from "@/domain/learning/progression";
 import type { Attempt, AttemptSummary } from "@/domain/learning/types";
 import { LOCAL_PROFILE_ID } from "@/domain/profile";
 import {
   listChapterOverviews,
   listExamPresetOverviews,
   resolveMedia,
+  resolveOptionViews,
   resolveSourceLabels,
   toLessonSummary,
   type AppDependencies,
   type ChapterDetail,
   type ChapterOverview,
   type ExamPresetOverview,
+  type LatestAttemptResult,
   type LessonDetail,
   type QuestionMediaView,
+  type QuestionOptionView,
   type SourceLabel,
+  type UnitOverview,
 } from "./content-views";
 import { ContentNotFoundError } from "./errors";
 import type { LearningStats } from "@/domain/learning/types";
@@ -23,6 +34,7 @@ export type RecentAttemptView = {
   id: string;
   title: string;
   mode: AttemptSummary["mode"];
+  kind: AttemptSummary["mode"] | "lesson" | "unit" | "chapter-exam";
   completedAt: string | null;
   score: number | null;
   questionCount: number;
@@ -55,7 +67,7 @@ export type ReviewItem = {
   chapterTitle: string;
   lessonTitles: string[];
   prompt: string;
-  options: Array<{ id: string; label: string }>;
+  options: QuestionOptionView[];
   correctOptionId: string;
   explanation: string;
   media: QuestionMediaView | null;
@@ -66,7 +78,7 @@ export type ResultQuestion = {
   position: number;
   questionId: string;
   prompt: string;
-  options: Array<{ id: string; label: string }>;
+  options: QuestionOptionView[];
   selectedOptionId: string | null;
   correctOptionId: string;
   isCorrect: boolean;
@@ -81,6 +93,7 @@ export type ResultQuestion = {
 export type AttemptResultView = {
   attemptId: string;
   mode: Attempt["mode"];
+  kind: Attempt["mode"] | "lesson" | "unit" | "chapter-exam";
   title: string;
   completedAt: string;
   questionCount: number;
@@ -102,17 +115,55 @@ export type AttemptResultLookup =
 
 function attemptTitle(
   deps: AppDependencies,
-  attempt: Pick<Attempt, "presetId" | "chapterId" | "mode">,
+  attempt: Pick<Attempt, "presetId" | "chapterId" | "unitId" | "mode" | "lessonId">,
 ): string {
+  if (attempt.lessonId) {
+    return deps.catalog.lessonById.get(attempt.lessonId)?.lesson.title ?? "Leçon";
+  }
+  if (attempt.unitId) {
+    const unit = deps.catalog.chapterById
+      .get(attempt.chapterId ?? "")
+      ?.chapter.units?.find((candidate) => candidate.id === attempt.unitId);
+    return unit ? `Défi ${unit.label} — ${unit.title}` : "Défi d'unité";
+  }
   if (attempt.presetId) {
     return deps.catalog.presetById.get(attempt.presetId)?.title ?? "Examen blanc";
   }
   if (attempt.chapterId) {
-    return (
-      deps.catalog.chapterById.get(attempt.chapterId)?.chapter.title ?? "Entraînement par chapitre"
-    );
+    const chapterTitle =
+      deps.catalog.chapterById.get(attempt.chapterId)?.chapter.title ?? "Entraînement par chapitre";
+    return attempt.mode === "exam" ? `Examen · ${chapterTitle}` : chapterTitle;
   }
   return attempt.mode === "review" ? "Révision des erreurs" : "Entraînement";
+}
+
+function attemptKind(
+  attempt: Pick<Attempt, "lessonId" | "unitId" | "mode" | "presetId" | "chapterId">,
+) {
+  if (attempt.lessonId) {
+    return "lesson" as const;
+  }
+  if (attempt.unitId) {
+    return "unit" as const;
+  }
+  if (attempt.mode === "exam" && attempt.presetId === null && attempt.chapterId) {
+    return "chapter-exam" as const;
+  }
+  return attempt.mode;
+}
+
+function toLatestAttemptResult(attempt: AttemptSummary | null): LatestAttemptResult | null {
+  if (!attempt || attempt.score === null) {
+    return null;
+  }
+
+  return {
+    attemptId: attempt.id,
+    score: attempt.score,
+    questionCount: attempt.questionCount,
+    passed: attempt.passed,
+    completedAt: attempt.completedAt,
+  };
 }
 
 function toRecentAttempt(deps: AppDependencies, attempt: AttemptSummary): RecentAttemptView {
@@ -120,6 +171,7 @@ function toRecentAttempt(deps: AppDependencies, attempt: AttemptSummary): Recent
     id: attempt.id,
     title: attemptTitle(deps, attempt),
     mode: attempt.mode,
+    kind: attemptKind(attempt),
     completedAt: attempt.completedAt,
     score: attempt.score,
     questionCount: attempt.questionCount,
@@ -190,11 +242,73 @@ export function getChapterDetail(deps: AppDependencies, slug: string): ChapterDe
     throw new ContentNotFoundError(`chapitre ${slug}`);
   }
 
+  let encounteredUnread = false;
+  const lessons = entry.lessons.map((lesson) => {
+    const readAt = readByLesson.get(lesson.id) ?? null;
+    const locked = readAt === null && encounteredUnread;
+
+    if (readAt === null) {
+      encounteredUnread = true;
+    }
+
+    return toLessonSummary(lesson, readAt, locked);
+  });
+
+  const units: UnitOverview[] = [...(entry.chapter.units ?? [])]
+    .sort((left, right) => left.order - right.order)
+    .map((unit) => {
+      const unitLessons = lessons.filter((lesson) => lesson.unitId === unit.id);
+      const readLessonCount = unitLessons.filter((lesson) => lesson.readAt !== null).length;
+      const unitLessonIds = new Set(unitLessons.map((lesson) => lesson.id));
+      const availableQuestions = entry.questions.filter((question) =>
+        question.lessonIds.some((lessonId) => unitLessonIds.has(lessonId)),
+      ).length;
+
+      return {
+        id: unit.id,
+        slug: unit.slug,
+        label: unit.label,
+        title: unit.title,
+        summary: unit.summary ?? null,
+        order: unit.order,
+        lessonCount: unitLessons.length,
+        readLessonCount,
+        lessons: unitLessons,
+        challenge: {
+          questionCount: Math.min(availableQuestions, UNIT_CHALLENGE_QUESTION_COUNT),
+          availableQuestions,
+          unlocked: isUnitChallengeUnlocked(unitLessons.length, readLessonCount),
+          latestCompleted: toLatestAttemptResult(
+            deps.repository.getLatestCompletedUnitChallenge(LOCAL_PROFILE_ID, unit.id),
+          ),
+        },
+      };
+    });
+
+  const availableExamQuestions = entry.questions.filter((question) => question.examEligible).length;
+  const exam =
+    (entry.chapter.units?.length ?? 0) > 0
+      ? {
+          questionCount: CHAPTER_EXAM.questionCount,
+          secondsPerQuestion: CHAPTER_EXAM.secondsPerQuestion,
+          passingScore: CHAPTER_EXAM.passingScore,
+          availableQuestions: availableExamQuestions,
+          unlocked: isChapterExamUnlocked({
+            lessonCount: entry.lessons.length,
+            readLessonCount: overview.readLessonCount,
+            availableQuestions: availableExamQuestions,
+          }),
+          latestCompleted: toLatestAttemptResult(
+            deps.repository.getLatestCompletedChapterExam(LOCAL_PROFILE_ID, entry.chapter.id),
+          ),
+        }
+      : null;
+
   return {
     ...overview,
-    lessons: entry.lessons.map((lesson) =>
-      toLessonSummary(lesson, readByLesson.get(lesson.id) ?? null),
-    ),
+    lessons,
+    units,
+    exam,
   };
 }
 
@@ -210,23 +324,46 @@ export function getLessonDetail(
     throw new ContentNotFoundError(`chapitre ${chapterSlug}`);
   }
 
-  const lesson = entry.lessons.find(
+  const lessonIndex = entry.lessons.findIndex(
     (candidate) => candidate.slug === lessonSlug || candidate.id === lessonSlug,
   );
 
-  if (!lesson) {
+  if (lessonIndex < 0) {
     throw new ContentNotFoundError(`leçon ${lessonSlug}`);
   }
 
-  const progress = deps.repository
-    .getLessonProgress(LOCAL_PROFILE_ID)
-    .find((item) => item.lessonId === lesson.id);
+  const lesson = entry.lessons[lessonIndex]!;
+  const progress = deps.repository.getLessonProgress(LOCAL_PROFILE_ID);
+  const readByLesson = new Map(progress.map((item) => [item.lessonId, item.readAt]));
+  const readAt = readByLesson.get(lesson.id) ?? null;
+  const previousLesson = lessonIndex > 0 ? entry.lessons[lessonIndex - 1] : undefined;
+  const nextLesson = entry.lessons[lessonIndex + 1];
+  const previousLessonsRead = entry.lessons
+    .slice(0, lessonIndex)
+    .every((candidate) => readByLesson.has(candidate.id));
+  const locked = readAt === null && !previousLessonsRead;
+  const unit = lesson.unitId
+    ? (entry.chapter.units?.find((candidate) => candidate.id === lesson.unitId) ?? null)
+    : null;
+  const activeRun = deps.repository.getActiveLessonRun(LOCAL_PROFILE_ID, lesson.id);
 
   return {
     lesson,
     chapterSlug: entry.chapter.slug,
     chapterTitle: entry.chapter.title,
-    readAt: progress?.readAt ?? null,
+    unit: unit ? { id: unit.id, label: unit.label, title: unit.title } : null,
+    sections: splitLessonSections(lesson.body).map((section) => ({
+      id: section.id,
+      title: section.title,
+    })),
+    hasQuestions: (lesson.coreQuestionIds?.length ?? 0) > 0,
+    locked,
+    readAt,
+    activeRunAttemptId: activeRun?.id ?? null,
+    previousLesson: previousLesson
+      ? { slug: previousLesson.slug, title: previousLesson.title }
+      : null,
+    nextLesson: nextLesson ? { slug: nextLesson.slug, title: nextLesson.title } : null,
     sources: resolveSourceLabels(deps.catalog, lesson.sourceRefs),
   };
 }
@@ -250,7 +387,7 @@ export function getReviewItems(deps: AppDependencies): ReviewItem[] {
           (lessonId) => deps.catalog.lessonById.get(lessonId)?.lesson.title ?? lessonId,
         ),
         prompt: question.prompt,
-        options: question.options,
+        options: resolveOptionViews(deps.catalog, question.options),
         correctOptionId: question.correctOptionId,
         explanation: question.explanation,
         media: resolveMedia(deps.catalog, question.mediaId),
@@ -302,6 +439,7 @@ export function getAttemptResult(deps: AppDependencies, attemptId: string): Atte
     result: {
       attemptId: attempt.id,
       mode: attempt.mode,
+      kind: attemptKind(attempt),
       title: attemptTitle(deps, attempt),
       completedAt: attempt.completedAt,
       questionCount: attempt.questionCount,
@@ -317,7 +455,7 @@ export function getAttemptResult(deps: AppDependencies, attemptId: string): Atte
         position: question.position,
         questionId: question.snapshot.questionId,
         prompt: question.snapshot.prompt,
-        options: question.snapshot.options,
+        options: resolveOptionViews(deps.catalog, question.snapshot.options),
         selectedOptionId: question.selectedOptionId,
         correctOptionId: question.snapshot.correctOptionId,
         isCorrect: question.isCorrect === true,

@@ -1,0 +1,31 @@
+id: ch02-q246
+chapterId: ch02
+lessonIds:
+  - ch02-l32
+prompt: "Le feu est vert, mais un agent qualifié a les bras tendus. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous passez, car le feu est vert."
+  - id: b
+    label: "Vous attendez le feu orange."
+  - id: c
+    label: "Vous contournez l'agent pour passer."
+  - id: d
+    label: "Vous suivez les injonctions de l'agent, le feu est probablement en panne."
+correctOptionId: d
+explanation: "L'agent qualifié prime sur le feu. Si le feu est vert alors que l'agent a les bras tendus, les feux sont probablement en panne : suivez l'agent."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - agents
+  - feux
+  - hierarchie
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "article 6"
+version: 1
+status: draft
+origin: ai_assisted

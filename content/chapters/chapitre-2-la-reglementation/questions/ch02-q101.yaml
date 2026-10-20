@@ -1,0 +1,31 @@
+id: ch02-q101
+chapterId: ch02
+lessonIds:
+  - ch02-l13
+prompt: "Quel signal interdit l'usage de votre bande ?"
+options:
+  - id: a
+    label: "Croix rouge"
+    mediaId: ch02-signal-croix-rouge
+  - id: b
+    label: "Flèche verte vers le bas"
+    mediaId: ch02-signal-fleche-bande-verte
+  - id: c
+    label: "Flèche orange oblique"
+    mediaId: ch02-signal-fleche-bande-orange
+correctOptionId: a
+explanation: "La croix rouge indique que le sens est interdit sur la bande. La flèche verte l'autorise, et la flèche orange oblique impose de quitter la bande."
+difficulty: easy
+severity: normal
+tags:
+  - image
+  - bandes
+  - feux-de-bande
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 62bis"
+version: 1
+status: draft
+origin: ai_assisted

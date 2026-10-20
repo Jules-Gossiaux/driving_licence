@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre degres">
+  <title id="titre">Les quatre degrés d'infraction et leur coût à l'examen</title>
+  <desc id="degres">Le 1er et le 2e degré coûtent un point. Le 3e et le 4e degré coûtent cinq points. Deux fautes des 3e ou 4e degrés entraînent l'échec.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="30" y="50" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Quatre degrés, deux barèmes</text>
+  <text x="30" y="78" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Plus l'infraction est grave, plus la sanction et la pénalité d'examen sont lourdes.</text>
+
+  <g>
+    <rect x="30" y="108" width="210" height="300" rx="16" fill="#ffffff" stroke="#fde68a"/>
+    <rect x="30" y="108" width="210" height="50" rx="16" fill="#f59e0b"/>
+    <rect x="30" y="142" width="210" height="16" fill="#f59e0b"/>
+    <text x="48" y="140" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#ffffff">1er degré</text>
+    <text x="48" y="190" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#b45309">1 point</text>
+    <text x="48" y="222" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Infraction non reprise</text>
+    <text x="48" y="241" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">dans un degré supérieur.</text>
+    <text x="48" y="276" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Exemples :</text>
+    <text x="48" y="298" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• portière ouverte</text>
+    <text x="48" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">  sans attention</text>
+    <text x="48" y="338" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• clignotant oublié</text>
+    <text x="48" y="360" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• bande de bus</text>
+  </g>
+
+  <g>
+    <rect x="260" y="108" width="210" height="300" rx="16" fill="#ffffff" stroke="#fed7aa"/>
+    <rect x="260" y="108" width="210" height="50" rx="16" fill="#f97316"/>
+    <rect x="260" y="142" width="210" height="16" fill="#f97316"/>
+    <text x="278" y="140" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#ffffff">2e degré</text>
+    <text x="278" y="190" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#c2410c">1 point</text>
+    <text x="278" y="222" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Sécurité mise en danger</text>
+    <text x="278" y="241" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">indirectement, ou usage</text>
+    <text x="278" y="260" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">indu d'un stationnement PMR.</text>
+    <text x="278" y="292" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Exemples :</text>
+    <text x="278" y="314" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• feu orange</text>
+    <text x="278" y="332" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• dépassement par la droite</text>
+    <text x="278" y="350" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• ceinture non portée</text>
+    <text x="278" y="368" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">  par un adulte</text>
+  </g>
+
+  <g>
+    <rect x="490" y="108" width="210" height="300" rx="16" fill="#ffffff" stroke="#fecaca"/>
+    <rect x="490" y="108" width="210" height="50" rx="16" fill="#dc2626"/>
+    <rect x="490" y="142" width="210" height="16" fill="#dc2626"/>
+    <text x="508" y="140" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#ffffff">3e degré</text>
+    <text x="508" y="190" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#b91c1c">5 points</text>
+    <text x="508" y="222" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Sécurité mise en danger</text>
+    <text x="508" y="241" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">directement, ou injonction</text>
+    <text x="508" y="260" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">d'un agent ignorée.</text>
+    <text x="508" y="292" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Exemples :</text>
+    <text x="508" y="314" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• feu rouge</text>
+    <text x="508" y="332" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• tripler quand c'est interdit</text>
+    <text x="508" y="350" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• dépasser près d'un</text>
+    <text x="508" y="368" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">  passage piéton</text>
+  </g>
+
+  <g>
+    <rect x="720" y="108" width="210" height="300" rx="16" fill="#ffffff" stroke="#fca5a5"/>
+    <rect x="720" y="108" width="210" height="50" rx="16" fill="#7f1d1d"/>
+    <rect x="720" y="142" width="210" height="16" fill="#7f1d1d"/>
+    <text x="738" y="140" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#ffffff">4e degré</text>
+    <text x="738" y="190" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#7f1d1d">5 points</text>
+    <text x="738" y="222" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Danger direct et dommages</text>
+    <text x="738" y="241" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">physiques quasi inévitables.</text>
+    <text x="738" y="260" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Sept infractions, déchéance.</text>
+    <text x="738" y="292" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Exemples :</text>
+    <text x="738" y="314" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• passage à niveau</text>
+    <text x="738" y="332" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• sens contraire sur autoroute</text>
+    <text x="738" y="350" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• lutte de vitesse</text>
+    <text x="738" y="368" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">• ignorer un ordre d'arrêt</text>
+  </g>
+
+  <rect x="30" y="436" width="900" height="66" rx="14" fill="#0f172a"/>
+  <text x="54" y="463" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#ffffff">À l'examen : 1 point en moins pour un 1er ou 2e degré, 5 points pour un 3e ou 4e degré.</text>
+  <text x="54" y="487" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#fca5a5">Deux fautes relevant des 3e ou 4e degrés = échec automatique, même sans compter les autres.</text>
+</svg>

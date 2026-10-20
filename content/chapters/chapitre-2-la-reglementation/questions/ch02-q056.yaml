@@ -1,0 +1,29 @@
+id: ch02-q056
+chapterId: ch02
+lessonIds:
+  - ch02-l07
+prompt: En cas de première récidive de défaut d'assurance, quelle est la durée minimale de déchéance ?
+options:
+  - id: a
+    label: 3 mois
+  - id: b
+    label: 8 jours
+  - id: c
+    label: 15 jours
+  - id: d
+    label: 1 mois
+correctOptionId: a
+explanation: En cas de première récidive de défaut d'assurance, la déchéance est de 3 mois minimum. Elle passe à 6 mois pour une deuxième récidive et à 9 mois pour une troisième.
+difficulty: hard
+severity: normal
+tags:
+  - assurance
+  - decheance
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 16
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

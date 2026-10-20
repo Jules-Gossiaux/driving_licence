@@ -1,0 +1,1146 @@
+- id: ch02-usagers
+  file: /media/ch02/usagers.svg
+  alt: >-
+    Quatre cartes présentant les conducteurs, les passagers, les piétons et les
+    conducteurs de tram, avec leurs obligations principales.
+  caption: "Les quatre catégories d'usagers de la route."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 10
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-voie-publique
+  file: /media/ch02/voie-publique.svg
+  alt: >-
+    Coupe d'une voie publique entre deux façades, montrant les trottoirs,
+    l'accotement, les pistes cyclables, les chaussées et la berme centrale.
+  caption: "La voie publique s'étend d'une façade à l'autre."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 11
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-agent-positions
+  file: /media/ch02/agent-positions.svg
+  alt: >-
+    Trois panneaux comparant la position de l'agent qualifié aux feux : de
+    profil pour le feu vert, bras levé pour le feu orange, de face ou de dos
+    pour le feu rouge.
+  caption: "Les positions de l'agent et leurs équivalents lumineux."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 12
+    - documentId: feu-vert-chap2-1
+      page: 13
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-degres-infractions
+  file: /media/ch02/degres-infractions.svg
+  alt: >-
+    Tableau des quatre degrés d'infraction, avec des exemples et le coût de
+    chaque degré à l'examen : un point pour les deux premiers, cinq points pour
+    les deux derniers.
+  caption: "Quatre degrés, deux barèmes de points."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 13
+    - documentId: feu-vert-chap2-1
+      page: 14
+    - documentId: feu-vert-chap2-synthese
+      page: 42
+
+- id: ch02-sanctions-paiement
+  file: /media/ch02/sanctions-paiement.svg
+  alt: >-
+    Schéma du parcours d'une amende impayée : perception immédiate, transaction,
+    ordre de paiement, puis suspension du permis après trois ans.
+  caption: "Les étapes du paiement jusqu'à la suspension."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 14
+    - documentId: feu-vert-chap2-synthese
+      page: 43
+
+- id: ch02-agent-profil
+  file: /media/ch02/agent-profil.svg
+  alt: "Agent qualifié vu de profil, le bras le long du corps."
+  kind: illustration
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+
+- id: ch02-agent-bras-leve
+  file: /media/ch02/agent-bras-leve.svg
+  alt: "Agent qualifié de face, un bras levé verticalement."
+  kind: illustration
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+
+- id: ch02-agent-face
+  file: /media/ch02/agent-face.svg
+  alt: "Agent qualifié de face, les deux bras tendus horizontalement."
+  kind: illustration
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+
+- id: ch02-feux-cercles
+  file: /media/ch02/signaux/feux-cercles.svg
+  alt: >-
+    Trois cartes expliquant le feu rouge, le jaune-orange fixe et le vert, avec
+    la consigne d'arrêt ou de franchissement et le rappel qu'un feu éteint ne
+    donne aucune autorisation.
+  caption: "Rouge, jaune-orange, vert : trois consignes de franchissement."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1"
+
+- id: ch02-feux-particuliers
+  file: /media/ch02/signaux/feux-particuliers.svg
+  alt: >-
+    Trois cartes montrant une flèche tricolore limitée à une direction, la
+    silhouette de bicyclette réservée aux cyclistes et cyclomoteurs à deux
+    roues, et cette silhouette entourée de flèches sur une piste cyclable.
+  caption: "Flèches et silhouettes restreignent la portée du feu."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 61.1, points 4 à 7"
+
+- id: ch02-feux-bicolores
+  file: /media/ch02/signaux/feux-bicolores.svg
+  alt: >-
+    Trois cartes présentant le piéton rouge immobile, le piéton vert en marche
+    avec la fin indicative du vert clignotant, et le signal combiné vélo plus
+    piéton réservé aux cyclistes, cyclomoteurs à deux roues et piétons.
+  caption: "Les feux bicolores et le signal combiné vélo-piéton."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "articles 63.1 et 63.2"
+
+- id: ch02-fleches-vertes
+  file: /media/ch02/signaux/fleches-vertes.svg
+  alt: >-
+    Trois cartes expliquant la flèche verte avec un feu rouge ou orange et
+    l'obligation de céder le passage, la flèche verte seule limitée à une
+    direction, et la flèche d'évacuation à la sortie d'un carrefour.
+  caption: "Trois usages de la flèche verte."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: official-code-route-1975
+      locator: "articles 61.1.5 et 62"
+
+- id: ch02-feux-clignotants
+  file: /media/ch02/signaux/feux-clignotants.svg
+  alt: >-
+    Trois cartes présentant l'orange clignotant, les deux feux rouges alternés
+    d'un passage à niveau et la lumière blanche lunaire qui autorise le
+    franchissement.
+  caption: "Orange clignotant, feux rouges alternés et lumière blanche."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "articles 61.1.9, 64.1, 64.2 et 64.3"
+
+- id: ch02-feux-bandes
+  file: /media/ch02/signaux/feux-bandes.svg
+  alt: >-
+    Trois cartes montrant la croix rouge qui ferme une bande, la flèche verte
+    vers le bas qui l'ouvre et la flèche jaune-orange oblique qui impose de
+    quitter la bande dans la direction indiquée.
+  caption: "Les trois signaux des bandes de circulation."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"
+
+- id: ch02-signal-rouge
+  file: /media/ch02/signaux/signal-rouge.svg
+  alt: "Feu tricolore avec le cercle rouge allumé."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1.1"
+
+- id: ch02-signal-jaune-orange
+  file: /media/ch02/signaux/signal-jaune-orange.svg
+  alt: "Feu tricolore avec le cercle jaune-orange allumé."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1.2"
+
+- id: ch02-signal-vert
+  file: /media/ch02/signaux/signal-vert.svg
+  alt: "Feu tricolore avec le cercle vert allumé."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1.3"
+
+- id: ch02-signal-fleche-verte
+  file: /media/ch02/signaux/signal-fleche-verte.svg
+  alt: "Feu tricolore avec une flèche verte vers la gauche allumée en bas."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: official-code-route-1975
+      locator: "article 61.1.5"
+
+- id: ch02-signal-pieton-rouge
+  file: /media/ch02/signaux/signal-pieton-rouge.svg
+  alt: "Feu pour piétons avec une silhouette rouge de piéton immobile."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 63.1"
+
+- id: ch02-signal-pieton-vert
+  file: /media/ch02/signaux/signal-pieton-vert.svg
+  alt: "Feu pour piétons avec une silhouette verte de piéton en marche."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 63.1"
+
+- id: ch02-signal-velo
+  file: /media/ch02/signaux/signal-velo.svg
+  alt: "Feu avec une silhouette verte de bicyclette."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 61.1.6"
+
+- id: ch02-signal-orange-clignotant
+  file: /media/ch02/signaux/signal-orange-clignotant.svg
+  alt: "Feu jaune-orange clignotant entouré de traits de clignotement."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: official-code-route-1975
+      locator: "article 64.1"
+
+- id: ch02-signal-croix-rouge
+  file: /media/ch02/signaux/signal-croix-rouge.svg
+  alt: "Signal carré noir avec une croix rouge, interdisant le sens sur la bande."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"
+
+- id: ch02-signal-fleche-bande-verte
+  file: /media/ch02/signaux/signal-fleche-bande-verte.svg
+  alt: "Signal carré noir avec une flèche verte vers le bas, autorisant la bande."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"
+
+- id: ch02-signal-fleche-bande-orange
+  file: /media/ch02/signaux/signal-fleche-bande-orange.svg
+  alt: "Signal carré noir avec une flèche jaune-orange oblique, obligeant à quitter la bande."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"
+
+- id: ch02-marquage-lignes
+  file: /media/ch02/marquage/lignes-blanches.svg
+  alt: >-
+    Cinq bandes de route comparant une ligne continue, une ligne discontinue,
+    deux lignes juxtaposées, un marquage provisoire orange et une bande réservée
+    avec son signal.
+  caption: "Cinq marquages longitudinaux et leur consigne."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 36
+    - documentId: official-code-route-1975
+      locator: "articles 72.2 à 72.4, 72.7 et 73.1 à 73.4"
+
+- id: ch02-marquage-bord
+  file: /media/ch02/marquage/bord-chaussee.svg
+  alt: >-
+    Deux vues de dessus : à gauche le bord réel avec une ligne blanche et une
+    ligne jaune discontinue, à droite le bord fictif avec une large ligne
+    blanche et des emplacements au-delà.
+  caption: "Bord réel et bord fictif : deux espaces différents au-delà de la ligne."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 37
+    - documentId: official-code-route-1975
+      locator: "articles 75.1 et 75.2"
+
+- id: ch02-marquage-transversal
+  file: /media/ch02/marquage/marques-transversales.svg
+  alt: >-
+    Quatre cartes montrant la ligne d'arrêt, la ligne de triangles, le passage
+    piéton et le passage deux-roues.
+  caption: "Les quatre marques transversales à reconnaître."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 38
+    - documentId: official-code-route-1975
+      locator: "articles 76.1 à 76.4"
+
+- id: ch02-marquage-autres
+  file: /media/ch02/marquage/autres-marques.svg
+  alt: >-
+    Trois cartes montrant une inscription STOP au sol, un îlot directionnel
+    hachuré et des emplacements de stationnement.
+  caption: "Inscriptions, îlot directionnel et emplacements de stationnement."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 39
+    - documentId: official-code-route-1975
+      locator: "articles 77.3 à 77.5"
+
+- id: ch02-signal-f17
+  file: /media/ch02/marquage/signal-f17.svg
+  alt: >-
+    Panneau bleu F17 : trois lignes discontinues et le mot BUS dans la bande de
+    droite.
+  caption: "F17 : bande bus."
+  kind: sign
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 37
+    - documentId: official-code-route-1975
+      locator: "article 72.5"
+
+- id: ch02-signal-f18
+  file: /media/ch02/marquage/signal-f18.svg
+  alt: >-
+    Panneau bleu F18 : site central BUS et TRAM délimité par deux lignes
+    continues, avec une flèche de sens de chaque côté.
+  caption: "F18 : site spécial franchissable."
+  kind: sign
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 37
+    - documentId: official-code-route-1975
+      locator: "article 72.6"
+
+- id: ch02-zone-avancee
+  file: /media/ch02/marquage/zone-avancee.svg
+  alt: >-
+    Vue de dessus d'une zone avancée pour deux-roues entre deux lignes d'arrêt,
+    avec une voiture arrêtée derrière la première ligne et un feu rouge.
+  caption: "La zone avancée s'étend entre les deux lignes d'arrêt."
+  kind: diagram
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 40
+    - documentId: official-code-route-1975
+      locator: "article 77.6"
+
+- id: ch02-damier
+  file: /media/ch02/marquage/damier.svg
+  alt: >-
+    Vue de dessus d'un damier blanc au centre de la chaussée, entre deux lignes
+    continues, avec un bus.
+  caption: "Le damier signale l'espace des transports en commun."
+  kind: diagram
+  width: 480
+  height: 360
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-4
+      page: 40
+    - documentId: official-code-route-1975
+      locator: "articles 72.6 et 77.8"
+
+- id: ch02-familles-signaux
+  file: /media/ch02/signaux-routiers/ch02-familles-signaux.svg
+  alt: >-
+    Six cartes présentant les familles de signaux routiers A à F, avec leur
+    forme, leur couleur et un exemple de panneau pour chaque famille.
+  caption: "Chaque famille se reconnaît à sa forme et à sa couleur."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 21
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-a1a
+  file: /media/ch02/signaux-routiers/ch02-panneau-a1a.svg
+  alt: >-
+    Panneau A1a : triangle de danger à bord rouge annonçant un virage serré
+    vers la gauche.
+  caption: "A1a annonce un virage dangereux à gauche."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 21
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-a15
+  file: /media/ch02/signaux-routiers/ch02-panneau-a15.svg
+  alt: >-
+    Panneau A15 : triangle de danger à bord rouge avec une voiture sur une
+    chaussée ondulée, annonçant une chaussée glissante.
+  caption: "A15 annonce une chaussée glissante."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 21
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-a21
+  file: /media/ch02/signaux-routiers/ch02-panneau-a21.svg
+  alt: >-
+    Panneau A21 : triangle de danger à bord rouge avec un piéton sur des
+    bandes blanches, annonçant un passage pour piétons.
+  caption: "A21 annonce un passage pour piétons."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 22
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-a23
+  file: /media/ch02/signaux-routiers/ch02-panneau-a23.svg
+  alt: >-
+    Panneau A23 : triangle de danger à bord rouge avec deux enfants,
+    annonçant un endroit fréquenté par des enfants.
+  caption: "A23 signale un endroit fréquenté par des enfants."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 21
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-a0a
+  file: /media/ch02/signaux-routiers/ch02-panneau-a0a.svg
+  alt: >-
+    Panneau additionnel A0a bleu portant 10 km entre deux flèches verticales,
+    indiquant la longueur d'une section dangereuse.
+  caption: "A0a indique la longueur de la section dangereuse."
+  kind: sign
+  width: 480
+  height: 240
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 21
+    - documentId: official-signaux-routiers
+      locator: "articles 22bis et 71"
+
+- id: ch02-panneau-a0b
+  file: /media/ch02/signaux-routiers/ch02-panneau-a0b.svg
+  alt: >-
+    Panneau additionnel A0b bleu portant 500 m, indiquant la distance entre
+    le panneau et le danger.
+  caption: "A0b indique la distance jusqu'au danger."
+  kind: sign
+  width: 480
+  height: 240
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 21
+    - documentId: official-signaux-routiers
+      locator: "articles 22bis et 71"
+
+- id: ch02-panneau-b1
+  file: /media/ch02/signaux-routiers/ch02-panneau-b1.svg
+  alt: >-
+    Panneau B1 : triangle renversé à bord rouge, imposant de céder le passage
+    aux usagers de la voie prioritaire.
+  caption: "B1 impose de céder le passage."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 23
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-b5
+  file: /media/ch02/signaux-routiers/ch02-panneau-b5.svg
+  alt: >-
+    Panneau B5 : octogone rouge portant STOP en blanc, imposant un arrêt
+    complet à la ligne d'arrêt.
+  caption: "B5 impose l'arrêt complet."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 23
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-b9
+  file: /media/ch02/signaux-routiers/ch02-panneau-b9.svg
+  alt: >-
+    Panneau B9 : losange jaune à bord blanc, indiquant une voie prioritaire
+    jusqu'à son signal de fin.
+  caption: "B9 marque une voie prioritaire."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 24
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-b19
+  file: /media/ch02/signaux-routiers/ch02-panneau-b19.svg
+  alt: >-
+    Panneau B19 : cercle à bord rouge avec deux flèches opposées de tailles
+    différentes, imposant de céder le passage dans un passage étroit.
+  caption: "B19 impose de céder le passage dans un passage étroit."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 23
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-c1
+  file: /media/ch02/signaux-routiers/ch02-panneau-c1.svg
+  alt: >-
+    Panneau C1 : disque rouge barré d'une barre blanche horizontale,
+    interdisant l'accès dans ce sens.
+  caption: "C1 interdit l'accès dans ce sens."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 25
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-c3
+  file: /media/ch02/signaux-routiers/ch02-panneau-c3.svg
+  alt: >-
+    Panneau C3 : anneau rouge vide, interdisant l'accès à la voie dans les
+    deux sens.
+  caption: "C3 interdit l'accès dans les deux sens."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 25
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-c21
+  file: /media/ch02/signaux-routiers/ch02-panneau-c21.svg
+  alt: >-
+    Panneau C21 : anneau rouge portant 5 t, interdisant l'accès aux véhicules
+    dont la masse en charge dépasse 5 tonnes.
+  caption: "C21 limite l'accès aux véhicules de 5 tonnes au plus."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 25
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-c35
+  file: /media/ch02/signaux-routiers/ch02-panneau-c35.svg
+  alt: >-
+    Panneau C35 : anneau rouge avec une voiture noire suivie d'une voiture
+    rouge, interdisant de dépasser les véhicules à plus de deux roues.
+  caption: "C35 interdit de dépasser les véhicules à plus de deux roues."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 26
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-c43
+  file: /media/ch02/signaux-routiers/ch02-panneau-c43.svg
+  alt: >-
+    Panneau C43 : anneau rouge portant 50 km, limitant la vitesse à 50 km/h.
+  caption: "C43 limite la vitesse à 50 km/h."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 26
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-d1a
+  file: /media/ch02/signaux-routiers/ch02-panneau-d1a.svg
+  alt: >-
+    Panneau D1a : disque bleu avec une flèche blanche vers la droite,
+    imposant de suivre cette direction.
+  caption: "D1a impose de tourner à droite."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 28
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-d5
+  file: /media/ch02/signaux-routiers/ch02-panneau-d5.svg
+  alt: >-
+    Panneau D5 : disque bleu avec trois flèches blanches en cercle, imposant
+    le sens giratoire autour du carrefour.
+  caption: "D5 impose le sens giratoire."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 28
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-d7
+  file: /media/ch02/signaux-routiers/ch02-panneau-d7.svg
+  alt: >-
+    Panneau D7 : disque bleu avec une bicyclette blanche, rendant la piste
+    cyclable obligatoire pour les cyclistes.
+  caption: "D7 rend la piste cyclable obligatoire pour les cyclistes."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 28
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-d9
+  file: /media/ch02/signaux-routiers/ch02-panneau-d9.svg
+  alt: >-
+    Panneau D9 : disque bleu divisé en deux, avec une bicyclette d'un côté et
+    un piéton accompagné d'un enfant de l'autre.
+  caption: "D9 réserve le chemin aux piétons, vélos et cyclomoteurs classe A."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 28
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-e1
+  file: /media/ch02/signaux-routiers/ch02-panneau-e1.svg
+  alt: >-
+    Panneau E1 : disque bleu à bord rouge barré d'une diagonale rouge,
+    interdisant le stationnement mais autorisant l'arrêt.
+  caption: "E1 interdit le stationnement mais autorise l'arrêt."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 29
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-e3
+  file: /media/ch02/signaux-routiers/ch02-panneau-e3.svg
+  alt: >-
+    Panneau E3 : disque bleu à bord rouge barré d'une croix rouge, interdisant
+    à la fois l'arrêt et le stationnement.
+  caption: "E3 interdit l'arrêt et le stationnement."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 29
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-e9a
+  file: /media/ch02/signaux-routiers/ch02-panneau-e9a.svg
+  alt: >-
+    Panneau E9a : carré bleu portant un P blanc, autorisant le stationnement
+    dans la zone indiquée.
+  caption: "E9a autorise le stationnement dans la zone indiquée."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 29
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-f1a
+  file: /media/ch02/signaux-routiers/ch02-panneau-f1a.svg
+  alt: >-
+    Panneau F1a : rectangle blanc à bord noir portant le nom VILLERS, marquant
+    l'entrée dans l'agglomération.
+  caption: "F1a marque l'entrée d'une agglomération."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 31
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-f4a
+  file: /media/ch02/signaux-routiers/ch02-panneau-f4a.svg
+  alt: >-
+    Panneau F4a : rectangle blanc portant ZONE et un disque rouge 30 km,
+    ouvrant une zone limitée à 30 km/h.
+  caption: "F4a ouvre une zone limitée à 30 km/h."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 31
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-f5
+  file: /media/ch02/signaux-routiers/ch02-panneau-f5.svg
+  alt: >-
+    Panneau F5 : carré bleu avec le symbole blanc d'une autoroute à deux
+    chaussées séparées.
+  caption: "F5 signale une autoroute."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 31
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-f19
+  file: /media/ch02/signaux-routiers/ch02-panneau-f19.svg
+  alt: >-
+    Panneau F19 : rectangle bleu avec une flèche blanche vers le haut,
+    signalant une voie à sens unique.
+  caption: "F19 signale une voie à sens unique."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 31
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-f53
+  file: /media/ch02/signaux-routiers/ch02-panneau-f53.svg
+  alt: >-
+    Panneau F53 : carré bleu portant un H blanc, signalant un hôpital ou un
+    établissement sanitaire.
+  caption: "F53 signale un établissement sanitaire."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 32
+    - documentId: official-signaux-routiers
+      locator: "articles 65 à 71"
+
+- id: ch02-panneau-m2
+  file: /media/ch02/signaux-routiers/ch02-panneau-m2.svg
+  alt: >-
+    Panneau additionnel M2 : rectangle blanc à bord noir portant EXCEPTÉ et
+    une bicyclette, excluant les cyclistes de la prescription.
+  caption: "M2 excepte les cyclistes de la prescription."
+  kind: sign
+  width: 480
+  height: 240
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 28
+    - documentId: official-signaux-routiers
+      locator: "articles 22bis et 71"
+
+- id: ch02-panneau-f100c
+  file: /media/ch02/signaux-routiers/ch02-panneau-f100c.svg
+  alt: >-
+    Panneau additionnel F100c bleu portant 7 - 19 h, limitant la prescription
+    du panneau principal à cette plage horaire.
+  caption: "F100c limite la prescription à la plage horaire indiquée."
+  kind: sign
+  width: 480
+  height: 240
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-3
+      page: 34
+    - documentId: official-signaux-routiers
+      locator: "articles 22bis et 71"
+
+- id: ch02-hierarchie-ordre
+  file: /media/ch02/hierarchie/ordre-hierarchique.svg
+  alt: >-
+    Quatre cartes numérotées présentant l'ordre d'autorité : agent qualifié,
+    feux lumineux, signalisation routière, puis règles de circulation.
+  caption: "L'ordre hiérarchique des indications."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-5
+      page: 41
+    - documentId: official-code-route-1975
+      locator: "articles 6 et 12"
+
+- id: ch02-hierarchie-decision
+  file: /media/ch02/hierarchie/decision-carrefour.svg
+  alt: >-
+    Schéma de décision dans un carrefour : vérifier l'agent, puis le feu, puis
+    le panneau de priorité, puis appliquer la priorité à droite.
+  caption: "Du signal le plus fort à la règle générale."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-5
+      page: 41
+    - documentId: official-code-route-1975
+      locator: "articles 6 et 12"
+
+- id: ch02-hierarchie-b22-b23
+  file: /media/ch02/hierarchie/b22-b23.svg
+  alt: >-
+    Deux cartes comparant les panneaux B22 et B23 : tourner à droite ou aller
+    tout droit au feu rouge ou orange, en cédant le passage.
+  caption: "B22 et B23, exceptions valables malgré le feu."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-5
+      page: 41
+    - documentId: securotheque-b22-b23
+
+- id: ch02-signal-b22
+  file: /media/ch02/hierarchie/signal-b22.svg
+  alt: >-
+    Panneau triangulaire inversé à bord rouge, avec une bicyclette jaune et une
+    flèche vers la droite : B22, tourner à droite au feu.
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-5
+      page: 41
+    - documentId: securotheque-b22-b23
+
+- id: ch02-signal-b23
+  file: /media/ch02/hierarchie/signal-b23.svg
+  alt: >-
+    Panneau triangulaire inversé à bord rouge, avec une bicyclette jaune et une
+    flèche vers le haut : B23, aller tout droit au feu.
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-5
+      page: 41
+    - documentId: securotheque-b22-b23
+
+- id: ch02-signal-c35
+  file: /media/ch02/hierarchie/signal-c35.svg
+  alt: >-
+    Panneau rond à bord rouge et fond blanc, avec une voiture rouge à gauche et
+    une voiture noire à droite : C35, interdiction de dépasser.
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-5
+      page: 41
+    - documentId: securotheque-c35
+
+- id: ch02-signal-e3
+  file: /media/ch02/hierarchie/signal-e3.svg
+  alt: >-
+    Panneau rond à bord rouge, fond bleu et croix rouge : E3, arrêt et
+    stationnement interdits.
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-5
+      page: 41
+    - documentId: securotheque-e3

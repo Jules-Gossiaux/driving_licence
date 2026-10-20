@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre orange-clignotant">
+  <title id="titre">Feu jaune-orange clignotant</title>
+  <desc id="orange-clignotant">Un feu jaune-orange clignotant, entouré de traits qui suggèrent le clignotement.</desc>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <rect x="160" y="70" width="160" height="340" rx="24" fill="#1f2937"/>
+  <rect x="175" y="85" width="130" height="310" rx="16" fill="#111827"/>
+  <circle cx="240" cy="240" r="64" fill="#f59e0b"/>
+  <circle cx="222" cy="222" r="18" fill="#fcd34d" opacity="0.6"/>
+  <g stroke="#f59e0b" stroke-width="9" stroke-linecap="round">
+    <path d="M240 18v30"/>
+    <path d="M240 432v30"/>
+    <path d="M96 240h30"/>
+    <path d="M354 240h30"/>
+    <path d="M138 138l22 22"/>
+    <path d="M342 138l-22 22"/>
+    <path d="M138 342l22-22"/>
+    <path d="M342 342l-22-22"/>
+  </g>
+</svg>

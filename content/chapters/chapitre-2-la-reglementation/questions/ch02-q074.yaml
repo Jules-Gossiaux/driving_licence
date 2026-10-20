@@ -1,0 +1,30 @@
+id: ch02-q074
+chapterId: ch02
+lessonIds:
+  - ch02-l10
+prompt: "Que signifie un feu piéton vert fixe ?"
+options:
+  - id: a
+    label: "Il autorise les piétons à s'engager sur la chaussée"
+  - id: b
+    label: "Il donne aux piétons une priorité absolue sur tous les véhicules"
+  - id: c
+    label: "Il oblige les piétons à courir"
+  - id: d
+    label: "Il concerne les voitures"
+correctOptionId: a
+explanation: "Le feu piéton vert montre un piéton en marche : il autorise les piétons à s'engager. Ils restent attentifs aux véhicules qui tournent."
+difficulty: medium
+severity: normal
+tags:
+  - pietons
+  - feux-bicolores
+  - priorite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 63.1"
+version: 1
+status: draft
+origin: ai_assisted

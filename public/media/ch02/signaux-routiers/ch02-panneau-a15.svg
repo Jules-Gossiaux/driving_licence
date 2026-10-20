@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau A15 — chaussée glissante</title>
+  <desc id="description">Triangle de danger à bord rouge : la chaussée peut être glissante, notamment par temps de pluie.</desc>
+  <path d="M240 62 L438 408 Q446 424 428 424 L52 424 Q34 424 42 408 Z" fill="#ffffff" stroke="#d21f2b" stroke-width="36" stroke-linejoin="round"/>
+  <g transform="rotate(-7 240 250)">
+  <g transform="translate(240 238) scale(0.86)">
+    <path d="M-70 18 L-58 -26 Q-54 -42 -34 -44 L34 -44 Q54 -42 58 -26 L70 18 Z" fill="#111827"/>
+    <rect x="-42" y="-34" width="34" height="24" rx="5" fill="#ffffff"/>
+    <rect x="6" y="-34" width="34" height="24" rx="5" fill="#ffffff"/>
+    <circle cx="-44" cy="24" r="14" fill="#111827"/>
+    <circle cx="44" cy="24" r="14" fill="#111827"/>
+  </g>
+  </g>
+  <path d="M112 370 Q142 342 172 370 T232 370 T292 370 T352 370" fill="none" stroke="#111827" stroke-width="12" stroke-linecap="round"/>
+  <path d="M112 398 Q142 370 172 398 T232 398 T292 398 T352 398" fill="none" stroke="#111827" stroke-width="12" stroke-linecap="round"/>
+</svg>

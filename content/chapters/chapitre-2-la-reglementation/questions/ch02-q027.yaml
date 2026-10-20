@@ -1,0 +1,31 @@
+id: ch02-q027
+chapterId: ch02
+lessonIds:
+  - ch02-l04
+prompt: Que se passe-t-il si vous commettez deux erreurs concernant des infractions de 3e ou 4e degré à l'examen ?
+options:
+  - id: a
+    label: Vous échouez automatiquement.
+  - id: b
+    label: Vous perdez seulement 5 points au total.
+  - id: c
+    label: Vous recevez un avertissement.
+  - id: d
+    label: Vous pouvez repasser la question.
+correctOptionId: a
+explanation: "Deux erreurs de 3e ou 4e degré entraînent l'échec automatique : il devient impossible d'atteindre le minimum de 41/50."
+difficulty: medium
+severity: normal
+tags:
+  - degres
+  - examen
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

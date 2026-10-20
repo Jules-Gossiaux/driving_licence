@@ -1,0 +1,31 @@
+id: ch02-q147
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Quelle est la différence entre F5 et F9 ?"
+options:
+  - id: a
+    label: "F5 est une route pour automobiles, F9 une autoroute"
+  - id: b
+    label: "F5 signale une autoroute, F9 une route pour automobiles où les cyclomoteurs sont admis"
+  - id: c
+    label: "Les deux panneaux sont identiques"
+  - id: d
+    label: "F5 interdit les voitures"
+correctOptionId: b
+explanation: "F5 signale une autoroute, avec les règles et les usagers qui y sont admis. F9 signale une route pour automobiles ; les cyclomoteurs y sont admis, contrairement à l'autoroute. F7 et F11 marquent la fin de ces routes."
+mediaId: ch02-panneau-f5
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - autoroute
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

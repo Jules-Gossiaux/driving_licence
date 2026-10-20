@@ -1,0 +1,30 @@
+id: ch02-q059
+chapterId: ch02
+lessonIds:
+  - ch02-l08
+prompt: "Que signifie un feu vert fixe ?"
+options:
+  - id: a
+    label: "Il vous autorise à franchir la ligne d'arrêt ou le signal"
+  - id: b
+    label: "Il vous donne une priorité absolue sur tous les autres usagers"
+  - id: c
+    label: "Il vous oblige à tourner à droite"
+  - id: d
+    label: "Il indique que le carrefour est forcément libre"
+correctOptionId: a
+explanation: "Le feu vert autorise le franchissement. Il ne supprime ni les règles de priorité ni la vigilance : les usagers déjà engagés, les piétons et les véhicules venant en sens inverse doivent être pris en compte."
+difficulty: easy
+severity: normal
+tags:
+  - feux
+  - signalisation-lumineuse
+  - priorite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1.3"
+version: 1
+status: draft
+origin: ai_assisted

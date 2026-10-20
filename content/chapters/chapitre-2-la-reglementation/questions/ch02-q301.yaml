@@ -1,0 +1,30 @@
+id: ch02-q301
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Une ligne blanche continue sépare votre bande de la bande voisine. Pouvez-vous la franchir pour dépasser un véhicule lent ?"
+options:
+  - id: a
+    label: "Non, une ligne continue ne peut pas être franchie."
+  - id: b
+    label: "Oui, si la voie voisine est libre."
+  - id: c
+    label: "Oui, à condition de ne pas dépasser la vitesse maximale."
+  - id: d
+    label: "Oui, uniquement en agglomération."
+correctOptionId: a
+explanation: "Une ligne continue interdit tout franchissement. La présence d'un véhicule lent devant vous ne crée pas d'exception : il faut attendre une ligne discontinue ou une autre possibilité légale."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - lignes
+  - depassement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "article 72.2"
+version: 1
+status: draft
+origin: ai_assisted

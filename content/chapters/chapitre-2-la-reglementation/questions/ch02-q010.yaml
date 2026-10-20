@@ -1,0 +1,29 @@
+id: ch02-q010
+chapterId: ch02
+lessonIds:
+  - ch02-l02
+prompt: Quelle est l'étendue de la voie publique entre deux façades ?
+options:
+  - id: a
+    label: Toute la largeur entre les façades, y compris trottoirs, berme centrale, pistes cyclables et accotements
+  - id: b
+    label: La chaussée uniquement
+  - id: c
+    label: La chaussée et les trottoirs uniquement
+  - id: d
+    label: La chaussée et la berme centrale uniquement
+correctOptionId: a
+explanation: La voie publique s'étend d'une façade à l'autre. Elle comprend la chaussée, les trottoirs, la berme centrale, les accotements et les pistes cyclables.
+difficulty: easy
+severity: normal
+tags:
+  - voie-publique
+  - facades
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 11
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

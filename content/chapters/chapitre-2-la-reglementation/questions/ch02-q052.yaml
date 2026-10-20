@@ -1,0 +1,28 @@
+id: ch02-q052
+chapterId: ch02
+lessonIds:
+  - ch02-l07
+prompt: Que risque l'auteur d'un délit de fuite si l'accident n'a causé que des dégâts matériels ?
+options:
+  - id: a
+    label: Une peine de prison est prévue.
+  - id: b
+    label: Rien, car il n'y a pas de blessé.
+  - id: c
+    label: Uniquement une amende.
+  - id: d
+    label: Uniquement un retrait de points.
+correctOptionId: a
+explanation: Le délit de fuite entraîne une peine de prison même si l'accident n'a provoqué que des dégâts matériels.
+difficulty: medium
+severity: normal
+tags:
+  - delit-de-fuite
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 16
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

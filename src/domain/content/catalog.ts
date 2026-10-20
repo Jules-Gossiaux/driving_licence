@@ -7,6 +7,7 @@ import type {
   SourceDocument,
   SourceRef,
 } from "./schemas";
+import { splitLessonSections } from "./sections";
 
 export type ContentIssueLevel = "error" | "warning";
 
@@ -50,11 +51,214 @@ export type CatalogBuildResult = {
   issues: ContentIssue[];
 };
 
+const CORE_QUESTION_MIN = 4;
+const CORE_QUESTION_MAX = 5;
+
+function validateCoreQuestionIds(
+  lesson: Lesson,
+  chapterQuestions: Question[],
+  issues: ContentIssue[],
+): void {
+  const coreQuestionIds = lesson.coreQuestionIds;
+
+  if (!coreQuestionIds || coreQuestionIds.length === 0) {
+    if (lesson.status === "published") {
+      issues.push({
+        level: "error",
+        code: "CORE_QUESTIONS_MISSING",
+        path: `lesson:${lesson.id}`,
+        message: `Une leçon publiée doit déclarer ${CORE_QUESTION_MIN} à ${CORE_QUESTION_MAX} questions cœur.`,
+      });
+    }
+    return;
+  }
+
+  if (new Set(coreQuestionIds).size !== coreQuestionIds.length) {
+    issues.push({
+      level: "error",
+      code: "DUPLICATE_CORE_QUESTION",
+      path: `lesson:${lesson.id}`,
+      message: "Une question cœur ne peut être déclarée qu'une seule fois dans une leçon.",
+    });
+  }
+
+  const chapterQuestionById = new Map(chapterQuestions.map((question) => [question.id, question]));
+
+  for (const questionId of coreQuestionIds) {
+    const question = chapterQuestionById.get(questionId);
+
+    if (!question) {
+      issues.push({
+        level: "error",
+        code: "UNKNOWN_CORE_QUESTION",
+        path: `lesson:${lesson.id}`,
+        message: `Question cœur absente du chapitre : ${questionId}.`,
+      });
+      continue;
+    }
+
+    if (!question.lessonIds.includes(lesson.id)) {
+      issues.push({
+        level: "error",
+        code: "CORE_QUESTION_LESSON_MISMATCH",
+        path: `lesson:${lesson.id}`,
+        message: `La question cœur ${questionId} ne référence pas cette leçon.`,
+      });
+    }
+  }
+
+  const outsideRange =
+    coreQuestionIds.length < CORE_QUESTION_MIN || coreQuestionIds.length > CORE_QUESTION_MAX;
+
+  if (outsideRange) {
+    issues.push({
+      level: lesson.status === "published" ? "error" : "warning",
+      code: "CORE_QUESTION_COUNT",
+      path: `lesson:${lesson.id}`,
+      message: `Une leçon doit proposer ${CORE_QUESTION_MIN} à ${CORE_QUESTION_MAX} questions cœur (${coreQuestionIds.length} déclarée(s)).`,
+    });
+  }
+}
+
 function compareByOrderThenSlug(
   left: { order: number; slug: string },
   right: { order: number; slug: string },
 ): number {
   return left.order - right.order || left.slug.localeCompare(right.slug);
+}
+
+function validateUnits(entry: ChapterContent, issues: ContentIssue[]): void {
+  const units = entry.chapter.units ?? [];
+  const path = `chapter:${entry.chapter.id}`;
+
+  pushDuplicateIssues(
+    issues,
+    units.map((unit) => unit.id),
+    path,
+    "Identifiant d'unité",
+  );
+  pushDuplicateIssues(
+    issues,
+    units.map((unit) => unit.slug),
+    path,
+    "Slug d'unité",
+  );
+  pushDuplicateIssues(
+    issues,
+    units.map((unit) => String(unit.order)),
+    path,
+    "Ordre d'unité",
+  );
+
+  const unitIds = new Set(units.map((unit) => unit.id));
+
+  for (const lesson of entry.lessons) {
+    if (units.length === 0) {
+      if (lesson.unitId) {
+        issues.push({
+          level: "error",
+          code: "UNIT_NOT_DECLARED",
+          path: `lesson:${lesson.id}`,
+          message: `La leçon référence l'unité ${lesson.unitId}, absente du chapitre.`,
+        });
+      }
+      continue;
+    }
+
+    if (!lesson.unitId) {
+      issues.push({
+        level: "error",
+        code: "LESSON_UNIT_MISSING",
+        path: `lesson:${lesson.id}`,
+        message: "Une leçon doit être rattachée à une unité du chapitre.",
+      });
+      continue;
+    }
+
+    if (!unitIds.has(lesson.unitId)) {
+      issues.push({
+        level: "error",
+        code: "UNKNOWN_UNIT",
+        path: `lesson:${lesson.id}`,
+        message: `Unité inconnue : ${lesson.unitId}.`,
+      });
+    }
+  }
+}
+
+function validateLessonSections(lesson: Lesson, issues: ContentIssue[]): void {
+  const sections = splitLessonSections(lesson.body);
+  const sectionIds = new Set(sections.map((section) => section.id));
+  const checks = lesson.sectionChecks ?? [];
+
+  if (checks.length === 0) {
+    return;
+  }
+
+  const coreQuestionIds = lesson.coreQuestionIds ?? [];
+  const coreIds = new Set(coreQuestionIds);
+  const checkedSections = new Set<string>();
+  const checkedQuestions = new Set<string>();
+
+  if (coreIds.size === 0) {
+    issues.push({
+      level: "error",
+      code: "SECTION_CHECKS_WITHOUT_CORE",
+      path: `lesson:${lesson.id}`,
+      message: "Des vérifications de section exigent des questions cœur.",
+    });
+  }
+
+  for (const check of checks) {
+    if (checkedSections.has(check.section)) {
+      issues.push({
+        level: "error",
+        code: "DUPLICATE_SECTION_CHECK",
+        path: `lesson:${lesson.id}`,
+        message: `La section ${check.section} reçoit plusieurs vérifications.`,
+      });
+    }
+    checkedSections.add(check.section);
+
+    if (!sectionIds.has(check.section)) {
+      issues.push({
+        level: "error",
+        code: "UNKNOWN_LESSON_SECTION",
+        path: `lesson:${lesson.id}`,
+        message: `Section inconnue dans la leçon : ${check.section}.`,
+      });
+    }
+
+    for (const questionId of check.questionIds) {
+      if (!coreIds.has(questionId)) {
+        issues.push({
+          level: "error",
+          code: "SECTION_QUESTION_NOT_CORE",
+          path: `lesson:${lesson.id}`,
+          message: `La vérification utilise une question hors du socle : ${questionId}.`,
+        });
+      }
+
+      if (checkedQuestions.has(questionId)) {
+        issues.push({
+          level: "error",
+          code: "DUPLICATE_SECTION_QUESTION",
+          path: `lesson:${lesson.id}`,
+          message: `Question utilisée dans plusieurs vérifications : ${questionId}.`,
+        });
+      }
+      checkedQuestions.add(questionId);
+    }
+  }
+
+  if (coreQuestionIds.length > 0 && coreQuestionIds.every((id) => checkedQuestions.has(id))) {
+    issues.push({
+      level: "error",
+      code: "FINAL_QUIZ_MISSING",
+      path: `lesson:${lesson.id}`,
+      message: "Au moins une question cœur doit rester pour la fin de la leçon.",
+    });
+  }
 }
 
 function pushDuplicateIssues(
@@ -142,7 +346,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
   pushDuplicateIssues(
     issues,
     raw.media.map((asset) => asset.id),
-    "content/media.yaml",
+    "content/**/media.yaml",
     "Identifiant de média",
   );
   pushDuplicateIssues(
@@ -161,7 +365,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
       issues.push({
         level: "error",
         code: "DUPLICATE_MEDIA_FILE",
-        path: "content/media.yaml",
+        path: "content/**/media.yaml",
         message: `Le fichier média ${asset.file} est déclaré plusieurs fois.`,
       });
     }
@@ -192,6 +396,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
     chapterById.set(entry.chapter.id, entry);
     chapterBySlug.set(entry.chapter.slug, entry);
     validateSourceRefs(entry.chapter.sourceRefs, `chapter:${entry.chapter.id}`, sources, issues);
+    validateUnits(entry, issues);
 
     if (entry.questions.length === 0) {
       issues.push({
@@ -221,6 +426,8 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
       }
 
       validateSourceRefs(lesson.sourceRefs, `lesson:${lesson.id}`, sources, issues);
+      validateCoreQuestionIds(lesson, entry.questions, issues);
+      validateLessonSections(lesson, issues);
 
       for (const target of extractMarkdownImageTargets(lesson.body)) {
         if (!target.startsWith("/media/")) {
@@ -238,7 +445,7 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
             level: "error",
             code: "UNKNOWN_MEDIA_FILE",
             path: `lesson:${lesson.id}`,
-            message: `Image non déclarée dans content/media.yaml : ${target}.`,
+            message: `Image non déclarée dans un manifeste média : ${target}.`,
           });
         }
       }
@@ -275,6 +482,17 @@ export function buildContentCatalog(raw: RawContent): CatalogBuildResult {
           path: `question:${question.id}`,
           message: `Média inconnu : ${question.mediaId}.`,
         });
+      }
+
+      for (const option of question.options) {
+        if (option.mediaId && !media.has(option.mediaId)) {
+          issues.push({
+            level: "error",
+            code: "UNKNOWN_OPTION_MEDIA",
+            path: `question:${question.id}`,
+            message: `Média d'option inconnu : ${option.mediaId}.`,
+          });
+        }
       }
 
       validateSourceRefs(question.sourceRefs, `question:${question.id}`, sources, issues);

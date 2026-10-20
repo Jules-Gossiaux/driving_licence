@@ -1,0 +1,29 @@
+id: ch02-q098
+chapterId: ch02
+lessonIds:
+  - ch02-l13
+prompt: "Une flèche verte vers le bas s'allume au-dessus de votre bande. Que signifie-t-elle ?"
+options:
+  - id: a
+    label: "La direction est autorisée sur cette bande"
+  - id: b
+    label: "La bande est fermée"
+  - id: c
+    label: "Vous devez tourner à droite"
+  - id: d
+    label: "Vous devez vous arrêter"
+correctOptionId: a
+explanation: "La flèche verte vers le bas indique que le sens est autorisé sur la bande au-dessus de laquelle elle se trouve."
+difficulty: easy
+severity: normal
+tags:
+  - bandes
+  - feux-de-bande
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 62bis"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,29 @@
+id: ch01-q027
+chapterId: ch01
+lessonIds:
+  - ch01-l04
+prompt: Le code 372 équivaut-il à un permis A1 complet ?
+options:
+  - id: a
+    label: Non, il autorise seulement la conduite en Belgique
+  - id: b
+    label: Oui, il vaut dans toute l'Europe
+  - id: c
+    label: Oui, mais seulement pour les motos de 125 cm³
+  - id: d
+    label: Non, il ne concerne que les cyclomoteurs
+correctOptionId: a
+explanation: Le code 372 est une autorisation nationale ajoutée au permis B. Il ne remplace pas un permis A1 délivré de plein droit.
+difficulty: medium
+severity: normal
+tags:
+  - a1
+  - code-372
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-am
+  - documentId: official-category-a1
+version: 1
+status: draft
+origin: ai_assisted

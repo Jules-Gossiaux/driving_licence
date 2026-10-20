@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau A23 — endroit fréquenté par des enfants</title>
+  <desc id="description">Triangle de danger à bord rouge : des enfants peuvent surgir, à proximité d'une école ou d'une plaine de jeux.</desc>
+  <path d="M240 62 L438 408 Q446 424 428 424 L52 424 Q34 424 42 408 Z" fill="#ffffff" stroke="#d21f2b" stroke-width="36" stroke-linejoin="round"/>
+  <g transform="translate(205 300) scale(0.92)" fill="none" stroke="#111827" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="-38" r="15" fill="#111827" stroke="none"/>
+    <path d="M0 -22 L0 24 M0 -10 L-19 8 M0 -10 L19 8 M0 24 L-15 58 M0 24 L15 58"/>
+  </g>
+  <g transform="translate(292 315) scale(0.8)" fill="none" stroke="#111827" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="-38" r="15" fill="#111827" stroke="none"/>
+    <path d="M0 -22 L0 24 M0 -10 L-19 8 M0 -10 L19 8 M0 24 L-15 58 M0 24 L15 58"/>
+  </g>
+</svg>

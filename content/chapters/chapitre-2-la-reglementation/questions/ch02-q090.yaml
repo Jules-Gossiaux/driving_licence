@@ -1,0 +1,29 @@
+id: ch02-q090
+chapterId: ch02
+lessonIds:
+  - ch02-l12
+prompt: "Un feu orange clignotant modifie-t-il les règles de priorité ?"
+options:
+  - id: a
+    label: "Non, elles restent inchangées"
+  - id: b
+    label: "Oui, il donne la priorité à celui qui arrive"
+  - id: c
+    label: "Oui, il supprime la priorité à droite"
+  - id: d
+    label: "Oui, mais seulement aux carrefours"
+correctOptionId: a
+explanation: "L'orange clignotant ne modifie pas les règles de priorité. Il impose seulement une prudence supplémentaire."
+difficulty: medium
+severity: normal
+tags:
+  - clignotants
+  - priorite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 64.1"
+version: 1
+status: draft
+origin: ai_assisted

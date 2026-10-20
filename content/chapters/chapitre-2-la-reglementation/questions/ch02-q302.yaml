@@ -1,0 +1,30 @@
+id: ch02-q302
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Une ligne blanche continue sépare les deux sens de circulation. Quelle interdiction ajoute-t-elle à celle de la franchir ?"
+options:
+  - id: a
+    label: "Circuler à sa gauche."
+  - id: b
+    label: "Stationner le long de sa rive droite."
+  - id: c
+    label: "Rouler à moins de 70 km/h."
+  - id: d
+    label: "Dépasser un cycliste qui roule sur la piste cyclable."
+correctOptionId: a
+explanation: "Lorsque la ligne continue sépare les deux sens de circulation, il est interdit de circuler à sa gauche : la voie opposée ne peut pas être utilisée, même temporairement."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - lignes
+  - sens-de-circulation
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "article 72.2"
+version: 1
+status: draft
+origin: ai_assisted

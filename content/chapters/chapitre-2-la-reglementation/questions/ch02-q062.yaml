@@ -1,0 +1,30 @@
+id: ch02-q062
+chapterId: ch02
+lessonIds:
+  - ch02-l08
+prompt: "Vous franchissez un feu jaune-orange parce que vous êtes trop près pour vous arrêter en sécurité. Que devez-vous faire ?"
+options:
+  - id: a
+    label: "Ne pas mettre les autres usagers en danger"
+  - id: b
+    label: "Accélérer fortement pour dégager le carrefour"
+  - id: c
+    label: "Klaxonner pour écarter les piétons"
+  - id: d
+    label: "Reculer après le carrefour"
+correctOptionId: a
+explanation: "L'exception à l'arrêt n'exonère pas de la prudence : si vous franchissez, vous ne pouvez pas mettre les autres usagers en danger."
+difficulty: medium
+severity: normal
+tags:
+  - feux
+  - orange
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1.2"
+version: 1
+status: draft
+origin: ai_assisted

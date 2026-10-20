@@ -382,6 +382,17 @@ export function validateContent(options: LoadOptions = {}): {
         continue;
       }
 
+      const chapterMediaFile = resolve(chapterDirectory, "media.yaml");
+      if (existsSync(chapterMediaFile)) {
+        const chapterMediaResult = readYamlListFile(
+          chapterDirectory,
+          "media.yaml",
+          mediaAssetSchema,
+        );
+        issues.push(...chapterMediaResult.issues);
+        media.push(...chapterMediaResult.values);
+      }
+
       const lessonsResult = readLessonFiles(resolve(chapterDirectory, "lessons"));
       const questionsResult = readYamlDirectory(
         resolve(chapterDirectory, "questions"),

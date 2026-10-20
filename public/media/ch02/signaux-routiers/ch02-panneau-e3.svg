@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau E3 — arrêt et stationnement interdits</title>
+  <desc id="description">Disque bleu à bord rouge barré d'une croix rouge : l'arrêt et le stationnement sont tous deux interdits.</desc>
+  <circle cx="240" cy="240" r="190" fill="#005baa"/>
+  <circle cx="240" cy="240" r="172" fill="none" stroke="#d21f2b" stroke-width="36"/>
+  <line x1="106" y1="106" x2="374" y2="374" stroke="#d21f2b" stroke-width="32" stroke-linecap="round"/>
+  <line x1="374" y1="106" x2="106" y2="374" stroke="#d21f2b" stroke-width="32" stroke-linecap="round"/>
+</svg>

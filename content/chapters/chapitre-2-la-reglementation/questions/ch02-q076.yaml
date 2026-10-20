@@ -1,0 +1,30 @@
+id: ch02-q076
+chapterId: ch02
+lessonIds:
+  - ch02-l10
+prompt: "Un signal combiné montre un vélo et un piéton verts. À qui s'adresse-t-il ?"
+options:
+  - id: a
+    label: "Aux cyclistes, aux cyclomoteurs à deux roues autorisés sur la piste cyclable et aux piétons"
+  - id: b
+    label: "À tous les véhicules"
+  - id: c
+    label: "Aux voitures uniquement"
+  - id: d
+    label: "Aux piétons uniquement"
+correctOptionId: a
+explanation: "Le signal combiné vélo + piéton s'applique uniquement aux cyclistes, aux cyclomoteurs à deux roues autorisés à circuler sur la piste cyclable, et aux piétons."
+difficulty: hard
+severity: normal
+tags:
+  - pietons
+  - cyclistes
+  - feux-bicolores
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 63.2"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,29 @@
+id: ch02-q053
+chapterId: ch02
+lessonIds:
+  - ch02-l07
+prompt: Quels examens l'auteur d'un délit de fuite doit-il réussir pour être réintégré dans le droit de conduire ?
+options:
+  - id: a
+    label: Théorique, pratique, médical et psychologique
+  - id: b
+    label: Théorique uniquement
+  - id: c
+    label: Théorique et pratique uniquement
+  - id: d
+    label: Médical uniquement
+correctOptionId: a
+explanation: L'auteur d'un délit de fuite doit systématiquement réussir un examen théorique, un examen pratique, un examen médical et un examen psychologique.
+difficulty: easy
+severity: normal
+tags:
+  - delit-de-fuite
+  - examens
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 16
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

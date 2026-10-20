@@ -11,11 +11,7 @@ export default function ExamHubPage() {
 
   return (
     <div>
-      <PageHeader
-        eyebrow="Examen blanc"
-        title="Se mesurer au format de l'examen"
-        description="Une question à la fois, avec un temps limité et sans correction immédiate. Le score applique les pénalités prévues par le preset."
-      />
+      <PageHeader title="Examen blanc" />
 
       {view.activeExam ? (
         <div className="mb-6 flex flex-col justify-between gap-4 rounded-2xl border border-amber-300 bg-amber-50 p-5 sm:flex-row sm:items-center">
@@ -24,9 +20,6 @@ export default function ExamHubPage() {
               Examen en cours
             </p>
             <p className="mt-1 font-semibold text-amber-950">{view.activeExam.title}</p>
-            <p className="mt-1 text-sm text-amber-800">
-              Reprenez la question en cours. Le temps restant est calculé côté serveur.
-            </p>
           </div>
           <Link
             href={`/examen/${view.activeExam.attemptId}`}
@@ -55,10 +48,6 @@ export default function ExamHubPage() {
                 {preset.locked ? "Verrouillé" : "Disponible"}
               </span>
             </div>
-            <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-700">
-              {preset.description}
-            </p>
-
             <dl className="mt-5 grid grid-cols-3 gap-3 text-center text-sm">
               <div className="rounded-xl bg-white/80 p-3 ring-1 ring-slate-200 ring-inset">
                 <dt className="text-xs text-slate-500">Questions</dt>
@@ -88,14 +77,6 @@ export default function ExamHubPage() {
               />
             </div>
 
-            <p className="mt-3 text-xs leading-relaxed text-slate-600">
-              {preset.isDemo
-                ? "Questions de démonstration en brouillon : ce preset valide le format, pas la banque officielle."
-                : preset.locked
-                  ? "Le preset officiel s'active automatiquement quand la banque contient assez de questions publiées et validées."
-                  : "Toutes les questions de ce preset sont publiées et validées."}
-            </p>
-
             <div className="mt-5">
               {preset.locked ? (
                 <button
@@ -121,19 +102,10 @@ export default function ExamHubPage() {
         ))}
       </div>
 
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-base font-semibold text-slate-950">Barème appliqué</h2>
-        <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-600">
-          <li>Une réponse correcte ne retire aucun point.</li>
-          <li>Une erreur normale retire 1 point.</li>
-          <li>Une faute grave retire 5 points.</li>
-          <li>Une question non répondue dans le temps imparti compte comme une erreur normale.</li>
-          <li>Le score ne descend pas sous 0 ; la réussite dépend du seuil du preset.</li>
-        </ul>
-        <p className="mt-3 text-xs text-slate-500">
-          Le format belge francophone visé est 50 questions, 15 secondes par question, avec 41
-          bonnes réponses sur 50. Le preset officiel reste verrouillé tant que la banque
-          n&apos;atteint pas ce volume de questions publiées.
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-base font-semibold text-slate-950">Barème</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Erreur : −1 · Faute grave : −5 · Non-réponse : −1 · Plancher : 0
         </p>
       </section>
     </div>

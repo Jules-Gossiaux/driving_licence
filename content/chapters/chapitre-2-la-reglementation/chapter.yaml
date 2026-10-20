@@ -1,0 +1,64 @@
+id: ch02
+slug: chapitre-2-la-reglementation
+order: 2
+title: "Chapitre 2 — La réglementation"
+summary: >-
+  Qui doit respecter le Code de la route, où il s'applique, à qui obéir, les
+  quatre degrés d'infraction, les sanctions, les signaux lumineux, les signaux
+  routiers, le marquage au sol et l'ordre hiérarchique des indications.
+units:
+  - id: ch02-u1
+    slug: usagers-et-reglementation
+    order: 1
+    label: "2.1"
+    title: "Les usagers et la réglementation"
+    summary: "Le champ d'application du Code, les personnes qui donnent des ordres et les sanctions encourues."
+  - id: ch02-u2
+    slug: signaux-lumineux-de-circulation
+    order: 2
+    label: "2.2"
+    title: "Les signaux lumineux de circulation"
+    summary: "Couleurs, flèches, feux pour piétons et cyclistes, clignotants et feux de bandes."
+  - id: ch02-u3
+    slug: signaux-routiers
+    order: 3
+    label: "2.3"
+    title: "Les signaux routiers"
+    summary: "Les six familles de panneaux, la priorité, les interdictions, les obligations, l'arrêt et le stationnement, les indications, les zones et les panneaux additionnels."
+  - id: ch02-u4
+    slug: marquage-au-sol
+    order: 4
+    label: "2.4"
+    title: "Le marquage au sol"
+    summary: "Lignes blanches, bandes réservées, bords de chaussée, marques transversales et autres repères peints sur la route."
+  - id: ch02-u5
+    slug: hierarchie-et-signaux
+    order: 5
+    label: "2.5"
+    title: "L'ordre hiérarchique et les priorités"
+    summary: "L'ordre d'autorité entre agent, feux, signalisation et règles, les cas pratiques au carrefour et les conflits entre panneau et marquage."
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: feu-vert-chap2-3
+    page: 21
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+  - documentId: official-code-route-1975
+    locator: "articles 61 à 64 et 72 à 77"
+  - documentId: official-signaux-routiers
+    locator: "articles 22bis et 65 à 71"
+  - documentId: securotheque-b22-b23
+  - documentId: securotheque-c35
+  - documentId: securotheque-e3
+  - documentId: official-code-voie-publique
+  - documentId: official-exam-brussels
+version: 5
+status: draft
+origin: ai_assisted

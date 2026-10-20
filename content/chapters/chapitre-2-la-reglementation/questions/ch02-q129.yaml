@@ -1,0 +1,31 @@
+id: ch02-q129
+chapterId: ch02
+lessonIds:
+  - ch02-l17
+prompt: "Un disque bleu avec une flèche blanche vers la droite signifie :"
+options:
+  - id: a
+    label: "Une direction conseillée à droite"
+  - id: b
+    label: "Un sens unique à droite"
+  - id: c
+    label: "Une direction obligatoire à droite"
+  - id: d
+    label: "Une priorité à droite"
+correctOptionId: c
+explanation: "Les disques bleus sont des signaux d'obligation. D1a impose de suivre la direction indiquée par la flèche, ici à droite. Ce n'est pas un conseil d'itinéraire ni un panneau de priorité."
+mediaId: ch02-panneau-d1a
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - obligation
+  - direction
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 28
+  - documentId: official-signaux-routiers
+    locator: "article 68"
+version: 1
+status: draft
+origin: ai_assisted

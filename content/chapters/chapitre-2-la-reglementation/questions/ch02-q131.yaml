@@ -1,0 +1,31 @@
+id: ch02-q131
+chapterId: ch02
+lessonIds:
+  - ch02-l17
+prompt: "D7 réserve la piste cyclable à quels usagers ?"
+options:
+  - id: a
+    label: "Aux piétons uniquement"
+  - id: b
+    label: "À tous les véhicules"
+  - id: c
+    label: "Aux cavaliers"
+  - id: d
+    label: "Aux cyclistes et aux cyclomoteurs à deux roues"
+correctOptionId: d
+explanation: "D7 impose une piste cyclable aux cyclistes et aux cyclomoteurs à deux roues. Les autres usagers ne peuvent pas s'y engager, sauf exception indiquée par un panneau additionnel. Le panneau ne se limite donc pas à une recommandation."
+mediaId: ch02-panneau-d7
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - obligation
+  - cyclistes
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 28
+  - documentId: official-signaux-routiers
+    locator: "article 68"
+version: 1
+status: draft
+origin: ai_assisted

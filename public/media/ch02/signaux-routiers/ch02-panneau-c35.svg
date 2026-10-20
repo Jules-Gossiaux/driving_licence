@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau C35 — dépassement interdit</title>
+  <desc id="description">Anneau rouge : il est interdit de dépasser les véhicules à plus de deux roues, sauf si le dépassement se fait sans quitter la chaussée.</desc>
+  <circle cx="240" cy="240" r="171" fill="#ffffff" stroke="#d21f2b" stroke-width="38"/>
+
+  <g transform="translate(158 244) scale(0.8)">
+    <path d="M-70 18 L-58 -26 Q-54 -42 -34 -44 L34 -44 Q54 -42 58 -26 L70 18 Z" fill="#111827"/>
+    <rect x="-42" y="-34" width="34" height="24" rx="5" fill="#ffffff"/>
+    <rect x="6" y="-34" width="34" height="24" rx="5" fill="#ffffff"/>
+    <circle cx="-44" cy="24" r="14" fill="#111827"/>
+    <circle cx="44" cy="24" r="14" fill="#111827"/>
+  </g>
+  <g transform="translate(322 244) scale(0.8)">
+    <path d="M-70 18 L-58 -26 Q-54 -42 -34 -44 L34 -44 Q54 -42 58 -26 L70 18 Z" fill="#d21f2b"/>
+    <rect x="-42" y="-34" width="34" height="24" rx="5" fill="#ffffff"/>
+    <rect x="6" y="-34" width="34" height="24" rx="5" fill="#ffffff"/>
+    <circle cx="-44" cy="24" r="14" fill="#d21f2b"/>
+    <circle cx="44" cy="24" r="14" fill="#d21f2b"/>
+  </g>
+</svg>

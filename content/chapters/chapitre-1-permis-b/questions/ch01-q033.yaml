@@ -1,0 +1,28 @@
+id: ch01-q033
+chapterId: ch01
+lessonIds:
+  - ch01-l05
+prompt: Avec une remorque de plus de 750 kg, à partir de quelle MMA d'ensemble le code 96 devient-il nécessaire ?
+options:
+  - id: a
+    label: Au-dessus de 3 500 kg
+  - id: b
+    label: Au-dessus de 750 kg
+  - id: c
+    label: Au-dessus de 4 250 kg
+  - id: d
+    label: Au-dessus de 7 000 kg
+correctOptionId: a
+explanation: Le code 96 prend le relais au-dessus de 3 500 kg de MMA d'ensemble, jusqu'à 4 250 kg. En dessous de 3 500 kg, le permis B suffit.
+difficulty: medium
+severity: normal
+tags:
+  - code-96
+  - seuils
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+version: 1
+status: draft
+origin: ai_assisted

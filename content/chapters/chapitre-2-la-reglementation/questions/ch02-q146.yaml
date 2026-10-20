@@ -1,0 +1,30 @@
+id: ch02-q146
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Que marque le panneau F3a ?"
+options:
+  - id: a
+    label: "La fin de l'agglomération"
+  - id: b
+    label: "Le début d'une autoroute"
+  - id: c
+    label: "Une zone piétonne"
+  - id: d
+    label: "Un sens unique"
+correctOptionId: a
+explanation: "F3a marque la fin de l'agglomération. F3b est la variante du même signal. À partir de ce panneau, les règles propres à l'agglomération cessent de s'appliquer, sous réserve des autres signaux."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - agglomeration
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

@@ -2,10 +2,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { markLessonReadAction, startPracticeAction } from "@/app/actions";
+import {
+  continueLessonAction,
+  markLessonReadAction,
+  startLessonRunAction,
+  startLessonPracticeAction,
+  startPracticeAction,
+} from "@/app/actions";
 import { ContentNotFoundError } from "@/application/errors";
 import { getChapterDetail, getLessonDetail } from "@/application/queries";
-import { PageHeader, StatusBadge } from "@/components/ui";
+import { PageHeader } from "@/components/ui";
 import { getAppDependencies } from "@/infrastructure/container";
 import { formatDateTime } from "@/lib/format";
 
@@ -46,83 +52,164 @@ export default async function LessonPage({ params }: PageProps) {
     lessonIndex >= 0 && lessonIndex < chapter.lessons.length - 1
       ? chapter.lessons[lessonIndex + 1]
       : undefined;
+  const questionCount = detail.lesson.coreQuestionIds?.length ?? 0;
+  const eyebrow = `${detail.unit ? `Unité ${detail.unit.label} · ` : ""}Leçon ${detail.lesson.order}`;
+
+  if (detail.locked) {
+    return (
+      <div>
+        <Link
+          href={`/chapitres/${chapter.slug}`}
+          className="mb-4 inline-flex text-sm font-medium text-slate-500 hover:text-slate-900"
+        >
+          ← Chapitre {chapter.order}
+        </Link>
+
+        <PageHeader eyebrow={eyebrow} title={detail.lesson.title} />
+
+        <section className="mx-auto max-w-2xl rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+          <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-2xl text-slate-500">
+            ⌁
+          </div>
+          <h2 className="mt-5 text-xl font-semibold text-slate-950">Leçon verrouillée</h2>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            Terminez d&apos;abord
+            {detail.previousLesson ? ` « ${detail.previousLesson.title} »` : " la leçon précédente"}
+            .
+          </p>
+          {detail.previousLesson ? (
+            <Link
+              href={`/chapitres/${chapter.slug}/lecons/${detail.previousLesson.slug}`}
+              className="mt-6 inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-700"
+            >
+              Ouvrir la leçon précédente
+            </Link>
+          ) : null}
+        </section>
+      </div>
+    );
+  }
+
+  const startLabel = detail.activeRunAttemptId
+    ? "Reprendre"
+    : detail.readAt
+      ? "Revoir la leçon"
+      : "Commencer";
 
   return (
     <div>
-      <nav aria-label="Fil d'Ariane" className="mb-4 text-sm text-slate-500">
-        <Link href="/chapitres" className="hover:text-slate-900 hover:underline">
-          Chapitres
-        </Link>
-        <span aria-hidden="true"> / </span>
-        <Link href={`/chapitres/${chapter.slug}`} className="hover:text-slate-900 hover:underline">
-          {chapter.title}
-        </Link>
-        <span aria-hidden="true"> / </span>
-        <span className="text-slate-700">{detail.lesson.title}</span>
-      </nav>
+      <Link
+        href={`/chapitres/${chapter.slug}`}
+        className="mb-4 inline-flex text-sm font-medium text-slate-500 hover:text-slate-900"
+      >
+        ← Chapitre {chapter.order}
+      </Link>
 
       <PageHeader
-        eyebrow={`Leçon ${detail.lesson.order}`}
+        eyebrow={eyebrow}
         title={detail.lesson.title}
-        description={detail.lesson.summary}
         actions={
-          <>
-            <form action={markLessonReadAction}>
+          detail.hasQuestions ? (
+            <form action={startLessonRunAction}>
               <input type="hidden" name="lessonId" value={detail.lesson.id} />
-              <input type="hidden" name="chapterSlug" value={chapter.slug} />
-              <input type="hidden" name="lessonSlug" value={detail.lesson.slug} />
-              <input type="hidden" name="read" value={detail.readAt ? "false" : "true"} />
               <button
                 type="submit"
-                className={`rounded-xl px-4 py-2.5 text-sm font-semibold ${
-                  detail.readAt
-                    ? "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-                    : "bg-emerald-700 text-white hover:bg-emerald-800"
-                }`}
+                className="rounded-xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-800"
               >
-                {detail.readAt ? "Marquer comme non lue" : "Marquer comme lue"}
+                {startLabel}
               </button>
             </form>
-            {chapter.questionCount > 0 ? (
-              <form action={startPracticeAction}>
-                <input type="hidden" name="chapterId" value={chapter.id} />
+          ) : (
+            <>
+              <form action={markLessonReadAction}>
+                <input type="hidden" name="lessonId" value={detail.lesson.id} />
+                <input type="hidden" name="chapterSlug" value={chapter.slug} />
+                <input type="hidden" name="lessonSlug" value={detail.lesson.slug} />
+                <input type="hidden" name="read" value={detail.readAt ? "false" : "true"} />
                 <button
                   type="submit"
-                  className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700"
+                  className={`rounded-xl px-4 py-2.5 text-sm font-semibold ${
+                    detail.readAt
+                      ? "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                      : "bg-emerald-700 text-white hover:bg-emerald-800"
+                  }`}
                 >
-                  S&apos;entraîner
+                  {detail.readAt ? "Marquer comme non lue" : "Marquer comme lue"}
                 </button>
               </form>
-            ) : null}
-          </>
+              {detail.lesson.coreQuestionIds && detail.lesson.coreQuestionIds.length > 0 ? (
+                <form action={startLessonPracticeAction}>
+                  <input type="hidden" name="lessonId" value={detail.lesson.id} />
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700"
+                  >
+                    S&apos;entraîner sur cette leçon
+                  </button>
+                </form>
+              ) : chapter.questionCount > 0 ? (
+                <form action={startPracticeAction}>
+                  <input type="hidden" name="chapterId" value={chapter.id} />
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700"
+                  >
+                    S&apos;entraîner
+                  </button>
+                </form>
+              ) : null}
+            </>
+          )
         }
       />
 
-      <div className="mb-5 flex flex-wrap items-center gap-2 text-sm">
-        <StatusBadge status={detail.lesson.status} />
-        {detail.readAt ? (
-          <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200 ring-inset">
-            Lue le {formatDateTime(detail.readAt)}
-          </span>
-        ) : (
-          <span className="text-xs text-slate-500">Pas encore marquée comme lue</span>
-        )}
-      </div>
+      {detail.readAt ? (
+        <p className="mb-5 inline-flex rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200 ring-inset">
+          Terminée le {formatDateTime(detail.readAt)}
+        </p>
+      ) : null}
 
       <div className="grid gap-6 lg:grid-cols-3">
         <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:col-span-2">
-          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
-            <h2 className="text-sm font-semibold text-amber-950">À retenir</h2>
-            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-amber-900">
-              {detail.lesson.keyPoints.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </div>
+          {detail.hasQuestions ? (
+            <>
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h2 className="text-sm font-semibold text-slate-950">Au programme</h2>
+                <p className="text-xs text-slate-500">
+                  {detail.sections.length} sections · {questionCount} question
+                  {questionCount > 1 ? "s" : ""}
+                </p>
+              </div>
+              <ol className="mt-4 space-y-3">
+                {detail.sections.map((section, index) => (
+                  <li key={section.id} className="flex items-baseline gap-3 text-sm text-slate-700">
+                    <span className="w-5 shrink-0 text-right text-xs font-semibold text-slate-400 tabular-nums">
+                      {index + 1}
+                    </span>
+                    {section.title}
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-6 text-xs leading-relaxed text-slate-500">
+                Les questions s&apos;intercalent entre les sections. La leçon se valide à la fin.
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+                <h2 className="text-sm font-semibold text-amber-950">À retenir</h2>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-amber-900">
+                  {detail.lesson.keyPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
 
-          <div className="lesson-body mt-7">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{detail.lesson.body}</ReactMarkdown>
-          </div>
+              <div className="lesson-body mt-7">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{detail.lesson.body}</ReactMarkdown>
+              </div>
+            </>
+          )}
         </article>
 
         <aside className="space-y-6">
@@ -142,35 +229,51 @@ export default async function LessonPage({ params }: PageProps) {
             </ul>
           </section>
 
-          <nav
-            aria-label="Navigation entre les leçons"
-            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-          >
-            <h2 className="text-sm font-semibold text-slate-950">Continuer</h2>
-            <div className="mt-3 space-y-3 text-sm">
-              {previousLesson ? (
-                <Link
-                  href={`/chapitres/${chapter.slug}/lecons/${previousLesson.slug}`}
-                  className="block rounded-lg border border-slate-200 p-3 text-slate-700 hover:bg-slate-50"
-                >
-                  <span className="block text-xs text-slate-500">Leçon précédente</span>
-                  {previousLesson.title}
-                </Link>
-              ) : null}
-              {nextLesson ? (
-                <Link
-                  href={`/chapitres/${chapter.slug}/lecons/${nextLesson.slug}`}
-                  className="block rounded-lg border border-slate-200 p-3 text-slate-700 hover:bg-slate-50"
-                >
-                  <span className="block text-xs text-slate-500">Leçon suivante</span>
-                  {nextLesson.title}
-                </Link>
-              ) : null}
-              {!previousLesson && !nextLesson ? (
-                <p className="text-slate-500">Cette leçon est la seule du chapitre.</p>
-              ) : null}
-            </div>
-          </nav>
+          {!detail.hasQuestions ? (
+            <nav
+              aria-label="Navigation entre les leçons"
+              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+            >
+              <h2 className="text-sm font-semibold text-slate-950">Continuer</h2>
+              <div className="mt-3 space-y-3 text-sm">
+                {previousLesson ? (
+                  <Link
+                    href={`/chapitres/${chapter.slug}/lecons/${previousLesson.slug}`}
+                    className="block rounded-lg border border-slate-200 p-3 text-slate-700 hover:bg-slate-50"
+                  >
+                    <span className="block text-xs text-slate-500">Leçon précédente</span>
+                    {previousLesson.title}
+                  </Link>
+                ) : null}
+                {nextLesson ? (
+                  <form action={continueLessonAction}>
+                    <input type="hidden" name="lessonId" value={detail.lesson.id} />
+                    <input type="hidden" name="chapterSlug" value={chapter.slug} />
+                    <input type="hidden" name="nextLessonSlug" value={nextLesson.slug} />
+                    <button
+                      type="submit"
+                      className="block w-full rounded-lg border border-slate-200 p-3 text-left text-slate-700 hover:bg-slate-50"
+                    >
+                      <span className="block text-xs text-slate-500">Leçon suivante</span>
+                      {nextLesson.title}
+                    </button>
+                  </form>
+                ) : (
+                  <form action={continueLessonAction}>
+                    <input type="hidden" name="lessonId" value={detail.lesson.id} />
+                    <input type="hidden" name="chapterSlug" value={chapter.slug} />
+                    <button
+                      type="submit"
+                      className="block w-full rounded-lg border border-slate-200 p-3 text-left text-slate-700 hover:bg-slate-50"
+                    >
+                      <span className="block text-xs text-slate-500">Dernière leçon</span>
+                      Terminer le chapitre
+                    </button>
+                  </form>
+                )}
+              </div>
+            </nav>
+          ) : null}
         </aside>
       </div>
     </div>

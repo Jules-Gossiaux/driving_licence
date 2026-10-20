@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { startReviewAction } from "@/app/actions";
 import { getReviewItems } from "@/application/queries";
+import { OptionContent } from "@/components/option-content";
 import { EmptyState, PageHeader } from "@/components/ui";
 import { getAppDependencies } from "@/infrastructure/container";
 
@@ -13,9 +14,7 @@ export default function ReviewPage() {
   return (
     <div>
       <PageHeader
-        eyebrow="Révision"
         title="Vos dernières erreurs"
-        description="Pour chaque question, la dernière tentative terminée fait foi. Les corrections restent affichées ici pour être relues sans pression de temps."
         actions={
           items.length > 0 ? (
             <form action={startReviewAction}>
@@ -33,7 +32,7 @@ export default function ReviewPage() {
       {items.length === 0 ? (
         <EmptyState
           title="Aucune erreur à réviser"
-          description="Terminez un entraînement ou un examen pour alimenter cette page. Les questions répondues correctement lors de votre dernière tentative n'y apparaissent pas."
+          description="Terminez une session pour alimenter cette page."
           action={
             <Link
               href="/entrainement"
@@ -79,7 +78,7 @@ export default function ReviewPage() {
                         : "border-slate-200 bg-white text-slate-600"
                     }`}
                   >
-                    {option.label}
+                    <OptionContent option={option} />
                     {option.id === item.correctOptionId ? (
                       <span className="ml-2 text-xs font-semibold text-emerald-800">
                         Bonne réponse

@@ -1,0 +1,29 @@
+id: ch01-q047
+chapterId: ch01
+lessonIds:
+  - ch01-l06
+prompt: Une remorque de 900 kg de MMA forme un ensemble de 7 000 kg de MMA. Quel permis faut-il ?
+options:
+  - id: a
+    label: Le permis BE
+  - id: b
+    label: Le permis B avec le code 96
+  - id: c
+    label: Le permis B seul
+  - id: d
+    label: Aucun des trois
+correctOptionId: a
+explanation: La borne de 7 000 kg est incluse dans le permis BE. Au-delà, il faut vérifier une autre solution.
+difficulty: medium
+severity: normal
+tags:
+  - permis-be
+  - seuils
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

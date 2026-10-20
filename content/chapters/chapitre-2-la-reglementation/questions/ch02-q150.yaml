@@ -1,0 +1,30 @@
+id: ch02-q150
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Que signifie le panneau F21 ?"
+options:
+  - id: a
+    label: "Un sens unique"
+  - id: b
+    label: "Une circulation dans les deux sens"
+  - id: c
+    label: "Une autoroute"
+  - id: d
+    label: "Une zone piétonne"
+correctOptionId: b
+explanation: "F21 signale une circulation dans les deux sens. Il invite à anticiper la présence d'usagers venant en sens opposé, surtout si la chaussée est étroite ou si la visibilité est réduite."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - double-sens
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

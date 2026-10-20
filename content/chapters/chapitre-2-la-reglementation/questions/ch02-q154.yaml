@@ -1,0 +1,30 @@
+id: ch02-q154
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "À quelle vitesse la zone délimitée par F12a est-elle limitée ?"
+options:
+  - id: a
+    label: "30 km/h"
+  - id: b
+    label: "50 km/h"
+  - id: c
+    label: "20 km/h"
+  - id: d
+    label: "70 km/h"
+correctOptionId: c
+explanation: "F12a délimite une zone résidentielle ou de rencontre, limitée à 20 km/h. Les piétons peuvent y circuler sur la chaussée et les enfants y jouent : il faut adapter sa vitesse et sa trajectoire à cette cohabitation."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - zones
+  - vitesse
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

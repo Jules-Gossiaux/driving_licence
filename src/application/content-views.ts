@@ -51,6 +51,7 @@ export type ChapterOverview = {
 
 export type LessonSummary = {
   id: string;
+  unitId: string | null;
   slug: string;
   title: string;
   summary: string;
@@ -59,21 +60,79 @@ export type LessonSummary = {
   published: boolean;
   keyPoints: string[];
   readAt: string | null;
+  locked: boolean;
+};
+
+export type LatestAttemptResult = {
+  attemptId: string;
+  score: number;
+  questionCount: number;
+  passed: boolean | null;
+  completedAt: string | null;
+};
+
+export type UnitChallengeOverview = {
+  questionCount: number;
+  availableQuestions: number;
+  unlocked: boolean;
+  latestCompleted: LatestAttemptResult | null;
+};
+
+export type ChapterExamOverview = {
+  questionCount: number;
+  secondsPerQuestion: number;
+  passingScore: number;
+  availableQuestions: number;
+  unlocked: boolean;
+  latestCompleted: LatestAttemptResult | null;
+};
+
+export type UnitOverview = {
+  id: string;
+  slug: string;
+  label: string;
+  title: string;
+  summary: string | null;
+  order: number;
+  lessonCount: number;
+  readLessonCount: number;
+  lessons: LessonSummary[];
+  challenge: UnitChallengeOverview;
 };
 
 export type ChapterDetail = ChapterOverview & {
   lessons: LessonSummary[];
+  units: UnitOverview[];
+  exam: ChapterExamOverview | null;
+};
+
+export type LessonNavigation = {
+  slug: string;
+  title: string;
 };
 
 export type LessonDetail = {
   lesson: Lesson;
   chapterSlug: string;
   chapterTitle: string;
+  unit: { id: string; label: string; title: string } | null;
+  sections: Array<{ id: string; title: string }>;
+  hasQuestions: boolean;
+  locked: boolean;
   readAt: string | null;
+  activeRunAttemptId: string | null;
+  previousLesson: LessonNavigation | null;
+  nextLesson: LessonNavigation | null;
   sources: SourceLabel[];
 };
 
 export type QuestionMedia = QuestionMediaView;
+
+export type QuestionOptionView = {
+  id: string;
+  label: string;
+  media: QuestionMediaView | null;
+};
 
 export type ExamPresetOverview = {
   id: string;
@@ -89,7 +148,7 @@ export type ExamPresetOverview = {
 
 export type ResolvedQuestion = {
   question: Question;
-  options: Array<{ id: string; label: string }>;
+  options: QuestionOptionView[];
   correctOptionId: string;
   explanation: string;
   media: QuestionMediaView | null;
@@ -117,6 +176,17 @@ export function resolveMedia(
     width: asset.width,
     height: asset.height,
   };
+}
+
+export function resolveOptionViews(
+  catalog: ContentCatalog,
+  options: ReadonlyArray<{ id: string; label: string; mediaId?: string | null }>,
+): QuestionOptionView[] {
+  return options.map((option) => ({
+    id: option.id,
+    label: option.label,
+    media: resolveMedia(catalog, option.mediaId),
+  }));
 }
 
 export function resolveSourceLabels(
@@ -155,9 +225,14 @@ export function toChapterOverview(
   };
 }
 
-export function toLessonSummary(lesson: Lesson, readAt: string | null): LessonSummary {
+export function toLessonSummary(
+  lesson: Lesson,
+  readAt: string | null,
+  locked = false,
+): LessonSummary {
   return {
     id: lesson.id,
+    unitId: lesson.unitId ?? null,
     slug: lesson.slug,
     title: lesson.title,
     summary: lesson.summary,
@@ -166,6 +241,7 @@ export function toLessonSummary(lesson: Lesson, readAt: string | null): LessonSu
     published: lesson.status === "published",
     keyPoints: lesson.keyPoints,
     readAt,
+    locked,
   };
 }
 
@@ -176,10 +252,7 @@ export function resolveQuestion(
 ): ResolvedQuestion {
   return {
     question,
-    options: (options ?? question.options).map((option) => ({
-      id: option.id,
-      label: option.label,
-    })),
+    options: resolveOptionViews(catalog, options ?? question.options),
     correctOptionId: question.correctOptionId,
     explanation: question.explanation,
     media: resolveMedia(catalog, question.mediaId),

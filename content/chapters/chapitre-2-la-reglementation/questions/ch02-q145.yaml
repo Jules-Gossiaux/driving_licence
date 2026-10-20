@@ -1,0 +1,31 @@
+id: ch02-q145
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Que signifie le panneau F1a ?"
+options:
+  - id: a
+    label: "Une sortie d'agglomération"
+  - id: b
+    label: "Une route prioritaire"
+  - id: c
+    label: "Une entrée d'agglomération, avec la règle des 50 km/h sauf indication"
+  - id: d
+    label: "Une zone 30"
+correctOptionId: c
+explanation: "F1a marque l'entrée d'une agglomération. À partir de ce signal, la vitesse est limitée à 50 km/h sauf indication contraire. F3a et F3b marquent la fin de l'agglomération."
+mediaId: ch02-panneau-f1a
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - agglomeration
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

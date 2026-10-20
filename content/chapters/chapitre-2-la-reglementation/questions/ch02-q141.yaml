@@ -1,0 +1,30 @@
+id: ch02-q141
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "Un panneau E1 est placé le long d'un trottoir. Pouvez-vous vous arrêter brièvement pour déposer un passager ?"
+options:
+  - id: a
+    label: "Non, E1 interdit aussi l'arrêt"
+  - id: b
+    label: "Oui, si l'arrêt ne gêne pas et qu'aucun autre panneau ne l'interdit"
+  - id: c
+    label: "Oui, mais seulement la nuit"
+  - id: d
+    label: "Non, il faut stationner"
+correctOptionId: b
+explanation: "E1 interdit le stationnement, pas l'arrêt. Un arrêt bref reste possible s'il ne gêne pas la circulation et si aucun autre panneau ne l'interdit. E3, avec sa croix rouge, interdirait au contraire l'arrêt et le stationnement."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - arret
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 29
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted

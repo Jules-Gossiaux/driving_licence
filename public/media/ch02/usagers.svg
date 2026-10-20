@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre usagers">
+  <title id="titre">Les quatre catégories d'usagers de la route</title>
+  <desc id="usagers">Conducteurs, passagers, piétons et conducteurs de tram partagent la voie publique.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="28" y="52" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Les usagers de la route</text>
+  <text x="28" y="82" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#475569">Tous doivent respecter les règles, avec quelques situations particulières.</text>
+
+  <g>
+    <rect x="28" y="108" width="200" height="364" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <circle cx="128" cy="158" r="24" fill="#ccfbf1"/>
+    <circle cx="128" cy="158" r="15" fill="none" stroke="#0f766e" stroke-width="4"/>
+    <circle cx="128" cy="158" r="4" fill="#0f766e"/>
+    <path d="M113 158h11M132 158h11M128 162v11" fill="none" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+    <text x="128" y="218" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Conducteur</text>
+    <text x="48" y="258" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">Véhicule à moteur</text>
+    <text x="48" y="282" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">ou sans moteur,</text>
+    <text x="48" y="306" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">ou animal.</text>
+    <text x="48" y="346" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f766e">Ex. : voiture, vélo,</text>
+    <text x="48" y="368" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f766e">cyclo, cavalier.</text>
+  </g>
+
+  <g>
+    <rect x="254" y="108" width="200" height="364" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <circle cx="354" cy="158" r="24" fill="#dbeafe"/>
+    <circle cx="354" cy="150" r="8" fill="#1d4ed8"/>
+    <path d="M340 176c0-10 6-16 14-16s14 6 14 16" fill="#1d4ed8"/>
+    <path d="M334 146l40 34" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
+    <text x="354" y="218" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Passager</text>
+    <text x="274" y="258" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">Doit attacher</text>
+    <text x="274" y="282" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">sa ceinture.</text>
+    <text x="274" y="322" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1d4ed8">Reste prudent en</text>
+    <text x="274" y="344" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1d4ed8">ouvrant la portière.</text>
+  </g>
+
+  <g>
+    <rect x="480" y="108" width="200" height="364" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <circle cx="580" cy="158" r="24" fill="#fef3c7"/>
+    <circle cx="580" cy="146" r="7" fill="#b45309"/>
+    <path d="M580 153v18m0-10-10 12m10-12 10 12m-10 0-8 16m8-16 8 16" fill="none" stroke="#b45309" stroke-width="5" stroke-linecap="round"/>
+    <text x="580" y="218" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Piéton</text>
+    <text x="500" y="258" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">À pied, ou pousse</text>
+    <text x="500" y="282" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">un vélo, une</text>
+    <text x="500" y="306" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">brouette, un cycle…</text>
+    <text x="500" y="346" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#b45309">Pas une moto.</text>
+    <text x="500" y="368" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#b45309">PMR en chaise : piéton.</text>
+  </g>
+
+  <g>
+    <rect x="706" y="108" width="200" height="364" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <circle cx="806" cy="158" r="24" fill="#ede9fe"/>
+    <path d="M806 146v-5M800 141l6-4 6 4-6 4z" fill="none" stroke="#6d28d9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="787" y="148" width="38" height="22" rx="6" fill="#f5f3ff" stroke="#6d28d9" stroke-width="3.5"/>
+    <rect x="792" y="153" width="7" height="7" rx="1" fill="#6d28d9" opacity="0.7"/>
+    <rect x="802" y="153" width="7" height="7" rx="1" fill="#6d28d9" opacity="0.7"/>
+    <rect x="812" y="153" width="7" height="7" rx="1" fill="#6d28d9" opacity="0.7"/>
+    <circle cx="796" cy="174" r="2" fill="#6d28d9"/>
+    <circle cx="816" cy="174" r="2" fill="#6d28d9"/>
+    <path d="M789 181h34" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round"/>
+    <text x="806" y="218" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Tram</text>
+    <text x="726" y="258" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">Règlement</text>
+    <text x="726" y="282" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">spécifique,</text>
+    <text x="726" y="306" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">pas le Code</text>
+    <text x="726" y="330" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">de la route.</text>
+    <text x="726" y="370" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6d28d9">Mais : agents, feux</text>
+    <text x="726" y="392" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6d28d9">et véhicules prioritaires.</text>
+  </g>
+</svg>

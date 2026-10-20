@@ -1,0 +1,31 @@
+id: ch02-q022
+chapterId: ch02
+lessonIds:
+  - ch02-l03
+prompt: Parmi ces personnes, lesquelles sont des agents qualifiés pouvant donner des injonctions ?
+options:
+  - id: a
+    label: Les policiers locaux, fédéraux ou militaires, les douaniers, les agents des transports en commun, les pompiers et la Protection civile
+  - id: b
+    label: Uniquement les policiers locaux et fédéraux
+  - id: c
+    label: Uniquement les policiers et les militaires
+  - id: d
+    label: Uniquement les agents en uniforme, quelle que soit leur fonction
+correctOptionId: a
+explanation: Les agents qualifiés comprennent les policiers locaux, fédéraux ou militaires, les douaniers, les agents des sociétés de transport en commun, ainsi que les pompiers et la Protection civile avant l'arrivée de la police.
+difficulty: medium
+severity: normal
+tags:
+  - agents
+  - injonctions
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 12
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

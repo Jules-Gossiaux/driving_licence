@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau additionnel F100c — période de validité</title>
+  <desc id="description">Panneau bleu à texte blanc 7 - 19 h : la prescription ne s'applique que pendant cette plage horaire.</desc>
+  <rect x="8" y="8" width="464" height="224" rx="8" fill="#005baa" stroke="#ffffff" stroke-width="8"/>
+  <text x="240" y="152" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700" fill="#ffffff">7 - 19 h</text>
+</svg>

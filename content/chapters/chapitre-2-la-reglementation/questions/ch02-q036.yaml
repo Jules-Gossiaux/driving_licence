@@ -1,0 +1,29 @@
+id: ch02-q036
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Après combien de temps un ordre de paiement impayé peut-il mener à une suspension du droit de conduire ?
+options:
+  - id: a
+    label: 3 ans
+  - id: b
+    label: 1 an
+  - id: c
+    label: 5 ans
+  - id: d
+    label: 10 ans
+correctOptionId: a
+explanation: La suspension peut être ordonnée si, dans les trois ans après la délivrance de l'ordre de paiement, la somme n'a toujours pas été payée.
+difficulty: medium
+severity: normal
+tags:
+  - sanctions
+  - suspension
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

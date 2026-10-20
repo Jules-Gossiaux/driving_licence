@@ -1,0 +1,29 @@
+id: ch01-q024
+chapterId: ch01
+lessonIds:
+  - ch01-l04
+prompt: Le code 372 ajouté au permis B permet-il de conduire une moto légère A1 hors de Belgique ?
+options:
+  - id: a
+    label: Non, il n'est valable qu'en Belgique
+  - id: b
+    label: Oui, dans toute l'Union européenne
+  - id: c
+    label: Oui, mais uniquement pendant un an
+  - id: d
+    label: Oui, si la moto est immatriculée en Belgique
+correctOptionId: a
+explanation: Le code 372 est une autorisation belge. Il ne remplace pas un permis A1 complet et n'est pas valable à l'étranger.
+difficulty: medium
+severity: normal
+tags:
+  - a1
+  - code-372
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-am
+  - documentId: official-category-a1
+version: 1
+status: draft
+origin: ai_assisted

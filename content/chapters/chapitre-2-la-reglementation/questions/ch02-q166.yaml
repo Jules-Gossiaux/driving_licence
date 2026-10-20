@@ -1,0 +1,30 @@
+id: ch02-q166
+chapterId: ch02
+lessonIds:
+  - ch02-l21
+prompt: "E1 et E3 s'appliquent sur quelle partie de la voie ?"
+options:
+  - id: a
+    label: "Uniquement au trottoir"
+  - id: b
+    label: "Jusqu'au prochain virage"
+  - id: c
+    label: "Sur 100 m"
+  - id: d
+    label: "À la chaussée et à l'accotement, du côté où ils sont placés, jusqu'au prochain carrefour"
+correctOptionId: d
+explanation: "E1 et E3 s'appliquent du côté de la voie où ils sont placés, sur la chaussée et sur l'accotement, jusqu'au prochain carrefour. Ils ne couvrent pas l'autre côté de la chaussée. Des panneaux répétés peuvent prolonger l'interdiction."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - portee
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 35
+  - documentId: official-signaux-routiers
+    locator: "articles 22bis et 71"
+version: 1
+status: draft
+origin: ai_assisted

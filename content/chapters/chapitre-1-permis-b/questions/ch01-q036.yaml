@@ -1,0 +1,28 @@
+id: ch01-q036
+chapterId: ch01
+lessonIds:
+  - ch01-l05
+prompt: Une remorque de plus de 750 kg forme un ensemble de 4 251 kg de MMA. Quel permis faut-il ?
+options:
+  - id: a
+    label: Le permis BE
+  - id: b
+    label: Le permis B avec le code 96
+  - id: c
+    label: Le permis B seul
+  - id: d
+    label: Aucun des trois
+correctOptionId: a
+explanation: Au-delà de 4 250 kg, le code 96 ne suffit plus. Le permis BE prend le relais jusqu'à 7 000 kg.
+difficulty: medium
+severity: normal
+tags:
+  - permis-be
+  - seuils
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+version: 1
+status: draft
+origin: ai_assisted

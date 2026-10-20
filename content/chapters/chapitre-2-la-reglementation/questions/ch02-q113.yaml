@@ -1,0 +1,30 @@
+id: ch02-q113
+chapterId: ch02
+lessonIds:
+  - ch02-l15
+prompt: "Quelle est la différence entre B1 et B5 ?"
+options:
+  - id: a
+    label: "B1 impose un arrêt complet, B5 seulement de ralentir"
+  - id: b
+    label: "B1 impose de céder le passage, B5 impose en plus un arrêt complet"
+  - id: c
+    label: "Les deux panneaux ont la même signification"
+  - id: d
+    label: "B1 concerne les piétons, B5 les véhicules"
+correctOptionId: b
+explanation: "B1 impose de céder le passage : l'arrêt n'est nécessaire que si la voie n'est pas libre. B5 impose un arrêt complet à la ligne d'arrêt ou au signal, puis de céder le passage. Les deux panneaux ne sont donc pas interchangeables."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - priorite
+  - stop
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 23
+  - documentId: official-signaux-routiers
+    locator: "article 66"
+version: 1
+status: draft
+origin: ai_assisted

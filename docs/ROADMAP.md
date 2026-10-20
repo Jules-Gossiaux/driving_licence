@@ -6,21 +6,30 @@
 
 - Application Next.js locale (aucun backend, aucun compte).
 - Modèle de contenu YAML/Markdown validé par Zod, avec sources, médias, statuts et relecture.
-- Chapitre de démonstration : 1 chapitre, 2 leçons, 5 questions en brouillon.
+- Chapitre 1 (6 micro-leçons, 50 questions, deux unités) et chapitre 2 (28 leçons,
+  224 questions, cinq unités), tous en brouillon.
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
-- Entraînement par chapitre avec correction immédiate (10 questions maximum).
+- Unités de chapitre et parcours de micro-leçons : sections Markdown, vérifications intercalées,
+  quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
+- Défi d'unité (20 questions, sans seuil) et examen de chapitre (50 questions / 15 s / 41 sur 50),
+  débloqués par la lecture des leçons et vérifiés côté serveur.
+- Parcours visuel type Duolingo : chemin chapitre → unité → leçons, états verrouillé, courant et
+  terminé, accès de révision aux leçons terminées, défi et examen intégrés comme jalons.
+- Entraînement par chapitre avec correction immédiate (10 questions maximum) et entraînement dédié
+  aux questions cœur d'une leçon.
+- Questions à options illustrées par des SVG originaux.
 - Révision des questions dont la dernière réponse est fausse.
 - Examen blanc chronométré, serveur autoritatif, reprise d'une tentative en cours.
 - Preset belge officiel (50 questions / 15 s / 41 sur 50), verrouillé tant que le pool publié est
   insuffisant ; preset de démonstration (5 questions, brouillons autorisés).
 - Résultats détaillés avec explications, médias et sources.
 - Persistance SQLite avec migrations versionnées et snapshots des questions.
-- Tests : 91 tests Vitest (12 fichiers) et 3 parcours Playwright.
+- Tests : 135 tests Vitest (18 fichiers) et 5 parcours Playwright.
 - Documentation d'architecture, de développement, de test, de contenu et de décisions.
 
 ### Limites connues
 
-- Le preset officiel est **verrouillé** : 5 questions de démonstration contre 50 requises.
+- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (274 brouillons).
 - Le contenu n'a pas été relu par un spécialiste et ne doit pas servir de seule préparation.
 - Pas d'interface pour abandonner un examen commencé.
 - Pas d'historique complet des tentatives au-delà des cinq dernières du tableau de bord.
@@ -32,14 +41,12 @@
 
 ## Prochaines étapes
 
-### 1. Constituer la vraie banque de questions
+### 1. Relire les chapitres, puis poursuivre
 
-Priorité absolue. Pour chaque chapitre du manuel :
-
-- rédiger les leçons et les questions à partir des pages et des sources officielles belges ;
-- vérifier chaque règle, notamment les panneaux, priorités, vitesses et masses ;
-- renseigner les sources et les médias ;
-- faire relire, puis publier avec `reviewedBy` / `reviewedAt` ;
+- relire les 6 leçons et 50 questions du chapitre 1, notamment la règle du speed pedelec ;
+- relire les 28 leçons et 224 questions des unités 2.1 à 2.5, corriger puis publier ;
+- vérifier les panneaux illustrés du point 2.3 et le marquage du point 2.4 sur les sources
+  officielles belges ;
 - atteindre au moins 50 questions publiées pour débloquer le preset officiel.
 
 ### 2. Renforcer l'outillage de contenu
@@ -49,7 +56,7 @@ Priorité absolue. Pour chaque chapitre du manuel :
 - Prévisualisation d'une question avant publication.
 - Détection des questions jamais utilisées ou trop souvent échouées.
 
-### 3. Compléter les parcours
+### 3. Compléter l'application
 
 - Action d'abandon explicite d'un examen.
 - Page d'historique complet des tentatives.

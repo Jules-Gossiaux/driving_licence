@@ -1,0 +1,32 @@
+id: ch02-q132
+chapterId: ch02
+lessonIds:
+  - ch02-l17
+prompt: "D9 réserve une partie de la voie publique à quelles catégories ?"
+options:
+  - id: a
+    label: "Aux piétons et aux voitures"
+  - id: b
+    label: "Aux piétons, aux bicyclettes et aux cyclomoteurs classe A"
+  - id: c
+    label: "Aux cyclistes et aux cavaliers"
+  - id: d
+    label: "À tous les véhicules"
+correctOptionId: b
+explanation: "D9 réserve une partie de la voie publique aux piétons, aux bicyclettes et aux cyclomoteurs de classe A. D10 est plus restrictif : il réserve une partie de la voie aux piétons et aux cyclistes seulement."
+mediaId: ch02-panneau-d9
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - obligation
+  - pietons
+  - cyclistes
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 28
+  - documentId: official-signaux-routiers
+    locator: "article 68"
+version: 1
+status: draft
+origin: ai_assisted

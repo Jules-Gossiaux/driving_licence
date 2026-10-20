@@ -1,0 +1,30 @@
+id: ch02-q152
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Quel est le point commun des signaux d'indication de la famille F ?"
+options:
+  - id: a
+    label: "Ils imposent tous une direction"
+  - id: b
+    label: "Ils informent et orientent sans imposer à eux seuls une obligation"
+  - id: c
+    label: "Ils interdisent tous l'accès"
+  - id: d
+    label: "Ils règlent tous la priorité"
+correctOptionId: b
+explanation: "Les signaux F informent et orientent : agglomération, autoroute, sens unique, direction, service. Ils ne créent pas à eux seuls une obligation. Les obligations viennent de la famille D, les interdictions de la famille C et la priorité de la famille B."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - familles
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

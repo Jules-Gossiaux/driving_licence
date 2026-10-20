@@ -1,0 +1,32 @@
+id: ch02-q108
+chapterId: ch02
+lessonIds:
+  - ch02-l14
+prompt: "Vous approchez d'un passage pour piétons signalé par A21. Un piéton attend sur le trottoir, tourné vers la chaussée. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous accélérez pour passer avant qu'il ne s'engage"
+  - id: b
+    label: "Vous klaxonnez pour lui signaler votre présence"
+  - id: c
+    label: "Vous maintenez votre vitesse : le panneau ne concerne que les piétons"
+  - id: d
+    label: "Vous ralentissez et vous vous préparez à céder le passage"
+correctOptionId: d
+explanation: "A21 annonce un passage pour piétons. Un piéton qui manifeste l'intention de traverser doit pouvoir le faire en sécurité. Il faut ralentir et céder le passage, pas accélérer ni se contenter d'avertir."
+mediaId: ch02-panneau-a21
+difficulty: medium
+severity: severe
+examEligible: true
+tags:
+  - pietons
+  - danger
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 22
+  - documentId: official-signaux-routiers
+    locator: "article 65"
+version: 1
+status: draft
+origin: ai_assisted

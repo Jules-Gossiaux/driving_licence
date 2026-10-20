@@ -4,6 +4,7 @@ import {
   countPublishedExamQuestions,
   getEligibleQuestionsForPreset,
 } from "@/domain/content/catalog";
+import type { Lesson } from "@/domain/content/schemas";
 import { testLesson, testPreset, testQuestion, testRawContent } from "../../helpers/fixtures";
 
 describe("getEligibleQuestionsForPreset", () => {
@@ -107,6 +108,10 @@ describe("buildContentCatalog", () => {
       id: "ch01-q001",
       lessonIds: ["lecon-inconnue"],
       mediaId: "media-inconnu",
+      options: [
+        { id: "a", label: "Réponse A", mediaId: "media-option-inconnu" },
+        { id: "b", label: "Réponse B" },
+      ],
       sourceRefs: [{ documentId: "source-inconnue" }],
     });
     chapter.questions.push(testQuestion({ id: "ch01-q001" }));
@@ -120,6 +125,7 @@ describe("buildContentCatalog", () => {
     expect(codes).toContain("DUPLICATE_ID");
     expect(codes).toContain("UNKNOWN_LESSON");
     expect(codes).toContain("UNKNOWN_MEDIA");
+    expect(codes).toContain("UNKNOWN_OPTION_MEDIA");
     expect(codes).toContain("UNKNOWN_SOURCE");
     expect(codes).toContain("EXTERNAL_IMAGE");
     expect(codes).toContain("UNKNOWN_MEDIA_FILE");
@@ -143,6 +149,159 @@ describe("buildContentCatalog", () => {
     const { issues } = buildContentCatalog(raw);
     expect(issues).toContainEqual(
       expect.objectContaining({ code: "CHAPTER_WITHOUT_QUESTIONS", level: "warning" }),
+    );
+  });
+
+  it("accepte quatre questions cœur rattachées à la leçon", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.questions.push(testQuestion({ id: "ch01-q004" }));
+    raw.chapters[0]!.lessons[0] = testLesson({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"],
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toEqual([]);
+  });
+
+  it("signale une question cœur inconnue", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.lessons[0] = testLesson({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q999"],
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "UNKNOWN_CORE_QUESTION", level: "error" }),
+    );
+  });
+
+  it("signale une question cœur qui ne référence pas la leçon", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.lessons = [
+      testLesson({ coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"] }),
+      testLesson({ id: "ch01-l02", slug: "lecon-2", order: 2 }),
+    ];
+    raw.chapters[0]!.questions.push(testQuestion({ id: "ch01-q004", lessonIds: ["ch01-l02"] }));
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "CORE_QUESTION_LESSON_MISMATCH", level: "error" }),
+    );
+  });
+
+  it("exige des questions cœur pour publier une leçon", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.lessons[0] = testLesson({
+      status: "published",
+      reviewedBy: "Relecteur",
+      reviewedAt: "2026-10-19T10:00:00.000Z",
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "CORE_QUESTIONS_MISSING", level: "error" }),
+    );
+  });
+});
+
+function lessonWithUnit(overrides: Partial<Lesson> = {}) {
+  return testLesson({
+    unitId: "ch01-u1",
+    body: [
+      "## Une première partie",
+      "",
+      "Texte A.",
+      "",
+      "## Une seconde partie",
+      "",
+      "Texte B.",
+    ].join("\n"),
+    ...overrides,
+  });
+}
+
+function chapterWithUnit() {
+  const raw = testRawContent();
+  raw.chapters[0]!.chapter = {
+    ...raw.chapters[0]!.chapter,
+    units: [
+      {
+        id: "ch01-u1",
+        slug: "unite-1",
+        order: 1,
+        label: "1.1",
+        title: "Unité de test",
+      },
+    ],
+  };
+  raw.chapters[0]!.questions.push(testQuestion({ id: "ch01-q004" }));
+  raw.chapters[0]!.lessons[0] = lessonWithUnit({
+    coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"],
+  });
+  return raw;
+}
+
+describe("unités et vérifications de section", () => {
+  it("accepte une unité et des vérifications cohérentes", () => {
+    const raw = chapterWithUnit();
+    raw.chapters[0]!.lessons[0] = lessonWithUnit({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"],
+      sectionChecks: [
+        { section: "une-premiere-partie", questionIds: ["ch01-q001"] },
+        { section: "une-seconde-partie", questionIds: ["ch01-q002"] },
+      ],
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toEqual([]);
+  });
+
+  it("signale une leçon sans unité quand le chapitre en déclare", () => {
+    const raw = chapterWithUnit();
+    raw.chapters[0]!.lessons[0] = lessonWithUnit({ unitId: undefined });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "LESSON_UNIT_MISSING", level: "error" }),
+    );
+  });
+
+  it("signale une unité inconnue", () => {
+    const raw = chapterWithUnit();
+    raw.chapters[0]!.lessons[0] = lessonWithUnit({ unitId: "ch01-u9" });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "UNKNOWN_UNIT", level: "error" }),
+    );
+  });
+
+  it("signale une section de vérification inconnue", () => {
+    const raw = chapterWithUnit();
+    raw.chapters[0]!.lessons[0] = lessonWithUnit({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"],
+      sectionChecks: [{ section: "section-absente", questionIds: ["ch01-q001"] }],
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "UNKNOWN_LESSON_SECTION", level: "error" }),
+    );
+  });
+
+  it("impose au moins une question cœur pour la fin de la leçon", () => {
+    const raw = chapterWithUnit();
+    raw.chapters[0]!.lessons[0] = lessonWithUnit({
+      coreQuestionIds: ["ch01-q001", "ch01-q002", "ch01-q003", "ch01-q004"],
+      sectionChecks: [
+        { section: "une-premiere-partie", questionIds: ["ch01-q001", "ch01-q002"] },
+        { section: "une-seconde-partie", questionIds: ["ch01-q003", "ch01-q004"] },
+      ],
+    });
+
+    const { issues } = buildContentCatalog(raw);
+    expect(issues).toContainEqual(
+      expect.objectContaining({ code: "FINAL_QUIZ_MISSING", level: "error" }),
     );
   });
 });

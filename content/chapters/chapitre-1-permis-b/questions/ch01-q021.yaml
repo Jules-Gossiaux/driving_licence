@@ -1,0 +1,29 @@
+id: ch01-q021
+chapterId: ch01
+lessonIds:
+  - ch01-l04
+prompt: Quelles conditions faut-il réunir pour conduire une moto légère A1 avec un permis B en Belgique ?
+options:
+  - id: a
+    label: Avoir le permis B depuis 2 ans, suivre 4 heures de formation et obtenir le code 372
+  - id: b
+    label: Avoir le permis B depuis 6 mois et passer l'examen A1
+  - id: c
+    label: Avoir le permis B définitif, sans formation supplémentaire
+  - id: d
+    label: Avoir 25 ans et un certificat médical
+correctOptionId: a
+explanation: Le code 372 s'obtient après 4 heures de formation pratique, une fois le permis B détenu depuis au moins 2 ans. Il vaut uniquement en Belgique.
+difficulty: medium
+severity: normal
+tags:
+  - a1
+  - code-372
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-am
+  - documentId: official-category-a1
+version: 1
+status: draft
+origin: ai_assisted

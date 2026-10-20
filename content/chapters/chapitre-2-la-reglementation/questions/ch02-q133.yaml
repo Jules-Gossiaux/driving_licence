@@ -1,0 +1,30 @@
+id: ch02-q133
+chapterId: ch02
+lessonIds:
+  - ch02-l17
+prompt: "D11 est un chemin obligatoire pour quels usagers ?"
+options:
+  - id: a
+    label: "Les piétons"
+  - id: b
+    label: "Les cyclistes"
+  - id: c
+    label: "Les cavaliers"
+  - id: d
+    label: "Les cyclomoteurs"
+correctOptionId: a
+explanation: "D11 est un chemin obligatoire pour les piétons. D13 est le chemin obligatoire pour les cavaliers. Les cyclistes ont leurs propres cheminements, notamment D7 et D10."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - obligation
+  - pietons
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 28
+  - documentId: official-signaux-routiers
+    locator: "article 68"
+version: 1
+status: draft
+origin: ai_assisted

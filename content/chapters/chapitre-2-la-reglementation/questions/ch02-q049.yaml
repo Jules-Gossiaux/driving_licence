@@ -1,0 +1,29 @@
+id: ch02-q049
+chapterId: ch02
+lessonIds:
+  - ch02-l07
+prompt: À partir de quelle imprégnation alcoolique le juge PEUT-il imposer un éthylotest antidémarrage ?
+options:
+  - id: a
+    label: 0,35 mg/l d'air alvéolaire ou 0,8 g/l de sang
+  - id: b
+    label: 0,78 mg/l d'air ou 1,8 g/l de sang
+  - id: c
+    label: 0,50 mg/l d'air ou 1,2 g/l de sang
+  - id: d
+    label: 0,35 mg/l d'air ou 1,2 g/l de sang
+correctOptionId: a
+explanation: Le juge peut imposer l'EAD dès 0,35 mg/l d'air alvéolaire ou 0,8 g/l de sang.
+difficulty: medium
+severity: normal
+tags:
+  - alcool
+  - ead
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 16
+  - documentId: feu-vert-chap2-synthese
+    page: 44
+version: 1
+status: draft
+origin: ai_assisted

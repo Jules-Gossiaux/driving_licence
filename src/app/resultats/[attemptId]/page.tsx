@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getAttemptResult } from "@/application/queries";
+import { OptionContent } from "@/components/option-content";
 import { PageHeader } from "@/components/ui";
 import { AttemptNotFoundError } from "@/domain/learning/errors";
 import { getAppDependencies } from "@/infrastructure/container";
@@ -52,6 +53,14 @@ export default async function ResultPage({ params }: PageProps) {
   const result = lookup.result;
   const isExam = result.mode === "exam";
   const success = isExam ? result.passed === true : true;
+  const eyebrow =
+    result.kind === "lesson"
+      ? "Leçon"
+      : result.kind === "unit"
+        ? "Défi"
+        : result.kind === "chapter-exam"
+          ? "Examen de chapitre"
+          : modeLabel(result.mode);
   const severeFaultCount = result.questions.filter(
     (question) => !question.isCorrect && !question.timedOut && question.severity === "severe",
   ).length;
@@ -59,8 +68,16 @@ export default async function ResultPage({ params }: PageProps) {
   return (
     <div>
       <PageHeader
-        eyebrow={modeLabel(result.mode)}
-        title={isExam ? (success ? "Examen réussi" : "Examen échoué") : "Session terminée"}
+        eyebrow={eyebrow}
+        title={
+          isExam
+            ? success
+              ? "Examen réussi"
+              : "Examen échoué"
+            : result.kind === "unit"
+              ? "Défi terminé"
+              : "Session terminée"
+        }
         description={`${result.title} · terminé le ${formatDateTime(result.completedAt)}`}
       />
 
@@ -141,7 +158,7 @@ export default async function ResultPage({ params }: PageProps) {
           href="/"
           className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
         >
-          Tableau de bord
+          Accueil
         </Link>
       </div>
 
@@ -214,7 +231,7 @@ export default async function ResultPage({ params }: PageProps) {
                             : "border-slate-200 bg-white text-slate-600"
                       }`}
                     >
-                      <span>{option.label}</span>
+                      <OptionContent option={option} />
                       {isCorrectOption ? (
                         <span className="ml-2 text-xs font-semibold text-emerald-800">
                           Bonne réponse

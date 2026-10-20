@@ -1,0 +1,30 @@
+id: ch02-q303
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Deux lignes sont juxtaposées : une continue et une discontinue. La ligne discontinue est la plus proche de vous. Pouvez-vous la franchir pour dépasser ?"
+options:
+  - id: a
+    label: "Oui, car seule la ligne de votre côté compte."
+  - id: b
+    label: "Non, car la présence d'une ligne continue interdit toujours le dépassement."
+  - id: c
+    label: "Oui, mais seulement si le véhicule devant vous roule à moins de 50 km/h."
+  - id: d
+    label: "Non, il faut attendre l'autorisation d'un agent."
+correctOptionId: a
+explanation: "Avec des lignes juxtaposées, le conducteur ne tient compte que de la ligne située de son côté. La ligne discontinue autorise donc le franchissement pour dépasser, si la manœuvre est sûre."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - lignes
+  - depassement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "article 72.4"
+version: 1
+status: draft
+origin: ai_assisted

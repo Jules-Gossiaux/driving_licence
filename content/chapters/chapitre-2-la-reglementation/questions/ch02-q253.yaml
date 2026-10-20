@@ -1,0 +1,31 @@
+id: ch02-q253
+chapterId: ch02
+lessonIds:
+  - ch02-l33
+prompt: "Que signifie le panneau E3 ?"
+options:
+  - id: a
+    label: "Stationnement interdit seulement."
+  - id: b
+    label: "Arrêt et stationnement interdits."
+  - id: c
+    label: "Arrêt interdit seulement."
+  - id: d
+    label: "Stationnement autorisé."
+correctOptionId: b
+explanation: "Le panneau E3 interdit à la fois l'arrêt et le stationnement. Une inscription peut limiter l'interdiction à certaines heures."
+difficulty: easy
+severity: normal
+examEligible: true
+mediaId: ch02-signal-e3
+tags:
+  - e3
+  - stationnement
+  - arret
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: securotheque-e3
+version: 1
+status: draft
+origin: ai_assisted

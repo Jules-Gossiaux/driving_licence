@@ -1,0 +1,30 @@
+id: ch02-q065
+chapterId: ch02
+lessonIds:
+  - ch02-l09
+prompt: "Un feu vert en forme de flèche vers la gauche s'allume. Que vous autorise-t-il ?"
+options:
+  - id: a
+    label: "À aller uniquement dans la direction indiquée par la flèche"
+  - id: b
+    label: "À aller dans toutes les directions"
+  - id: c
+    label: "À aller uniquement tout droit"
+  - id: d
+    label: "À faire demi-tour"
+correctOptionId: a
+explanation: "Une flèche verte a la même signification que le feu vert, mais son effet est limité à la direction qu'elle indique."
+difficulty: easy
+severity: normal
+tags:
+  - fleches
+  - feux
+  - signalisation-lumineuse
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1.4"
+version: 1
+status: draft
+origin: ai_assisted

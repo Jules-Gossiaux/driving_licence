@@ -6,10 +6,17 @@ describe("contenu du projet", () => {
     const { catalog, issues } = validateContent();
 
     expect(issues.filter((issue) => issue.level === "error")).toEqual([]);
-    expect(catalog.chapters).toHaveLength(1);
-    expect(catalog.lessons).toHaveLength(2);
-    expect(catalog.questions).toHaveLength(5);
-    expect(catalog.chapterBySlug.get("chapitre-1-permis-b")?.chapter.id).toBe("ch01");
+    expect(catalog.chapters).toHaveLength(2);
+    expect(catalog.lessons).toHaveLength(34);
+    expect(catalog.questions).toHaveLength(274);
+
+    const chapterOne = catalog.chapterBySlug.get("chapitre-1-permis-b");
+    expect(chapterOne?.chapter.id).toBe("ch01");
+    expect(chapterOne?.chapter.units).toHaveLength(2);
+    expect(chapterOne?.lessons).toHaveLength(6);
+    expect(chapterOne?.questions).toHaveLength(50);
+
+    expect(catalog.chapterBySlug.get("chapitre-2-la-reglementation")?.chapter.id).toBe("ch02");
   });
 
   it("signale que le preset officiel n'a pas encore assez de questions publiées", () => {

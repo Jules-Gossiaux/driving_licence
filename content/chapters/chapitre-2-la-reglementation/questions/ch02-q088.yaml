@@ -1,0 +1,29 @@
+id: ch02-q088
+chapterId: ch02
+lessonIds:
+  - ch02-l11
+prompt: "La flèche verte vous donne-t-elle une priorité absolue sur les autres usagers ?"
+options:
+  - id: a
+    label: "Non, elle autorise une direction et peut imposer de céder le passage"
+  - id: b
+    label: "Oui, toujours"
+  - id: c
+    label: "Oui, sauf la nuit"
+  - id: d
+    label: "Seulement pour les cyclistes"
+correctOptionId: a
+explanation: "Une flèche verte autorise un mouvement, mais elle ne supprime pas les règles de priorité. Avec un feu rouge ou orange, elle impose même de céder le passage aux autres directions et aux piétons."
+difficulty: medium
+severity: normal
+tags:
+  - fleches-vertes
+  - priorite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 61.1.5"
+version: 1
+status: draft
+origin: ai_assisted

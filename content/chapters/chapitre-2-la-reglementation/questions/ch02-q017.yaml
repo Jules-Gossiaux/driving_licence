@@ -1,0 +1,33 @@
+id: ch02-q017
+chapterId: ch02
+lessonIds:
+  - ch02-l03
+prompt: Quelle position de l'agent vous autorise à vous engager dans le carrefour ?
+options:
+  - id: a
+    label: Agent de profil
+    mediaId: ch02-agent-profil
+  - id: b
+    label: Agent au bras levé
+    mediaId: ch02-agent-bras-leve
+  - id: c
+    label: Agent de face, bras tendus
+    mediaId: ch02-agent-face
+correctOptionId: a
+explanation: "L'agent de profil correspond au feu vert : vous pouvez vous engager tout droit, à gauche ou à droite. Le bras levé correspond au feu orange et la face ou le dos au feu rouge."
+difficulty: medium
+severity: normal
+tags:
+  - agents
+  - positions
+  - image
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 12
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

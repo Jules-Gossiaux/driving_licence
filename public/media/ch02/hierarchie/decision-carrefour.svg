@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre-carrefour desc-carrefour">
+  <title id="titre-carrefour">Décider dans un carrefour</title>
+  <desc id="desc-carrefour">Un ordre de vérification : l'agent, puis le feu en fonctionnement, puis le panneau de priorité, puis la priorité à droite.</desc>
+  <defs>
+    <marker id="fleche" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L6 3L0 6Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="40" y="48" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Décider dans un carrefour</text>
+  <text x="40" y="76" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Descendez les niveaux jusqu'à trouver le signal qui s'applique.</text>
+
+  <g>
+    <rect x="40" y="100" width="430" height="64" rx="14" fill="#ffffff" stroke="#fecaca"/>
+    <rect x="40" y="100" width="7" height="64" rx="3.5" fill="#dc2626"/>
+    <text x="62" y="126" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Un agent donne une injonction ?</text>
+    <text x="62" y="148" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">Par gestes, par la parole ou par un autre moyen.</text>
+    <rect x="520" y="100" width="400" height="64" rx="14" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="542" y="126" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#991b1b">Je suis l'agent.</text>
+    <text x="542" y="148" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#7f1d1d">Même si le feu est vert.</text>
+    <path d="M470 132h50" stroke="#94a3b8" stroke-width="3" marker-end="url(#fleche)"/>
+    <text x="495" y="123" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#15803d">oui</text>
+  </g>
+
+  <path d="M255 164v32" stroke="#94a3b8" stroke-width="3" marker-end="url(#fleche)"/>
+  <text x="264" y="186" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">non</text>
+
+  <g>
+    <rect x="40" y="196" width="430" height="64" rx="14" fill="#ffffff" stroke="#fde68a"/>
+    <rect x="40" y="196" width="7" height="64" rx="3.5" fill="#d97706"/>
+    <text x="62" y="222" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Le feu fonctionne ?</text>
+    <text x="62" y="244" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">Rouge, orange fixe ou vert.</text>
+    <rect x="520" y="196" width="400" height="64" rx="14" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="542" y="222" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#92400e">Je suis le feu.</text>
+    <text x="542" y="244" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#78350f">Orange clignotant : les panneaux reprennent la main.</text>
+    <path d="M470 228h50" stroke="#94a3b8" stroke-width="3" marker-end="url(#fleche)"/>
+    <text x="495" y="219" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#15803d">oui</text>
+  </g>
+
+  <path d="M255 260v32" stroke="#94a3b8" stroke-width="3" marker-end="url(#fleche)"/>
+  <text x="264" y="282" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">non</text>
+
+  <g>
+    <rect x="40" y="292" width="430" height="64" rx="14" fill="#ffffff" stroke="#bfdbfe"/>
+    <rect x="40" y="292" width="7" height="64" rx="3.5" fill="#2563eb"/>
+    <text x="62" y="318" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Un panneau de priorité ?</text>
+    <text x="62" y="340" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">B1, B5, B22, B23 et les autres signaux de priorité.</text>
+    <rect x="520" y="292" width="400" height="64" rx="14" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="542" y="318" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1d4ed8">Je suis le panneau.</text>
+    <text x="542" y="340" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1e3a8a">Il l'emporte sur la priorité à droite.</text>
+    <path d="M470 324h50" stroke="#94a3b8" stroke-width="3" marker-end="url(#fleche)"/>
+    <text x="495" y="315" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#15803d">oui</text>
+  </g>
+
+  <path d="M255 356v32" stroke="#94a3b8" stroke-width="3" marker-end="url(#fleche)"/>
+  <text x="264" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">non</text>
+
+  <g>
+    <rect x="40" y="388" width="430" height="64" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="40" y="388" width="7" height="64" rx="3.5" fill="#475569"/>
+    <text x="62" y="414" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Aucun signal ne tranche</text>
+    <text x="62" y="436" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">Ni agent, ni feu, ni panneau de priorité.</text>
+    <rect x="520" y="388" width="400" height="64" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="542" y="414" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#334155">Priorité à droite</text>
+    <text x="542" y="436" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#475569">La règle de circulation s'applique.</text>
+    <path d="M470 420h50" stroke="#94a3b8" stroke-width="3" marker-end="url(#fleche)"/>
+    <text x="495" y="411" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#15803d">par défaut</text>
+  </g>
+
+  <text x="40" y="500" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Un niveau supérieur neutralise seulement ce qui se trouve en dessous de lui.</text>
+  <text x="40" y="524" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">Un feu vert autorise le passage, mais ne crée pas une priorité absolue.</text>
+</svg>

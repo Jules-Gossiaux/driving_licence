@@ -1,0 +1,30 @@
+id: ch02-q075
+chapterId: ch02
+lessonIds:
+  - ch02-l10
+prompt: "Que signifie un feu piéton vert clignotant ?"
+options:
+  - id: a
+    label: "Il indique la fin de l'autorisation de traverser"
+  - id: b
+    label: "Il indique que l'autorisation vient de commencer"
+  - id: c
+    label: "Il donne le vert aux voitures"
+  - id: d
+    label: "Il ferme le passage pour les piétons"
+correctOptionId: a
+explanation: "Le vert clignotant est un signal indicatif de fin d'autorisation : ne commencez pas une traversée, et terminez celle qui est déjà commencée."
+difficulty: medium
+severity: normal
+tags:
+  - pietons
+  - feux-bicolores
+  - clignotant
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 63.1"
+version: 1
+status: draft
+origin: ai_assisted

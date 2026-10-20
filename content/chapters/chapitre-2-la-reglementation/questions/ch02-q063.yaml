@@ -1,0 +1,30 @@
+id: ch02-q063
+chapterId: ch02
+lessonIds:
+  - ch02-l08
+prompt: "Un deuxième feu tricolore est installé à hauteur du conducteur sur le même support. Quel est son rôle ?"
+options:
+  - id: a
+    label: "Répéter le signal pour le conducteur arrêté au plus près"
+  - id: b
+    label: "Réserver une direction aux cyclistes"
+  - id: c
+    label: "Remplacer les feux pour piétons"
+  - id: d
+    label: "Signaler un passage à niveau"
+correctOptionId: a
+explanation: "Le code permet de répéter les signaux sur le même support à hauteur du conducteur, pour que le conducteur arrêté au plus près du feu voie encore la couleur. La consigne reste la même."
+difficulty: medium
+severity: normal
+tags:
+  - feux
+  - repetition
+  - signalisation-lumineuse
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 61.4.3"
+version: 1
+status: draft
+origin: ai_assisted

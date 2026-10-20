@@ -1,0 +1,31 @@
+id: ch02-q064
+chapterId: ch02
+lessonIds:
+  - ch02-l08
+prompt: "Quel feu impose l'arrêt sans aucune exception ?"
+options:
+  - id: a
+    label: "Feu rouge"
+    mediaId: ch02-signal-rouge
+  - id: b
+    label: "Feu jaune-orange"
+    mediaId: ch02-signal-jaune-orange
+  - id: c
+    label: "Feu vert"
+    mediaId: ch02-signal-vert
+correctOptionId: a
+explanation: "Le rouge interdit le franchissement sans exception. L'orange fixe comporte une exception lorsque le freinage ne peut pas se faire en sécurité, et le vert autorise le passage."
+difficulty: easy
+severity: normal
+tags:
+  - feux
+  - image
+  - franchissement
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1"
+version: 1
+status: draft
+origin: ai_assisted

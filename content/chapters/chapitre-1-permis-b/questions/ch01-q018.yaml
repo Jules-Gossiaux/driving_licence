@@ -1,0 +1,28 @@
+id: ch01-q018
+chapterId: ch01
+lessonIds:
+  - ch01-l03
+prompt: Un véhicule a une MMA de 3 500 kg et pèse actuellement 3 450 kg, passagers compris. Peut-on ajouter un passager de 70 kg ?
+options:
+  - id: a
+    label: Non, car la MMA serait dépassée
+  - id: b
+    label: Oui, car il reste 50 kg de marge
+  - id: c
+    label: Oui, car le passager ne compte pas dans la MMA
+  - id: d
+    label: Oui, si le trajet fait moins de 50 km
+correctOptionId: a
+explanation: 3 450 + 70 = 3 520 kg, au-delà des 3 500 kg de MMA. La marge restante est de 50 kg, donc insuffisante pour ce passager.
+difficulty: medium
+severity: normal
+tags:
+  - mma
+  - chargement
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

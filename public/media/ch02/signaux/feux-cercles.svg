@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre feux">
+  <title id="titre">Les trois couleurs du feu tricolore et leur consigne</title>
+  <desc id="feux">Le rouge impose l'arrêt avant la ligne ou le signal. Le jaune-orange fixe impose l'arrêt, sauf si le conducteur est trop près pour s'arrêter sans danger. Le vert autorise le franchissement. Un feu éteint ne donne aucune autorisation.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="40" y="50" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Trois couleurs, trois règles</text>
+  <text x="40" y="78" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Le feu règle le franchissement ; il ne règle pas à lui seul la priorité.</text>
+
+  <g>
+    <rect x="40" y="108" width="280" height="344" rx="18" fill="#ffffff" stroke="#fecaca"/>
+    <rect x="40" y="108" width="280" height="8" rx="4" fill="#dc2626"/>
+    <text x="62" y="150" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Rouge</text>
+    <text x="62" y="176" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#b91c1c">Arrêt obligatoire</text>
+    <rect x="152" y="196" width="56" height="150" rx="10" fill="#1f2937"/>
+    <rect x="158" y="202" width="44" height="138" rx="6" fill="#111827"/>
+    <circle cx="180" cy="220" r="14" fill="#dc2626"/>
+    <circle cx="180" cy="265" r="14" fill="#374151"/>
+    <circle cx="180" cy="310" r="14" fill="#374151"/>
+    <text x="62" y="378" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Ne franchissez pas la ligne</text>
+    <text x="62" y="398" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">d'arrêt ni le signal.</text>
+    <text x="62" y="426" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Aucune exception, même pour</text>
+    <text x="62" y="444" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">tourner à droite.</text>
+  </g>
+
+  <g>
+    <rect x="340" y="108" width="280" height="344" rx="18" fill="#ffffff" stroke="#fde68a"/>
+    <rect x="340" y="108" width="280" height="8" rx="4" fill="#f59e0b"/>
+    <text x="362" y="150" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Jaune-orange fixe</text>
+    <text x="362" y="176" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#b45309">Arrêt, avec une exception</text>
+    <rect x="452" y="196" width="56" height="150" rx="10" fill="#1f2937"/>
+    <rect x="458" y="202" width="44" height="138" rx="6" fill="#111827"/>
+    <circle cx="480" cy="220" r="14" fill="#374151"/>
+    <circle cx="480" cy="265" r="14" fill="#f59e0b"/>
+    <circle cx="480" cy="310" r="14" fill="#374151"/>
+    <text x="362" y="378" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Arrêt, sauf si vous êtes</text>
+    <text x="362" y="398" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">trop près pour freiner</text>
+    <text x="362" y="418" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">sans danger.</text>
+    <text x="362" y="440" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">L'orange est un signal d'arrêt.</text>
+  </g>
+
+  <g>
+    <rect x="640" y="108" width="280" height="344" rx="18" fill="#ffffff" stroke="#bbf7d0"/>
+    <rect x="640" y="108" width="280" height="8" rx="4" fill="#16a34a"/>
+    <text x="662" y="150" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Vert</text>
+    <text x="662" y="176" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#15803d">Franchissement autorisé</text>
+    <rect x="752" y="196" width="56" height="150" rx="10" fill="#1f2937"/>
+    <rect x="758" y="202" width="44" height="138" rx="6" fill="#111827"/>
+    <circle cx="780" cy="220" r="14" fill="#374151"/>
+    <circle cx="780" cy="265" r="14" fill="#374151"/>
+    <circle cx="780" cy="310" r="14" fill="#16a34a"/>
+    <text x="662" y="378" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Franchissement autorisé.</text>
+    <text x="662" y="398" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Restez attentif aux</text>
+    <text x="662" y="418" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">usagers déjà engagés.</text>
+    <text x="662" y="440" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Le vert n'est pas une priorité absolue.</text>
+  </g>
+
+  <text x="40" y="500" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Feu éteint : aucune autorisation. Appliquez la signalisation et les règles de priorité.</text>
+</svg>

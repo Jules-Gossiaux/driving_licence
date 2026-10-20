@@ -1,0 +1,31 @@
+id: ch02-q164
+chapterId: ch02
+lessonIds:
+  - ch02-l21
+prompt: "Que signifie le panneau additionnel F100c sous un panneau ?"
+options:
+  - id: a
+    label: "Le panneau s'applique toute la journée"
+  - id: b
+    label: "Le stationnement est gratuit"
+  - id: c
+    label: "La prescription s'applique pendant la plage horaire indiquée"
+  - id: d
+    label: "La route est fermée"
+correctOptionId: c
+explanation: "F100c indique une plage horaire : la prescription du panneau principal ne s'applique que pendant cette période. En dehors de la plage, le panneau ne produit pas cet effet. Il faut donc lire le panneau additionnel en même temps que le panneau principal."
+mediaId: ch02-panneau-f100c
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - panneaux-additionnels
+  - horaire
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 34
+  - documentId: official-signaux-routiers
+    locator: "articles 22bis et 71"
+version: 1
+status: draft
+origin: ai_assisted

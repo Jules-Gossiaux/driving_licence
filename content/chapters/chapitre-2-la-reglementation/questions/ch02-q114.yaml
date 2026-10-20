@@ -1,0 +1,32 @@
+id: ch02-q114
+chapterId: ch02
+lessonIds:
+  - ch02-l15
+prompt: "À un panneau STOP, la voie est parfaitement libre. Devez-vous vous arrêter ?"
+options:
+  - id: a
+    label: "Oui, l'arrêt complet est obligatoire"
+  - id: b
+    label: "Non, si la voie est libre"
+  - id: c
+    label: "Seulement si un piéton est présent"
+  - id: d
+    label: "Seulement la nuit"
+correctOptionId: a
+explanation: "Le STOP impose un arrêt complet à la ligne d'arrêt ou, à défaut, à hauteur du signal. Cet arrêt est obligatoire même si aucun véhicule n'arrive. Après l'arrêt, il faut encore céder le passage avant de repartir."
+mediaId: ch02-panneau-b5
+difficulty: easy
+severity: severe
+examEligible: true
+tags:
+  - stop
+  - priorite
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 23
+  - documentId: official-signaux-routiers
+    locator: "article 66"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,31 @@
+id: ch02-q236
+chapterId: ch02
+lessonIds:
+  - ch02-l31
+prompt: "Un cycliste arrive devant un feu rouge accompagné du panneau B22. Que lui permet ce panneau ?"
+options:
+  - id: a
+    label: "Passer en priorité absolue, sans vérifier les autres usagers."
+  - id: b
+    label: "Tourner à droite en cédant le passage aux autres usagers."
+  - id: c
+    label: "Aller tout droit en cédant le passage aux autres usagers."
+  - id: d
+    label: "Tourner à gauche en cédant le passage aux autres usagers."
+correctOptionId: b
+explanation: "Le B22 autorise les cyclistes et les conducteurs de speed pedelecs à tourner à droite au feu rouge ou orange, à condition de céder le passage. Ce panneau reste valable même quand le feu fonctionne."
+difficulty: medium
+severity: normal
+examEligible: true
+mediaId: ch02-signal-b22
+tags:
+  - b22
+  - cyclistes
+  - feux
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: securotheque-b22-b23
+version: 1
+status: draft
+origin: ai_assisted

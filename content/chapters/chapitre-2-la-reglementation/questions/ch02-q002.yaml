@@ -1,0 +1,29 @@
+id: ch02-q002
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: Une personne qui pousse son vélo à la main sur la voie publique est considérée comme…
+options:
+  - id: a
+    label: un piéton
+  - id: b
+    label: un conducteur
+  - id: c
+    label: un passager
+  - id: d
+    label: un cycliste soumis aux règles des véhicules
+correctOptionId: a
+explanation: "Pousser à la main un vélo, un cycle motorisé, une brouette, une voiture d'enfant ou une chaise roulante fait de vous un piéton. La situation change si vous êtes sur le vélo : vous êtes alors conducteur."
+difficulty: easy
+severity: normal
+tags:
+  - pietons
+  - usagers
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

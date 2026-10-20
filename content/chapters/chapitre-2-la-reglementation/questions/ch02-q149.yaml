@@ -1,0 +1,31 @@
+id: ch02-q149
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Que signifie le panneau F19 ?"
+options:
+  - id: a
+    label: "Une circulation dans les deux sens"
+  - id: b
+    label: "Une priorité à droite"
+  - id: c
+    label: "Un stationnement interdit"
+  - id: d
+    label: "Une voie à sens unique dans la direction indiquée"
+correctOptionId: d
+explanation: "F19 signale une voie à sens unique dans la direction indiquée. Ce n'est pas un panneau de priorité. Emprunter la voie en sens inverse est une infraction et crée un danger, notamment lorsque la chaussée est étroite."
+mediaId: ch02-panneau-f19
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - sens-unique
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

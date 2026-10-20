@@ -5,21 +5,35 @@ import {
   type PublicQuestion,
 } from "@/domain/learning/snapshot";
 import type { Attempt, AttemptMode } from "@/domain/learning/types";
+import { UNIT_CHALLENGE_QUESTION_COUNT } from "@/domain/learning/progression";
 import { shuffle } from "@/domain/exam/selection";
 import type { Question } from "@/domain/content/schemas";
-import { ContentNotFoundError, InvalidAnswerError, PracticeUnavailableError } from "./errors";
+import {
+  ContentNotFoundError,
+  InvalidAnswerError,
+  PracticeUnavailableError,
+  ProgressionLockedError,
+} from "./errors";
 import { AttemptConflictError, AttemptNotFoundError } from "@/domain/learning/errors";
-import { resolveMedia, type AppDependencies, type QuestionMediaView } from "./content-views";
+import {
+  resolveMedia,
+  resolveOptionViews,
+  type AppDependencies,
+  type QuestionMediaView,
+  type QuestionOptionView,
+} from "./content-views";
 
 const PRACTICE_SESSION_SIZE = 10;
 
-export type TrainingQuestionView = PublicQuestion & {
+export type TrainingQuestionView = Omit<PublicQuestion, "options"> & {
+  options: QuestionOptionView[];
   media: QuestionMediaView | null;
 };
 
 export type TrainingSessionView = {
   attemptId: string;
   mode: Extract<AttemptMode, "practice" | "review">;
+  eyebrow: string;
   title: string;
   questions: TrainingQuestionView[];
   initialPosition: number;
@@ -45,12 +59,15 @@ function createShuffledSnapshot(question: Question, random: () => number) {
   return { ...snapshot, options: shuffle(snapshot.options, random) };
 }
 
-function toTrainingQuestion(
+export function toTrainingQuestion(
   deps: AppDependencies,
   snapshot: Attempt["questions"][number]["snapshot"],
 ): TrainingQuestionView {
+  const publicQuestion = toPublicQuestion(snapshot);
+
   return {
-    ...toPublicQuestion(snapshot),
+    ...publicQuestion,
+    options: resolveOptionViews(deps.catalog, publicQuestion.options),
     media: resolveMedia(deps.catalog, snapshot.mediaId),
   };
 }
@@ -68,12 +85,15 @@ function resolveChapter(deps: AppDependencies, chapterId: string) {
   return entry;
 }
 
-function createTrainingAttempt(
+export function createTrainingAttempt(
   deps: AppDependencies,
   input: {
     mode: Extract<AttemptMode, "practice" | "review">;
     chapterId: string | null;
+    unitId?: string | null;
+    lessonId?: string | null;
     questions: Question[];
+    shuffleQuestions?: boolean;
   },
 ): { attemptId: string } {
   if (input.questions.length === 0) {
@@ -82,7 +102,10 @@ function createTrainingAttempt(
 
   const now = deps.clock.now();
   const attemptId = deps.newId();
-  const selected = shuffle(input.questions, deps.random).slice(0, PRACTICE_SESSION_SIZE);
+  const selected =
+    input.shuffleQuestions === false
+      ? [...input.questions]
+      : shuffle(input.questions, deps.random).slice(0, PRACTICE_SESSION_SIZE);
   const snapshots = selected.map((question) => createShuffledSnapshot(question, deps.random));
 
   deps.repository.createAttempt({
@@ -91,6 +114,8 @@ function createTrainingAttempt(
     mode: input.mode,
     presetId: null,
     chapterId: input.chapterId,
+    unitId: input.unitId ?? null,
+    lessonId: input.lessonId ?? null,
     questionCount: snapshots.length,
     secondsPerQuestion: null,
     passingScore: null,
@@ -122,6 +147,77 @@ export function startChapterPractice(
     mode: "practice",
     chapterId,
     questions: entry.questions,
+  });
+}
+
+export function startLessonPractice(
+  deps: AppDependencies,
+  lessonId: string,
+): { attemptId: string } {
+  const entry = deps.catalog.lessonById.get(lessonId);
+
+  if (!entry) {
+    throw new ContentNotFoundError(`leçon ${lessonId}`);
+  }
+
+  const questions = (entry.lesson.coreQuestionIds ?? []).flatMap((questionId) => {
+    const question = deps.catalog.questionById.get(questionId);
+    return question ? [question] : [];
+  });
+
+  if (questions.length === 0) {
+    throw new PracticeUnavailableError(
+      "Cette leçon n'a pas encore de questions cœur. Utilisez l'entraînement du chapitre.",
+    );
+  }
+
+  return createTrainingAttempt(deps, {
+    mode: "practice",
+    chapterId: entry.chapter.chapter.id,
+    questions,
+  });
+}
+
+export function startUnitChallenge(
+  deps: AppDependencies,
+  chapterId: string,
+  unitId: string,
+): { attemptId: string } {
+  const entry = resolveChapter(deps, chapterId);
+  const unit = entry.chapter.units?.find((candidate) => candidate.id === unitId);
+
+  if (!unit) {
+    throw new ContentNotFoundError(`unité ${unitId}`);
+  }
+
+  const unitLessons = entry.lessons.filter((lesson) => lesson.unitId === unit.id);
+  const readLessonIds = new Set(
+    deps.repository.getLessonProgress(LOCAL_PROFILE_ID).map((progress) => progress.lessonId),
+  );
+
+  if (unitLessons.length === 0 || unitLessons.some((lesson) => !readLessonIds.has(lesson.id))) {
+    throw new ProgressionLockedError(
+      "Terminez toutes les leçons de l'unité avant de lancer son défi.",
+    );
+  }
+
+  const lessonIds = new Set(unitLessons.map((lesson) => lesson.id));
+  const questions = entry.questions.filter((question) =>
+    question.lessonIds.some((lessonId) => lessonIds.has(lessonId)),
+  );
+
+  if (questions.length === 0) {
+    throw new PracticeUnavailableError("Aucune question n'est disponible pour cette unité.");
+  }
+
+  const selected = shuffle(questions, deps.random).slice(0, UNIT_CHALLENGE_QUESTION_COUNT);
+
+  return createTrainingAttempt(deps, {
+    mode: "practice",
+    chapterId,
+    unitId: unit.id,
+    questions: selected,
+    shuffleQuestions: false,
   });
 }
 
@@ -162,6 +258,9 @@ export function getTrainingSession(deps: AppDependencies, attemptId: string): Tr
   const chapterEntry = attempt.chapterId
     ? deps.catalog.chapterById.get(attempt.chapterId)
     : undefined;
+  const unitEntry = attempt.unitId
+    ? chapterEntry?.chapter.units?.find((unit) => unit.id === attempt.unitId)
+    : undefined;
 
   const initialPosition =
     attempt.status === "completed"
@@ -171,7 +270,10 @@ export function getTrainingSession(deps: AppDependencies, attemptId: string): Tr
   return {
     attemptId: attempt.id,
     mode: attempt.mode,
-    title: chapterEntry?.chapter.title ?? "Révision des erreurs",
+    eyebrow: unitEntry ? "Défi" : attempt.mode === "review" ? "Révision" : "Entraînement",
+    title: unitEntry
+      ? `${unitEntry.label} — ${unitEntry.title}`
+      : (chapterEntry?.chapter.title ?? "Révision des erreurs"),
     questions: attempt.questions.map((question) => toTrainingQuestion(deps, question.snapshot)),
     initialPosition,
     alreadyCompleted: attempt.status === "completed",
@@ -243,6 +345,10 @@ export function submitTrainingAnswer(
       passed: null,
       durationMs: Math.max(0, now.getTime() - new Date(updated.startedAt).getTime()),
     });
+
+    if (updated.lessonId) {
+      deps.repository.setLessonRead(LOCAL_PROFILE_ID, updated.lessonId, true, now.toISOString());
+    }
   } else {
     deps.repository.recordQuestionPresented({
       attemptId: updated.id,

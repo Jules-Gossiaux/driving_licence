@@ -1,0 +1,29 @@
+id: ch02-q011
+chapterId: ch02
+lessonIds:
+  - ch02-l02
+prompt: Que signifie le fait que la façade soit « inviolable » ?
+options:
+  - id: a
+    label: La façade marque la limite entre la voie publique et la propriété privée.
+  - id: b
+    label: La façade appartient aux agents qualifiés.
+  - id: c
+    label: On peut stationner contre la façade sans restriction.
+  - id: d
+    label: La façade fait partie de la chaussée.
+correctOptionId: a
+explanation: La façade est la frontière avec le domaine privé. La voie publique s'arrête à la façade, qui est protégée et ne peut pas être franchie librement.
+difficulty: medium
+severity: normal
+tags:
+  - voie-publique
+  - propriete
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 11
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

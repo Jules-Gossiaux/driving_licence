@@ -18,3 +18,17 @@ export class PracticeUnavailableError extends Error {
     this.name = "PracticeUnavailableError";
   }
 }
+
+export class LessonLockedError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "LessonLockedError";
+  }
+}
+
+export class ProgressionLockedError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "ProgressionLockedError";
+  }
+}

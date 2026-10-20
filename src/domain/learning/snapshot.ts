@@ -24,10 +24,16 @@ export const questionSnapshotSchema = z.strictObject({
 
 export type QuestionSnapshot = z.infer<typeof questionSnapshotSchema>;
 
+export type PublicQuestionOption = {
+  id: string;
+  label: string;
+  mediaId: string | null;
+};
+
 export type PublicQuestion = {
   id: string;
   prompt: string;
-  options: Array<{ id: string; label: string }>;
+  options: PublicQuestionOption[];
   mediaId: string | null;
 };
 
@@ -52,7 +58,11 @@ export function toPublicQuestion(snapshot: QuestionSnapshot): PublicQuestion {
   return {
     id: snapshot.questionId,
     prompt: snapshot.prompt,
-    options: snapshot.options,
+    options: snapshot.options.map((option) => ({
+      id: option.id,
+      label: option.label,
+      mediaId: option.mediaId ?? null,
+    })),
     mediaId: snapshot.mediaId ?? null,
   };
 }

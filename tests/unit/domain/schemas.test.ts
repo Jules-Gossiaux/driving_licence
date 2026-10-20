@@ -85,6 +85,20 @@ describe("questionSchema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("accepte une option illustrée par un média", () => {
+    const result = questionSchema.safeParse(
+      testQuestion({
+        id: "ch01-q001",
+        options: [
+          { id: "a", label: "Panneau A", mediaId: "media-panneau-a" },
+          { id: "b", label: "Panneau B" },
+        ],
+      }),
+    );
+
+    expect(result.success).toBe(true);
+  });
+
   it("refuse des identifiants d'option dupliqués", () => {
     const result = questionSchema.safeParse(
       testQuestion({

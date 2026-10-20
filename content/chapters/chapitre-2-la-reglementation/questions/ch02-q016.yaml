@@ -1,0 +1,30 @@
+id: ch02-q016
+chapterId: ch02
+lessonIds:
+  - ch02-l02
+prompt: Un agent qualifié peut-il rédiger un procès-verbal pour une infraction commise sur le parking d'une grande surface ?
+options:
+  - id: a
+    label: Non, car ce parking est seulement assimilé à la voie publique.
+  - id: b
+    label: Oui, comme sur toute voie publique.
+  - id: c
+    label: Oui, mais seulement pour un excès de vitesse.
+  - id: d
+    label: Non, car les règles de circulation ne s'y appliquent pas du tout.
+correctOptionId: a
+explanation: "Le parking de grande surface est seulement assimilé à la voie publique : les règles de circulation y valent, mais les agents ne peuvent pas y rédiger de procès-verbal comme sur une véritable voie publique."
+difficulty: hard
+severity: normal
+tags:
+  - voie-publique
+  - parking
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 11
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,29 @@
+id: ch01-q025
+chapterId: ch01
+lessonIds:
+  - ch01-l04
+prompt: Un speed pedelec peut-il être conduit avec un permis B provisoire ?
+options:
+  - id: a
+    label: Non, il faut un permis B définitif
+  - id: b
+    label: Oui, le permis provisoire suffit
+  - id: c
+    label: Oui, avec le code 372
+  - id: d
+    label: Non, il faut un permis A1 complet
+correctOptionId: a
+explanation: La catégorie AM est incluse dans le permis B, mais un speed pedelec exige un permis B définitif. Le code 372 concerne les motos légères A1, pas les speed pedelecs.
+difficulty: medium
+severity: normal
+tags:
+  - am
+  - permis-b
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-am
+  - documentId: official-category-a1
+version: 1
+status: draft
+origin: ai_assisted

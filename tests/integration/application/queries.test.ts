@@ -8,11 +8,16 @@ import {
   getLessonDetail,
   getReviewItems,
 } from "@/application/queries";
+import { startUnitChallenge, submitTrainingAnswer } from "@/application/practice";
 import { buildContentCatalog } from "@/domain/content/catalog";
+import { CHAPTER_EXAM, UNIT_CHALLENGE_QUESTION_COUNT } from "@/domain/learning/progression";
 import { LOCAL_PROFILE_ID } from "@/domain/profile";
 import {
   createTestDependencies,
   TEST_STARTED_AT,
+  testChapter,
+  testLesson,
+  testQuestion,
   testRawContent,
   type TestDependencies,
 } from "../../helpers/fixtures";
@@ -201,5 +206,141 @@ describe("consultation du contenu", () => {
     expect(() => getLessonDetail(context.deps, "chapitre-1", "inconnue")).toThrow(
       ContentNotFoundError,
     );
+  });
+
+  it("regroupe les leçons par unité et verrouille les suivantes", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.chapter = {
+      ...raw.chapters[0]!.chapter,
+      units: [
+        {
+          id: "ch01-u1",
+          slug: "unite-1",
+          order: 1,
+          label: "1.1",
+          title: "Unité de test",
+          summary: "Résumé de l'unité.",
+        },
+      ],
+    };
+    raw.chapters[0]!.lessons = [
+      testLesson({ unitId: "ch01-u1" }),
+      testLesson({ id: "ch01-l02", slug: "lecon-2", order: 2, unitId: "ch01-u1" }),
+    ];
+
+    const custom = createTestDependencies({
+      catalog: buildContentCatalog(raw).catalog,
+    });
+
+    try {
+      const chapter = getChapterDetail(custom.deps, "chapitre-1");
+      expect(chapter.units).toHaveLength(1);
+      expect(chapter.units[0]).toMatchObject({
+        id: "ch01-u1",
+        label: "1.1",
+        title: "Unité de test",
+        lessonCount: 2,
+        readLessonCount: 0,
+      });
+      expect(chapter.units[0]?.lessons.map((lesson) => lesson.slug)).toEqual([
+        "lecon-1",
+        "lecon-2",
+      ]);
+      expect(chapter.lessons.map((lesson) => lesson.locked)).toEqual([false, true]);
+      expect(getLessonDetail(custom.deps, "chapitre-1", "lecon-2").locked).toBe(true);
+
+      custom.deps.repository.setLessonRead(LOCAL_PROFILE_ID, "ch01-l01", true, TEST_STARTED_AT);
+
+      const unlocked = getChapterDetail(custom.deps, "chapitre-1");
+      expect(unlocked.units[0]?.readLessonCount).toBe(1);
+      expect(unlocked.lessons.map((lesson) => lesson.locked)).toEqual([false, false]);
+      expect(getLessonDetail(custom.deps, "chapitre-1", "lecon-2").locked).toBe(false);
+    } finally {
+      custom.close();
+    }
+  });
+});
+
+describe("évaluations de chapitre", () => {
+  function buildEvaluationContext(): TestDependencies {
+    const raw = testRawContent();
+    raw.presets = [];
+    raw.chapters[0]!.chapter = testChapter({
+      units: [
+        {
+          id: "ch01-u1",
+          slug: "unite-1",
+          order: 1,
+          label: "1.1",
+          title: "Unité de test",
+        },
+      ],
+    });
+    raw.chapters[0]!.lessons = [testLesson({ unitId: "ch01-u1" })];
+    raw.chapters[0]!.questions = Array.from({ length: 56 }, (_, index) =>
+      testQuestion({ id: `ch01-q${String(index + 1).padStart(3, "0")}` }),
+    );
+
+    return createTestDependencies({ catalog: buildContentCatalog(raw).catalog });
+  }
+
+  it("expose le défi et l'examen verrouillés, puis disponibles après les leçons", () => {
+    const custom = buildEvaluationContext();
+
+    try {
+      const locked = getChapterDetail(custom.deps, "chapitre-1");
+      expect(locked.units[0]?.challenge).toEqual({
+        questionCount: UNIT_CHALLENGE_QUESTION_COUNT,
+        availableQuestions: 56,
+        unlocked: false,
+        latestCompleted: null,
+      });
+      expect(locked.exam).toEqual({
+        questionCount: CHAPTER_EXAM.questionCount,
+        secondsPerQuestion: CHAPTER_EXAM.secondsPerQuestion,
+        passingScore: CHAPTER_EXAM.passingScore,
+        availableQuestions: 56,
+        unlocked: false,
+        latestCompleted: null,
+      });
+
+      custom.deps.repository.setLessonRead(LOCAL_PROFILE_ID, "ch01-l01", true, TEST_STARTED_AT);
+
+      const unlocked = getChapterDetail(custom.deps, "chapitre-1");
+      expect(unlocked.units[0]?.challenge.unlocked).toBe(true);
+      expect(unlocked.exam?.unlocked).toBe(true);
+    } finally {
+      custom.close();
+    }
+  });
+
+  it("retient le dernier défi terminé dans la vue du chapitre", () => {
+    const custom = buildEvaluationContext();
+
+    try {
+      custom.deps.repository.setLessonRead(LOCAL_PROFILE_ID, "ch01-l01", true, TEST_STARTED_AT);
+      const { attemptId } = startUnitChallenge(custom.deps, "ch01", "ch01-u1");
+      const attempt = custom.deps.repository.getAttempt(LOCAL_PROFILE_ID, attemptId);
+      if (!attempt) {
+        throw new Error("Défi absent.");
+      }
+
+      for (const question of attempt.questions) {
+        submitTrainingAnswer(custom.deps, {
+          attemptId,
+          position: question.position,
+          optionId: question.snapshot.correctOptionId,
+        });
+      }
+
+      const view = getChapterDetail(custom.deps, "chapitre-1");
+      expect(view.units[0]?.challenge.latestCompleted).toMatchObject({
+        attemptId,
+        score: UNIT_CHALLENGE_QUESTION_COUNT,
+        questionCount: UNIT_CHALLENGE_QUESTION_COUNT,
+      });
+    } finally {
+      custom.close();
+    }
   });
 });

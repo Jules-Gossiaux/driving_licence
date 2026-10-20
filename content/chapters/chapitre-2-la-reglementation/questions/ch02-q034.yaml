@@ -1,0 +1,29 @@
+id: ch02-q034
+chapterId: ch02
+lessonIds:
+  - ch02-l05
+prompt: Qui peut proposer une transaction si la perception immédiate n'est pas payée ?
+options:
+  - id: a
+    label: Le procureur du Roi
+  - id: b
+    label: Le juge
+  - id: c
+    label: L'agent qualifié
+  - id: d
+    label: La commune
+correctOptionId: a
+explanation: En l'absence de perception immédiate, le parquet du procureur du Roi prend le relève et propose une transaction.
+difficulty: easy
+severity: normal
+tags:
+  - sanctions
+  - transaction
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 43
+version: 1
+status: draft
+origin: ai_assisted

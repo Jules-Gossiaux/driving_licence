@@ -1,0 +1,30 @@
+id: ch02-q308
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Après un dépassement effectué en franchissant deux lignes juxtaposées, vous devez reprendre votre place. La ligne la plus proche de vous est devenue continue. Pouvez-vous la franchir ?"
+options:
+  - id: a
+    label: "Oui, le code permet de franchir à nouveau ces lignes pour reprendre sa place normale après un dépassement."
+  - id: b
+    label: "Non, une ligne continue ne peut jamais être franchie."
+  - id: c
+    label: "Oui, mais seulement après un arrêt complet."
+  - id: d
+    label: "Non, il faut attendre que la ligne devienne discontinue."
+correctOptionId: a
+explanation: "La règle des lignes juxtaposées prévoit une exception : après un dépassement, le conducteur peut franchir à nouveau ces lignes pour reprendre sa place normale sur la chaussée."
+difficulty: hard
+severity: normal
+tags:
+  - marquage
+  - lignes
+  - depassement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "article 72.4"
+version: 1
+status: draft
+origin: ai_assisted

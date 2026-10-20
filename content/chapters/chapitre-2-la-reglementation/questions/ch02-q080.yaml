@@ -1,0 +1,30 @@
+id: ch02-q080
+chapterId: ch02
+lessonIds:
+  - ch02-l10
+prompt: "Un signal combiné vélo + piéton est rouge. Qui doit s'arrêter ?"
+options:
+  - id: a
+    label: "Les cyclistes et cyclomoteurs à deux roues autorisés sur la piste cyclable, ainsi que les piétons"
+  - id: b
+    label: "Seulement les piétons"
+  - id: c
+    label: "Seulement les voitures"
+  - id: d
+    label: "Personne, ce signal n'impose pas l'arrêt"
+correctOptionId: a
+explanation: "Le signal combiné s'adresse aux cyclistes, aux cyclomoteurs à deux roues autorisés sur la piste cyclable et aux piétons. Lorsqu'il est rouge, ces usagers ne s'engagent pas."
+difficulty: medium
+severity: normal
+tags:
+  - pietons
+  - cyclistes
+  - feux-bicolores
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 63.2"
+version: 1
+status: draft
+origin: ai_assisted

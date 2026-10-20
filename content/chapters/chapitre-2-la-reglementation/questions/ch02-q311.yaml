@@ -1,0 +1,30 @@
+id: ch02-q311
+chapterId: ch02
+lessonIds:
+  - ch02-l23
+prompt: "Quel panneau signale un site spécial franchissable réservé aux transports en commun ?"
+options:
+  - id: a
+    label: "F18."
+  - id: b
+    label: "F17."
+  - id: c
+    label: "B1."
+  - id: d
+    label: "B5."
+correctOptionId: a
+explanation: "Le F18 signale un site spécial franchissable, délimité par des lignes continues ou un damier. Le F17 signale une bande bus, délimitée par de larges traits discontinus ou un damier."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - site-special
+  - panneaux
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 37
+  - documentId: official-code-route-1975
+    locator: "articles 72.5 et 72.6"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,30 @@
+id: ch02-q078
+chapterId: ch02
+lessonIds:
+  - ch02-l10
+prompt: "Le feu piéton passe au vert clignotant alors que vous n'avez pas encore quitté le trottoir. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous attendez le prochain feu vert"
+  - id: b
+    label: "Vous traversez en courant"
+  - id: c
+    label: "Vous traversez, car le feu est encore vert"
+  - id: d
+    label: "Vous vous engagez lentement en espérant passer"
+correctOptionId: a
+explanation: "Le vert clignotant annonce la fin de l'autorisation. Si la traversée n'a pas commencé, il vaut mieux attendre le prochain vert."
+difficulty: medium
+severity: normal
+tags:
+  - pietons
+  - feux-bicolores
+  - clignotant
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 63.1"
+version: 1
+status: draft
+origin: ai_assisted

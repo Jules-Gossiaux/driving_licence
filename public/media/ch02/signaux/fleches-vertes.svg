@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre fleches">
+  <title id="titre">Les trois catégories de flèches vertes</title>
+  <desc id="fleches">Une flèche verte accompagnée d'un feu rouge ou jaune-orange autorise uniquement sa direction, en cédant le passage aux autres directions et aux piétons. Une flèche verte seule autorise uniquement sa direction. La flèche verte d'évacuation, à la sortie d'un carrefour, indique que le trafic venant en sens inverse est arrêté par un feu rouge.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="40" y="50" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Les flèches vertes</text>
+  <text x="40" y="78" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Une direction autorisée, pas une priorité absolue.</text>
+
+  <g>
+    <rect x="40" y="108" width="280" height="344" rx="18" fill="#ffffff" stroke="#bbf7d0"/>
+    <rect x="40" y="108" width="280" height="8" rx="4" fill="#16a34a"/>
+    <text x="62" y="150" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Avec rouge ou orange</text>
+    <text x="62" y="176" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#15803d">Cédez le passage</text>
+
+    <rect x="82" y="205" width="180" height="90" rx="14" fill="#1f2937"/>
+    <rect x="90" y="213" width="164" height="74" rx="8" fill="#111827"/>
+    <circle cx="130" cy="250" r="26" fill="#dc2626"/>
+    <path d="M238 250l-30 26v-14h-34v-24h34v-14z" fill="#22c55e"/>
+
+    <text x="62" y="336" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Direction indiquée</text>
+    <text x="62" y="358" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">uniquement. Cédez le</text>
+    <text x="62" y="380" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">passage aux autres</text>
+    <text x="62" y="402" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">directions et aux piétons.</text>
+    <text x="62" y="434" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">La flèche autorise, elle ne protège pas.</text>
+  </g>
+
+  <g>
+    <rect x="340" y="108" width="280" height="344" rx="18" fill="#ffffff" stroke="#bbf7d0"/>
+    <rect x="340" y="108" width="280" height="8" rx="4" fill="#16a34a"/>
+    <text x="362" y="150" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Flèche verte seule</text>
+    <text x="362" y="176" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#15803d">Une seule direction</text>
+
+    <rect x="412" y="205" width="136" height="90" rx="14" fill="#1f2937"/>
+    <rect x="420" y="213" width="120" height="74" rx="8" fill="#111827"/>
+    <path d="M518 250l-30 26v-14h-34v-24h34v-14z" fill="#22c55e"/>
+
+    <text x="362" y="352" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Direction indiquée</text>
+    <text x="362" y="374" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">uniquement.</text>
+    <text x="362" y="406" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Un cercle vert complet, lui,</text>
+    <text x="362" y="424" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">autorise toutes les directions</text>
+    <text x="362" y="442" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">sauf restriction de signalisation.</text>
+  </g>
+
+  <g>
+    <rect x="640" y="108" width="280" height="344" rx="18" fill="#ffffff" stroke="#bbf7d0"/>
+    <rect x="640" y="108" width="280" height="8" rx="4" fill="#16a34a"/>
+    <text x="662" y="150" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Flèche d'évacuation</text>
+    <text x="662" y="176" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#15803d">À la sortie du carrefour</text>
+
+    <rect x="700" y="225" width="180" height="42" rx="6" fill="#e2e8f0"/>
+    <rect x="769" y="195" width="42" height="130" rx="6" fill="#e2e8f0"/>
+    <path d="M800 250l-30 26v-14h-34v-24h34v-14z" fill="#22c55e"/>
+    <circle cx="850" cy="250" r="16" fill="#dc2626"/>
+    <text x="850" y="288" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">sens inverse</text>
+
+    <text x="662" y="336" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Le trafic venant en sens</text>
+    <text x="662" y="358" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">inverse est arrêté par</text>
+    <text x="662" y="380" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">un feu rouge, ce qui</text>
+    <text x="662" y="402" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">facilite l'évacuation.</text>
+    <text x="662" y="434" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Elle est placée seule, à la sortie.</text>
+  </g>
+
+  <text x="40" y="500" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">La flèche verte ne supprime ni les règles de priorité ni les passages pour piétons.</text>
+</svg>

@@ -40,6 +40,18 @@ body {
   outline-offset: 3px;
 }
 
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary,
+label[for] {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
 .lesson-body {
   color: #334155;
   font-size: 1rem;

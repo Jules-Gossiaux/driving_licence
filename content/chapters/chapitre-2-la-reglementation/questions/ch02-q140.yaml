@@ -1,0 +1,30 @@
+id: ch02-q140
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "Quand le changement de côté du stationnement semi-mensuel a-t-il lieu ?"
+options:
+  - id: a
+    label: "Le dernier jour de la période, entre 19 h 30 et 20 h"
+  - id: b
+    label: "Chaque dimanche à midi"
+  - id: c
+    label: "Le premier jour du mois à 8 h"
+  - id: d
+    label: "Tous les jours à 18 h"
+correctOptionId: a
+explanation: "Le changement de côté se fait le dernier jour de la période, entre 19 h 30 et 20 h. Il concerne les panneaux E5 et E7, ainsi que E11 lorsque le stationnement semi-mensuel s'applique à toute l'agglomération."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - semi-mensuel
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 29
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted

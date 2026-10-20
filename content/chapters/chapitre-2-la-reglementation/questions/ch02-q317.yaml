@@ -1,0 +1,30 @@
+id: ch02-q317
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "À quoi sert une ligne d'arrêt blanche continue tracée en travers de la chaussée ?"
+options:
+  - id: a
+    label: "À indiquer l'endroit où s'arrêter au STOP ou au feu de circulation."
+  - id: b
+    label: "À indiquer une zone de stationnement."
+  - id: c
+    label: "À annoncer une piste cyclable."
+  - id: d
+    label: "À autoriser le passage sans ralentir."
+correctOptionId: a
+explanation: "La ligne d'arrêt indique l'endroit où les conducteurs doivent marquer l'arrêt imposé par le panneau STOP (B5) ou par un feu de circulation."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - ligne-d-arret
+  - stop
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "article 76.1"
+version: 1
+status: draft
+origin: ai_assisted

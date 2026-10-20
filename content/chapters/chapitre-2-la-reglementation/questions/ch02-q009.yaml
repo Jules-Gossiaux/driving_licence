@@ -1,0 +1,28 @@
+id: ch02-q009
+chapterId: ch02
+lessonIds:
+  - ch02-l02
+prompt: Où les règles du Code de la route s'appliquent-elles de manière contraignante ?
+options:
+  - id: a
+    label: Sur la voie publique
+  - id: b
+    label: Uniquement sur les autoroutes
+  - id: c
+    label: Sur toutes les propriétés privées
+  - id: d
+    label: Uniquement dans les centres-villes
+correctOptionId: a
+explanation: Les règles s'appliquent sur la voie publique, c'est-à-dire toute voie ouverte à la circulation terrestre. Elles ne s'appliquent pas de la même manière sur une propriété privée.
+difficulty: easy
+severity: normal
+tags:
+  - voie-publique
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 11
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

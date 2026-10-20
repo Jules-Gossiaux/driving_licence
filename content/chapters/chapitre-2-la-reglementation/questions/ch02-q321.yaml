@@ -1,0 +1,30 @@
+id: ch02-q321
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "Une flèche blanche de sélection est peinte dans votre bande à l'approche d'un carrefour. Que vous impose-t-elle ?"
+options:
+  - id: a
+    label: "Suivre la ou l'une des directions indiquées sur cette bande."
+  - id: b
+    label: "Choisir n'importe quelle direction au carrefour."
+  - id: c
+    label: "Stationner avant le carrefour."
+  - id: d
+    label: "Céder le passage aux véhicules venant de droite uniquement."
+correctOptionId: a
+explanation: "Les flèches de sélection indiquent la bande à suivre pour la direction choisie. Au carrefour, les conducteurs doivent suivre la ou l'une des directions indiquées sur la bande dans laquelle ils se trouvent."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - fleches
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "article 77.1"
+version: 1
+status: draft
+origin: ai_assisted

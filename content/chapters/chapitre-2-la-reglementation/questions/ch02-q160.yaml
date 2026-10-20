@@ -1,0 +1,31 @@
+id: ch02-q160
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "Que signifie une zone piétonne pour les véhicules ?"
+options:
+  - id: a
+    label: "Ils y circulent normalement"
+  - id: b
+    label: "Ils y ont priorité"
+  - id: c
+    label: "Ils n'y entrent que si la signalisation le permet, à l'allure du pas"
+  - id: d
+    label: "Ils peuvent y stationner librement"
+correctOptionId: c
+explanation: "Dans une zone piétonne, les piétons sont prioritaires et la vitesse est limitée à l'allure du pas. Les véhicules ne peuvent y entrer que si la signalisation le permet, par exemple pour une livraison. Le stationnement n'y est pas libre pour autant."
+difficulty: medium
+severity: severe
+examEligible: true
+tags:
+  - zones
+  - pietons
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 33
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

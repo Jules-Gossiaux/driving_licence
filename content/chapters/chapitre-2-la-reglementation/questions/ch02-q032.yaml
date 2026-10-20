@@ -1,0 +1,31 @@
+id: ch02-q032
+chapterId: ch02
+lessonIds:
+  - ch02-l04
+prompt: À quel degré appartient un dépassement par la gauche à l'approche du sommet d'une côte ?
+options:
+  - id: a
+    label: 4e degré
+  - id: b
+    label: 1er degré
+  - id: c
+    label: 2e degré
+  - id: d
+    label: 3e degré
+correctOptionId: a
+explanation: Dépasser par la gauche un véhicule attelé ou un véhicule à plus de deux roues à l'approche du sommet d'une côte ou dans un virage fait partie des sept infractions très graves de 4e degré.
+difficulty: hard
+severity: severe
+tags:
+  - degres
+  - depassement
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

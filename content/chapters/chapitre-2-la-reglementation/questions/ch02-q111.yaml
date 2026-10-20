@@ -1,0 +1,32 @@
+id: ch02-q111
+chapterId: ch02
+lessonIds:
+  - ch02-l14
+prompt: "Vous voyez un panneau A15, chaussée glissante, alors qu'il pleut. Quelle conduite adoptez-vous ?"
+options:
+  - id: a
+    label: "Freiner brusquement pour tester l'adhérence"
+  - id: b
+    label: "Accélérer pour éviter l'aquaplanage"
+  - id: c
+    label: "Rester à la même vitesse, le panneau étant décoratif"
+  - id: d
+    label: "Réduire l'allure et augmenter la distance de sécurité"
+correctOptionId: d
+explanation: "A15 avertit que la chaussée peut être glissante. Sous la pluie, il faut réduire l'allure, freiner et accélérer en douceur, et augmenter la distance de sécurité. Un freinage brusque peut provoquer une perte d'adhérence."
+mediaId: ch02-panneau-a15
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - danger
+  - meteo
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 22
+  - documentId: official-signaux-routiers
+    locator: "article 65"
+version: 1
+status: draft
+origin: ai_assisted

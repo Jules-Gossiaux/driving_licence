@@ -1,0 +1,31 @@
+id: ch02-q107
+chapterId: ch02
+lessonIds:
+  - ch02-l14
+prompt: "Que signifie le panneau additionnel A0b placé sous un panneau de danger ?"
+options:
+  - id: a
+    label: "La longueur de la section dangereuse"
+  - id: b
+    label: "La distance entre le panneau et le danger"
+  - id: c
+    label: "Le nombre de voies concernées"
+  - id: d
+    label: "La vitesse maximale autorisée"
+correctOptionId: b
+explanation: "A0b indique la distance qui sépare le panneau du danger. A0a indique la longueur de la section dangereuse. Les deux panneaux se ressemblent, mais leur rôle est différent."
+mediaId: ch02-panneau-a0b
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - panneaux-additionnels
+  - danger
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 21
+  - documentId: official-signaux-routiers
+    locator: "article 65"
+version: 1
+status: draft
+origin: ai_assisted

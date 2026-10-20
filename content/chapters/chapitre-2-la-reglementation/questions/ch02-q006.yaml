@@ -1,0 +1,29 @@
+id: ch02-q006
+chapterId: ch02
+lessonIds:
+  - ch02-l01
+prompt: À quelle distance maximale un piéton doit-il trouver un passage pour piétons pour être obligé de l'emprunter ?
+options:
+  - id: a
+    label: 20 mètres
+  - id: b
+    label: 10 mètres
+  - id: c
+    label: 30 mètres
+  - id: d
+    label: 50 mètres
+correctOptionId: a
+explanation: Le piéton doit emprunter le passage pour piétons situé à moins de 20 mètres.
+difficulty: easy
+severity: normal
+tags:
+  - pietons
+  - passages
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 10
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+version: 1
+status: draft
+origin: ai_assisted

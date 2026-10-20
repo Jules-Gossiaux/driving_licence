@@ -1,0 +1,30 @@
+id: ch02-q125
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "Que signifie le panneau C33 ?"
+options:
+  - id: a
+    label: "Demi-tour interdit"
+  - id: b
+    label: "Tourner à gauche interdit"
+  - id: c
+    label: "Dépassement interdit"
+  - id: d
+    label: "Stationnement interdit"
+correctOptionId: a
+explanation: "C33 interdit de faire demi-tour. Les tournants sont visés par C31a et C31b, le dépassement par C35 et le stationnement par les panneaux E1 et E3."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - demi-tour
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 26
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,30 @@
+id: ch02-q318
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "Une ligne de triangles blancs se trouve à l'entrée d'un carrefour. Que devez-vous faire ?"
+options:
+  - id: a
+    label: "Ralentir et m'arrêter si nécessaire pour céder le passage."
+  - id: b
+    label: "M'arrêter systématiquement, même si la route est libre."
+  - id: c
+    label: "Accélérer pour ne pas gêner les autres."
+  - id: d
+    label: "Stationner avant les triangles."
+correctOptionId: a
+explanation: "Les triangles indiquent l'endroit où les conducteurs doivent, s'il y a lieu, s'arrêter pour céder le passage en vertu d'un signal B1. L'arrêt n'est obligatoire que si la circulation l'exige."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - cede-le-passage
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "article 76.2"
+version: 1
+status: draft
+origin: ai_assisted

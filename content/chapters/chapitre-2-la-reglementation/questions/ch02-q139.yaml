@@ -1,0 +1,30 @@
+id: ch02-q139
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "Que signifie le panneau E5 ?"
+options:
+  - id: a
+    label: "Stationnement interdit le week-end"
+  - id: b
+    label: "Stationnement réservé aux riverains"
+  - id: c
+    label: "Stationnement autorisé 15 minutes"
+  - id: d
+    label: "Stationnement interdit du 1er au 15, avec changement de côté"
+correctOptionId: d
+explanation: "E5 organise le stationnement semi-mensuel : l'interdiction vaut du 1er au 15. E7 vaut du 16 à la fin du mois. Le changement de côté se fait le dernier jour de la période, entre 19 h 30 et 20 h."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - semi-mensuel
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 29
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted
