@@ -1,0 +1,31 @@
+id: ch02-q248
+chapterId: ch02
+lessonIds:
+  - ch02-l32
+prompt: "Vous avez le vert à un carrefour qui fonctionne. Un conducteur arrive de droite. Devez-vous lui céder le passage au titre de la priorité à droite ?"
+options:
+  - id: a
+    label: "Oui, toujours."
+  - id: b
+    label: "Oui, seulement si vous tournez."
+  - id: c
+    label: "Non, le feu règle le passage et la priorité à droite ne s'applique pas comme sans signalisation."
+  - id: d
+    label: "Non, car vous êtes toujours prioritaire, même au rouge."
+correctOptionId: c
+explanation: "Quand le feu fonctionne, il règle le passage et neutralise la priorité à droite. Vous suivez votre feu, tout en restant attentif aux usagers déjà engagés."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - priorite-a-droite
+  - feux
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "articles 6 et 12"
+version: 1
+status: draft
+origin: ai_assisted

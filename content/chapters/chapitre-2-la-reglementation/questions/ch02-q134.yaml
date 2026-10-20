@@ -1,0 +1,30 @@
+id: ch02-q134
+chapterId: ch02
+lessonIds:
+  - ch02-l17
+prompt: "Quelle est la différence entre D9 et D10 ?"
+options:
+  - id: a
+    label: "D9 est réservé aux cavaliers, D10 aux piétons"
+  - id: b
+    label: "D9 inclut les cyclomoteurs classe A, D10 est réservé aux piétons et cyclistes"
+  - id: c
+    label: "Les deux panneaux sont identiques"
+  - id: d
+    label: "D9 autorise les voitures"
+correctOptionId: b
+explanation: "D9 réserve une partie de la voie aux piétons, aux bicyclettes et aux cyclomoteurs de classe A. D10 réserve une partie de la voie aux piétons et aux cyclistes seulement. L'ajout du cyclomoteur classe A est la différence à retenir."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - obligation
+  - categories
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 28
+  - documentId: official-signaux-routiers
+    locator: "article 68"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre-b23 desc-b23">
+  <title id="titre-b23">Panneau B23</title>
+  <desc id="desc-b23">Panneau triangulaire inversé à bord rouge, avec une bicyclette jaune et une flèche jaune vers le haut.</desc>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <path d="M95 85H385Q410 85 398 110L258 382Q240 415 222 382L82 110Q70 85 95 85Z" fill="#c1121f"/>
+  <path d="M125 112H355Q370 112 362 128L252 352Q240 375 228 352L118 128Q110 112 125 112Z" fill="#ffffff"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#6b5200" stroke-width="11">
+      <circle cx="195" cy="212" r="24"/>
+      <circle cx="285" cy="212" r="24"/>
+      <path d="M195 212h40M235 212l-17-40M218 172h42M235 212l35-34M270 178l15 34M270 178q8-12 20-8"/>
+    </g>
+    <g stroke="#f4c430" stroke-width="6.5">
+      <circle cx="195" cy="212" r="24"/>
+      <circle cx="285" cy="212" r="24"/>
+      <path d="M195 212h40M235 212l-17-40M218 172h42M235 212l35-34M270 178l15 34M270 178q8-12 20-8"/>
+      <path d="M208 170h20"/>
+    </g>
+  </g>
+  <circle cx="235" cy="212" r="8" fill="#f4c430" stroke="#6b5200" stroke-width="4"/>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 306v-46" stroke="#6b5200" stroke-width="14"/>
+    <path d="M240 306v-46" stroke="#f4c430" stroke-width="8"/>
+    <path d="M226 272L240 246L254 272Z" fill="#f4c430" stroke="#6b5200" stroke-width="5"/>
+  </g>
+</svg>

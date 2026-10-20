@@ -1,0 +1,30 @@
+id: ch02-q329
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Que délimitent les marques en damier composées de carrés blancs ?"
+options:
+  - id: a
+    label: "L'espace des transports en commun sur un site spécial franchissable ou entre deux sites."
+  - id: b
+    label: "Une zone de stationnement gratuite."
+  - id: c
+    label: "Un passage pour piétons."
+  - id: d
+    label: "Une piste cyclable."
+correctOptionId: a
+explanation: "Le damier délimite l'espace réservé aux services réguliers de transport en commun sur un site spécial franchissable, ou l'espace qui relie les sites entre eux. L'arrêt et le stationnement y sont interdits."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - damier
+  - transports-en-commun
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 40
+  - documentId: official-code-route-1975
+    locator: "article 77.8"
+version: 1
+status: draft
+origin: ai_assisted

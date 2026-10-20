@@ -29,6 +29,10 @@ versionnage sémantique.
   jalon de fin d'unité et examen de chapitre en évaluation finale.
 - Cycle de publication `draft` / `in_review` / `published` avec relecture obligatoire.
 - Chapitre 1 de démonstration : 2 leçons et 5 questions en brouillon.
+- Chapitre 1 restructuré en deux unités et six micro-leçons (50 questions), avec vérifications de
+  section et quiz final comme le chapitre 2.
+- Page Théorie transformée en feuille de route verticale avec états terminé, en cours et à venir ;
+  curseur pointeur sur les contrôles cliquables.
 - Pilote du chapitre 2.1 : 7 leçons, 56 questions et 4 questions cœur par leçon, toutes en
   brouillon.
 - Pilote du chapitre 2.2 : 6 leçons, 48 questions et 4 questions cœur par leçon, toutes en

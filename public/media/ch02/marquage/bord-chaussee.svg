@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Bord réel et bord fictif de la chaussée</title>
+  <desc id="desc">À gauche, un bord réel souligné par une ligne blanche continue et une ligne jaune discontinue qui interdit le stationnement. À droite, un bord fictif marqué par une large ligne blanche, avec une zone d'arrêt et de stationnement au-delà.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="32" y="52" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Deux façons de marquer le bord</text>
+  <text x="32" y="80" font-family="Arial, sans-serif" font-size="14" fill="#64748b">La ligne indique où finit la chaussée et ce que permet l'espace situé au-delà.</text>
+
+  <g>
+    <rect x="32" y="100" width="432" height="408" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="56" y="136" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Bord réel</text>
+    <rect x="56" y="156" width="384" height="276" rx="10" fill="#334155"/>
+    <rect x="56" y="156" width="58" height="276" fill="#cbd5e1"/>
+    <line x1="114" y1="156" x2="114" y2="432" stroke="#94a3b8" stroke-width="3"/>
+    <line x1="126" y1="156" x2="126" y2="432" stroke="#f8fafc" stroke-width="5"/>
+    <line x1="146" y1="156" x2="146" y2="432" stroke="#f59e0b" stroke-width="5" stroke-dasharray="16 12"/>
+    <rect x="220" y="236" width="150" height="76" rx="12" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+    <text x="295" y="280" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="middle">VOIE</text>
+    <text x="56" y="458" font-family="Arial, sans-serif" font-size="13" fill="#475569">Ligne blanche continue : rend le bord visible.</text>
+    <text x="56" y="480" font-family="Arial, sans-serif" font-size="13" fill="#475569">Ligne jaune discontinue : stationnement interdit le long de la ligne.</text>
+  </g>
+
+  <g>
+    <rect x="496" y="100" width="432" height="408" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="520" y="136" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Bord fictif</text>
+    <rect x="520" y="156" width="384" height="276" rx="10" fill="#334155"/>
+    <line x1="800" y1="156" x2="800" y2="432" stroke="#f8fafc" stroke-width="12"/>
+    <line x1="812" y1="156" x2="904" y2="156" stroke="#f8fafc" stroke-width="3"/>
+    <line x1="812" y1="225" x2="904" y2="225" stroke="#f8fafc" stroke-width="3"/>
+    <line x1="812" y1="294" x2="904" y2="294" stroke="#f8fafc" stroke-width="3"/>
+    <line x1="812" y1="363" x2="904" y2="363" stroke="#f8fafc" stroke-width="3"/>
+    <line x1="812" y1="432" x2="904" y2="432" stroke="#f8fafc" stroke-width="3"/>
+    <rect x="836" y="246" width="62" height="34" rx="7" fill="#e2e8f0"/>
+    <text x="867" y="268" font-family="Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle">P</text>
+    <text x="520" y="458" font-family="Arial, sans-serif" font-size="13" fill="#475569">Large ligne blanche : bord fictif de la chaussée.</text>
+    <text x="520" y="480" font-family="Arial, sans-serif" font-size="13" fill="#475569">Au-delà : arrêt et stationnement, sauf autoroute et route pour automobiles.</text>
+  </g>
+</svg>

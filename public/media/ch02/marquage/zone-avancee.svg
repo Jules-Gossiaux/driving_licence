@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+  <title id="title">Zone avancée pour deux-roues</title>
+  <desc id="desc">Vue de dessus d'une chaussée avec deux lignes d'arrêt. Entre elles, une zone marquée d'un vélo. Une voiture attend derrière la première ligne, pendant que le feu est rouge.</desc>
+  <rect width="480" height="360" fill="#f8fafc"/>
+  <rect x="62" y="0" width="30" height="360" fill="#e2e8f0"/>
+  <rect x="388" y="0" width="30" height="360" fill="#e2e8f0"/>
+  <rect x="92" y="0" width="296" height="360" fill="#334155"/>
+  <line x1="98" y1="0" x2="98" y2="360" stroke="#f8fafc" stroke-width="4"/>
+  <line x1="382" y1="0" x2="382" y2="360" stroke="#f8fafc" stroke-width="4"/>
+
+  <rect x="98" y="160" width="284" height="108" fill="#3d4f63"/>
+  <line x1="98" y1="164" x2="382" y2="164" stroke="#f8fafc" stroke-width="10"/>
+  <line x1="98" y1="264" x2="382" y2="264" stroke="#f8fafc" stroke-width="10"/>
+
+  <g stroke="#f8fafc" stroke-width="5" fill="none">
+    <circle cx="222" cy="220" r="16"/>
+    <circle cx="270" cy="220" r="16"/>
+    <line x1="222" y1="220" x2="240" y2="192"/>
+    <line x1="240" y1="192" x2="258" y2="220"/>
+    <line x1="258" y1="220" x2="240" y2="220"/>
+    <line x1="240" y1="192" x2="270" y2="220"/>
+    <line x1="232" y1="184" x2="248" y2="184"/>
+    <line x1="270" y1="220" x2="276" y2="206"/>
+    <line x1="268" y1="206" x2="284" y2="206"/>
+  </g>
+
+  <g>
+    <rect x="200" y="292" width="80" height="52" rx="10" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="212" y="300" width="56" height="16" rx="4" fill="#94a3b8"/>
+    <rect x="212" y="326" width="14" height="8" rx="2" fill="#475569"/>
+    <rect x="254" y="326" width="14" height="8" rx="2" fill="#475569"/>
+  </g>
+
+  <g>
+    <rect x="426" y="44" width="30" height="76" rx="6" fill="#0f172a"/>
+    <circle cx="441" cy="60" r="8" fill="#ef4444"/>
+    <circle cx="441" cy="82" r="8" fill="#475569"/>
+    <circle cx="441" cy="104" r="8" fill="#475569"/>
+  </g>
+
+  <text x="240" y="340" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">Zone entre les deux lignes d'arrêt</text>
+</svg>

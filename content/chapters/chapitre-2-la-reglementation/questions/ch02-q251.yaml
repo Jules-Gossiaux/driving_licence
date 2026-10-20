@@ -1,0 +1,31 @@
+id: ch02-q251
+chapterId: ch02
+lessonIds:
+  - ch02-l33
+prompt: "Jusqu'où s'applique l'interdiction de dépasser indiquée par un panneau C35 ?"
+options:
+  - id: a
+    label: "Jusqu'à la prochaine ligne discontinue."
+  - id: b
+    label: "Sur 100 mètres."
+  - id: c
+    label: "Jusqu'à la fin de la route."
+  - id: d
+    label: "Jusqu'au prochain carrefour inclus."
+correctOptionId: d
+explanation: "L'interdiction du C35 commence au panneau et s'applique jusqu'au prochain carrefour inclus, sauf indication contraire."
+difficulty: medium
+severity: normal
+examEligible: true
+mediaId: ch02-signal-c35
+tags:
+  - c35
+  - portee
+  - depassement
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: securotheque-c35
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+  <title id="title">Panneau F18 : site spécial franchissable</title>
+  <desc id="desc">Panneau rectangulaire bleu à liseré blanc, avec deux lignes blanches continues délimitant un site central où sont écrits BUS et TRAM, encadré par deux flèches de sens.</desc>
+  <rect width="480" height="360" fill="#f8fafc"/>
+  <rect x="10" y="10" width="460" height="340" rx="16" fill="#005a8c"/>
+  <rect x="22" y="22" width="436" height="316" rx="8" fill="none" stroke="#ffffff" stroke-width="6"/>
+
+  <line x1="160" y1="48" x2="160" y2="312" stroke="#ffffff" stroke-width="14"/>
+  <line x1="330" y1="48" x2="330" y2="312" stroke="#ffffff" stroke-width="14"/>
+
+  <g fill="#ffffff">
+    <rect x="75" y="145" width="16" height="80"/>
+    <polygon points="62,220 83,258 104,220"/>
+  </g>
+  <g fill="#ffffff">
+    <rect x="398" y="145" width="16" height="80"/>
+    <polygon points="385,122 406,84 427,122"/>
+  </g>
+
+  <text x="215" y="126" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff" text-anchor="middle">B</text>
+  <text x="215" y="169" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff" text-anchor="middle">U</text>
+  <text x="215" y="212" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff" text-anchor="middle">S</text>
+
+  <text x="275" y="126" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">T</text>
+  <text x="275" y="164" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">R</text>
+  <text x="275" y="202" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+  <text x="275" y="240" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">M</text>
+</svg>

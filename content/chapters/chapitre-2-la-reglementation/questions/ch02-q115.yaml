@@ -1,0 +1,30 @@
+id: ch02-q115
+chapterId: ch02
+lessonIds:
+  - ch02-l15
+prompt: "Que signifie le panneau B3 ?"
+options:
+  - id: a
+    label: "Il annonce un STOP à distance"
+  - id: b
+    label: "Il marque la fin d'une voie prioritaire"
+  - id: c
+    label: "Il annonce B1 à la distance indiquée"
+  - id: d
+    label: "Il donne la priorité à droite"
+correctOptionId: c
+explanation: "B3 annonce le panneau B1 lorsque celui-ci n'est pas visible à 150 mètres, par exemple à cause d'un virage ou du sommet d'une côte. B7 annonce le STOP. B3 n'impose donc pas encore l'arrêt : il prépare au cédez-le-passage."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - priorite
+  - panneaux-additionnels
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 23
+  - documentId: official-signaux-routiers
+    locator: "article 66"
+version: 1
+status: draft
+origin: ai_assisted

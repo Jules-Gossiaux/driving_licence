@@ -1,0 +1,28 @@
+id: ch01-q034
+chapterId: ch01
+lessonIds:
+  - ch01-l05
+prompt: Jusqu'à quelle MMA d'ensemble le permis BE couvre-t-il une remorque de plus de 750 kg ?
+options:
+  - id: a
+    label: 7 000 kg
+  - id: b
+    label: 3 500 kg
+  - id: c
+    label: 4 250 kg
+  - id: d
+    label: 10 000 kg
+correctOptionId: a
+explanation: Le permis BE couvre les ensembles de plus de 4 250 kg jusqu'à 7 000 kg de MMA. Au-delà de 7 000 kg, ces solutions ne suffisent plus.
+difficulty: medium
+severity: normal
+tags:
+  - permis-be
+  - seuils
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+version: 1
+status: draft
+origin: ai_assisted

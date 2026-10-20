@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre-c35 desc-c35">
+  <title id="titre-c35">Panneau C35</title>
+  <desc id="desc-c35">Panneau circulaire blanc à bord rouge, avec une voiture rouge à gauche et une voiture noire à droite, toutes deux vues de profil.</desc>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <circle cx="240" cy="240" r="210" fill="#c1121f"/>
+  <circle cx="240" cy="240" r="160" fill="#ffffff"/>
+
+  <path d="M110 298h260" stroke="#111827" stroke-width="5" stroke-linecap="round"/>
+
+  <g transform="translate(115 224)">
+    <path d="M2 60 Q0 50 8 46 L30 41 L43 22 Q47 16 55 16 L78 16 L89 41 L112 46 Q120 49 120 58 L120 62 Z" fill="#c1121f"/>
+    <path d="M49 22 L74 22 L81 39 L42 39 Z" fill="#fee2e2"/>
+    <circle cx="28" cy="63" r="11" fill="#111827"/>
+    <circle cx="28" cy="63" r="4" fill="#f87171"/>
+    <circle cx="96" cy="63" r="11" fill="#111827"/>
+    <circle cx="96" cy="63" r="4" fill="#f87171"/>
+  </g>
+
+  <g transform="translate(245 224)">
+    <path d="M2 60 Q0 50 8 46 L30 41 L43 22 Q47 16 55 16 L78 16 L89 41 L112 46 Q120 49 120 58 L120 62 Z" fill="#111827"/>
+    <path d="M49 22 L74 22 L81 39 L42 39 Z" fill="#4b5563"/>
+    <circle cx="28" cy="63" r="11" fill="#111827"/>
+    <circle cx="28" cy="63" r="4" fill="#9ca3af"/>
+    <circle cx="96" cy="63" r="11" fill="#111827"/>
+    <circle cx="96" cy="63" r="4" fill="#9ca3af"/>
+  </g>
+</svg>

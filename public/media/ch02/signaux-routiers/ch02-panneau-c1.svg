@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau C1 — sens interdit</title>
+  <desc id="description">Disque rouge barré d'une barre blanche : l'accès est interdit dans ce sens pour tout conducteur.</desc>
+  <circle cx="240" cy="240" r="190" fill="#d21f2b"/>
+  <rect x="100" y="214" width="280" height="52" rx="4" fill="#ffffff"/>
+</svg>

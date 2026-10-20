@@ -1,0 +1,29 @@
+id: ch01-q043
+chapterId: ch01
+lessonIds:
+  - ch01-l06
+prompt: Une remorque de 900 kg de MMA forme un ensemble de 3 501 kg de MMA. Quel permis faut-il ?
+options:
+  - id: a
+    label: Le permis B avec le code 96
+  - id: b
+    label: Le permis B seul
+  - id: c
+    label: Le permis BE
+  - id: d
+    label: Aucun des trois
+correctOptionId: a
+explanation: Un seul kilo au-dessus de 3 500 kg fait basculer l'ensemble dans la zone du code 96. Le permis BE ne commence qu'au-delà de 4 250 kg.
+difficulty: hard
+severity: normal
+tags:
+  - code-96
+  - seuils
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

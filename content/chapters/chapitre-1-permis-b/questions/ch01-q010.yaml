@@ -1,0 +1,28 @@
+id: ch01-q010
+chapterId: ch01
+lessonIds:
+  - ch01-l01
+prompt: Un véhicule de transport de personnes a une MMA de 3 500 kg et 8 places passagers. Combien de personnes peuvent voyager à bord, conducteur compris ?
+options:
+  - id: a
+    label: 9 personnes
+  - id: b
+    label: 8 personnes
+  - id: c
+    label: 10 personnes
+  - id: d
+    label: 7 personnes
+correctOptionId: a
+explanation: 8 passagers en plus du conducteur font 9 personnes à bord. La MMA de 3 500 kg est respectée, mais elle ne réduit pas le nombre de places.
+difficulty: easy
+severity: normal
+tags:
+  - passagers
+  - categories
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

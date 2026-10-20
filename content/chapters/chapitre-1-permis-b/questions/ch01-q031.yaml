@@ -1,0 +1,28 @@
+id: ch01-q031
+chapterId: ch01
+lessonIds:
+  - ch01-l02
+prompt: Une remorque a une MMA de 900 kg mais ne pèse que 700 kg le jour du départ. Est-elle une remorque légère au sens des 750 kg ?
+options:
+  - id: a
+    label: Non, car sa MMA dépasse 750 kg
+  - id: b
+    label: Oui, car son poids réel est inférieur à 750 kg
+  - id: c
+    label: Oui, si elle est vide
+  - id: d
+    label: Oui, si le véhicule tracteur est un utilitaire
+correctOptionId: a
+explanation: La catégorie se lit sur la MMA, pas sur le poids réel. La remorque reste au-dessus du seuil de 750 kg.
+difficulty: medium
+severity: normal
+tags:
+  - remorque
+  - piege
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+version: 1
+status: draft
+origin: ai_assisted

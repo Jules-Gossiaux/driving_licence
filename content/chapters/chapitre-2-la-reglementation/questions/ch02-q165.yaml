@@ -1,0 +1,30 @@
+id: ch02-q165
+chapterId: ch02
+lessonIds:
+  - ch02-l21
+prompt: "Un panneau additionnel peut-il limiter la portée du panneau principal ?"
+options:
+  - id: a
+    label: "Non, il ne fait que décorer"
+  - id: b
+    label: "Oui, par exemple à une catégorie, une distance ou un horaire"
+  - id: c
+    label: "Non, il élargit toujours la portée"
+  - id: d
+    label: "Oui, mais seulement pour les piétons"
+correctOptionId: b
+explanation: "Un panneau additionnel précise la portée du panneau principal : il peut viser une catégorie, une distance, une longueur ou un horaire. Sans ce panneau, le panneau principal s'applique plus largement. Il ne faut donc pas l'ignorer."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - panneaux-additionnels
+  - portee
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 34
+  - documentId: official-signaux-routiers
+    locator: "articles 22bis et 71"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,29 @@
+id: ch01-q048
+chapterId: ch01
+lessonIds:
+  - ch01-l06
+prompt: Une remorque de 900 kg de MMA forme un ensemble de 7 001 kg de MMA. Quelle solution du chapitre s'applique ?
+options:
+  - id: a
+    label: "Aucune des trois : le permis BE s'arrête à 7 000 kg"
+  - id: b
+    label: Le permis BE
+  - id: c
+    label: Le permis B avec le code 96
+  - id: d
+    label: Le permis B seul
+correctOptionId: a
+explanation: Le permis BE ne couvre pas un ensemble de plus de 7 000 kg de MMA. Il faut vérifier la réglementation applicable à cette catégorie d'ensemble.
+difficulty: hard
+severity: normal
+tags:
+  - permis-be
+  - seuils
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

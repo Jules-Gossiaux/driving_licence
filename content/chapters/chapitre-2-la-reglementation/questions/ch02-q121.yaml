@@ -1,0 +1,30 @@
+id: ch02-q121
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "Quelle est la différence entre C1 et C3 ?"
+options:
+  - id: a
+    label: "C1 interdit l'accès dans un sens, C3 interdit l'accès dans les deux sens"
+  - id: b
+    label: "C1 interdit aux piétons, C3 aux voitures"
+  - id: c
+    label: "C1 autorise le passage, C3 l'interdit"
+  - id: d
+    label: "Les deux panneaux sont identiques"
+correctOptionId: a
+explanation: "C1 est un disque rouge barré de blanc : le sens est interdit à tout conducteur. C3 est un anneau rouge : l'accès est interdit dans les deux sens, également à tout conducteur. C1 ferme donc une entrée, tandis que C3 ferme la voie aux deux sens."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - panneaux
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 25
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,30 @@
+id: ch02-q138
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "Qu'est-ce qu'un arrêt, par opposition au stationnement ?"
+options:
+  - id: a
+    label: "Une immobilisation brève pour monter, descendre ou charger, le conducteur restant à proximité"
+  - id: b
+    label: "Une immobilisation de plus de 30 minutes"
+  - id: c
+    label: "Un stationnement sur un emplacement payant"
+  - id: d
+    label: "Un arrêt au feu rouge"
+correctOptionId: a
+explanation: "L'arrêt est une immobilisation brève destinée à faire monter ou descendre une personne ou à charger ou décharger des objets, le conducteur restant à proximité du véhicule. Le stationnement est toute autre immobilisation, même de courte durée."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - arret
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 29
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted

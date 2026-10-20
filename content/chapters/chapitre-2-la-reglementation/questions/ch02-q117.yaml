@@ -1,0 +1,30 @@
+id: ch02-q117
+chapterId: ch02
+lessonIds:
+  - ch02-l15
+prompt: "Que signale le panneau B11 ?"
+options:
+  - id: a
+    label: "La fin de la voie prioritaire"
+  - id: b
+    label: "Le début d'une voie prioritaire"
+  - id: c
+    label: "Un carrefour avec priorité à droite"
+  - id: d
+    label: "Un passage étroit"
+correctOptionId: a
+explanation: "B11 marque la fin de la voie prioritaire. B13 annonce cette fin à distance. B17 signale un carrefour où la priorité à droite s'applique, et B19 un passage étroit où il faut céder le passage."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - priorite
+  - voie-prioritaire
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 24
+  - documentId: official-signaux-routiers
+    locator: "article 66"
+version: 1
+status: draft
+origin: ai_assisted

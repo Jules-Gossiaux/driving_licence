@@ -1,0 +1,30 @@
+id: ch02-q312
+chapterId: ch02
+lessonIds:
+  - ch02-l23
+prompt: "Deux lignes blanches discontinues parallèles délimitent une bande trop étroite pour les voitures. De quoi s'agit-il ?"
+options:
+  - id: a
+    label: "D'une piste cyclable."
+  - id: b
+    label: "D'une bande bus."
+  - id: c
+    label: "D'une bande d'arrêt d'urgence."
+  - id: d
+    label: "D'un passage pour piétons."
+correctOptionId: a
+explanation: "C'est la définition de la piste cyclable. Les cyclistes et les cyclomoteurs à deux roues de classe A doivent l'emprunter lorsqu'elle est praticable et située à droite dans leur sens de marche."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - piste-cyclable
+  - deux-roues
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 37
+  - documentId: official-code-route-1975
+    locator: "articles 9.1.2 et 74"
+version: 1
+status: draft
+origin: ai_assisted

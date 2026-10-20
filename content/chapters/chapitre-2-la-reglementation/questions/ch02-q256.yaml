@@ -1,0 +1,31 @@
+id: ch02-q256
+chapterId: ch02
+lessonIds:
+  - ch02-l33
+prompt: "Un panneau et un marquage se contredisent. Lequel l'emporte ?"
+options:
+  - id: a
+    label: "Le marquage, car il est peint sur la chaussée."
+  - id: b
+    label: "Le plus récent."
+  - id: c
+    label: "Le plus visible."
+  - id: d
+    label: "Le panneau explicite."
+correctOptionId: d
+explanation: "Le panneau explicite l'emporte sur le marquage. C'est la règle appliquée au C35 face à une ligne discontinue et au E3 face à des emplacements peints."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - hierarchie
+  - marquage
+  - panneaux
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: securotheque-c35
+  - documentId: securotheque-e3
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,31 @@
+id: ch02-q123
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "Que signifie C21 avec la mention 5 t ?"
+options:
+  - id: a
+    label: "La vitesse est limitée à 5 t"
+  - id: b
+    label: "L'accès est interdit aux véhicules dont la masse en charge dépasse 5 t"
+  - id: c
+    label: "Le stationnement est réservé aux véhicules de 5 t"
+  - id: d
+    label: "La hauteur est limitée à 5 m"
+correctOptionId: b
+explanation: "C21 limite la masse : l'accès est interdit aux véhicules dont la masse en charge dépasse la valeur indiquée, ici 5 tonnes. La vitesse, la largeur et la hauteur ont leurs propres panneaux."
+mediaId: ch02-panneau-c21
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - masse
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 25
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

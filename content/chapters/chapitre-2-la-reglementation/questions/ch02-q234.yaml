@@ -1,0 +1,31 @@
+id: ch02-q234
+chapterId: ch02
+lessonIds:
+  - ch02-l31
+prompt: "Un feu tricolore fonctionne à un carrefour où un panneau de priorité est placé. Quel signal l'emporte ?"
+options:
+  - id: a
+    label: "Le panneau de priorité, car il est fixe."
+  - id: b
+    label: "La priorité à droite, car elle s'applique toujours."
+  - id: c
+    label: "Le feu, car il fonctionne."
+  - id: d
+    label: "Le marquage au sol, car il est plus proche du carrefour."
+correctOptionId: c
+explanation: "Lorsqu'il fonctionne, le feu tricolore rend sans effet les panneaux de priorité. Le panneau ne reprend son rôle que si le feu est éteint."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - feux
+  - panneaux-priorite
+  - hierarchie
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "articles 6 et 12"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,31 @@
+id: ch02-q240
+chapterId: ch02
+lessonIds:
+  - ch02-l31
+prompt: "Un panneau de priorité contredit une règle générale de circulation. Lequel l'emporte ?"
+options:
+  - id: a
+    label: "La règle générale, car elle s'applique à tous."
+  - id: b
+    label: "Le panneau de priorité, car la signalisation routière est au-dessus des règles."
+  - id: c
+    label: "Le marquage au sol, car il précise toujours le panneau."
+  - id: d
+    label: "Aucun des deux : c'est l'usage le plus courant qui tranche."
+correctOptionId: b
+explanation: "La signalisation routière, qui comprend les panneaux, se situe au-dessus des règles générales de circulation. Le panneau de priorité l'emporte donc sur la règle générale."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - hierarchie
+  - panneaux-priorite
+  - regles
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "articles 6 et 12"
+version: 1
+status: draft
+origin: ai_assisted

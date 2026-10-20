@@ -1,0 +1,30 @@
+id: ch02-q313
+chapterId: ch02
+lessonIds:
+  - ch02-l23
+prompt: "Une large ligne blanche continue marque le bord fictif de la chaussée. Que trouve-t-on au-delà ?"
+options:
+  - id: a
+    label: "Une zone réservée à l'arrêt et au stationnement, sauf sur les autoroutes et les routes pour automobiles."
+  - id: b
+    label: "Une bande bus."
+  - id: c
+    label: "Une piste cyclable."
+  - id: d
+    label: "Une zone où l'arrêt et le stationnement sont toujours interdits."
+correctOptionId: a
+explanation: "La partie de la voie publique située au-delà du bord fictif est réservée à l'arrêt et au stationnement, sauf sur les autoroutes et les routes pour automobiles."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - bord-chaussee
+  - stationnement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 37
+  - documentId: official-code-route-1975
+    locator: "article 75.2"
+version: 1
+status: draft
+origin: ai_assisted

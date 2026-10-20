@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau B5 — STOP</title>
+  <desc id="description">Octogone rouge avec l'inscription STOP en blanc : arrêt complet obligatoire à la ligne d'arrêt ou au signal.</desc>
+  <polygon points="435.9,321.1 321.1,435.9 158.9,435.9 44.1,321.1 44.1,158.9 158.9,44.1 321.1,44.1 435.9,158.9" fill="#ffffff"/>
+  <polygon points="421.1,315.0 315.0,421.1 165.0,421.1 58.9,315.0 58.9,165.0 165.0,58.9 315.0,58.9 421.1,165.0" fill="#d21f2b"/>
+  <text x="240" y="282" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="98" font-weight="700" letter-spacing="4" fill="#ffffff">STOP</text>
+</svg>

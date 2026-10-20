@@ -1,0 +1,29 @@
+id: ch02-q307
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Les traits d'une ligne discontinue deviennent plus courts et plus rapprochés. Qu'annoncent-ils ?"
+options:
+  - id: a
+    label: "L'approche d'une ligne continue."
+  - id: b
+    label: "Une bande bus."
+  - id: c
+    label: "Une zone de stationnement."
+  - id: d
+    label: "Un passage pour piétons."
+correctOptionId: a
+explanation: "Des traits plus courts et plus rapprochés annoncent une ligne continue : terminez un éventuel dépassement et reprenez votre place."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - lignes
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "article 72.3"
+version: 1
+status: draft
+origin: ai_assisted

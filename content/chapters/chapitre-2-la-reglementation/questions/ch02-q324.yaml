@@ -1,0 +1,30 @@
+id: ch02-q324
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "Quelle est la différence entre une ligne d'arrêt continue et une ligne de triangles blancs ?"
+options:
+  - id: a
+    label: "La ligne continue impose l'arrêt au STOP ou au feu ; les triangles imposent seulement de céder le passage si nécessaire."
+  - id: b
+    label: "Les deux imposent un arrêt systématique."
+  - id: c
+    label: "La ligne continue indique un stationnement ; les triangles indiquent une piste cyclable."
+  - id: d
+    label: "Les triangles imposent l'arrêt, la ligne continue seulement de ralentir."
+correctOptionId: a
+explanation: "La ligne d'arrêt marque l'arrêt imposé par un STOP ou un feu. Les triangles marquent l'endroit où s'arrêter si nécessaire pour céder le passage en vertu d'un B1."
+difficulty: hard
+severity: normal
+tags:
+  - marquage
+  - ligne-d-arret
+  - cede-le-passage
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "articles 76.1 et 76.2"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau D7 — piste cyclable obligatoire</title>
+  <desc id="description">Disque bleu avec une bicyclette blanche : les cyclistes doivent emprunter la piste cyclable.</desc>
+  <circle cx="240" cy="240" r="190" fill="#005baa"/>
+  <g transform="translate(240 238) scale(1.1)" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="-72" cy="28" r="42"/>
+    <circle cx="72" cy="28" r="42"/>
+    <path d="M-72 28 L-22 -46 L38 -46 L72 28 M-22 -46 L18 28 L-72 28 M18 28 L38 -46"/>
+    <path d="M-22 -46 L-22 -60 M-38 -60 L-6 -60 M38 -46 L52 -58 M52 -58 L68 -58"/>
+  </g>
+</svg>

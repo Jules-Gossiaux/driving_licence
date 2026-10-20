@@ -1,0 +1,30 @@
+id: ch02-q126
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "Un panneau rond blanc barré d'une diagonale noire signifie :"
+options:
+  - id: a
+    label: "Le début d'une interdiction"
+  - id: b
+    label: "Une obligation"
+  - id: c
+    label: "La fin d'une interdiction"
+  - id: d
+    label: "Une indication"
+correctOptionId: c
+explanation: "Un panneau rond blanc barré de noir marque la fin d'une interdiction. C37 met fin à C35, C41 à C39, C45 à une limitation de vitesse et C46 aux interdictions locales de mouvement."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - fin
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 26
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

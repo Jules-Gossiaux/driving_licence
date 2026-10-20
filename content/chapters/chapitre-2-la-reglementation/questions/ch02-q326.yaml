@@ -1,0 +1,30 @@
+id: ch02-q326
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Une inscription blanche BUS est peinte au sol à un arrêt d'autobus. Que peut-elle indiquer ?"
+options:
+  - id: a
+    label: "La zone où le stationnement est interdit."
+  - id: b
+    label: "Une bande réservée aux bus sur toute la chaussée."
+  - id: c
+    label: "Un emplacement de stationnement réservé aux bus."
+  - id: d
+    label: "Un passage pour piétons."
+correctOptionId: a
+explanation: "Les inscriptions blanches peuvent indiquer la zone où le stationnement est interdit aux arrêts d'autobus ou de tram. Ce n'est pas la même chose qu'une bande bus délimitée par le F17."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - inscriptions
+  - stationnement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 39
+  - documentId: official-code-route-1975
+    locator: "article 77.3"
+version: 1
+status: draft
+origin: ai_assisted

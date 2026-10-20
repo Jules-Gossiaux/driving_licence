@@ -69,11 +69,14 @@ function assertUnlocked(deps: AppDependencies, lessonId: string): void {
   }
 
   const lessonIndex = entry.chapter.lessons.findIndex((lesson) => lesson.id === lessonId);
-  const previousLesson = lessonIndex > 0 ? entry.chapter.lessons[lessonIndex - 1] : undefined;
+  const blockingLesson =
+    lessonIndex > 0
+      ? entry.chapter.lessons.slice(0, lessonIndex).find((lesson) => !readLessonIds.has(lesson.id))
+      : undefined;
 
-  if (previousLesson && !readLessonIds.has(previousLesson.id)) {
+  if (blockingLesson) {
     throw new LessonLockedError(
-      `Terminez d'abord la leçon « ${previousLesson.title} » pour débloquer celle-ci.`,
+      `Terminez d'abord la leçon « ${blockingLesson.title} » pour débloquer celle-ci.`,
     );
   }
 }

@@ -1,0 +1,29 @@
+id: ch02-q331
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Dans une zone de stationnement, des marques blanches délimitent les emplacements. Pouvez-vous stationner en dehors de ces emplacements si la zone est vide ?"
+options:
+  - id: a
+    label: "Non, les véhicules doivent occuper les emplacements délimités."
+  - id: b
+    label: "Oui, si aucun autre véhicule n'est présent."
+  - id: c
+    label: "Oui, mais uniquement la nuit."
+  - id: d
+    label: "Oui, à condition de rester près de l'entrée."
+correctOptionId: a
+explanation: "Dans une zone de stationnement, les marques blanches délimitent les emplacements que les véhicules doivent occuper."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - stationnement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 39
+  - documentId: official-code-route-1975
+    locator: "article 77.5"
+version: 1
+status: draft
+origin: ai_assisted

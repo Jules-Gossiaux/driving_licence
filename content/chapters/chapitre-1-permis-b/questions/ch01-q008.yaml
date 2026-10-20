@@ -1,0 +1,28 @@
+id: ch01-q008
+chapterId: ch01
+lessonIds:
+  - ch01-l01
+prompt: Un minibus de 3 200 kg de MMA dispose de 9 places passagers en plus du conducteur. Peut-on le conduire avec le permis B ?
+options:
+  - id: a
+    label: Non, car il transporte plus de 8 passagers en plus du conducteur
+  - id: b
+    label: Oui, car sa MMA ne dépasse pas 3 500 kg
+  - id: c
+    label: Oui, à condition de ne pas tracter de remorque
+  - id: d
+    label: Non, car tout minibus exige le permis C
+correctOptionId: a
+explanation: La MMA est inférieure à 3 500 kg, mais la limite de 8 passagers en plus du conducteur est dépassée. Les deux plafonds doivent être respectés.
+difficulty: medium
+severity: normal
+tags:
+  - passagers
+  - categories
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

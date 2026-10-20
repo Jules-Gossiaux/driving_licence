@@ -1,0 +1,30 @@
+id: ch02-q168
+chapterId: ch02
+lessonIds:
+  - ch02-l21
+prompt: "Une zone se termine quand ?"
+options:
+  - id: a
+    label: "Au prochain carrefour"
+  - id: b
+    label: "Après 500 m"
+  - id: c
+    label: "À la sortie de l'agglomération"
+  - id: d
+    label: "À son signal de fin"
+correctOptionId: d
+explanation: "Une zone se termine à son signal de fin, par exemple F4b, F12b, F105 ou F113. Elle ne s'arrête pas automatiquement au prochain carrefour. Elle s'applique à toutes les voies de la zone jusqu'à ce signal."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - zones
+  - portee
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 35
+  - documentId: official-signaux-routiers
+    locator: "articles 22bis et 71"
+version: 1
+status: draft
+origin: ai_assisted

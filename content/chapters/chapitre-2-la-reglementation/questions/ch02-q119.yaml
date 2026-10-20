@@ -1,0 +1,30 @@
+id: ch02-q119
+chapterId: ch02
+lessonIds:
+  - ch02-l15
+prompt: "B19 et B21 concernent un passage étroit. Lequel impose de céder le passage aux usagers venant en sens opposé ?"
+options:
+  - id: a
+    label: "B19"
+  - id: b
+    label: "B21"
+  - id: c
+    label: "Les deux"
+  - id: d
+    label: "Aucun"
+correctOptionId: a
+explanation: "B19 impose de céder le passage dans un passage étroit. B21 vous donne la priorité dans ce passage. Si le passage est déjà occupé, il faut attendre dans les deux cas : la priorité ne permet pas de forcer."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - priorite
+  - passage-etroit
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 23
+  - documentId: official-signaux-routiers
+    locator: "article 66"
+version: 1
+status: draft
+origin: ai_assisted

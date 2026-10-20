@@ -1,0 +1,31 @@
+id: ch02-q142
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "Que signifie le panneau E9a ?"
+options:
+  - id: a
+    label: "Stationnement interdit"
+  - id: b
+    label: "Arrêt interdit"
+  - id: c
+    label: "Voie réservée aux bus"
+  - id: d
+    label: "Stationnement autorisé"
+correctOptionId: d
+explanation: "E9a autorise le stationnement. Les variantes E9b à E9j réservent l'emplacement à une catégorie ou précisent où le véhicule doit être placé. Le panneau n'autorise pas à stationner en dehors de l'emplacement délimité."
+mediaId: ch02-panneau-e9a
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - emplacement
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 29
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted

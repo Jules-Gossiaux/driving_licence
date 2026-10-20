@@ -5,9 +5,9 @@
 `content/` est la source de vérité du contenu pédagogique. Tout est versionné avec le code. Aucun
 contenu n'est stocké en base : seules la progression et les tentatives le sont.
 
-Le contenu actuel est une **démonstration** : 2 chapitres, 15 leçons et 109 questions en brouillon.
-Il permet de tester les parcours et le pilote du chapitre 2, pas de préparer sérieusement
-l'examen.
+Le contenu actuel est une **démonstration** : 2 chapitres, 34 leçons et 274 questions en brouillon.
+Il permet de tester les parcours et les sept unités (deux pour le chapitre 1, cinq pour le
+chapitre 2), pas de préparer sérieusement l'examen.
 
 ## Arborescence
 
@@ -23,7 +23,8 @@ content/
       chapter.yaml
       lessons/
         le-permis-b-et-ses-limites.md
-        tracter-une-remorque.md
+        comprendre-la-mma.md
+        ...
       questions/
         ch01-q001.yaml
         ...
@@ -215,22 +216,41 @@ Contraintes :
 - les options sont mélangées à la création de la tentative : ne pas rédiger « la réponse A » dans
   l'explication.
 
-## Pilote du chapitre 2
+## Chapitre 1
 
-Le chapitre 2 est amorcé par un pilote qui couvre les points 2.1 (« Les usagers et la
-réglementation ») et 2.2 (« Les signaux lumineux de circulation ») : deux unités `ch02-u1` et
-`ch02-u2`, 13 leçons, 8 questions par leçon et 104 questions au total, toutes en `draft` et
-`ai_assisted`. Chaque leçon déclare 4 questions cœur (par exemple `ch02-q001` à `ch02-q004` pour la
-première), deux vérifications de section et propose un parcours linéaire ; le reste du pool alimente
-l'entraînement du chapitre.
+Le chapitre 1 couvre deux unités : `ch01-u1` (« Le permis B et ses limites ») et `ch01-u2`
+(« Tracter une remorque »). Il compte 6 leçons et 50 questions, toutes en `draft` et
+`ai_assisted` : 24 questions pour l'unité 1.1 et 26 pour l'unité 1.2. Chaque leçon déclare 4 ou
+5 questions cœur, deux vérifications de section et un quiz final ; le reste du pool alimente
+l'entraînement, le défi d'unité et l'examen de chapitre.
+
+Les faits sont tirés des pages 1 et 2 du manuel et recoupés avec les fiches officielles du SPF
+Mobilité sur les catégories B, AM et A1 et sur les remorques. Le chapitre doit être relu avant
+publication ; en particulier, la règle du speed pedelec avec un permis B définitif vient du
+manuel et demande une confirmation sur une source officielle.
+
+## Chapitre 2
+
+Le chapitre 2 couvre cinq unités : `ch02-u1` (« Les usagers et la réglementation »),
+`ch02-u2` (« Les signaux lumineux de circulation »), `ch02-u3` (« Les signaux routiers »),
+`ch02-u4` (« Le marquage au sol ») et `ch02-u5` (« L'ordre hiérarchique et les priorités »).
+Il compte 28 leçons et 224 questions, toutes en `draft` et
+`ai_assisted` : 56 questions pour 2.1, 48 pour 2.2, 64 pour 2.3, 32 pour 2.4 et 24 pour 2.5.
+Chaque leçon déclare
+4 questions cœur (par exemple `ch02-q001` à `ch02-q004` pour la première), deux vérifications de
+section et propose un parcours linéaire ; le reste du pool alimente l'entraînement du chapitre.
 
 Les faits du point 2.1 sont tirés des pages 10 à 16 du manuel et recoupés avec la synthèse des pages
 42 à 44. Ceux du point 2.2 viennent des pages 17 à 20 et sont vérifiés sur les articles 61 à 64 du
-règlement de 1975. Les questions illustrées utilisent les SVG originaux de `public/media/ch02/`.
+règlement de 1975. Le point 2.3 s'appuie sur les pages 21 à 35 et les articles 65 à 71 ; le point
+2.4 sur les pages 36 à 40 et les articles 72 à 77. Le point 2.5 s'appuie sur la page 41, les
+articles 6 et 12 pour la hiérarchie et la priorité, et les fiches officielles des signaux B22, B23,
+C35 et E3. Les questions illustrées utilisent les SVG
+originaux de `public/media/ch02/`.
 
 Le nouveau Code de la voie publique n'entre en vigueur que le 1er juin 2027 : les règles de ce
-pilote sont celles applicables à la date de consultation (20 octobre 2026). Le contenu doit être
-relu avant publication : aucun élément du pilote n'est encore éligible à l'examen officiel.
+chapitre sont celles applicables à la date de consultation (20 octobre 2026). Le contenu doit être
+relu avant publication : aucun élément du chapitre n'est encore éligible à l'examen officiel.
 
 ## Preset d'examen
 

@@ -1,0 +1,30 @@
+id: ch02-q322
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "Qu'annoncent les flèches blanches de rabattement ?"
+options:
+  - id: a
+    label: "Une réduction du nombre de bandes de circulation."
+  - id: b
+    label: "Un passage pour piétons."
+  - id: c
+    label: "Une bande bus."
+  - id: d
+    label: "Une zone de stationnement."
+correctOptionId: a
+explanation: "Les flèches de rabattement complètent la ligne discontinue qui annonce une ligne continue et annoncent la réduction du nombre de bandes utilisables dans le sens suivi."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - fleches
+  - bandes
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "article 77.2"
+version: 1
+status: draft
+origin: ai_assisted

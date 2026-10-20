@@ -1,0 +1,30 @@
+id: ch02-q110
+chapterId: ch02
+lessonIds:
+  - ch02-l14
+prompt: "À quelle distance un panneau de danger est-il normalement placé ?"
+options:
+  - id: a
+    label: "À environ 50 m"
+  - id: b
+    label: "À environ 150 m"
+  - id: c
+    label: "À environ 500 m"
+  - id: d
+    label: "Exactement à la hauteur du danger"
+correctOptionId: b
+explanation: "Les signaux de danger sont placés à environ 150 mètres du danger. A45 et A47 font exception et se trouvent à proximité immédiate du passage à niveau. Un panneau A0b peut indiquer une autre distance."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - danger
+  - distance
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 21
+  - documentId: official-signaux-routiers
+    locator: "article 65"
+version: 1
+status: draft
+origin: ai_assisted

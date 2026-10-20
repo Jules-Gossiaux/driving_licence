@@ -1,0 +1,29 @@
+id: ch01-q042
+chapterId: ch01
+lessonIds:
+  - ch01-l06
+prompt: Une remorque de 900 kg de MMA forme un ensemble de 3 500 kg de MMA. Quel permis suffit ?
+options:
+  - id: a
+    label: Le permis B
+  - id: b
+    label: Le permis B avec le code 96
+  - id: c
+    label: Le permis BE
+  - id: d
+    label: Aucun des trois
+correctOptionId: a
+explanation: La remorque dépasse 750 kg, mais la MMA de l'ensemble ne dépasse pas 3 500 kg. Le permis B suffit.
+difficulty: medium
+severity: normal
+tags:
+  - seuils
+  - remorque
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 2
+  - documentId: official-trailer
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

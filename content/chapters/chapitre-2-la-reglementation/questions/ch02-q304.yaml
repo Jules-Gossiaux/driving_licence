@@ -1,0 +1,30 @@
+id: ch02-q304
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Dans une zone de travaux, une ligne orange a été tracée à côté de l'ancienne ligne blanche. Laquelle devez-vous suivre ?"
+options:
+  - id: a
+    label: "La ligne orange, qui a la même signification et rend la ligne blanche sans effet à cet endroit."
+  - id: b
+    label: "La ligne blanche, car elle est définitive."
+  - id: c
+    label: "Les deux lignes, en choisissant la plus pratique."
+  - id: d
+    label: "Aucune des deux, jusqu'à la fin des travaux."
+correctOptionId: a
+explanation: "Le marquage provisoire orange a la même signification que le blanc et rend sans effet les autres marques longitudinales blanches tracées au même endroit."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - travaux
+  - lignes
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "articles 73.1 et 73.4"
+version: 1
+status: draft
+origin: ai_assisted

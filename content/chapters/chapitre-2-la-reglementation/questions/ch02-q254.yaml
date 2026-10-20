@@ -1,0 +1,30 @@
+id: ch02-q254
+chapterId: ch02
+lessonIds:
+  - ch02-l33
+prompt: "Après avoir franchi le carrefour suivant un panneau C35, l'interdiction s'applique-t-elle encore ?"
+options:
+  - id: a
+    label: "Non, elle a pris fin au carrefour inclus, sauf nouveau panneau."
+  - id: b
+    label: "Oui, jusqu'à la fin de la route."
+  - id: c
+    label: "Oui, pendant 500 mètres."
+  - id: d
+    label: "Oui, tant que la ligne reste discontinue."
+correctOptionId: a
+explanation: "La portée du C35 s'arrête au prochain carrefour inclus. Au-delà, l'interdiction ne subsiste que si un nouveau panneau la prescrit."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - c35
+  - portee
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: securotheque-c35
+version: 1
+status: draft
+origin: ai_assisted

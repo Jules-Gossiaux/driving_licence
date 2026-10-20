@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau D1a — direction obligatoire à droite</title>
+  <desc id="description">Disque bleu avec une flèche blanche vers la droite : le conducteur doit suivre cette direction.</desc>
+  <circle cx="240" cy="240" r="190" fill="#005baa"/>
+  <rect x="142" y="218" width="170" height="44" rx="2" fill="#ffffff"/>
+  <polygon points="300,184 362,240 300,296" fill="#ffffff"/>
+</svg>

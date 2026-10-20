@@ -242,10 +242,14 @@ export function getChapterDetail(deps: AppDependencies, slug: string): ChapterDe
     throw new ContentNotFoundError(`chapitre ${slug}`);
   }
 
-  const lessons = entry.lessons.map((lesson, index) => {
-    const previousLesson = index > 0 ? entry.lessons[index - 1] : undefined;
+  let encounteredUnread = false;
+  const lessons = entry.lessons.map((lesson) => {
     const readAt = readByLesson.get(lesson.id) ?? null;
-    const locked = readAt === null && previousLesson ? !readByLesson.has(previousLesson.id) : false;
+    const locked = readAt === null && encounteredUnread;
+
+    if (readAt === null) {
+      encounteredUnread = true;
+    }
 
     return toLessonSummary(lesson, readAt, locked);
   });
@@ -334,7 +338,10 @@ export function getLessonDetail(
   const readAt = readByLesson.get(lesson.id) ?? null;
   const previousLesson = lessonIndex > 0 ? entry.lessons[lessonIndex - 1] : undefined;
   const nextLesson = entry.lessons[lessonIndex + 1];
-  const locked = readAt === null && previousLesson ? !readByLesson.has(previousLesson.id) : false;
+  const previousLessonsRead = entry.lessons
+    .slice(0, lessonIndex)
+    .every((candidate) => readByLesson.has(candidate.id));
+  const locked = readAt === null && !previousLessonsRead;
   const unit = lesson.unitId
     ? (entry.chapter.units?.find((candidate) => candidate.id === lesson.unitId) ?? null)
     : null;

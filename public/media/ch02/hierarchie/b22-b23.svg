@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre-b22b23 desc-b22b23">
+  <title id="titre-b22b23">Les panneaux B22 et B23</title>
+  <desc id="desc-b22b23">Deux panneaux triangulaires inversés à bord rouge, avec une bicyclette jaune. La flèche du B22 pointe à droite, celle du B23 vers le haut.</desc>
+  <defs>
+    <g id="signe-velo">
+      <path d="M95 85H385Q410 85 398 110L258 382Q240 415 222 382L82 110Q70 85 95 85Z" fill="#c1121f"/>
+      <path d="M125 112H355Q370 112 362 128L252 352Q240 375 228 352L118 128Q110 112 125 112Z" fill="#ffffff"/>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#6b5200" stroke-width="11">
+          <circle cx="195" cy="212" r="24"/>
+          <circle cx="285" cy="212" r="24"/>
+          <path d="M195 212h40M235 212l-17-40M218 172h42M235 212l35-34M270 178l15 34M270 178q8-12 20-8"/>
+        </g>
+        <g stroke="#f4c430" stroke-width="6.5">
+          <circle cx="195" cy="212" r="24"/>
+          <circle cx="285" cy="212" r="24"/>
+          <path d="M195 212h40M235 212l-17-40M218 172h42M235 212l35-34M270 178l15 34M270 178q8-12 20-8"/>
+          <path d="M208 170h20"/>
+        </g>
+      </g>
+      <circle cx="235" cy="212" r="8" fill="#f4c430" stroke="#6b5200" stroke-width="4"/>
+    </g>
+    <g id="fleche-droite" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M212 282h48" stroke="#6b5200" stroke-width="14"/>
+      <path d="M212 282h48" stroke="#f4c430" stroke-width="8"/>
+      <path d="M252 268L278 282L252 296Z" fill="#f4c430" stroke="#6b5200" stroke-width="5"/>
+    </g>
+    <g id="fleche-haut" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M240 306v-46" stroke="#6b5200" stroke-width="14"/>
+      <path d="M240 306v-46" stroke="#f4c430" stroke-width="8"/>
+      <path d="M226 272L240 246L254 272Z" fill="#f4c430" stroke="#6b5200" stroke-width="5"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="40" y="48" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Deux exceptions pour les cyclistes</text>
+  <text x="40" y="76" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Au feu rouge ou orange, ces panneaux autorisent un mouvement précis, sans donner la priorité.</text>
+
+  <g>
+    <rect x="40" y="108" width="420" height="340" rx="20" fill="#ffffff" stroke="#fecaca"/>
+    <rect x="40" y="108" width="420" height="8" rx="4" fill="#c1121f"/>
+    <g transform="translate(102 108) scale(0.43)">
+      <use href="#signe-velo"/>
+      <use href="#fleche-droite"/>
+    </g>
+    <text x="250" y="314" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#0f172a">B22</text>
+    <text x="250" y="342" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#991b1b">Tourner à droite</text>
+    <text x="250" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Cyclistes et speed pedelecs</text>
+    <text x="250" y="398" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#991b1b">Céder le passage</text>
+  </g>
+
+  <g>
+    <rect x="500" y="108" width="420" height="340" rx="20" fill="#ffffff" stroke="#fecaca"/>
+    <rect x="500" y="108" width="420" height="8" rx="4" fill="#c1121f"/>
+    <g transform="translate(562 108) scale(0.43)">
+      <use href="#signe-velo"/>
+      <use href="#fleche-haut"/>
+    </g>
+    <text x="710" y="314" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#0f172a">B23</text>
+    <text x="710" y="342" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#991b1b">Aller tout droit</text>
+    <text x="710" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Cyclistes et speed pedelecs</text>
+    <text x="710" y="398" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#991b1b">Céder le passage</text>
+  </g>
+
+  <text x="40" y="490" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Ces panneaux restent valables même quand le feu fonctionne.</text>
+  <text x="40" y="514" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">Ils autorisent un mouvement précis, pas un passage prioritaire.</text>
+</svg>

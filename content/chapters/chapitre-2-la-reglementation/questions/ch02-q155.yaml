@@ -1,0 +1,30 @@
+id: ch02-q155
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "F103 délimite une zone piétonne. Quelle vitesse maximale s'y applique ?"
+options:
+  - id: a
+    label: "30 km/h"
+  - id: b
+    label: "L'allure du pas, environ 5 km/h"
+  - id: c
+    label: "20 km/h"
+  - id: d
+    label: "50 km/h"
+correctOptionId: b
+explanation: "Dans une zone piétonne, la vitesse est limitée à l'allure du pas, environ 5 km/h. Les piétons y sont prioritaires et les véhicules ne peuvent y entrer que si la signalisation le permet."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - zones
+  - pietons
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 33
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

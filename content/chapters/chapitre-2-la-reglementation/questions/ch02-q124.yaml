@@ -1,0 +1,31 @@
+id: ch02-q124
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "C35 interdit de dépasser quels véhicules ?"
+options:
+  - id: a
+    label: "Uniquement les camions"
+  - id: b
+    label: "Uniquement les cyclistes"
+  - id: c
+    label: "Tous les véhicules sans exception"
+  - id: d
+    label: "Les véhicules à plus de deux roues"
+correctOptionId: d
+explanation: "C35 interdit de dépasser les véhicules à plus de deux roues, sauf si le dépassement se fait sans quitter la chaussée. Les deux-roues ne sont donc pas visés par cette interdiction. C39 est le panneau distinct qui vise les camions de plus de 3,5 t."
+mediaId: ch02-panneau-c35
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - depassement
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 26
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

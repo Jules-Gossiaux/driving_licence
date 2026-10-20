@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+  <title id="title">Panneau F17 : bande bus</title>
+  <desc id="desc">Panneau rectangulaire bleu à liseré blanc, avec trois lignes blanches discontinues et le mot BUS écrit verticalement dans la bande de droite.</desc>
+  <rect width="480" height="360" fill="#f8fafc"/>
+  <rect x="10" y="10" width="460" height="340" rx="16" fill="#005a8c"/>
+  <rect x="22" y="22" width="436" height="316" rx="8" fill="none" stroke="#ffffff" stroke-width="6"/>
+
+  <line x1="120" y1="48" x2="120" y2="312" stroke="#ffffff" stroke-width="14" stroke-dasharray="46 28"/>
+  <line x1="230" y1="48" x2="230" y2="312" stroke="#ffffff" stroke-width="14" stroke-dasharray="46 28"/>
+  <line x1="340" y1="48" x2="340" y2="312" stroke="#ffffff" stroke-width="14" stroke-dasharray="46 28"/>
+
+  <text x="410" y="128" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#ffffff" text-anchor="middle">B</text>
+  <text x="410" y="196" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#ffffff" text-anchor="middle">U</text>
+  <text x="410" y="264" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#ffffff" text-anchor="middle">S</text>
+</svg>

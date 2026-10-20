@@ -1,0 +1,30 @@
+id: ch02-q128
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "C46 met fin à quelles interdictions ?"
+options:
+  - id: a
+    label: "À toutes les interdictions, y compris le stationnement"
+  - id: b
+    label: "Aux interdictions locales de mouvement, mais pas à l'arrêt et au stationnement"
+  - id: c
+    label: "Uniquement à la limitation de vitesse"
+  - id: d
+    label: "Uniquement aux dépassements"
+correctOptionId: b
+explanation: "C46 met fin aux interdictions locales imposées aux véhicules en mouvement : limitation de vitesse, dépassement, tournant, demi-tour. Il ne met pas fin aux interdictions d'arrêt et de stationnement, qui restent soumises à leurs propres règles de portée."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - fin
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 26
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

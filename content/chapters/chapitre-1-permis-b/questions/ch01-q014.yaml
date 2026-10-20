@@ -1,0 +1,28 @@
+id: ch01-q014
+chapterId: ch01
+lessonIds:
+  - ch01-l03
+prompt: Un véhicule a une MMA de 3 500 kg et une masse à vide de 1 600 kg. Quelle masse maximale peut-il encore transporter pour les passagers et le chargement ?
+options:
+  - id: a
+    label: 1 900 kg
+  - id: b
+    label: 3 500 kg
+  - id: c
+    label: 1 600 kg
+  - id: d
+    label: 5 100 kg
+correctOptionId: a
+explanation: "Il faut soustraire la masse à vide de la MMA : 3 500 − 1 600 = 1 900 kg. Cette marge couvre le conducteur, les passagers et le chargement."
+difficulty: medium
+severity: normal
+tags:
+  - mma
+  - chargement
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

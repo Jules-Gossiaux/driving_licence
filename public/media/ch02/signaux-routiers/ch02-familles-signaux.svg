@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre description">
+  <title id="titre">Les six familles de signaux routiers</title>
+  <desc id="description">Chaque famille se reconnaît à sa lettre et à sa forme : danger, priorité, interdiction, obligation, arrêt et stationnement, indication.</desc>
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <text x="30" y="50" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Six familles, six formes</text>
+  <text x="30" y="78" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">La lettre du panneau indique sa famille ; la forme aide à la reconnaître de loin.</text>
+  <g>
+    <rect x="30" y="100" width="280" height="196" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+    <g transform="translate(170 178)"><g>
+    <path d="M0 -54 L52 36 Q57 45 46 45 L-46 45 Q-57 45 -52 36 Z" fill="#ffffff" stroke="#d21f2b" stroke-width="13" stroke-linejoin="round"/>
+    <path d="M0 10 V-6 Q0 -22 -14 -22 L-22 -22" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="-22,-30 -38,-22 -22,-14" fill="#111827"/>
+  </g></g>
+    <text x="170" y="250" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">A — Danger</text>
+    <text x="170" y="276" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Annonce un danger</text>
+  </g>
+  <g>
+    <rect x="340" y="100" width="280" height="196" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+    <g transform="translate(480 178)"><g>
+    <polygon points="0,-52 52,0 0,52 -52,0" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+    <polygon points="0,-36 36,0 0,36 -36,0" fill="#f7c600"/>
+  </g></g>
+    <text x="480" y="250" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">B — Priorité</text>
+    <text x="480" y="276" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Règle le passage</text>
+  </g>
+  <g>
+    <rect x="650" y="100" width="280" height="196" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+    <g transform="translate(790 178)"><g>
+    <circle cx="0" cy="0" r="48" fill="#ffffff" stroke="#d21f2b" stroke-width="14"/>
+  </g></g>
+    <text x="790" y="250" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">C — Interdiction</text>
+    <text x="790" y="276" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Interdit un accès</text>
+  </g>
+  <g>
+    <rect x="30" y="320" width="280" height="196" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+    <g transform="translate(170 398)"><g>
+    <circle cx="0" cy="0" r="50" fill="#005baa"/>
+    <rect x="-28" y="-9" width="34" height="18" fill="#ffffff"/>
+    <polygon points="2,-25 34,0 2,25" fill="#ffffff"/>
+  </g></g>
+    <text x="170" y="470" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">D — Obligation</text>
+    <text x="170" y="496" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Impose une direction</text>
+  </g>
+  <g>
+    <rect x="340" y="320" width="280" height="196" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+    <g transform="translate(480 398)"><g>
+    <rect x="-46" y="-46" width="92" height="92" rx="7" fill="#005baa" stroke="#ffffff" stroke-width="4"/>
+    <text x="0" y="30" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#ffffff">P</text>
+  </g></g>
+    <text x="480" y="470" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">E — Arrêt / stationnement</text>
+    <text x="480" y="496" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Règle l'arrêt</text>
+  </g>
+  <g>
+    <rect x="650" y="320" width="280" height="196" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+    <g transform="translate(790 398)"><g>
+    <rect x="-52" y="-30" width="104" height="60" rx="3" fill="#ffffff" stroke="#111827" stroke-width="4"/>
+    <path d="M-40 -6 V-16 H-28 V-8 H-18 V-20 H-4 V-6 Z" fill="#111827"/>
+    <text x="-40" y="17" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827">VILLERS</text>
+  </g></g>
+    <text x="790" y="470" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#0f172a">F — Indication</text>
+    <text x="790" y="496" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Informe et oriente</text>
+  </g>
+</svg>

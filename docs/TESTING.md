@@ -33,18 +33,18 @@ Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et
 
 ### Unitaires
 
-| Fichier                                           | Couverture                                                                                      |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `tests/unit/domain/scoring.test.ts`               | Pénalités normale/grave/temps écoulé, plancher à 0, incohérence de longueur                     |
-| `tests/unit/domain/time.test.ts`                  | Ajout de temps, expiration, grâce, bornage, secondes restantes, durée                           |
-| `tests/unit/domain/selection.test.ts`             | Mélange déterministe, immutabilité, sélection, pool insuffisant, count invalide                 |
-| `tests/unit/domain/schemas.test.ts`               | Sources, dates UTC, droits des médias, publication, options, presets                            |
-| `tests/unit/domain/catalog.test.ts`               | Éligibilité, avertissements, tri, doublons, références inconnues, images, unités, sectionChecks |
-| `tests/unit/domain/sections.test.ts`              | Découpage `##`, introduction, blocs de code, slugs et doublons                                  |
-| `tests/unit/domain/snapshot.test.ts`              | Média d'option conservé, média nul pour une réponse non illustrée                               |
-| `tests/unit/domain/progression.test.ts`           | Déblocage du défi (toutes les leçons), de l'examen (pool suffisant), format officiel            |
-| `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 15 leçons, 109 questions, avertissement de pool                     |
-| `tests/unit/infrastructure/database-path.test.ts` | Chemins mémoire/relatifs, refus de `public/` et `data/`                                         |
+| Fichier                                           | Couverture                                                                                           |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `tests/unit/domain/scoring.test.ts`               | Pénalités normale/grave/temps écoulé, plancher à 0, incohérence de longueur                          |
+| `tests/unit/domain/time.test.ts`                  | Ajout de temps, expiration, grâce, bornage, secondes restantes, durée                                |
+| `tests/unit/domain/selection.test.ts`             | Mélange déterministe, immutabilité, sélection, pool insuffisant, count invalide                      |
+| `tests/unit/domain/schemas.test.ts`               | Sources, dates UTC, droits des médias, publication, options, presets                                 |
+| `tests/unit/domain/catalog.test.ts`               | Éligibilité, avertissements, tri, doublons, références inconnues, images, unités, sectionChecks      |
+| `tests/unit/domain/sections.test.ts`              | Découpage `##`, introduction, blocs de code, slugs et doublons                                       |
+| `tests/unit/domain/snapshot.test.ts`              | Média d'option conservé, média nul pour une réponse non illustrée                                    |
+| `tests/unit/domain/progression.test.ts`           | Déblocage du défi (toutes les leçons), de l'examen (pool suffisant), format officiel                 |
+| `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 34 leçons, 274 questions, structure du chapitre 1, avertissement de pool |
+| `tests/unit/infrastructure/database-path.test.ts` | Chemins mémoire/relatifs, refus de `public/` et `data/`                                              |
 
 ### Intégration
 
@@ -63,9 +63,9 @@ Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et
 
 `tests/e2e/learning-flow.spec.ts`, exécuté en série :
 
-1. **Leçon** : marquer lue puis non lue, continuer vers la suivante et vérifier le marquage
-   automatique.
-2. **Entraînement** : démarrer une session de 5 questions, répondre, lire la correction, terminer.
+1. **Micro-leçon du chapitre 1** : suivre les sections et les vérifications, terminer le parcours,
+   vérifier la leçon validée et le déblocage de la suivante.
+2. **Entraînement** : démarrer une session de 10 questions, répondre, lire la correction, terminer.
 3. **Micro-leçon du chapitre 2** : vérifier sur le parcours visuel le nœud courant et la deuxième
    leçon verrouillée, suivre les sections et les vérifications de la première, terminer le
    parcours, constater le déblocage, le lien « Revoir » et l'ouverture de la leçon suivante.
@@ -114,7 +114,7 @@ En complément des tests automatisés :
 - Pas de tests de régression visuelle ni d'audit d'accessibilité automatisé.
 - Pas de test multi-profils ni d'authentification : ces fonctionnalités n'existent pas.
 - Pas de test de montée en charge : l'application est locale et mono-utilisateur.
-- Le contenu réel se limite à 2 chapitres, 15 leçons et 109 questions, toutes en brouillon ; le
-  chapitre 2 est couvert par les pilotes 2.1 et 2.2.
+- Le contenu réel se limite à 2 chapitres, 34 leçons et 274 questions, toutes en brouillon ; le
+  chapitre 1 compte deux unités, le chapitre 2 cinq unités.
 - L'abandon de tentative n'est pas exposé dans l'interface ; seul le repository le couvre.
 - Les avertissements Turbopack du build sont attendus et ne sont pas traités comme des échecs.

@@ -1,0 +1,29 @@
+id: ch02-q306
+chapterId: ch02
+lessonIds:
+  - ch02-l22
+prompt: "Pour lesquelles de ces manœuvres pouvez-vous franchir une ligne discontinue ?"
+options:
+  - id: a
+    label: "Dépasser, tourner à gauche, faire demi-tour ou changer de bande."
+  - id: b
+    label: "Dépasser uniquement."
+  - id: c
+    label: "Toutes les manœuvres, sans condition."
+  - id: d
+    label: "Tourner à droite uniquement."
+correctOptionId: a
+explanation: "Le code énumère quatre cas : dépasser, tourner à gauche, effectuer un demi-tour ou changer de bande. Le franchissement doit rester sûr et ne pas gêner les autres usagers."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - lignes
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 36
+  - documentId: official-code-route-1975
+    locator: "article 72.3"
+version: 1
+status: draft
+origin: ai_assisted

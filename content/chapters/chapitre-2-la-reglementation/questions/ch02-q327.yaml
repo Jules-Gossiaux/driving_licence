@@ -1,0 +1,30 @@
+id: ch02-q327
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Le feu est rouge et une zone avancée pour deux-roues est peinte devant vous. Où devez-vous vous arrêter en voiture ?"
+options:
+  - id: a
+    label: "Devant la première ligne d'arrêt, sans empiéter sur la zone."
+  - id: b
+    label: "Dans la zone avancée, pour laisser la place derrière."
+  - id: c
+    label: "Après la deuxième ligne d'arrêt."
+  - id: d
+    label: "Sur le passage pour piétons."
+correctOptionId: a
+explanation: "Pendant la phase rouge, les cyclistes et les cyclomoteurs à deux roues peuvent se ranger dans la zone avancée. Les autres conducteurs doivent s'arrêter devant la première ligne d'arrêt."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - zone-avancee
+  - deux-roues
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 40
+  - documentId: official-code-route-1975
+    locator: "article 77.6"
+version: 1
+status: draft
+origin: ai_assisted

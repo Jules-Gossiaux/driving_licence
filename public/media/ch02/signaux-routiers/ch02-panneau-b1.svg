@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau B1 — cédez le passage</title>
+  <desc id="description">Triangle renversé à bord rouge : le conducteur doit céder le passage aux usagers de la voie prioritaire.</desc>
+  <path d="M68 88 H412 L240 420 Z" fill="#ffffff" stroke="#d21f2b" stroke-width="36" stroke-linejoin="round"/>
+</svg>

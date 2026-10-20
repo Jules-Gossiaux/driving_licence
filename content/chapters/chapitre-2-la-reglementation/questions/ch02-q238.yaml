@@ -1,0 +1,31 @@
+id: ch02-q238
+chapterId: ch02
+lessonIds:
+  - ch02-l31
+prompt: "Une flèche verte s'allume au-dessus de votre bande de circulation. Que règle-t-elle ?"
+options:
+  - id: a
+    label: "La priorité au carrefour."
+  - id: b
+    label: "L'obligation de quitter la bande."
+  - id: c
+    label: "L'ouverture de la bande, pas la circulation au carrefour."
+  - id: d
+    label: "L'arrêt obligatoire au carrefour."
+correctOptionId: c
+explanation: "Les feux de bandes ouvrent ou ferment une bande de circulation ; ils ne règlent pas la priorité au carrefour. Le feu du carrefour continue de s'appliquer."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - bandes
+  - feux-de-bande
+  - hierarchie
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "article 62bis"
+version: 1
+status: draft
+origin: ai_assisted

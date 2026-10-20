@@ -1,0 +1,30 @@
+id: ch02-q315
+chapterId: ch02
+lessonIds:
+  - ch02-l23
+prompt: "Vous approchez immédiatement d'un carrefour et devez changer de direction. Pouvez-vous circuler brièvement dans la bande bus pour effectuer ce changement ?"
+options:
+  - id: a
+    label: "Oui, le code le permet à l'approche immédiate d'un carrefour pour changer de direction."
+  - id: b
+    label: "Non, la bande bus ne peut jamais être utilisée par une voiture."
+  - id: c
+    label: "Oui, mais seulement si un bus arrive."
+  - id: d
+    label: "Oui, pour autant que vous y stationniez ensuite."
+correctOptionId: a
+explanation: "Les autres véhicules ne peuvent pas circuler dans la bande bus, sauf pour contourner un obstacle sur la chaussée et à l'approche immédiate d'un carrefour pour changer de direction."
+difficulty: hard
+severity: normal
+tags:
+  - marquage
+  - bande-bus
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 37
+  - documentId: official-code-route-1975
+    locator: "article 72.5"
+version: 1
+status: draft
+origin: ai_assisted

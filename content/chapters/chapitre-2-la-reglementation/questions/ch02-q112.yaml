@@ -1,0 +1,30 @@
+id: ch02-q112
+chapterId: ch02
+lessonIds:
+  - ch02-l14
+prompt: "Un panneau de danger vous donne-t-il la priorité à une intersection ?"
+options:
+  - id: a
+    label: "Oui, toujours"
+  - id: b
+    label: "Non, il annonce un danger sans modifier les règles de priorité"
+  - id: c
+    label: "Oui, si le danger est à 150 m"
+  - id: d
+    label: "Non, il impose toujours l'arrêt"
+correctOptionId: b
+explanation: "Un panneau de danger annonce une situation, mais ne crée ni priorité ni obligation de s'arrêter. La priorité est réglée par les signaux B ou, à défaut, par les règles générales. Il faut donc lire aussi la signalisation de priorité."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - danger
+  - priorite
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 21
+  - documentId: official-signaux-routiers
+    locator: "article 65"
+version: 1
+status: draft
+origin: ai_assisted

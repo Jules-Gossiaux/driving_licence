@@ -1,0 +1,31 @@
+id: ch02-q249
+chapterId: ch02
+lessonIds:
+  - ch02-l33
+prompt: "Une ligne blanche discontinue accompagne un panneau C35. Pouvez-vous dépasser un véhicule à plus de deux roues ?"
+options:
+  - id: a
+    label: "Oui, la ligne discontinue autorise le dépassement."
+  - id: b
+    label: "Non, le panneau C35 l'emporte sur le marquage."
+  - id: c
+    label: "Oui, si la visibilité est bonne."
+  - id: d
+    label: "Oui, si le véhicule roule lentement."
+correctOptionId: b
+explanation: "Le panneau C35 interdit de dépasser par la gauche un véhicule attelé ou à plus de deux roues. Une ligne discontinue ne peut pas autoriser ce que le panneau interdit."
+difficulty: medium
+severity: normal
+examEligible: true
+mediaId: ch02-signal-c35
+tags:
+  - c35
+  - marquage
+  - depassement
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: securotheque-c35
+version: 1
+status: draft
+origin: ai_assisted

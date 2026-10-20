@@ -1,0 +1,31 @@
+id: ch02-q237
+chapterId: ch02
+lessonIds:
+  - ch02-l31
+prompt: "Le feu est vert, mais un agent qualifié vous fait signe de vous arrêter. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous obéissez à l'agent, car son injonction prime sur le feu."
+  - id: b
+    label: "Vous passez, car le feu vert vous autorise à avancer."
+  - id: c
+    label: "Vous klaxonnez pour signaler votre passage."
+  - id: d
+    label: "Vous passez lentement en contournant l'agent."
+correctOptionId: a
+explanation: "Les injonctions d'un agent qualifié priment sur les feux, les panneaux et les règles. Le feu vert ne vous dispense donc pas de lui obéir."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - agents
+  - hierarchie
+  - feux
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "article 6"
+version: 1
+status: draft
+origin: ai_assisted

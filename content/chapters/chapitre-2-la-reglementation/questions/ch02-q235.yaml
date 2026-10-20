@@ -1,0 +1,31 @@
+id: ch02-q235
+chapterId: ch02
+lessonIds:
+  - ch02-l31
+prompt: "Aucun agent, aucun feu, aucun panneau et aucun marquage ne règle le passage à une intersection. Quelle règle appliquez-vous ?"
+options:
+  - id: a
+    label: "La priorité au véhicule le plus rapide."
+  - id: b
+    label: "La priorité au véhicule le plus lourd."
+  - id: c
+    label: "La priorité au premier véhicule arrivé, sans autre condition."
+  - id: d
+    label: "La priorité à droite : vous cédez le passage aux véhicules venant de droite."
+correctOptionId: d
+explanation: "En l'absence de tout signal qui tranche, les règles générales s'appliquent. La règle de base à une intersection sans signalisation est de céder le passage à droite."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - priorite-a-droite
+  - carrefour
+  - regles
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "article 12"
+version: 1
+status: draft
+origin: ai_assisted

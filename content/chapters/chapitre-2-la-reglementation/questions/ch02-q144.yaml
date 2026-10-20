@@ -1,0 +1,30 @@
+id: ch02-q144
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "E1 et E3 s'appliquent jusqu'où ?"
+options:
+  - id: a
+    label: "Jusqu'au prochain virage"
+  - id: b
+    label: "Sur 500 m"
+  - id: c
+    label: "Jusqu'au panneau de fin de route"
+  - id: d
+    label: "Jusqu'au prochain carrefour, du côté de la voie où ils sont placés"
+correctOptionId: d
+explanation: "E1 et E3 s'appliquent à partir de leur emplacement jusqu'au prochain carrefour, du côté de la voie où ils sont placés, sur la chaussée et sur l'accotement. Ils peuvent être répétés pour prolonger l'interdiction."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - portee
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 29
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted

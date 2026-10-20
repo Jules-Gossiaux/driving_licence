@@ -1,0 +1,30 @@
+id: ch02-q151
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Un panneau de direction qui indique une destination vous oblige-t-il à suivre cette direction ?"
+options:
+  - id: a
+    label: "Oui, toujours"
+  - id: b
+    label: "Oui, sauf la nuit"
+  - id: c
+    label: "Non, il oriente vers une destination ; l'obligation vient d'un panneau D ou d'une flèche de bande"
+  - id: d
+    label: "Non, il interdit la direction"
+correctOptionId: c
+explanation: "Les signaux de direction orientent vers une destination, un numéro de route ou une sortie. Ils ne créent pas à eux seuls une obligation de tourner. Une direction imposée vient d'un panneau D ou d'une flèche de bande."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - direction
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 32
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

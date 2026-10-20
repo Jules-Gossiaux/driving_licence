@@ -1,0 +1,28 @@
+id: ch01-q017
+chapterId: ch01
+lessonIds:
+  - ch01-l03
+prompt: Où peut-on trouver la MMA d'un véhicule ?
+options:
+  - id: a
+    label: Sur les documents du véhicule
+  - id: b
+    label: Uniquement sur le compteur kilométrique
+  - id: c
+    label: Sur le permis de conduire du conducteur
+  - id: d
+    label: Sur la plaque d'immatriculation uniquement
+correctOptionId: a
+explanation: La MMA est fixée par le constructeur et reprise sur les documents du véhicule. Le permis de conduire ne contient pas cette information.
+difficulty: easy
+severity: normal
+tags:
+  - mma
+  - verifications
+sourceRefs:
+  - documentId: feu-vert-chap1
+    page: 1
+  - documentId: official-category-b
+version: 1
+status: draft
+origin: ai_assisted

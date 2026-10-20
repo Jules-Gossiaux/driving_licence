@@ -1,0 +1,30 @@
+id: ch02-q156
+chapterId: ch02
+lessonIds:
+  - ch02-l20
+prompt: "Une zone délimitée par F4a s'applique à quelles voies ?"
+options:
+  - id: a
+    label: "Uniquement à la rue où le panneau est placé"
+  - id: b
+    label: "Jusqu'au prochain carrefour"
+  - id: c
+    label: "Uniquement aux riverains"
+  - id: d
+    label: "À toutes les voies de la zone jusqu'au signal de fin"
+correctOptionId: d
+explanation: "Une zone s'applique à toutes les voies qu'elle contient, et pas seulement à la rue où le panneau d'entrée est installé. Elle reste valable jusqu'au signal de fin. Des panneaux répétés peuvent ajouter une règle locale."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - zones
+  - portee
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 33
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted

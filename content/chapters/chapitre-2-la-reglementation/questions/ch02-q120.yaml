@@ -1,0 +1,31 @@
+id: ch02-q120
+chapterId: ch02
+lessonIds:
+  - ch02-l15
+prompt: "B22 et B23 autorisent quels usagers à franchir un feu rouge ?"
+options:
+  - id: a
+    label: "Tous les véhicules"
+  - id: b
+    label: "Les motos"
+  - id: c
+    label: "Les cyclistes et les speed pedelecs, dans la direction indiquée"
+  - id: d
+    label: "Les piétons"
+correctOptionId: c
+explanation: "B22 et B23 sont des exceptions réservées aux cyclistes et aux conducteurs de speed pedelecs. B22 permet de tourner à droite et B23 de continuer tout droit. Une voiture ne peut pas suivre un cycliste qui franchit le feu rouge, et le cycliste doit céder le passage aux usagers qui ont le vert."
+difficulty: hard
+severity: severe
+examEligible: true
+tags:
+  - priorite
+  - cyclistes
+  - feux
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 24
+  - documentId: official-signaux-routiers
+    locator: "article 66"
+version: 1
+status: draft
+origin: ai_assisted

@@ -50,43 +50,75 @@ function seedChapterTwoProgress(): void {
   }
 }
 
-test("parcourt une leçon et met à jour sa progression", async ({ page }) => {
+test("parcourt une micro-leçon du chapitre 1 et met à jour sa progression", async ({ page }) => {
   await page.goto("/chapitres/chapitre-1-permis-b/lecons/le-permis-b-et-ses-limites");
 
   await expect(
     page.getByRole("heading", { level: 1, name: "Le permis B et ses limites" }),
   ).toBeVisible();
+  await expect(page.getByText("Au programme")).toBeVisible();
 
-  await page.getByRole("button", { name: "Marquer comme lue" }).click();
-  await expect(page.getByRole("button", { name: "Marquer comme non lue" })).toBeVisible();
-  await expect(page.getByText(/^Terminée le /)).toBeVisible();
+  await page.getByRole("button", { name: "Commencer" }).click();
+  await expect(page).toHaveURL(/\/parcours\/.+/);
 
-  await page.getByRole("button", { name: "Marquer comme non lue" }).click();
-  await expect(page.getByRole("button", { name: "Marquer comme lue" })).toBeVisible();
+  async function continueContent(title: string) {
+    await expect(page.getByRole("heading", { level: 1, name: title })).toBeVisible();
+    await page.getByRole("button", { name: "Continuer" }).click();
+  }
 
-  await page.getByRole("button", { name: /Leçon suivante/ }).click();
-  await expect(page).toHaveURL(/lecons\/tracter-une-remorque$/);
+  async function answerQuestion() {
+    await page.locator("fieldset button").first().click();
+    await page.getByRole("button", { name: "Valider la réponse" }).click();
+    await expect(page.getByText(/^(Bonne réponse|Réponse incorrecte)$/)).toBeVisible();
+  }
+
+  await continueContent("Introduction");
+  await continueContent("Un permis pour les personnes et les marchandises");
+  await continueContent("Le plafond de 3 500 kg");
+  await answerQuestion();
+  await page.getByRole("button", { name: "Continuer" }).click();
+
+  await continueContent("Huit passagers en plus du conducteur");
+  await answerQuestion();
+  await page.getByRole("button", { name: "Continuer" }).click();
+
+  await continueContent("À retenir");
+  await answerQuestion();
+  await page.getByRole("button", { name: "Continuer" }).click();
+  await answerQuestion();
+  await page.getByRole("button", { name: "Continuer" }).click();
+  await answerQuestion();
+  await page.getByRole("button", { name: "Terminer la leçon" }).click();
+
+  await expect(page.getByRole("heading", { name: "Leçon terminée" })).toBeVisible();
+  await expect(page.getByText(/réponses? correctes? sur 5/)).toBeVisible();
+
+  await page.getByRole("link", { name: "Leçon suivante" }).click();
+  await expect(page).toHaveURL(/lecons\/comprendre-la-mma$/);
+  await expect(page.getByRole("button", { name: "Commencer" })).toBeVisible();
+
   await page.goto("/chapitres/chapitre-1-permis-b/lecons/le-permis-b-et-ses-limites");
   await expect(page.getByText(/^Terminée le /)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Revoir la leçon" })).toBeVisible();
 });
 
 test("termine un entraînement et affiche la correction", async ({ page }) => {
   await page.goto("/entrainement");
   await expect(page.getByRole("heading", { level: 1, name: "Entraînement" })).toBeVisible();
 
-  await page.getByRole("button", { name: /S'entraîner \(5\)/ }).click();
+  await page.getByRole("button", { name: /S'entraîner \(50\)/ }).click();
   await expect(page).toHaveURL(/\/entrainement\/.+/);
-  await expect(page.getByRole("heading", { name: "Question 1 sur 5" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 1 sur 10" })).toBeVisible();
 
-  for (let position = 1; position <= 5; position += 1) {
+  for (let position = 1; position <= 10; position += 1) {
     await page.locator("fieldset button").first().click();
     await page.getByRole("button", { name: "Valider la réponse" }).click();
     await expect(page.getByText(/^(Bonne réponse|Réponse incorrecte)$/)).toBeVisible();
 
-    if (position < 5) {
+    if (position < 10) {
       await page.getByRole("button", { name: "Question suivante" }).click();
       await expect(
-        page.getByRole("heading", { name: `Question ${position + 1} sur 5` }),
+        page.getByRole("heading", { name: `Question ${position + 1} sur 10` }),
       ).toBeVisible();
     } else {
       await page.getByRole("button", { name: "Voir le résultat" }).click();
@@ -95,7 +127,7 @@ test("termine un entraînement et affiche la correction", async ({ page }) => {
 
   await expect(page).toHaveURL(/\/resultats\/.+/);
   await expect(page.getByRole("heading", { level: 1, name: "Session terminée" })).toBeVisible();
-  await expect(page.getByText(/réponses? correctes? sur 5/)).toBeVisible();
+  await expect(page.getByText(/réponses? correctes? sur 10/)).toBeVisible();
 });
 
 test("parcourt une micro-leçon du chapitre 2 et débloque la suivante", async ({ page }) => {
@@ -216,9 +248,13 @@ test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page })
   const unit22 = page.getByRole("region", {
     name: "Les signaux lumineux de circulation",
   });
+  const unit25 = page.getByRole("region", {
+    name: "L'ordre hiérarchique et les priorités",
+  });
 
   await expect(unit21.getByRole("button", { name: "Défi verrouillé" })).toBeVisible();
   await expect(unit22.getByRole("button", { name: "Défi verrouillé" })).toBeVisible();
+  await expect(unit25.getByRole("button", { name: "Défi verrouillé" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Examen verrouillé" })).toBeVisible();
   await expect(page.locator('[aria-current="step"]')).toHaveCount(1);
   await expect(page.locator('[aria-current="step"]')).toContainText("Où s'appliquent les règles ?");
@@ -230,7 +266,8 @@ test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page })
   await page.reload();
   await expect(unit21.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
   await expect(unit22.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
-  await expect(page.locator('[aria-current="step"]')).toHaveCount(2);
+  await expect(unit25.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
+  await expect(page.locator('[aria-current="step"]')).toHaveCount(5);
   await unit21.getByRole("button", { name: "Lancer le défi" }).click();
 
   await expect(page).toHaveURL(/\/entrainement\/.+/);
@@ -259,8 +296,9 @@ test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page })
   await page.goto("/chapitres/chapitre-2-la-reglementation");
   await expect(unit21.getByRole("button", { name: "Refaire le défi" })).toBeVisible();
   await expect(unit22.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
-  await expect(page.locator('[aria-current="step"]')).toHaveCount(1);
-  await expect(page.locator('[aria-current="step"]')).toContainText("Lancer le défi");
+  await expect(unit25.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
+  await expect(page.locator('[aria-current="step"]')).toHaveCount(4);
+  await expect(page.locator('[aria-current="step"]').first()).toContainText("Lancer le défi");
   await expect(page.getByRole("button", { name: "Passer l'examen" })).toBeVisible();
   await page.getByRole("button", { name: "Passer l'examen" }).click();
 

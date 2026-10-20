@@ -1,0 +1,30 @@
+id: ch02-q320
+chapterId: ch02
+lessonIds:
+  - ch02-l24
+prompt: "Deux lignes discontinues faites de carrés ou de parallélogrammes blancs délimitent un passage. Qui doit l'utiliser pour traverser ?"
+options:
+  - id: a
+    label: "Les cyclistes et les conducteurs de cyclomoteurs à deux roues."
+  - id: b
+    label: "Tous les véhicules automobiles."
+  - id: c
+    label: "Les piétons uniquement."
+  - id: d
+    label: "Les bus et les trams."
+correctOptionId: a
+explanation: "Ce marquage délimite le passage que les cyclistes et les conducteurs de cyclomoteurs à deux roues doivent utiliser pour traverser la chaussée."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - deux-roues
+  - passage
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 38
+  - documentId: official-code-route-1975
+    locator: "article 76.4"
+version: 1
+status: draft
+origin: ai_assisted

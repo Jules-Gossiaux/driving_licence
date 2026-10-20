@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre-e3 desc-e3">
+  <title id="titre-e3">Panneau E3</title>
+  <desc id="desc-e3">Panneau circulaire bleu à bord rouge, barré d'une grande croix rouge.</desc>
+  <defs>
+    <clipPath id="disque-e3">
+      <circle cx="240" cy="240" r="162"/>
+    </clipPath>
+  </defs>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <circle cx="240" cy="240" r="210" fill="#c1121f"/>
+  <circle cx="240" cy="240" r="162" fill="#1e5aa8"/>
+  <g clip-path="url(#disque-e3)" stroke="#c1121f" stroke-width="44" stroke-linecap="round">
+    <path d="M105 105L375 375"/>
+    <path d="M375 105L105 375"/>
+  </g>
+</svg>

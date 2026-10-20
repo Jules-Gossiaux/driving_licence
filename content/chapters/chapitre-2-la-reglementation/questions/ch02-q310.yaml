@@ -1,0 +1,30 @@
+id: ch02-q310
+chapterId: ch02
+lessonIds:
+  - ch02-l23
+prompt: "Vous devez accéder à un parking situé le long d'une bande bus. Pouvez-vous traverser la bande bus ?"
+options:
+  - id: a
+    label: "Oui, pour accéder à ou quitter un stationnement situé le long de la bande."
+  - id: b
+    label: "Non, jamais."
+  - id: c
+    label: "Oui, mais uniquement en marche arrière."
+  - id: d
+    label: "Oui, à condition d'y stationner ensuite."
+correctOptionId: a
+explanation: "Les autres véhicules peuvent traverser la bande bus pour accéder à ou quitter un stationnement situé le long de la bande ou une propriété riveraine, et dans les carrefours. Ils ne peuvent pas y circuler."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - bande-bus
+  - stationnement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 37
+  - documentId: official-code-route-1975
+    locator: "article 72.5"
+version: 1
+status: draft
+origin: ai_assisted

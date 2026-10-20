@@ -1,0 +1,30 @@
+id: ch02-q105
+chapterId: ch02
+lessonIds:
+  - ch02-l14
+prompt: "Quelle famille de panneaux est identifiée par la lettre A ?"
+options:
+  - id: a
+    label: "La priorité"
+  - id: b
+    label: "Le danger"
+  - id: c
+    label: "L'interdiction"
+  - id: d
+    label: "L'obligation"
+correctOptionId: b
+explanation: "La lettre A désigne la famille des signaux de danger. B correspond à la priorité, C à l'interdiction et D à l'obligation. La lettre sert de repère de famille, pas de numéro à mémoriser."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - panneaux
+  - familles
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 21
+  - documentId: official-signaux-routiers
+    locator: "article 65"
+version: 1
+status: draft
+origin: ai_assisted

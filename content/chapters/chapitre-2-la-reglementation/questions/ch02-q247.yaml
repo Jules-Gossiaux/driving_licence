@@ -1,0 +1,31 @@
+id: ch02-q247
+chapterId: ch02
+lessonIds:
+  - ch02-l32
+prompt: "Un feu vert fonctionne, mais un panneau interdit de tourner à gauche. Pouvez-vous tourner à gauche ?"
+options:
+  - id: a
+    label: "Oui, le feu vert autorise toutes les directions."
+  - id: b
+    label: "Non, le feu ne neutralise pas cette interdiction."
+  - id: c
+    label: "Oui, si aucun véhicule ne vient."
+  - id: d
+    label: "Oui, après avoir cédé le passage."
+correctOptionId: b
+explanation: "Le feu qui fonctionne neutralise les panneaux de priorité, pas toutes les autres prescriptions. Une interdiction de tourner reste valable si rien ne la contredit."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - feux
+  - panneaux-interdiction
+  - hierarchie
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "articles 6 et 12"
+version: 1
+status: draft
+origin: ai_assisted

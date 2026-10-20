@@ -1,0 +1,29 @@
+id: ch02-q330
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Que peuvent faire les inscriptions blanches peintes sur la chaussée ?"
+options:
+  - id: a
+    label: "Répéter les indications d'un panneau routier ou préciser les directions d'une bande."
+  - id: b
+    label: "Remplacer un feu de circulation."
+  - id: c
+    label: "Autoriser une vitesse supérieure à la limite."
+  - id: d
+    label: "Créer une priorité absolue."
+correctOptionId: a
+explanation: "Les inscriptions blanches peuvent répéter les indications des panneaux routiers. Les différentes directions peuvent être indiquées sur les bandes de circulation."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - inscriptions
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 39
+  - documentId: official-code-route-1975
+    locator: "article 77.3"
+version: 1
+status: draft
+origin: ai_assisted

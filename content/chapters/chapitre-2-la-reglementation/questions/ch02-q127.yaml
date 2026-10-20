@@ -1,0 +1,31 @@
+id: ch02-q127
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "Le panneau C43 avec la mention 50 s'applique jusqu'où ?"
+options:
+  - id: a
+    label: "Jusqu'au prochain virage"
+  - id: b
+    label: "Pendant 500 m"
+  - id: c
+    label: "Jusqu'au panneau de fin de route"
+  - id: d
+    label: "Jusqu'au prochain carrefour, à un autre C43 ou à un changement de zone ou d'agglomération"
+correctOptionId: d
+explanation: "C43 limite la vitesse jusqu'au prochain carrefour inclus, jusqu'à un autre signal C43, ou jusqu'au début d'une agglomération, d'une zone résidentielle, d'une zone 30, d'une zone de rencontre ou d'une zone piétonne. C45 marque la fin d'une limitation de vitesse."
+mediaId: ch02-panneau-c43
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - vitesse
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 26
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

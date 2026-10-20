@@ -1,0 +1,30 @@
+id: ch02-q325
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Des lignes blanches obliques parallèles matérialisent un îlot directionnel. Pouvez-vous rouler dessus pour contourner une file ?"
+options:
+  - id: a
+    label: "Non, il est interdit d'y circuler, de s'y arrêter et d'y stationner."
+  - id: b
+    label: "Oui, si la file est arrêtée."
+  - id: c
+    label: "Oui, uniquement en dehors des heures de pointe."
+  - id: d
+    label: "Oui, à condition de ne pas dépasser 30 km/h."
+correctOptionId: a
+explanation: "Les îlots directionnels et les zones d'évitement sont marqués par des lignes obliques blanches. Il est interdit d'y circuler, de s'y arrêter et d'y stationner."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - ilot
+  - zones-d-evitemment
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 39
+  - documentId: official-code-route-1975
+    locator: "article 77.4"
+version: 1
+status: draft
+origin: ai_assisted

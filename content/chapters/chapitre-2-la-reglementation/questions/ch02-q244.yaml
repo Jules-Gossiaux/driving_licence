@@ -1,0 +1,31 @@
+id: ch02-q244
+chapterId: ch02
+lessonIds:
+  - ch02-l32
+prompt: "Le feu est éteint. Un panneau de priorité est placé avant le carrefour. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous ignorez le panneau, puisque le feu existe."
+  - id: b
+    label: "Vous appliquez seulement la priorité à droite."
+  - id: c
+    label: "Vous passez en premier."
+  - id: d
+    label: "Vous respectez le panneau de priorité."
+correctOptionId: d
+explanation: "Si les feux sont éteints, les panneaux de priorité retrouvent leur effet. Il faut les respecter comme si le carrefour n'avait pas de feux."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - feux-eteints
+  - panneaux-priorite
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "articles 6 et 12"
+version: 1
+status: draft
+origin: ai_assisted

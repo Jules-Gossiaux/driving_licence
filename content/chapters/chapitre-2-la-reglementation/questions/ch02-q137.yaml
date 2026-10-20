@@ -1,0 +1,30 @@
+id: ch02-q137
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "Quelle est la différence entre E1 et E3 ?"
+options:
+  - id: a
+    label: "E1 interdit l'arrêt, E3 le stationnement"
+  - id: b
+    label: "E1 interdit le stationnement, E3 interdit l'arrêt et le stationnement"
+  - id: c
+    label: "Les deux interdisent seulement le stationnement"
+  - id: d
+    label: "E1 autorise le stationnement"
+correctOptionId: b
+explanation: "E1 interdit le stationnement mais laisse l'arrêt possible. E3 interdit à la fois l'arrêt et le stationnement. La différence est importante lorsqu'on dépose brièvement une personne."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - arret
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 29
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted

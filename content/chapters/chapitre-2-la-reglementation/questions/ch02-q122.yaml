@@ -1,0 +1,30 @@
+id: ch02-q122
+chapterId: ch02
+lessonIds:
+  - ch02-l16
+prompt: "Un panneau C11, une bicyclette dans un anneau rouge, interdit-il la circulation aux voitures ?"
+options:
+  - id: a
+    label: "Oui, à tous les véhicules"
+  - id: b
+    label: "Oui, sauf aux cyclistes"
+  - id: c
+    label: "Non, il vise les cycles"
+  - id: d
+    label: "Seulement en agglomération"
+correctOptionId: c
+explanation: "Le symbole d'un panneau d'interdiction désigne la catégorie visée. C11 interdit l'accès aux cycles, pas aux voitures. Pour savoir qui est concerné, il faut lire le symbole et, le cas échéant, le panneau additionnel."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - interdiction
+  - categories
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 25
+  - documentId: official-signaux-routiers
+    locator: "article 67"
+version: 1
+status: draft
+origin: ai_assisted

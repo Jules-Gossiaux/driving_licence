@@ -6,8 +6,8 @@
 
 - Application Next.js locale (aucun backend, aucun compte).
 - Modèle de contenu YAML/Markdown validé par Zod, avec sources, médias, statuts et relecture.
-- Chapitre 1 de démonstration (2 leçons, 5 questions) et pilote du chapitre 2 (13 leçons,
-  104 questions), tous en brouillon.
+- Chapitre 1 (6 micro-leçons, 50 questions, deux unités) et chapitre 2 (28 leçons,
+  224 questions, cinq unités), tous en brouillon.
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
 - Unités de chapitre et parcours de micro-leçons : sections Markdown, vérifications intercalées,
   quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
@@ -29,7 +29,7 @@
 
 ### Limites connues
 
-- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (109 brouillons).
+- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (274 brouillons).
 - Le contenu n'a pas été relu par un spécialiste et ne doit pas servir de seule préparation.
 - Pas d'interface pour abandonner un examen commencé.
 - Pas d'historique complet des tentatives au-delà des cinq dernières du tableau de bord.
@@ -41,11 +41,12 @@
 
 ## Prochaines étapes
 
-### 1. Relire le pilote du chapitre 2, puis poursuivre
+### 1. Relire les chapitres, puis poursuivre
 
-- relire les 13 leçons et 104 questions des pilotes 2.1 et 2.2, corriger puis publier ;
-- inventorier et illustrer tous les panneaux du point 2.3 avant de rédiger les questions ;
-- vérifier chaque règle sur les sources officielles belges, renseigner sources et médias ;
+- relire les 6 leçons et 50 questions du chapitre 1, notamment la règle du speed pedelec ;
+- relire les 28 leçons et 224 questions des unités 2.1 à 2.5, corriger puis publier ;
+- vérifier les panneaux illustrés du point 2.3 et le marquage du point 2.4 sur les sources
+  officielles belges ;
 - atteindre au moins 50 questions publiées pour débloquer le preset officiel.
 
 ### 2. Renforcer l'outillage de contenu

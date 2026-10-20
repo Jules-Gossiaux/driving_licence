@@ -41,6 +41,22 @@
   accessedAt: 2026-10-19T00:00:00Z
   rights: external_reference
 
+- id: official-category-am
+  title: "Cyclomoteurs et speed pedelecs (catégorie AM) — SPF Mobilité et Transports"
+  kind: official
+  publisher: "SPF Mobilité et Transports"
+  url: https://mobilit.belgium.be/fr/route/conduire/permis-de-conduire/permis-de-conduire-belge/cyclomoteurs-et-speed-pedelec-categorie
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+
+- id: official-category-a1
+  title: "Motocyclettes (catégories A, A1, A2) — SPF Mobilité et Transports"
+  kind: official
+  publisher: "SPF Mobilité et Transports"
+  url: https://mobilit.belgium.be/fr/route/conduire/permis-de-conduire/permis-de-conduire-belge/motocyclettes-categorie-a1-a2
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+
 - id: official-trailer
   title: "Voitures et remorques (catégorie BE) — SPF Mobilité et Transports"
   kind: official
@@ -73,6 +89,19 @@
     vérifiée sur le code belge. Les mentions non confirmées par le code n'ont
     pas été reprises.
 
+- id: feu-vert-chap2-4
+  title: "Feu Vert — Chapitre 2.4 : Le marquage au sol"
+  kind: manual
+  publisher: "Feu Vert"
+  localPath: data/pdf_feu_vert/chap2/chap2.4.pdf
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: personal_use
+  note: >-
+    Scan local non versionné (pages 36 à 40), vérifié sur les photos de pages.
+    Utilisé pour la structure et les exemples ; chaque règle est reformulée et
+    vérifiée sur le règlement belge. Les mentions non confirmées par le code
+    n'ont pas été reprises.
+
 - id: official-code-route-1975
   title: "Règlement général sur la police de la circulation routière et de l'usage de la voie publique"
   kind: official
@@ -81,8 +110,9 @@
   accessedAt: 2026-10-20T00:00:00Z
   rights: external_reference
   note: >-
-    Articles 61 à 64 : feux tricolores, flèches, feux bicolores, clignotants et
-    feux de bandes. Texte applicable jusqu'au 31 mai 2027 ; le nouveau Code de
+    Articles 6, 12, 61 à 64 et 72 à 77 : hiérarchie, priorité à droite, feux
+    tricolores, signaux particuliers, marquage longitudinal, transversal et
+    autres marques. Texte applicable jusqu'au 31 mai 2027 ; le nouveau Code de
     la voie publique entre en vigueur le 1er juin 2027.
 
 - id: official-code-voie-publique
@@ -96,3 +126,76 @@
     Page officielle du nouveau Code de la voie publique, publié le
     20 septembre 2024 et applicable au 1er juin 2027. Les règles de ce lot
     restent celles du règlement de 1975 en vigueur à la date de consultation.
+
+- id: feu-vert-chap2-3
+  title: "Feu Vert — Chapitre 2.3 : Les signaux routiers"
+  kind: manual
+  publisher: "Feu Vert"
+  localPath: data/pdf_feu_vert/chap2/chap2.3.pdf
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: personal_use
+  note: >-
+    Scan local non versionné (pages 21 à 35), vérifié sur les photos de pages.
+    Utilisé pour la structure et les exemples ; chaque règle est reformulée et
+    vérifiée sur le règlement belge. Les mentions non confirmées par le code
+    n'ont pas été reprises.
+
+- id: official-signaux-routiers
+  title: "Signaux routiers — règlement général sur la police de la circulation routière"
+  kind: official
+  publisher: "Service public de Wallonie — Wallex"
+  url: https://wallex.wallonie.be/eli/arrete/1975/12/01/1975120109
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+  note: >-
+    Articles 65 à 71 et 22bis : familles A à F, panneaux additionnels M et
+    prescriptions. Texte applicable jusqu'au 31 mai 2027 ; le nouveau Code de
+    la voie publique entre en vigueur le 1er juin 2027.
+
+- id: feu-vert-chap2-5
+  title: "Feu Vert — Chapitre 2.5 : L'ordre hiérarchique et les priorités"
+  kind: manual
+  publisher: "Feu Vert"
+  localPath: data/pdf_feu_vert/chap2/chap2.5.pdf
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: personal_use
+  note: >-
+    Scan local non versionné (page 41), lu par OCR et vérifié sur la photo de
+    page. Utilisé pour la structure et les cas pratiques ; chaque règle est
+    reformulée et vérifiée sur le code belge.
+
+- id: securotheque-b22-b23
+  title: "Signaux relatifs à la priorité B22 et B23 dans un carrefour à feux"
+  kind: official
+  publisher: "Sécurothèque — Service public de Wallonie"
+  url: https://securotheque.wallonie.be/e-amenagements-usagers-et-vehicules/velos/amenagements-cyclables/signaux-relatifs-a-la-priorite-b22-et-b23-dans-un-carrefour-a-feux
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+  note: >-
+    Description officielle wallonne : le B22 autorise les cyclistes et les
+    conducteurs de speed pedelecs à franchir le feu pour tourner à droite, le
+    B23 pour aller tout droit, lorsque le feu est rouge ou orange et à condition
+    de céder le passage.
+
+- id: securotheque-c35
+  title: "C35 — Interdiction de dépasser"
+  kind: official
+  publisher: "Sécurothèque — Service public de Wallonie"
+  url: https://securotheque.wallonie.be/equipements/signalisation-c/verticale/de-police/c35-signaux-dinterdiction
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+  note: >-
+    À partir du signal jusqu'au prochain carrefour inclus, interdiction de
+    dépasser par la gauche un véhicule attelé ou un véhicule à plus de deux
+    roues.
+
+- id: securotheque-e3
+  title: "E3 — Arrêt et stationnement interdits"
+  kind: official
+  publisher: "Sécurothèque — Service public de Wallonie"
+  url: https://securotheque.wallonie.be/equipements/signalisation-c/verticale/de-police/e3-signaux-darret-et-de-stationnement
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+  note: >-
+    Le signal E3 interdit l'arrêt et le stationnement. Une inscription peut
+    indiquer la période pendant laquelle l'interdiction s'applique.

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre description">
+  <title id="titre">Panneau F19 — voie à sens unique</title>
+  <desc id="description">Rectangle bleu avec une flèche blanche vers le haut : la voie est à sens unique dans la direction indiquée.</desc>
+  <rect x="140" y="58" width="200" height="364" rx="12" fill="#005baa" stroke="#ffffff" stroke-width="8"/>
+  <rect x="224" y="170" width="32" height="188" fill="#ffffff"/>
+  <polygon points="240,104 292,180 188,180" fill="#ffffff"/>
+</svg>

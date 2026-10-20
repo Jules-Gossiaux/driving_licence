@@ -1,0 +1,31 @@
+id: ch02-q245
+chapterId: ch02
+lessonIds:
+  - ch02-l32
+prompt: "Le feu est orange clignotant à une intersection. Que devez-vous appliquer ?"
+options:
+  - id: a
+    label: "Le feu comme s'il était vert."
+  - id: b
+    label: "Le feu comme s'il était rouge."
+  - id: c
+    label: "Les panneaux de priorité et les règles de circulation."
+  - id: d
+    label: "La priorité à droite uniquement."
+correctOptionId: c
+explanation: "L'orange clignotant ne modifie pas les règles de priorité. Les panneaux de priorité et, à défaut, les règles générales de circulation reprennent la main."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - orange-clignotant
+  - priorite
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-5
+    page: 41
+  - documentId: official-code-route-1975
+    locator: "article 64.1"
+version: 1
+status: draft
+origin: ai_assisted

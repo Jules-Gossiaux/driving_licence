@@ -1,0 +1,30 @@
+id: ch02-q309
+chapterId: ch02
+lessonIds:
+  - ch02-l23
+prompt: "Le panneau F17 et de larges traits discontinus délimitent une bande bus. À qui est-elle réservée en priorité ?"
+options:
+  - id: a
+    label: "Aux services réguliers de transport en commun, aux taxis et aux véhicules de transport scolaire."
+  - id: b
+    label: "À tous les véhicules."
+  - id: c
+    label: "Aux cyclistes uniquement."
+  - id: d
+    label: "Aux camions de livraison."
+correctOptionId: a
+explanation: "La bande bus est réservée aux services réguliers de transport en commun, aux taxis et au transport scolaire. D'autres usagers ne peuvent l'emprunter que si un symbole sur le panneau ou sur un panneau additionnel le prévoit."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - bande-bus
+  - transports-en-commun
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 37
+  - documentId: official-code-route-1975
+    locator: "article 72.5"
+version: 1
+status: draft
+origin: ai_assisted

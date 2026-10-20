@@ -1,0 +1,30 @@
+id: ch02-q143
+chapterId: ch02
+lessonIds:
+  - ch02-l18
+prompt: "E9a vous autorise-t-il à stationner en dehors de l'emplacement délimité ?"
+options:
+  - id: a
+    label: "Oui, partout sur la chaussée"
+  - id: b
+    label: "Oui, si vous restez moins de 15 minutes"
+  - id: c
+    label: "Non, seulement dans l'emplacement délimité"
+  - id: d
+    label: "Oui, sur le trottoir"
+correctOptionId: c
+explanation: "E9a autorise le stationnement dans l'emplacement délimité. Il ne permet pas de stationner ailleurs sur la chaussée ou sur le trottoir. Les panneaux E9b à E9j précisent au besoin la catégorie ou la position autorisée."
+difficulty: medium
+severity: normal
+examEligible: true
+tags:
+  - stationnement
+  - emplacement
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 30
+  - documentId: official-signaux-routiers
+    locator: "article 69"
+version: 1
+status: draft
+origin: ai_assisted

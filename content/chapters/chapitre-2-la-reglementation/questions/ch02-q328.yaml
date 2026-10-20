@@ -1,0 +1,30 @@
+id: ch02-q328
+chapterId: ch02
+lessonIds:
+  - ch02-l25
+prompt: "Une bande de sélection pour deux-roues est délimitée par des lignes blanches continues, avec un symbole de bicyclette et une flèche. Qui peut l'emprunter ?"
+options:
+  - id: a
+    label: "Les cyclistes et les conducteurs de cyclomoteurs à deux roues."
+  - id: b
+    label: "Tous les véhicules."
+  - id: c
+    label: "Les bus uniquement."
+  - id: d
+    label: "Les piétons."
+correctOptionId: a
+explanation: "Ces bandes de sélection sont réservées aux cyclistes et aux conducteurs de cyclomoteurs à deux roues."
+difficulty: medium
+severity: normal
+tags:
+  - marquage
+  - deux-roues
+  - bandes-de-selection
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 40
+  - documentId: official-code-route-1975
+    locator: "article 77.7"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,30 @@
+id: ch02-q316
+chapterId: ch02
+lessonIds:
+  - ch02-l23
+prompt: "Une ligne jaune discontinue longe le bord de la chaussée. Que signifie-t-elle ?"
+options:
+  - id: a
+    label: "Le stationnement est interdit sur la chaussée le long de cette ligne."
+  - id: b
+    label: "L'arrêt et le stationnement sont interdits."
+  - id: c
+    label: "La bande est réservée aux bus."
+  - id: d
+    label: "La bande est une piste cyclable."
+correctOptionId: a
+explanation: "Une ligne jaune discontinue au bord réel interdit le stationnement le long de la ligne. Elle n'interdit pas l'arrêt."
+difficulty: easy
+severity: normal
+tags:
+  - marquage
+  - bord-chaussee
+  - stationnement
+sourceRefs:
+  - documentId: feu-vert-chap2-4
+    page: 37
+  - documentId: official-code-route-1975
+    locator: "article 75.1"
+version: 1
+status: draft
+origin: ai_assisted

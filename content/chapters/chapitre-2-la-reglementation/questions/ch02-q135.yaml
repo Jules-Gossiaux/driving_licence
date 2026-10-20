@@ -1,0 +1,31 @@
+id: ch02-q135
+chapterId: ch02
+lessonIds:
+  - ch02-l17
+prompt: "Le panneau D5, qui impose un carrefour à sens giratoire, vous donne-t-il la priorité à l'entrée ?"
+options:
+  - id: a
+    label: "Oui, toujours"
+  - id: b
+    label: "Oui, sauf si un piéton est présent"
+  - id: c
+    label: "Non, il impose la direction ; la priorité dépend des signaux présents"
+  - id: d
+    label: "Non, il interdit l'entrée"
+correctOptionId: c
+explanation: "D5 impose de tourner dans le sens indiqué par les flèches. Il ne règle pas la priorité à l'entrée : celle-ci dépend des signaux B1, B5 ou B17 applicables, ou des règles générales si aucun signal ne la précise."
+difficulty: hard
+severity: normal
+examEligible: true
+tags:
+  - obligation
+  - priorite
+  - giratoire
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 28
+  - documentId: official-signaux-routiers
+    locator: "article 68"
+version: 1
+status: draft
+origin: ai_assisted

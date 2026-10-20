@@ -1,0 +1,30 @@
+id: ch02-q148
+chapterId: ch02
+lessonIds:
+  - ch02-l19
+prompt: "Que signale le panneau F8 ?"
+options:
+  - id: a
+    label: "Un tunnel de plus de 500 m"
+  - id: b
+    label: "Un pont"
+  - id: c
+    label: "Une autoroute"
+  - id: d
+    label: "Une zone 30"
+correctOptionId: a
+explanation: "F8 signale un tunnel d'une longueur de plus de 500 mètres. Ce panneau d'indication attire l'attention sur les règles et les consignes propres au tunnel, notamment la signalisation de sécurité."
+difficulty: easy
+severity: normal
+examEligible: true
+tags:
+  - indication
+  - tunnel
+sourceRefs:
+  - documentId: feu-vert-chap2-3
+    page: 31
+  - documentId: official-signaux-routiers
+    locator: "article 70"
+version: 1
+status: draft
+origin: ai_assisted
