@@ -59,3 +59,40 @@
   note: >-
     Source du format d'examen : 50 questions, 15 secondes maximum par question,
     réussite à 41/50, une erreur vaut 1 point et une faute grave 5 points.
+
+- id: feu-vert-chap2-2
+  title: "Feu Vert — Chapitre 2.2 : Les signaux lumineux de circulation"
+  kind: manual
+  publisher: "Feu Vert"
+  localPath: data/pdf_feu_vert/chap2/chap2.2.pdf
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: personal_use
+  note: >-
+    Scan local non versionné (pages 17 à 20), lu par OCR des photos de pages.
+    Utilisé pour la structure et les exemples ; chaque règle est reformulée et
+    vérifiée sur le code belge. Les mentions non confirmées par le code n'ont
+    pas été reprises.
+
+- id: official-code-route-1975
+  title: "Règlement général sur la police de la circulation routière et de l'usage de la voie publique"
+  kind: official
+  publisher: "Service public de Wallonie — Wallex"
+  url: https://wallex.wallonie.be/eli/arrete/1975/12/01/1975120109
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+  note: >-
+    Articles 61 à 64 : feux tricolores, flèches, feux bicolores, clignotants et
+    feux de bandes. Texte applicable jusqu'au 31 mai 2027 ; le nouveau Code de
+    la voie publique entre en vigueur le 1er juin 2027.
+
+- id: official-code-voie-publique
+  title: "Code de la voie publique"
+  kind: official
+  publisher: "SPF Mobilité et Transports"
+  url: https://mobilit.belgium.be/fr/route/conduire/code-de-la-voie-publique
+  accessedAt: 2026-10-20T00:00:00Z
+  rights: external_reference
+  note: >-
+    Page officielle du nouveau Code de la voie publique, publié le
+    20 septembre 2024 et applicable au 1er juin 2027. Les règles de ce lot
+    restent celles du règlement de 1975 en vigueur à la date de consultation.

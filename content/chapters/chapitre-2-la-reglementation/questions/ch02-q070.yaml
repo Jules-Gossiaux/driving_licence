@@ -1,0 +1,33 @@
+id: ch02-q070
+chapterId: ch02
+lessonIds:
+  - ch02-l09
+prompt: "Quel signal ne concerne que les cyclistes et les cyclomoteurs à deux roues ?"
+options:
+  - id: a
+    label: "Silhouette de bicyclette"
+    mediaId: ch02-signal-velo
+  - id: b
+    label: "Silhouette de piéton vert"
+    mediaId: ch02-signal-pieton-vert
+  - id: c
+    label: "Flèche verte"
+    mediaId: ch02-signal-fleche-verte
+correctOptionId: a
+explanation: "La silhouette de bicyclette est réservée aux cyclistes et aux cyclomoteurs à deux roues. La silhouette de piéton concerne les piétons, et la flèche verte s'adresse aux conducteurs concernés par le feu."
+difficulty: medium
+severity: normal
+tags:
+  - image
+  - cyclistes
+  - feux
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 61.1.6"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,30 @@
+id: ch02-q091
+chapterId: ch02
+lessonIds:
+  - ch02-l12
+prompt: "Deux feux rouges alternés clignotent à un passage à niveau. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous vous arrêtez avant la ligne d'arrêt ou le signal"
+  - id: b
+    label: "Vous passez si les barrières sont levées"
+  - id: c
+    label: "Vous ralentissez seulement"
+  - id: d
+    label: "Vous klaxonnez pour avertir"
+correctOptionId: a
+explanation: "Deux feux rouges clignotant en alternance interdisent le franchissement. L'interdiction vaut même si les barrières sont levées ou si aucun train n'est visible."
+difficulty: hard
+severity: severe
+tags:
+  - clignotants
+  - passage-a-niveau
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 64.2"
+version: 1
+status: draft
+origin: ai_assisted

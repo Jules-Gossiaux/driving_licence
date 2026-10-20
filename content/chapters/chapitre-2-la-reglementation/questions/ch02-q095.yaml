@@ -1,0 +1,32 @@
+id: ch02-q095
+chapterId: ch02
+lessonIds:
+  - ch02-l12
+prompt: "Une silhouette de vélo orange clignote avec une flèche orange clignotante, alors que le feu est rouge. Que peuvent faire les cyclistes ?"
+options:
+  - id: a
+    label: "Avancer uniquement dans la direction de la flèche, en cédant le passage aux autres directions et aux piétons"
+  - id: b
+    label: "Avancer dans toutes les directions"
+  - id: c
+    label: "S'arrêter obligatoirement"
+  - id: d
+    label: "Passer sans céder le passage"
+correctOptionId: a
+explanation: "Ce signal autorise les cyclistes et les cyclomoteurs à deux roues à poursuivre uniquement dans la direction de la flèche, à condition de céder le passage aux conducteurs venant d'autres directions et aux piétons."
+difficulty: hard
+severity: normal
+tags:
+  - clignotants
+  - cyclistes
+  - fleches
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 61.1.9"
+version: 1
+status: draft
+origin: ai_assisted

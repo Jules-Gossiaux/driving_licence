@@ -1,0 +1,30 @@
+id: ch02-q087
+chapterId: ch02
+lessonIds:
+  - ch02-l11
+prompt: "Une flèche verte d'évacuation est-elle placée à l'entrée ou à la sortie de l'intersection ?"
+options:
+  - id: a
+    label: "À la sortie de l'intersection"
+  - id: b
+    label: "À l'entrée de l'intersection"
+  - id: c
+    label: "Au milieu du carrefour"
+  - id: d
+    label: "Sur le trottoir"
+correctOptionId: a
+explanation: "La flèche d'évacuation est placée seule à la sortie du carrefour. Elle facilite la sortie des conducteurs déjà engagés."
+difficulty: medium
+severity: normal
+tags:
+  - fleches-vertes
+  - evacuation
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 62"
+version: 1
+status: draft
+origin: ai_assisted

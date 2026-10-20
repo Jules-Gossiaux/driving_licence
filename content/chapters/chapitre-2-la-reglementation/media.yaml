@@ -115,3 +115,275 @@
   height: 360
   rights: original
   credit: "Projet Permis B"
+
+- id: ch02-feux-cercles
+  file: /media/ch02/signaux/feux-cercles.svg
+  alt: >-
+    Trois cartes expliquant le feu rouge, le jaune-orange fixe et le vert, avec
+    la consigne d'arrêt ou de franchissement et le rappel qu'un feu éteint ne
+    donne aucune autorisation.
+  caption: "Rouge, jaune-orange, vert : trois consignes de franchissement."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1"
+
+- id: ch02-feux-particuliers
+  file: /media/ch02/signaux/feux-particuliers.svg
+  alt: >-
+    Trois cartes montrant une flèche tricolore limitée à une direction, la
+    silhouette de bicyclette réservée aux cyclistes et cyclomoteurs à deux
+    roues, et cette silhouette entourée de flèches sur une piste cyclable.
+  caption: "Flèches et silhouettes restreignent la portée du feu."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 61.1, points 4 à 7"
+
+- id: ch02-feux-bicolores
+  file: /media/ch02/signaux/feux-bicolores.svg
+  alt: >-
+    Trois cartes présentant le piéton rouge immobile, le piéton vert en marche
+    avec la fin indicative du vert clignotant, et le signal combiné vélo plus
+    piéton réservé aux cyclistes, cyclomoteurs à deux roues et piétons.
+  caption: "Les feux bicolores et le signal combiné vélo-piéton."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "articles 63.1 et 63.2"
+
+- id: ch02-fleches-vertes
+  file: /media/ch02/signaux/fleches-vertes.svg
+  alt: >-
+    Trois cartes expliquant la flèche verte avec un feu rouge ou orange et
+    l'obligation de céder le passage, la flèche verte seule limitée à une
+    direction, et la flèche d'évacuation à la sortie d'un carrefour.
+  caption: "Trois usages de la flèche verte."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: official-code-route-1975
+      locator: "articles 61.1.5 et 62"
+
+- id: ch02-feux-clignotants
+  file: /media/ch02/signaux/feux-clignotants.svg
+  alt: >-
+    Trois cartes présentant l'orange clignotant, les deux feux rouges alternés
+    d'un passage à niveau et la lumière blanche lunaire qui autorise le
+    franchissement.
+  caption: "Orange clignotant, feux rouges alternés et lumière blanche."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "articles 61.1.9, 64.1, 64.2 et 64.3"
+
+- id: ch02-feux-bandes
+  file: /media/ch02/signaux/feux-bandes.svg
+  alt: >-
+    Trois cartes montrant la croix rouge qui ferme une bande, la flèche verte
+    vers le bas qui l'ouvre et la flèche jaune-orange oblique qui impose de
+    quitter la bande dans la direction indiquée.
+  caption: "Les trois signaux des bandes de circulation."
+  kind: diagram
+  width: 960
+  height: 540
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"
+
+- id: ch02-signal-rouge
+  file: /media/ch02/signaux/signal-rouge.svg
+  alt: "Feu tricolore avec le cercle rouge allumé."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1.1"
+
+- id: ch02-signal-jaune-orange
+  file: /media/ch02/signaux/signal-jaune-orange.svg
+  alt: "Feu tricolore avec le cercle jaune-orange allumé."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1.2"
+
+- id: ch02-signal-vert
+  file: /media/ch02/signaux/signal-vert.svg
+  alt: "Feu tricolore avec le cercle vert allumé."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: official-code-route-1975
+      locator: "article 61.1.3"
+
+- id: ch02-signal-fleche-verte
+  file: /media/ch02/signaux/signal-fleche-verte.svg
+  alt: "Feu tricolore avec une flèche verte vers la gauche allumée en bas."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: official-code-route-1975
+      locator: "article 61.1.5"
+
+- id: ch02-signal-pieton-rouge
+  file: /media/ch02/signaux/signal-pieton-rouge.svg
+  alt: "Feu pour piétons avec une silhouette rouge de piéton immobile."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 63.1"
+
+- id: ch02-signal-pieton-vert
+  file: /media/ch02/signaux/signal-pieton-vert.svg
+  alt: "Feu pour piétons avec une silhouette verte de piéton en marche."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 63.1"
+
+- id: ch02-signal-velo
+  file: /media/ch02/signaux/signal-velo.svg
+  alt: "Feu avec une silhouette verte de bicyclette."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 17
+    - documentId: feu-vert-chap2-2
+      page: 18
+    - documentId: official-code-route-1975
+      locator: "article 61.1.6"
+
+- id: ch02-signal-orange-clignotant
+  file: /media/ch02/signaux/signal-orange-clignotant.svg
+  alt: "Feu jaune-orange clignotant entouré de traits de clignotement."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 19
+    - documentId: official-code-route-1975
+      locator: "article 64.1"
+
+- id: ch02-signal-croix-rouge
+  file: /media/ch02/signaux/signal-croix-rouge.svg
+  alt: "Signal carré noir avec une croix rouge, interdisant le sens sur la bande."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"
+
+- id: ch02-signal-fleche-bande-verte
+  file: /media/ch02/signaux/signal-fleche-bande-verte.svg
+  alt: "Signal carré noir avec une flèche verte vers le bas, autorisant la bande."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"
+
+- id: ch02-signal-fleche-bande-orange
+  file: /media/ch02/signaux/signal-fleche-bande-orange.svg
+  alt: "Signal carré noir avec une flèche jaune-orange oblique, obligeant à quitter la bande."
+  kind: sign
+  width: 480
+  height: 480
+  rights: original
+  credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-2
+      page: 20
+    - documentId: official-code-route-1975
+      locator: "article 62bis"

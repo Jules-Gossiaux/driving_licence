@@ -1,0 +1,28 @@
+id: ch02-q060
+chapterId: ch02
+lessonIds:
+  - ch02-l08
+prompt: "Les feux tricolores d'un carrefour sont éteints. À quoi devez-vous vous fier ?"
+options:
+  - id: a
+    label: "À la signalisation de priorité et aux règles générales de priorité"
+  - id: b
+    label: "Vous avez la priorité parce que le feu est éteint"
+  - id: c
+    label: "Le carrefour est fermé à la circulation"
+  - id: d
+    label: "Vous devez attendre qu'un agent arrive"
+correctOptionId: a
+explanation: "Un feu éteint ne donne aucune autorisation. Les panneaux de priorité et les règles générales, comme la priorité à droite, reprennent leurs droits."
+difficulty: medium
+severity: normal
+tags:
+  - feux
+  - feu-eteint
+  - priorite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+version: 1
+status: draft
+origin: ai_assisted

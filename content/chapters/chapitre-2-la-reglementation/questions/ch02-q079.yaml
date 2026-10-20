@@ -1,0 +1,29 @@
+id: ch02-q079
+chapterId: ch02
+lessonIds:
+  - ch02-l10
+prompt: "Un feu piéton montre une silhouette debout quand il est rouge et une silhouette en marche quand il est vert. Que retenez-vous ?"
+options:
+  - id: a
+    label: "Le piéton immobile signifie l'arrêt, le piéton en marche signifie le passage autorisé"
+  - id: b
+    label: "C'est l'inverse : debout signifie passage autorisé"
+  - id: c
+    label: "Les deux silhouettes autorisent le passage"
+  - id: d
+    label: "Les deux silhouettes interdisent le passage"
+correctOptionId: a
+explanation: "La silhouette immobile correspond au rouge : les piétons ne s'engagent pas. La silhouette en marche correspond au vert : ils peuvent s'engager."
+difficulty: easy
+severity: normal
+tags:
+  - pietons
+  - feux-bicolores
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 63.1"
+version: 1
+status: draft
+origin: ai_assisted

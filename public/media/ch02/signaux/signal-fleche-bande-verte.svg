@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre bande-verte">
+  <title id="titre">Flèche verte vers le bas</title>
+  <desc id="bande-verte">Un signal carré noir avec une flèche verte dirigée vers le bas, qui autorise le sens sur la bande.</desc>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <rect x="80" y="80" width="320" height="320" rx="28" fill="#1f2937"/>
+  <rect x="100" y="100" width="280" height="280" rx="18" fill="#111827"/>
+  <path d="M222 130h36v98h36l-54 66-54-66h36z" fill="#22c55e"/>
+</svg>

@@ -1,0 +1,30 @@
+id: ch02-q089
+chapterId: ch02
+lessonIds:
+  - ch02-l12
+prompt: "Que signifie un feu jaune-orange clignotant ?"
+options:
+  - id: a
+    label: "Il autorise à avancer avec une prudence supplémentaire"
+  - id: b
+    label: "Il impose l'arrêt obligatoire"
+  - id: c
+    label: "Il autorise à accélérer pour dégager le carrefour"
+  - id: d
+    label: "Il ferme la route"
+correctOptionId: a
+explanation: "Le jaune-orange clignotant autorise le franchissement en redoublant de prudence. Il ne faut pas le confondre avec l'orange fixe, qui est un signal d'arrêt."
+difficulty: easy
+severity: normal
+tags:
+  - clignotants
+  - orange
+  - signalisation-lumineuse
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 64.1"
+version: 1
+status: draft
+origin: ai_assisted

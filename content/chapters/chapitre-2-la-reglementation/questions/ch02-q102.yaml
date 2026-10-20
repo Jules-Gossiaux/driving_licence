@@ -1,0 +1,30 @@
+id: ch02-q102
+chapterId: ch02
+lessonIds:
+  - ch02-l13
+prompt: "La croix rouge s'allume au-dessus de votre bande, mais vous êtes déjà engagé. Que faites-vous ?"
+options:
+  - id: a
+    label: "Vous quittez la bande dès que possible, en toute sécurité"
+  - id: b
+    label: "Vous freinez brutalement au milieu de la bande"
+  - id: c
+    label: "Vous continuez jusqu'au prochain carrefour"
+  - id: d
+    label: "Vous reculez"
+correctOptionId: a
+explanation: "La croix rouge ferme la bande. Si vous y êtes déjà, changez de bande dès que possible en respectant les autres usagers, sans manœuvre brutale."
+difficulty: medium
+severity: normal
+tags:
+  - bandes
+  - feux-de-bande
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 62bis"
+version: 1
+status: draft
+origin: ai_assisted

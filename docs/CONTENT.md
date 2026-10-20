@@ -5,8 +5,8 @@
 `content/` est la source de vérité du contenu pédagogique. Tout est versionné avec le code. Aucun
 contenu n'est stocké en base : seules la progression et les tentatives le sont.
 
-Le contenu actuel est une **démonstration** : 2 chapitres, 9 leçons et 61 questions en brouillon.
-Il permet de tester les parcours et le pilote du chapitre 2.1, pas de préparer sérieusement
+Le contenu actuel est une **démonstration** : 2 chapitres, 15 leçons et 109 questions en brouillon.
+Il permet de tester les parcours et le pilote du chapitre 2, pas de préparer sérieusement
 l'examen.
 
 ## Arborescence
@@ -215,16 +215,21 @@ Contraintes :
 - les options sont mélangées à la création de la tentative : ne pas rédiger « la réponse A » dans
   l'explication.
 
-## Pilote du chapitre 2.1
+## Pilote du chapitre 2
 
-Le chapitre 2 est amorcé par un pilote limité au point 2.1 (« La réglementation ») : une unité
-`ch02-u1`, 7 leçons, 8 questions par leçon et 56 questions au total, toutes en `draft` et
-`ai_assisted`. Chaque leçon déclare 4 questions cœur (`ch02-q001` à `ch02-q004` pour la première,
-etc.), deux vérifications de section et propose un parcours linéaire ; le reste du pool alimente
+Le chapitre 2 est amorcé par un pilote qui couvre les points 2.1 (« Les usagers et la
+réglementation ») et 2.2 (« Les signaux lumineux de circulation ») : deux unités `ch02-u1` et
+`ch02-u2`, 13 leçons, 8 questions par leçon et 104 questions au total, toutes en `draft` et
+`ai_assisted`. Chaque leçon déclare 4 questions cœur (par exemple `ch02-q001` à `ch02-q004` pour la
+première), deux vérifications de section et propose un parcours linéaire ; le reste du pool alimente
 l'entraînement du chapitre.
 
-Les faits sont tirés des pages 10 à 16 du manuel et recoupés avec la synthèse des pages 42 à 44.
-Les questions illustrées utilisent les SVG originaux de `public/media/ch02/`. Le contenu doit être
+Les faits du point 2.1 sont tirés des pages 10 à 16 du manuel et recoupés avec la synthèse des pages
+42 à 44. Ceux du point 2.2 viennent des pages 17 à 20 et sont vérifiés sur les articles 61 à 64 du
+règlement de 1975. Les questions illustrées utilisent les SVG originaux de `public/media/ch02/`.
+
+Le nouveau Code de la voie publique n'entre en vigueur que le 1er juin 2027 : les règles de ce
+pilote sont celles applicables à la date de consultation (20 octobre 2026). Le contenu doit être
 relu avant publication : aucun élément du pilote n'est encore éligible à l'examen officiel.
 
 ## Preset d'examen

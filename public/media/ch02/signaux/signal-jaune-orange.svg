@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre orange">
+  <title id="titre">Feu jaune-orange fixe</title>
+  <desc id="orange">Un feu tricolore dont le cercle jaune-orange est allumé.</desc>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <rect x="175" y="40" width="130" height="400" rx="24" fill="#1f2937"/>
+  <rect x="190" y="55" width="100" height="370" rx="16" fill="#111827"/>
+  <circle cx="240" cy="125" r="42" fill="#374151"/>
+  <circle cx="240" cy="240" r="42" fill="#f59e0b"/>
+  <circle cx="229" cy="228" r="12" fill="#fcd34d" opacity="0.6"/>
+  <circle cx="240" cy="355" r="42" fill="#374151"/>
+</svg>

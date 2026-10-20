@@ -7,8 +7,8 @@ describe("contenu du projet", () => {
 
     expect(issues.filter((issue) => issue.level === "error")).toEqual([]);
     expect(catalog.chapters).toHaveLength(2);
-    expect(catalog.lessons).toHaveLength(9);
-    expect(catalog.questions).toHaveLength(61);
+    expect(catalog.lessons).toHaveLength(15);
+    expect(catalog.questions).toHaveLength(109);
     expect(catalog.chapterBySlug.get("chapitre-1-permis-b")?.chapter.id).toBe("ch01");
     expect(catalog.chapterBySlug.get("chapitre-2-la-reglementation")?.chapter.id).toBe("ch02");
   });

@@ -1,0 +1,30 @@
+id: ch02-q083
+chapterId: ch02
+lessonIds:
+  - ch02-l11
+prompt: "À quoi sert la flèche verte d'évacuation placée à la sortie d'une intersection ?"
+options:
+  - id: a
+    label: "À permettre de quitter l'intersection dans la direction indiquée, le trafic venant en sens inverse étant arrêté par un feu rouge"
+  - id: b
+    label: "À donner une priorité absolue sur tous les usagers"
+  - id: c
+    label: "À autoriser un demi-tour dans le carrefour"
+  - id: d
+    label: "À remplacer le feu pour piétons"
+correctOptionId: a
+explanation: "La flèche verte d'évacuation est placée seule à la sortie d'un carrefour. Elle indique que les conducteurs venant en sens inverse sont arrêtés par un feu rouge, ce qui facilite l'évacuation."
+difficulty: hard
+severity: normal
+tags:
+  - fleches-vertes
+  - evacuation
+  - carrefour
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 62"
+version: 1
+status: draft
+origin: ai_assisted

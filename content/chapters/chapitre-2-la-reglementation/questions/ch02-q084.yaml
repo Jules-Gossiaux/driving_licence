@@ -1,0 +1,30 @@
+id: ch02-q084
+chapterId: ch02
+lessonIds:
+  - ch02-l11
+prompt: "Avec une flèche verte accompagnée d'un feu rouge, devez-vous céder le passage aux piétons ?"
+options:
+  - id: a
+    label: "Oui, la flèche ne vous donne pas la priorité sur eux"
+  - id: b
+    label: "Non, la flèche verte donne la priorité"
+  - id: c
+    label: "Seulement si les piétons sont sur un passage balisé"
+  - id: d
+    label: "Seulement la nuit"
+correctOptionId: a
+explanation: "Lorsqu'une flèche verte accompagne un feu rouge ou orange, elle impose de céder le passage aux piétons et aux conducteurs venant d'autres directions."
+difficulty: medium
+severity: normal
+tags:
+  - fleches-vertes
+  - priorite
+  - pietons
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 19
+  - documentId: official-code-route-1975
+    locator: "article 61.1.5"
+version: 1
+status: draft
+origin: ai_assisted

@@ -1,0 +1,30 @@
+id: ch02-q099
+chapterId: ch02
+lessonIds:
+  - ch02-l13
+prompt: "Une flèche orange oblique s'allume au-dessus de votre bande. Que devez-vous faire ?"
+options:
+  - id: a
+    label: "Quitter la bande dans la direction indiquée"
+  - id: b
+    label: "Continuer dans la bande"
+  - id: c
+    label: "Vous arrêter au milieu de la bande"
+  - id: d
+    label: "Faire demi-tour"
+correctOptionId: a
+explanation: "La flèche jaune-orange oblique annonce une réduction du nombre de bandes et oblige à quitter la bande dès que possible, dans la direction indiquée."
+difficulty: medium
+severity: normal
+tags:
+  - bandes
+  - feux-de-bande
+  - orange
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 62bis"
+version: 1
+status: draft
+origin: ai_assisted

@@ -211,20 +211,27 @@ test("termine un examen chronométré et alimente la révision", async ({ page }
 
 test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page }) => {
   await page.goto("/chapitres/chapitre-2-la-reglementation");
-  await expect(page.getByRole("button", { name: "Défi verrouillé" })).toBeVisible();
+
+  const unit21 = page.getByRole("region", { name: "Les usagers et la réglementation" });
+  const unit22 = page.getByRole("region", {
+    name: "Les signaux lumineux de circulation",
+  });
+
+  await expect(unit21.getByRole("button", { name: "Défi verrouillé" })).toBeVisible();
+  await expect(unit22.getByRole("button", { name: "Défi verrouillé" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Examen verrouillé" })).toBeVisible();
   await expect(page.locator('[aria-current="step"]')).toHaveCount(1);
   await expect(page.locator('[aria-current="step"]')).toContainText("Où s'appliquent les règles ?");
 
-  // Le parcours complet des sept leçons est déjà couvert par le test précédent et
+  // Le parcours complet des leçons est déjà couvert par le test précédent et
   // par les tests d'intégration ; ici, on prépare l'état débloqué dans la base E2E.
   seedChapterTwoProgress();
 
   await page.reload();
-  await expect(page.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
-  await expect(page.locator('[aria-current="step"]')).toHaveCount(1);
-  await expect(page.locator('[aria-current="step"]')).toContainText("Lancer le défi");
-  await page.getByRole("button", { name: "Lancer le défi" }).click();
+  await expect(unit21.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
+  await expect(unit22.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
+  await expect(page.locator('[aria-current="step"]')).toHaveCount(2);
+  await unit21.getByRole("button", { name: "Lancer le défi" }).click();
 
   await expect(page).toHaveURL(/\/entrainement\/.+/);
   await expect(page.getByText(/Défi · 2\.1/)).toBeVisible();
@@ -250,8 +257,10 @@ test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page })
   await expect(page.getByText(/réponses? correctes? sur 20/)).toBeVisible();
 
   await page.goto("/chapitres/chapitre-2-la-reglementation");
-  await expect(page.getByRole("button", { name: "Refaire le défi" })).toBeVisible();
-  await expect(page.locator('[aria-current="step"]')).toHaveCount(0);
+  await expect(unit21.getByRole("button", { name: "Refaire le défi" })).toBeVisible();
+  await expect(unit22.getByRole("button", { name: "Lancer le défi" })).toBeVisible();
+  await expect(page.locator('[aria-current="step"]')).toHaveCount(1);
+  await expect(page.locator('[aria-current="step"]')).toContainText("Lancer le défi");
   await expect(page.getByRole("button", { name: "Passer l'examen" })).toBeVisible();
   await page.getByRole("button", { name: "Passer l'examen" }).click();
 

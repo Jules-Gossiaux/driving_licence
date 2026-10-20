@@ -9,8 +9,8 @@ révision des dernières erreurs.
 - Parcours fonctionnels : tableau de bord, parcours visuel type Duolingo (chapitre → unité →
   leçons), micro-leçons avec déblocage linéaire, défi d'unité, examen de chapitre avec seuil,
   entraînement par chapitre ou par leçon, examen blanc, résultats détaillés, révision des erreurs.
-- Contenu de démonstration : **2 chapitres, 9 leçons, 61 questions en brouillon**, dont un pilote
-  complet du chapitre 2.1 (7 micro-leçons, 56 questions). Certaines questions utilisent des
+- Contenu de démonstration : **2 chapitres, 15 leçons, 109 questions en brouillon**, dont un pilote
+  complet du chapitre 2 (13 micro-leçons, 104 questions). Certaines questions utilisent des
   options illustrées. Ces contenus ne constituent pas encore une banque fiable pour l'examen.
 - Le preset officiel (`belgique-b-fr`, 50 questions / 15 s / 41 sur 50) reste **verrouillé**
   tant que la banque ne contient pas 50 questions publiées et validées. Le preset démo permet

@@ -1,0 +1,31 @@
+id: ch02-q057
+chapterId: ch02
+lessonIds:
+  - ch02-l08
+prompt: "Que signifie un feu rouge fixe ?"
+options:
+  - id: a
+    label: "Vous devez vous arrêter avant la ligne d'arrêt ou le signal"
+  - id: b
+    label: "Vous pouvez franchir si le carrefour est libre"
+  - id: c
+    label: "Vous devez ralentir mais pouvez continuer"
+  - id: d
+    label: "Vous devez céder le passage puis avancer"
+correctOptionId: a
+explanation: "Le feu rouge interdit de franchir la ligne d'arrêt ou, à défaut, le signal. L'absence de trafic ne change rien : il faut attendre le vert."
+difficulty: easy
+severity: severe
+tags:
+  - feux
+  - signalisation-lumineuse
+  - franchissement
+  - securite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1.1"
+version: 1
+status: draft
+origin: ai_assisted

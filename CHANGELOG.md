@@ -31,6 +31,8 @@ versionnage sémantique.
 - Chapitre 1 de démonstration : 2 leçons et 5 questions en brouillon.
 - Pilote du chapitre 2.1 : 7 leçons, 56 questions et 4 questions cœur par leçon, toutes en
   brouillon.
+- Pilote du chapitre 2.2 : 6 leçons, 48 questions et 4 questions cœur par leçon, toutes en
+  brouillon, avec 17 SVG originaux pour les feux, flèches, silhouettes et signaux de bandes.
 - Preset belge francophone (50 questions, 15 s, 41/50, pénalités 1 et 5) et preset de démonstration
   (5 questions, brouillons autorisés).
 - Persistance SQLite avec migrations versionnées et checksums, profil local unique et snapshots des

@@ -6,8 +6,8 @@
 
 - Application Next.js locale (aucun backend, aucun compte).
 - Modèle de contenu YAML/Markdown validé par Zod, avec sources, médias, statuts et relecture.
-- Chapitre 1 de démonstration (2 leçons, 5 questions) et pilote du chapitre 2.1 (7 leçons,
-  56 questions), tous en brouillon.
+- Chapitre 1 de démonstration (2 leçons, 5 questions) et pilote du chapitre 2 (13 leçons,
+  104 questions), tous en brouillon.
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
 - Unités de chapitre et parcours de micro-leçons : sections Markdown, vérifications intercalées,
   quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
@@ -29,7 +29,7 @@
 
 ### Limites connues
 
-- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (61 brouillons).
+- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (109 brouillons).
 - Le contenu n'a pas été relu par un spécialiste et ne doit pas servir de seule préparation.
 - Pas d'interface pour abandonner un examen commencé.
 - Pas d'historique complet des tentatives au-delà des cinq dernières du tableau de bord.
@@ -41,10 +41,9 @@
 
 ## Prochaines étapes
 
-### 1. Relire le pilote 2.1, puis poursuivre le chapitre 2
+### 1. Relire le pilote du chapitre 2, puis poursuivre
 
-- relire les 7 leçons et 56 questions du pilote, corriger puis publier ;
-- rédiger le point 2.2 selon le même format ;
+- relire les 13 leçons et 104 questions des pilotes 2.1 et 2.2, corriger puis publier ;
 - inventorier et illustrer tous les panneaux du point 2.3 avant de rédiger les questions ;
 - vérifier chaque règle sur les sources officielles belges, renseigner sources et médias ;
 - atteindre au moins 50 questions publiées pour débloquer le preset officiel.

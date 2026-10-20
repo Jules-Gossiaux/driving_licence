@@ -1,0 +1,29 @@
+id: ch02-q092
+chapterId: ch02
+lessonIds:
+  - ch02-l12
+prompt: "Que signifie la lumière blanche lunaire clignotante à un passage à niveau ?"
+options:
+  - id: a
+    label: "Elle autorise le franchissement"
+  - id: b
+    label: "Elle interdit le franchissement"
+  - id: c
+    label: "Elle signale un passage fermé"
+  - id: d
+    label: "Elle annonce l'arrivée d'un train"
+correctOptionId: a
+explanation: "La lumière blanche lunaire clignotante autorise le franchissement du passage à niveau lorsque la signalisation lumineuse fonctionne."
+difficulty: medium
+severity: normal
+tags:
+  - clignotants
+  - passage-a-niveau
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 64.3"
+version: 1
+status: draft
+origin: ai_assisted

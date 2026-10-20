@@ -43,7 +43,7 @@ Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et
 | `tests/unit/domain/sections.test.ts`              | Découpage `##`, introduction, blocs de code, slugs et doublons                                  |
 | `tests/unit/domain/snapshot.test.ts`              | Média d'option conservé, média nul pour une réponse non illustrée                               |
 | `tests/unit/domain/progression.test.ts`           | Déblocage du défi (toutes les leçons), de l'examen (pool suffisant), format officiel            |
-| `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 9 leçons, 61 questions, avertissement de pool                       |
+| `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 15 leçons, 109 questions, avertissement de pool                     |
 | `tests/unit/infrastructure/database-path.test.ts` | Chemins mémoire/relatifs, refus de `public/` et `data/`                                         |
 
 ### Intégration
@@ -114,7 +114,7 @@ En complément des tests automatisés :
 - Pas de tests de régression visuelle ni d'audit d'accessibilité automatisé.
 - Pas de test multi-profils ni d'authentification : ces fonctionnalités n'existent pas.
 - Pas de test de montée en charge : l'application est locale et mono-utilisateur.
-- Le contenu réel se limite à 2 chapitres, 9 leçons et 61 questions, toutes en brouillon ; le
-  chapitre 2 n'est couvert que par le pilote 2.1.
+- Le contenu réel se limite à 2 chapitres, 15 leçons et 109 questions, toutes en brouillon ; le
+  chapitre 2 est couvert par les pilotes 2.1 et 2.2.
 - L'abandon de tentative n'est pas exposé dans l'interface ; seul le repository le couvre.
 - Les avertissements Turbopack du build sont attendus et ne sont pas traités comme des échecs.

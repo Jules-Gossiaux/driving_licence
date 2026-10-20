@@ -1,0 +1,30 @@
+id: ch02-q066
+chapterId: ch02
+lessonIds:
+  - ch02-l09
+prompt: "Un feu rouge en forme de flèche vers la droite s'allume. Que signifie-t-il ?"
+options:
+  - id: a
+    label: "L'interdiction d'aller dans la direction indiquée"
+  - id: b
+    label: "L'interdiction pour toutes les directions"
+  - id: c
+    label: "L'obligation de tourner à droite"
+  - id: d
+    label: "Un feu en panne"
+correctOptionId: a
+explanation: "Une flèche rouge interdit le franchissement dans la direction qu'elle indique, mais elle ne dit rien des autres directions."
+difficulty: medium
+severity: normal
+tags:
+  - fleches
+  - feux
+  - franchissement
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 17
+  - documentId: official-code-route-1975
+    locator: "article 61.1.4"
+version: 1
+status: draft
+origin: ai_assisted

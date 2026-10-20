@@ -137,7 +137,7 @@ une authentification et des règles de séparation des données.
 questions vues dans la leçon.
 
 **Décision** : chaque leçon publiée déclare 4 ou 5 `coreQuestionIds` qui alimentent un entraînement
-dédié. Le pool d'un chapitre reste plus large (8 questions par leçon dans le pilote 2.1) et
+dédié. Le pool d'un chapitre reste plus large (8 questions par leçon dans les pilotes 2.1 et 2.2) et
 l'entraînement de chapitre en tire jusqu'à 10.
 
 **Conséquences** : la leçon reste courte, l'entraînement de leçon est immédiat et le pool permet des

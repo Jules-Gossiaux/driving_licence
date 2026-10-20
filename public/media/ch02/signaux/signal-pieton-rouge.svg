@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="titre pieton-rouge">
+  <title id="titre">Feu piéton rouge</title>
+  <desc id="pieton-rouge">Un feu pour piétons dont la silhouette rouge représente un piéton immobile.</desc>
+  <rect width="480" height="480" fill="#f1f5f9"/>
+  <rect x="170" y="40" width="140" height="400" rx="24" fill="#1f2937"/>
+  <rect x="185" y="55" width="110" height="370" rx="16" fill="#111827"/>
+  <circle cx="240" cy="135" r="50" fill="#052e16" stroke="#7f1d1d" stroke-width="3"/>
+  <g stroke="#dc2626" stroke-width="7" stroke-linecap="round" fill="none">
+    <circle cx="240" cy="112" r="7" fill="#dc2626" stroke="none"/>
+    <path d="M240 120v22"/>
+    <path d="M240 126l-9 10m9-10l9 10"/>
+    <path d="M240 142l-5 13m5-13l5 13"/>
+  </g>
+  <circle cx="240" cy="330" r="50" fill="#111827"/>
+</svg>

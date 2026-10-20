@@ -1,0 +1,30 @@
+id: ch02-q100
+chapterId: ch02
+lessonIds:
+  - ch02-l13
+prompt: "Un feu de bande vert vous autorise-t-il à franchir un feu rouge au carrefour ?"
+options:
+  - id: a
+    label: "Non, les feux de bande ne remplacent pas les feux de circulation"
+  - id: b
+    label: "Oui, toujours"
+  - id: c
+    label: "Oui, si la voie est libre"
+  - id: d
+    label: "Oui, mais seulement pour tourner à gauche"
+correctOptionId: a
+explanation: "Les feux au-dessus des bandes indiquent le sens autorisé sur la bande, mais ils ne règlent pas la priorité et ne vous autorisent pas à franchir le carrefour. Le feu de circulation reste à respecter."
+difficulty: hard
+severity: severe
+tags:
+  - bandes
+  - feux-de-bande
+  - priorite
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 20
+  - documentId: official-code-route-1975
+    locator: "article 62bis"
+version: 1
+status: draft
+origin: ai_assisted

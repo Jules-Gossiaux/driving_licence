@@ -4,7 +4,8 @@ order: 2
 title: "Chapitre 2 — La réglementation"
 summary: >-
   Qui doit respecter le Code de la route, où il s'applique, à qui obéir, les
-  quatre degrés d'infraction et les sanctions qui en découlent.
+  quatre degrés d'infraction, les sanctions et les signaux lumineux qui règlent
+  le passage.
 units:
   - id: ch02-u1
     slug: usagers-et-reglementation
@@ -12,12 +13,23 @@ units:
     label: "2.1"
     title: "Les usagers et la réglementation"
     summary: "Le champ d'application du Code, les personnes qui donnent des ordres et les sanctions encourues."
+  - id: ch02-u2
+    slug: signaux-lumineux-de-circulation
+    order: 2
+    label: "2.2"
+    title: "Les signaux lumineux de circulation"
+    summary: "Couleurs, flèches, feux pour piétons et cyclistes, clignotants et feux de bandes."
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 10
+  - documentId: feu-vert-chap2-2
+    page: 17
   - documentId: feu-vert-chap2-synthese
     page: 42
+  - documentId: official-code-route-1975
+    locator: "articles 61 à 64"
+  - documentId: official-code-voie-publique
   - documentId: official-exam-brussels
-version: 1
+version: 2
 status: draft
 origin: ai_assisted

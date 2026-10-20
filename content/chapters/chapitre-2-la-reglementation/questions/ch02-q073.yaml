@@ -1,0 +1,30 @@
+id: ch02-q073
+chapterId: ch02
+lessonIds:
+  - ch02-l10
+prompt: "Que signifie un feu piéton rouge ?"
+options:
+  - id: a
+    label: "Il interdit aux piétons de s'engager sur la chaussée"
+  - id: b
+    label: "Il oblige les piétons à traverser rapidement"
+  - id: c
+    label: "Il autorise les piétons à traverser"
+  - id: d
+    label: "Il signale un feu en panne"
+correctOptionId: a
+explanation: "Le feu piéton rouge montre un piéton immobile : les piétons ne s'engagent pas sur la chaussée."
+difficulty: easy
+severity: normal
+tags:
+  - pietons
+  - feux-bicolores
+  - franchissement
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 63.1"
+version: 1
+status: draft
+origin: ai_assisted

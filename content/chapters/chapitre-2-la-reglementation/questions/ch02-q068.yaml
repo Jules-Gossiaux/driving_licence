@@ -1,0 +1,30 @@
+id: ch02-q068
+chapterId: ch02
+lessonIds:
+  - ch02-l09
+prompt: "La silhouette de bicyclette entourée de flèches est allumée en vert. Que permet-elle ?"
+options:
+  - id: a
+    label: "Aux cyclistes et cyclomoteurs à deux roues d'emprunter la piste cyclable dans les directions indiquées"
+  - id: b
+    label: "À tous les véhicules de tourner dans le carrefour"
+  - id: c
+    label: "Aux piétons de traverser partout"
+  - id: d
+    label: "De circuler sur la voie opposée"
+correctOptionId: a
+explanation: "Ce signal est réservé aux cyclistes et aux cyclomoteurs à deux roues autorisés sur la piste cyclable. Lorsqu'il est vert, ils peuvent s'engager dans les directions indiquées ; les autres véhicules ne le suivent pas."
+difficulty: hard
+severity: normal
+tags:
+  - cyclistes
+  - fleches
+  - feux
+sourceRefs:
+  - documentId: feu-vert-chap2-2
+    page: 18
+  - documentId: official-code-route-1975
+    locator: "article 61.1.7"
+version: 1
+status: draft
+origin: ai_assisted
