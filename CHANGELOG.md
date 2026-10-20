@@ -14,6 +14,10 @@ versionnage sémantique.
 - Modèle de contenu YAML/Markdown validé par Zod : chapitres, leçons, questions (dont options
   illustrées), médias par chapitre, sources et presets d'examen.
 - Questions cœur (4 ou 5) déclarées par leçon publiée pour alimenter un entraînement dédié.
+- Unités de chapitre et parcours de micro-leçons : sections dérivées du Markdown, vérifications
+  intercalées, quiz final, reprise à l'étape enregistrée et déblocage linéaire.
+- Migration `0003_lesson_runs.sql` : rattachement d'une tentative à une leçon et mémorisation de
+  l'étape courante.
 - Cycle de publication `draft` / `in_review` / `published` avec relecture obligatoire.
 - Chapitre 1 de démonstration : 2 leçons et 5 questions en brouillon.
 - Pilote du chapitre 2.1 : 7 leçons, 56 questions et 4 questions cœur par leçon, toutes en
@@ -27,13 +31,15 @@ versionnage sémantique.
   détaillés et révision des dernières erreurs.
 - Contrôle du temps côté serveur avec délai de grâce de 2 secondes et protection contre les
   réponses hors délai.
-- Suite de tests : 99 tests Vitest (domaine, contenu, migrations, repository, cas d'usage) et
-  3 parcours Playwright avec base et build isolés.
+- Suite de tests : 119 tests Vitest (domaine, contenu, migrations, repository, cas d'usage) et
+  4 parcours Playwright avec base et build isolés.
 - Documentation : README, règles de travail, contribution, architecture, développement, tests,
   contenu, décisions et feuille de route.
 
 ### Modifié
 
+- Une leçon à parcours est marquée terminée à la dernière réponse ; l'ancien marquage manuel reste
+  disponible pour les leçons sans questions cœur.
 - La leçon en cours est marquée lue automatiquement quand on ouvre la leçon suivante ou que l'on
   termine le chapitre.
 - Interface allégée : header, footer et descriptions secondaires réduits ; pictogrammes du

@@ -39,9 +39,11 @@ export interface LearningRepository {
   createAttempt(attempt: NewAttempt): void;
   getAttempt(profileId: string, attemptId: string): Attempt | null;
   getActiveExam(profileId: string): AttemptSummary | null;
+  getActiveLessonRun(profileId: string, lessonId: string): AttemptSummary | null;
   listRecentCompletedAttempts(profileId: string, limit: number): AttemptSummary[];
   recordQuestionPresented(input: RecordQuestionPresentedInput): void;
   recordAnswer(input: RecordAnswerInput): void;
+  setLessonStep(profileId: string, attemptId: string, step: number): void;
   completeAttempt(input: CompleteAttemptInput): void;
   abandonAttempt(profileId: string, attemptId: string, at: string): void;
 

@@ -52,7 +52,7 @@ function createShuffledSnapshot(question: Question, random: () => number) {
   return { ...snapshot, options: shuffle(snapshot.options, random) };
 }
 
-function toTrainingQuestion(
+export function toTrainingQuestion(
   deps: AppDependencies,
   snapshot: Attempt["questions"][number]["snapshot"],
 ): TrainingQuestionView {
@@ -78,12 +78,14 @@ function resolveChapter(deps: AppDependencies, chapterId: string) {
   return entry;
 }
 
-function createTrainingAttempt(
+export function createTrainingAttempt(
   deps: AppDependencies,
   input: {
     mode: Extract<AttemptMode, "practice" | "review">;
     chapterId: string | null;
+    lessonId?: string | null;
     questions: Question[];
+    shuffleQuestions?: boolean;
   },
 ): { attemptId: string } {
   if (input.questions.length === 0) {
@@ -92,7 +94,10 @@ function createTrainingAttempt(
 
   const now = deps.clock.now();
   const attemptId = deps.newId();
-  const selected = shuffle(input.questions, deps.random).slice(0, PRACTICE_SESSION_SIZE);
+  const selected =
+    input.shuffleQuestions === false
+      ? [...input.questions]
+      : shuffle(input.questions, deps.random).slice(0, PRACTICE_SESSION_SIZE);
   const snapshots = selected.map((question) => createShuffledSnapshot(question, deps.random));
 
   deps.repository.createAttempt({
@@ -101,6 +106,7 @@ function createTrainingAttempt(
     mode: input.mode,
     presetId: null,
     chapterId: input.chapterId,
+    lessonId: input.lessonId ?? null,
     questionCount: snapshots.length,
     secondsPerQuestion: null,
     passingScore: null,
@@ -281,6 +287,10 @@ export function submitTrainingAnswer(
       passed: null,
       durationMs: Math.max(0, now.getTime() - new Date(updated.startedAt).getTime()),
     });
+
+    if (updated.lessonId) {
+      deps.repository.setLessonRead(LOCAL_PROFILE_ID, updated.lessonId, true, now.toISOString());
+    }
   } else {
     deps.repository.recordQuestionPresented({
       attemptId: updated.id,

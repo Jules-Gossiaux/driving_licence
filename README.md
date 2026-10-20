@@ -6,8 +6,8 @@ révision des dernières erreurs.
 
 ## État actuel
 
-- Parcours fonctionnels : tableau de bord, chapitres et leçons, entraînement par chapitre ou par
-  leçon, examen blanc, résultats détaillés, révision des erreurs.
+- Parcours fonctionnels : tableau de bord, unités et micro-leçons avec déblocage linéaire,
+  entraînement par chapitre ou par leçon, examen blanc, résultats détaillés, révision des erreurs.
 - Contenu de démonstration : **2 chapitres, 9 leçons, 61 questions en brouillon**, dont un pilote
   complet du chapitre 2.1 (7 micro-leçons, 56 questions). Certaines questions utilisent des
   options illustrées. Ces contenus ne constituent pas encore une banque fiable pour l'examen.

@@ -149,6 +149,17 @@ function reviewedFields() {
   };
 }
 
+export const unitSchema = z.strictObject({
+  id: contentIdSchema,
+  slug: slugSchema,
+  order: z.number().int().nonnegative(),
+  label: z.string().min(1).max(20),
+  title: z.string().min(1).max(160),
+  summary: z.string().min(1).max(600).optional(),
+});
+
+export type Unit = z.infer<typeof unitSchema>;
+
 export const chapterSchema = z
   .strictObject({
     id: contentIdSchema,
@@ -156,6 +167,7 @@ export const chapterSchema = z
     order: z.number().int().nonnegative(),
     title: z.string().min(1).max(160),
     summary: z.string().min(1).max(600),
+    units: z.array(unitSchema).max(30).optional(),
     sourceRefs: z.array(sourceRefSchema).min(1).max(20),
     version: z.number().int().positive(),
     ...reviewedFields(),
@@ -164,16 +176,25 @@ export const chapterSchema = z
 
 export type Chapter = z.infer<typeof chapterSchema>;
 
+export const lessonSectionCheckSchema = z.strictObject({
+  section: slugSchema,
+  questionIds: z.array(contentIdSchema).min(1).max(2),
+});
+
+export type LessonSectionCheck = z.infer<typeof lessonSectionCheckSchema>;
+
 export const lessonSchema = z
   .strictObject({
     id: contentIdSchema,
     chapterId: contentIdSchema,
+    unitId: contentIdSchema.optional(),
     slug: slugSchema,
     order: z.number().int().nonnegative(),
     title: z.string().min(1).max(160),
     summary: z.string().min(1).max(600),
     keyPoints: z.array(z.string().min(1).max(300)).min(1).max(6),
     coreQuestionIds: z.array(contentIdSchema).max(8).optional(),
+    sectionChecks: z.array(lessonSectionCheckSchema).max(8).optional(),
     sourceRefs: z.array(sourceRefSchema).min(1).max(20),
     version: z.number().int().positive(),
     body: z.string().min(1, "Le corps Markdown de la leçon est vide."),

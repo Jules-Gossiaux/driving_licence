@@ -9,6 +9,8 @@
 - Chapitre 1 de démonstration (2 leçons, 5 questions) et pilote du chapitre 2.1 (7 leçons,
   56 questions), tous en brouillon.
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
+- Unités de chapitre et parcours de micro-leçons : sections Markdown, vérifications intercalées,
+  quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
 - Entraînement par chapitre avec correction immédiate (10 questions maximum) et entraînement dédié
   aux questions cœur d'une leçon.
 - Questions à options illustrées par des SVG originaux.
@@ -18,7 +20,7 @@
   insuffisant ; preset de démonstration (5 questions, brouillons autorisés).
 - Résultats détaillés avec explications, médias et sources.
 - Persistance SQLite avec migrations versionnées et snapshots des questions.
-- Tests : 99 tests Vitest (13 fichiers) et 3 parcours Playwright.
+- Tests : 119 tests Vitest (15 fichiers) et 4 parcours Playwright.
 - Documentation d'architecture, de développement, de test, de contenu et de décisions.
 
 ### Limites connues
@@ -35,7 +37,13 @@
 
 ## Prochaines étapes
 
-### 1. Relire le pilote 2.1, puis poursuivre le chapitre 2
+### 1. Compléter les parcours 2.1
+
+- défi d'unité sans seuil, construit sur les questions du parcours ;
+- examen de chapitre avec seuil, débloqué après les unités ;
+- parcours visuel chapitre → unité → leçons, avec états verrouillé, courant et terminé.
+
+### 2. Relire le pilote 2.1, puis poursuivre le chapitre 2
 
 - relire les 7 leçons et 56 questions du pilote, corriger puis publier ;
 - rédiger le point 2.2 selon le même format ;
@@ -43,14 +51,14 @@
 - vérifier chaque règle sur les sources officielles belges, renseigner sources et médias ;
 - atteindre au moins 50 questions publiées pour débloquer le preset officiel.
 
-### 2. Renforcer l'outillage de contenu
+### 3. Renforcer l'outillage de contenu
 
 - Aide à la saisie ou import contrôlé depuis les documents de `data/`.
 - Statistiques par chapitre et par difficulté.
 - Prévisualisation d'une question avant publication.
 - Détection des questions jamais utilisées ou trop souvent échouées.
 
-### 3. Compléter les parcours
+### 4. Compléter l'application
 
 - Action d'abandon explicite d'un examen.
 - Page d'historique complet des tentatives.
@@ -58,7 +66,7 @@
 - Réinitialisation guidée de la progression.
 - Amélioration de l'accessibilité (navigation clavier, annonces du chronomètre).
 
-### 4. Envisager la suite « produit »
+### 5. Envisager la suite « produit »
 
 - Répétition espacée, si les données d'usage montrent un besoin.
 - Multi-profils puis synchronisation en ligne.

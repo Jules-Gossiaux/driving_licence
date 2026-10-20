@@ -28,6 +28,7 @@ function createAttempt(
   options: {
     mode?: AttemptMode;
     startedAt?: string;
+    lessonId?: string | null;
     secondsPerQuestion?: number | null;
     passingScore?: number | null;
     errorPenalty?: number | null;
@@ -43,6 +44,7 @@ function createAttempt(
     mode,
     presetId: isExam ? "preset-demo" : null,
     chapterId: isExam ? null : "ch01",
+    lessonId: options.lessonId ?? null,
     questionCount: questions.length,
     secondsPerQuestion: options.secondsPerQuestion ?? (isExam ? 15 : null),
     passingScore: options.passingScore ?? (isExam ? 2 : null),
@@ -206,6 +208,31 @@ describe("SqliteLearningRepository", () => {
       correctAnswers: 1,
       distinctQuestions: 2,
     });
+  });
+
+  it("retrouve le parcours actif d'une leçon et avance son étape", () => {
+    createAttempt("run-1", [q1, q2], { lessonId: "ch01-l01" });
+
+    expect(repository.getActiveLessonRun(LOCAL_PROFILE_ID, "ch01-l01")?.id).toBe("run-1");
+    expect(repository.getActiveLessonRun(LOCAL_PROFILE_ID, "ch01-l02")).toBeNull();
+
+    const initial = repository.getAttempt(LOCAL_PROFILE_ID, "run-1");
+    expect(initial).toMatchObject({ lessonId: "ch01-l01", lessonStep: 0 });
+
+    repository.setLessonStep(LOCAL_PROFILE_ID, "run-1", 3);
+    expect(repository.getAttempt(LOCAL_PROFILE_ID, "run-1")?.lessonStep).toBe(3);
+
+    repository.setLessonStep(LOCAL_PROFILE_ID, "run-1", 1);
+    expect(repository.getAttempt(LOCAL_PROFILE_ID, "run-1")?.lessonStep).toBe(3);
+
+    repository.completeAttempt({
+      attemptId: "run-1",
+      completedAt: "2026-10-19T10:05:00.000Z",
+      score: 2,
+      passed: null,
+      durationMs: 300_000,
+    });
+    expect(repository.getActiveLessonRun(LOCAL_PROFILE_ID, "ch01-l01")).toBeNull();
   });
 
   it("gère la progression des leçons", () => {

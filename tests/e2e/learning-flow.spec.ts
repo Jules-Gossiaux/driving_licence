@@ -11,7 +11,7 @@ test("parcourt une leçon et met à jour sa progression", async ({ page }) => {
 
   await page.getByRole("button", { name: "Marquer comme lue" }).click();
   await expect(page.getByRole("button", { name: "Marquer comme non lue" })).toBeVisible();
-  await expect(page.getByText(/^Lue le /)).toBeVisible();
+  await expect(page.getByText(/^Terminée le /)).toBeVisible();
 
   await page.getByRole("button", { name: "Marquer comme non lue" }).click();
   await expect(page.getByRole("button", { name: "Marquer comme lue" })).toBeVisible();
@@ -19,7 +19,7 @@ test("parcourt une leçon et met à jour sa progression", async ({ page }) => {
   await page.getByRole("button", { name: /Leçon suivante/ }).click();
   await expect(page).toHaveURL(/lecons\/tracter-une-remorque$/);
   await page.goto("/chapitres/chapitre-1-permis-b/lecons/le-permis-b-et-ses-limites");
-  await expect(page.getByText(/^Lue le /)).toBeVisible();
+  await expect(page.getByText(/^Terminée le /)).toBeVisible();
 });
 
 test("termine un entraînement et affiche la correction", async ({ page }) => {
@@ -48,6 +48,68 @@ test("termine un entraînement et affiche la correction", async ({ page }) => {
   await expect(page).toHaveURL(/\/resultats\/.+/);
   await expect(page.getByRole("heading", { level: 1, name: "Session terminée" })).toBeVisible();
   await expect(page.getByText(/réponses? correctes? sur 5/)).toBeVisible();
+});
+
+test("parcourt une micro-leçon du chapitre 2 et débloque la suivante", async ({ page }) => {
+  await page.goto("/chapitres/chapitre-2-la-reglementation");
+  await expect(
+    page.getByRole("heading", { name: /Les usagers et la réglementation/ }),
+  ).toBeVisible();
+
+  const secondLesson = page.locator("li").filter({ hasText: "Où s'appliquent les règles ?" });
+  await expect(secondLesson.getByText("Verrouillée")).toBeVisible();
+
+  await page.getByRole("link", { name: /Qui doit respecter les règles/ }).click();
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Qui doit respecter les règles ?" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Commencer" }).click();
+  await expect(page).toHaveURL(/\/parcours\/.+/);
+
+  async function continueContent(title: string) {
+    await expect(page.getByRole("heading", { level: 1, name: title })).toBeVisible();
+    await page.getByRole("button", { name: "Continuer" }).click();
+  }
+
+  async function answerQuestion() {
+    await page.locator("fieldset button").first().click();
+    await page.getByRole("button", { name: "Valider la réponse" }).click();
+    await expect(page.getByText(/^(Bonne réponse|Réponse incorrecte)$/)).toBeVisible();
+  }
+
+  await continueContent("La route ne se résume pas aux voitures");
+  await continueContent("Les conducteurs");
+  await continueContent("Les passagers");
+
+  await answerQuestion();
+  await page.getByRole("button", { name: "Continuer" }).click();
+
+  await continueContent("Les piétons");
+  await answerQuestion();
+  await page.getByRole("button", { name: "Continuer" }).click();
+
+  await continueContent("Le cas particulier du tram");
+  await continueContent("À retenir");
+
+  await answerQuestion();
+  await page.getByRole("button", { name: "Continuer" }).click();
+  await answerQuestion();
+  await page.getByRole("button", { name: "Terminer la leçon" }).click();
+
+  await expect(page.getByRole("heading", { name: "Leçon terminée" })).toBeVisible();
+  await expect(page.getByText(/réponses? correctes? sur 4/)).toBeVisible();
+
+  await page.getByRole("link", { name: "Leçon suivante" }).click();
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Où s'appliquent les règles ?" }),
+  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Commencer" })).toBeVisible();
+
+  await page.goto("/chapitres/chapitre-2-la-reglementation");
+  const firstLesson = page.locator("li").filter({ hasText: "Qui doit respecter les règles ?" });
+  await expect(firstLesson.getByText("Terminée")).toBeVisible();
+  await expect(secondLesson.getByText("Verrouillée")).toHaveCount(0);
+  await expect(secondLesson.getByRole("link")).toBeVisible();
 });
 
 test("termine un examen chronométré et alimente la révision", async ({ page }) => {

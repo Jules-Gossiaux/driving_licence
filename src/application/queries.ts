@@ -1,4 +1,5 @@
 import { countPublishedExamQuestions } from "@/domain/content/catalog";
+import { splitLessonSections } from "@/domain/content/sections";
 import { AttemptConflictError, AttemptNotFoundError } from "@/domain/learning/errors";
 import type { Attempt, AttemptSummary } from "@/domain/learning/types";
 import { LOCAL_PROFILE_ID } from "@/domain/profile";
@@ -17,6 +18,7 @@ import {
   type QuestionMediaView,
   type QuestionOptionView,
   type SourceLabel,
+  type UnitOverview,
 } from "./content-views";
 import { ContentNotFoundError } from "./errors";
 import type { LearningStats } from "@/domain/learning/types";
@@ -25,6 +27,7 @@ export type RecentAttemptView = {
   id: string;
   title: string;
   mode: AttemptSummary["mode"];
+  kind: AttemptSummary["mode"] | "lesson";
   completedAt: string | null;
   score: number | null;
   questionCount: number;
@@ -104,8 +107,11 @@ export type AttemptResultLookup =
 
 function attemptTitle(
   deps: AppDependencies,
-  attempt: Pick<Attempt, "presetId" | "chapterId" | "mode">,
+  attempt: Pick<Attempt, "presetId" | "chapterId" | "mode" | "lessonId">,
 ): string {
+  if (attempt.lessonId) {
+    return deps.catalog.lessonById.get(attempt.lessonId)?.lesson.title ?? "Leçon";
+  }
   if (attempt.presetId) {
     return deps.catalog.presetById.get(attempt.presetId)?.title ?? "Examen blanc";
   }
@@ -122,6 +128,7 @@ function toRecentAttempt(deps: AppDependencies, attempt: AttemptSummary): Recent
     id: attempt.id,
     title: attemptTitle(deps, attempt),
     mode: attempt.mode,
+    kind: attempt.lessonId ? "lesson" : attempt.mode,
     completedAt: attempt.completedAt,
     score: attempt.score,
     questionCount: attempt.questionCount,
@@ -192,11 +199,36 @@ export function getChapterDetail(deps: AppDependencies, slug: string): ChapterDe
     throw new ContentNotFoundError(`chapitre ${slug}`);
   }
 
+  const lessons = entry.lessons.map((lesson, index) => {
+    const previousLesson = index > 0 ? entry.lessons[index - 1] : undefined;
+    const readAt = readByLesson.get(lesson.id) ?? null;
+    const locked = readAt === null && previousLesson ? !readByLesson.has(previousLesson.id) : false;
+
+    return toLessonSummary(lesson, readAt, locked);
+  });
+
+  const units: UnitOverview[] = [...(entry.chapter.units ?? [])]
+    .sort((left, right) => left.order - right.order)
+    .map((unit) => {
+      const unitLessons = lessons.filter((lesson) => lesson.unitId === unit.id);
+
+      return {
+        id: unit.id,
+        slug: unit.slug,
+        label: unit.label,
+        title: unit.title,
+        summary: unit.summary ?? null,
+        order: unit.order,
+        lessonCount: unitLessons.length,
+        readLessonCount: unitLessons.filter((lesson) => lesson.readAt !== null).length,
+        lessons: unitLessons,
+      };
+    });
+
   return {
     ...overview,
-    lessons: entry.lessons.map((lesson) =>
-      toLessonSummary(lesson, readByLesson.get(lesson.id) ?? null),
-    ),
+    lessons,
+    units,
   };
 }
 
@@ -212,23 +244,43 @@ export function getLessonDetail(
     throw new ContentNotFoundError(`chapitre ${chapterSlug}`);
   }
 
-  const lesson = entry.lessons.find(
+  const lessonIndex = entry.lessons.findIndex(
     (candidate) => candidate.slug === lessonSlug || candidate.id === lessonSlug,
   );
 
-  if (!lesson) {
+  if (lessonIndex < 0) {
     throw new ContentNotFoundError(`leçon ${lessonSlug}`);
   }
 
-  const progress = deps.repository
-    .getLessonProgress(LOCAL_PROFILE_ID)
-    .find((item) => item.lessonId === lesson.id);
+  const lesson = entry.lessons[lessonIndex]!;
+  const progress = deps.repository.getLessonProgress(LOCAL_PROFILE_ID);
+  const readByLesson = new Map(progress.map((item) => [item.lessonId, item.readAt]));
+  const readAt = readByLesson.get(lesson.id) ?? null;
+  const previousLesson = lessonIndex > 0 ? entry.lessons[lessonIndex - 1] : undefined;
+  const nextLesson = entry.lessons[lessonIndex + 1];
+  const locked = readAt === null && previousLesson ? !readByLesson.has(previousLesson.id) : false;
+  const unit = lesson.unitId
+    ? (entry.chapter.units?.find((candidate) => candidate.id === lesson.unitId) ?? null)
+    : null;
+  const activeRun = deps.repository.getActiveLessonRun(LOCAL_PROFILE_ID, lesson.id);
 
   return {
     lesson,
     chapterSlug: entry.chapter.slug,
     chapterTitle: entry.chapter.title,
-    readAt: progress?.readAt ?? null,
+    unit: unit ? { id: unit.id, label: unit.label, title: unit.title } : null,
+    sections: splitLessonSections(lesson.body).map((section) => ({
+      id: section.id,
+      title: section.title,
+    })),
+    hasQuestions: (lesson.coreQuestionIds?.length ?? 0) > 0,
+    locked,
+    readAt,
+    activeRunAttemptId: activeRun?.id ?? null,
+    previousLesson: previousLesson
+      ? { slug: previousLesson.slug, title: previousLesson.title }
+      : null,
+    nextLesson: nextLesson ? { slug: nextLesson.slug, title: nextLesson.title } : null,
     sources: resolveSourceLabels(deps.catalog, lesson.sourceRefs),
   };
 }

@@ -1,6 +1,7 @@
 ---
 id: ch02-l04
 chapterId: ch02
+unitId: ch02-u1
 slug: les-quatre-degres-d-infraction
 order: 4
 title: "Les quatre degrés d'infraction"
@@ -16,6 +17,13 @@ coreQuestionIds:
   - ch02-q026
   - ch02-q027
   - ch02-q028
+sectionChecks:
+  - section: 3e-degre-infractions-graves
+    questionIds:
+      - ch02-q028
+  - section: ce-que-cela-coute-a-l-examen
+    questionIds:
+      - ch02-q026
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 13
@@ -36,7 +44,9 @@ calculer la note de l'examen théorique.
 
 ![Les quatre degrés d'infraction et leur coût à l'examen](/media/ch02/degres-infractions.svg)
 
-## 1er degré — infractions mineures
+## 1er et 2e degrés — infractions mineures
+
+### 1er degré
 
 Ce sont toutes les infractions qui **ne figurent pas** dans un degré supérieur.
 Exemples :
@@ -45,7 +55,7 @@ Exemples :
 - circuler dans une bande réservée aux bus ;
 - ne pas mettre ses clignotants.
 
-## 2e degré — infractions mineures
+### 2e degré
 
 L'auteur met **indirectement** en danger la sécurité des personnes, ou utilise
 sans droit une facilité de stationnement réservée aux personnes handicapées.

@@ -13,6 +13,7 @@ import { LOCAL_PROFILE_ID } from "@/domain/profile";
 import {
   createTestDependencies,
   TEST_STARTED_AT,
+  testLesson,
   testRawContent,
   type TestDependencies,
 } from "../../helpers/fixtures";
@@ -201,5 +202,57 @@ describe("consultation du contenu", () => {
     expect(() => getLessonDetail(context.deps, "chapitre-1", "inconnue")).toThrow(
       ContentNotFoundError,
     );
+  });
+
+  it("regroupe les leçons par unité et verrouille les suivantes", () => {
+    const raw = testRawContent();
+    raw.chapters[0]!.chapter = {
+      ...raw.chapters[0]!.chapter,
+      units: [
+        {
+          id: "ch01-u1",
+          slug: "unite-1",
+          order: 1,
+          label: "1.1",
+          title: "Unité de test",
+          summary: "Résumé de l'unité.",
+        },
+      ],
+    };
+    raw.chapters[0]!.lessons = [
+      testLesson({ unitId: "ch01-u1" }),
+      testLesson({ id: "ch01-l02", slug: "lecon-2", order: 2, unitId: "ch01-u1" }),
+    ];
+
+    const custom = createTestDependencies({
+      catalog: buildContentCatalog(raw).catalog,
+    });
+
+    try {
+      const chapter = getChapterDetail(custom.deps, "chapitre-1");
+      expect(chapter.units).toHaveLength(1);
+      expect(chapter.units[0]).toMatchObject({
+        id: "ch01-u1",
+        label: "1.1",
+        title: "Unité de test",
+        lessonCount: 2,
+        readLessonCount: 0,
+      });
+      expect(chapter.units[0]?.lessons.map((lesson) => lesson.slug)).toEqual([
+        "lecon-1",
+        "lecon-2",
+      ]);
+      expect(chapter.lessons.map((lesson) => lesson.locked)).toEqual([false, true]);
+      expect(getLessonDetail(custom.deps, "chapitre-1", "lecon-2").locked).toBe(true);
+
+      custom.deps.repository.setLessonRead(LOCAL_PROFILE_ID, "ch01-l01", true, TEST_STARTED_AT);
+
+      const unlocked = getChapterDetail(custom.deps, "chapitre-1");
+      expect(unlocked.units[0]?.readLessonCount).toBe(1);
+      expect(unlocked.lessons.map((lesson) => lesson.locked)).toEqual([false, false]);
+      expect(getLessonDetail(custom.deps, "chapitre-1", "lecon-2").locked).toBe(false);
+    } finally {
+      custom.close();
+    }
   });
 });

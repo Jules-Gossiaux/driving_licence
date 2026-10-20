@@ -1,6 +1,7 @@
 ---
 id: ch02-l06
 chapterId: ch02
+unitId: ch02-u1
 slug: retrait-suspension-decheance
 order: 6
 title: "Retrait, suspension ou déchéance"
@@ -16,6 +17,13 @@ coreQuestionIds:
   - ch02-q042
   - ch02-q043
   - ch02-q044
+sectionChecks:
+  - section: l-interdiction-temporaire-decidee-par-l-agent
+    questionIds:
+      - ch02-q041
+  - section: la-decheance-prononcee-par-le-juge
+    questionIds:
+      - ch02-q043
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 15

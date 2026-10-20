@@ -1,6 +1,7 @@
 ---
 id: ch02-l07
 chapterId: ch02
+unitId: ch02-u1
 slug: alcool-delit-de-fuite-assurance
 order: 7
 title: "Alcool, délit de fuite et assurance"
@@ -16,6 +17,13 @@ coreQuestionIds:
   - ch02-q050
   - ch02-q051
   - ch02-q052
+sectionChecks:
+  - section: l-alcool-et-l-ethylotest-antidemarrage
+    questionIds:
+      - ch02-q050
+  - section: le-delit-de-fuite
+    questionIds:
+      - ch02-q052
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 16

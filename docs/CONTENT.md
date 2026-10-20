@@ -97,6 +97,13 @@ order: 1
 title: "Chapitre 1 — Le permis B et le remorquage"
 summary: >-
   Résumé affiché dans la liste et le tableau de bord.
+units: # facultatif
+  - id: ch01-u1
+    slug: unites-de-base
+    order: 1
+    label: "1.1"
+    title: "Les unités de base"
+    summary: "Résumé facultatif de l'unité."
 sourceRefs:
   - documentId: official-category-b
 version: 1
@@ -106,6 +113,9 @@ reviewedBy: "Nom" # obligatoire si published
 reviewedAt: 2026-10-20T09:00:00Z # ISO 8601 UTC, obligatoire si published
 ```
 
+Lorsqu'un chapitre déclare des `units`, chaque leçon doit renseigner `unitId`. Un chapitre sans
+unité reste autorisé (les leçons sont alors listées à plat).
+
 ## Leçon
 
 Fichier Markdown avec front matter YAML :
@@ -114,6 +124,7 @@ Fichier Markdown avec front matter YAML :
 ---
 id: ch01-l01
 chapterId: ch01
+unitId: ch01-u1
 slug: le-permis-b-et-ses-limites
 order: 1
 title: "Le permis B et ses limites"
@@ -126,6 +137,13 @@ coreQuestionIds:
   - ch01-q002
   - ch01-q003
   - ch01-q004
+sectionChecks: # facultatif
+  - section: les-categories
+    questionIds:
+      - ch01-q001
+  - section: les-limites
+    questionIds:
+      - ch01-q002
 sourceRefs:
   - documentId: official-category-b
 version: 1
@@ -141,7 +159,12 @@ dans le `media.yaml` du chapitre.
 
 `keyPoints` contient 1 à 6 entrées. Le corps ne peut pas être vide. `coreQuestionIds` est
 facultatif, mais une leçon publiée doit déclarer **4 ou 5 questions cœur** appartenant à la leçon.
-Ces questions alimentent le bouton « S'entraîner sur cette leçon ».
+
+Le parcours de leçon découpe le corps sur les titres `##` : le contenu avant le premier titre
+devient une section « Introduction ». Les titres `###` restent dans la section courante. Pour une
+leçon à parcours, `sectionChecks` place une ou deux questions cœur juste après une section, par son
+identifiant de slug (par exemple `les-categories`). Au moins une question cœur doit rester pour le
+quiz final. Les questions cœur restantes sont posées à la fin, dans l'ordre de `coreQuestionIds`.
 
 ## Question
 
@@ -194,10 +217,11 @@ Contraintes :
 
 ## Pilote du chapitre 2.1
 
-Le chapitre 2 est amorcé par un pilote limité au point 2.1 (« La réglementation ») : 7 leçons,
-8 questions par leçon et 56 questions au total, toutes en `draft` et `ai_assisted`. Chaque leçon
-déclare 4 questions cœur (`ch02-q001` à `ch02-q004` pour la première, etc.) et propose un
-entraînement dédié ; le reste du pool alimente l'entraînement du chapitre.
+Le chapitre 2 est amorcé par un pilote limité au point 2.1 (« La réglementation ») : une unité
+`ch02-u1`, 7 leçons, 8 questions par leçon et 56 questions au total, toutes en `draft` et
+`ai_assisted`. Chaque leçon déclare 4 questions cœur (`ch02-q001` à `ch02-q004` pour la première,
+etc.), deux vérifications de section et propose un parcours linéaire ; le reste du pool alimente
+l'entraînement du chapitre.
 
 Les faits sont tirés des pages 10 à 16 du manuel et recoupés avec la synthèse des pages 42 à 44.
 Les questions illustrées utilisent les SVG originaux de `public/media/ch02/`. Le contenu doit être
@@ -261,6 +285,10 @@ Le loader vérifie notamment :
 - présence des fichiers sous `public/` ;
 - droits compatibles avec le type de média ;
 - `coreQuestionIds` : 4 ou 5 questions du chapitre, sans doublon, pour toute leçon publiée ;
+- unités : identifiants, slugs et ordres uniques, `unitId` obligatoire si le chapitre déclare des
+  unités ;
+- `sectionChecks` : section existante (slug dérivé du titre `##`), question cœur, pas de doublon,
+  au moins une question cœur restante pour la fin ;
 - médias d'options déclarés et résolus ;
 - pool d'examen suffisant (avertissement) ;
 - chapitre sans question (avertissement).

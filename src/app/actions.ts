@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { InvalidAnswerError } from "@/application/errors";
 import { submitExamAnswer, startExam } from "@/application/exam";
+import { saveLessonRunStep, startLessonRun } from "@/application/lesson-runs";
 import {
   startChapterPractice,
   startLessonPractice,
@@ -37,6 +38,38 @@ export async function startLessonPracticeAction(formData: FormData): Promise<voi
 export async function startReviewAction(): Promise<void> {
   const { attemptId } = startReviewSession(getAppDependencies());
   redirect(`/entrainement/${attemptId}`);
+}
+
+export async function startLessonRunAction(formData: FormData): Promise<void> {
+  const lessonId = formData.get("lessonId");
+  if (typeof lessonId !== "string" || lessonId.length === 0) {
+    throw new Error("Leçon manquante pour démarrer le parcours.");
+  }
+
+  const deps = getAppDependencies();
+  const entry = deps.catalog.lessonById.get(lessonId);
+
+  if (!entry) {
+    throw new Error(`Leçon inconnue : ${lessonId}.`);
+  }
+
+  const { attemptId } = startLessonRun(deps, lessonId);
+
+  redirect(
+    `/chapitres/${entry.chapter.chapter.slug}/lecons/${entry.lesson.slug}/parcours/${attemptId}`,
+  );
+}
+
+export async function saveLessonRunStepAction(input: {
+  attemptId: string;
+  stepIndex: number;
+}): Promise<{ ok: boolean }> {
+  try {
+    saveLessonRunStep(getAppDependencies(), input);
+    return { ok: true };
+  } catch {
+    return { ok: false };
+  }
 }
 
 export async function startExamAction(formData: FormData): Promise<void> {

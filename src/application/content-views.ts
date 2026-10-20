@@ -51,6 +51,7 @@ export type ChapterOverview = {
 
 export type LessonSummary = {
   id: string;
+  unitId: string | null;
   slug: string;
   title: string;
   summary: string;
@@ -59,17 +60,43 @@ export type LessonSummary = {
   published: boolean;
   keyPoints: string[];
   readAt: string | null;
+  locked: boolean;
+};
+
+export type UnitOverview = {
+  id: string;
+  slug: string;
+  label: string;
+  title: string;
+  summary: string | null;
+  order: number;
+  lessonCount: number;
+  readLessonCount: number;
+  lessons: LessonSummary[];
 };
 
 export type ChapterDetail = ChapterOverview & {
   lessons: LessonSummary[];
+  units: UnitOverview[];
+};
+
+export type LessonNavigation = {
+  slug: string;
+  title: string;
 };
 
 export type LessonDetail = {
   lesson: Lesson;
   chapterSlug: string;
   chapterTitle: string;
+  unit: { id: string; label: string; title: string } | null;
+  sections: Array<{ id: string; title: string }>;
+  hasQuestions: boolean;
+  locked: boolean;
   readAt: string | null;
+  activeRunAttemptId: string | null;
+  previousLesson: LessonNavigation | null;
+  nextLesson: LessonNavigation | null;
   sources: SourceLabel[];
 };
 
@@ -172,9 +199,14 @@ export function toChapterOverview(
   };
 }
 
-export function toLessonSummary(lesson: Lesson, readAt: string | null): LessonSummary {
+export function toLessonSummary(
+  lesson: Lesson,
+  readAt: string | null,
+  locked = false,
+): LessonSummary {
   return {
     id: lesson.id,
+    unitId: lesson.unitId ?? null,
     slug: lesson.slug,
     title: lesson.title,
     summary: lesson.summary,
@@ -183,6 +215,7 @@ export function toLessonSummary(lesson: Lesson, readAt: string | null): LessonSu
     published: lesson.status === "published",
     keyPoints: lesson.keyPoints,
     readAt,
+    locked,
   };
 }
 

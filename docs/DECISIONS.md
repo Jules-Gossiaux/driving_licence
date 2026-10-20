@@ -156,3 +156,20 @@ SVG originaux, jamais des scans du manuel.
 **Conséquences** : les réponses illustrées ne nécessitent aucune migration, car le `mediaId` est
 conservé dans le snapshot JSON de la tentative ; les anciennes tentatives relisent `null`. Chaque
 média reste soumis à la validation d'existence, de droits et d'alternative textuelle.
+
+## D-015 — Micro-sections, parcours linéaire et reprise persistée (2026-10-20)
+
+**Contexte** : les leçons restaient de longues pages ; l'objectif est une progression courte de type
+Duolingo, avec des questions intercalées et un déblocage progressif.
+
+**Décision** : découper le corps Markdown sur les titres `##` sans dupliquer le contenu en base.
+Placer une ou deux questions cœur après certaines sections via `sectionChecks`, garder les autres
+pour le quiz final. Persister un parcours comme une tentative `practice` portant `lesson_id`, avec
+`lesson_step` pour reprendre au bon endroit. Le déblocage est linéaire dans le chapitre ; une leçon
+terminée reste consultable.
+
+**Conséquences** : aucune nouvelle valeur de `mode` ni reconstruction de la table `attempts` (le
+`CHECK` SQLite imposerait de recréer la table et le runner de migrations applique chaque fichier
+dans une transaction). Les sections restent dérivées du Markdown, donc un renommage de titre change
+les identifiants utilisés par `sectionChecks` : la validation le signale. Le mode `practice` existant
+reste compatible avec les écrans d'entraînement et de résultats.

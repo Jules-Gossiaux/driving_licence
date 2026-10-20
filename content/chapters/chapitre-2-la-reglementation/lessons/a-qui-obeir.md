@@ -1,6 +1,7 @@
 ---
 id: ch02-l03
 chapterId: ch02
+unitId: ch02-u1
 slug: a-qui-obeir
 order: 3
 title: "À qui obéir ?"
@@ -16,6 +17,13 @@ coreQuestionIds:
   - ch02-q018
   - ch02-q019
   - ch02-q020
+sectionChecks:
+  - section: trois-positions-trois-couleurs
+    questionIds:
+      - ch02-q017
+  - section: le-piege-du-bras-gauche
+    questionIds:
+      - ch02-q019
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 12

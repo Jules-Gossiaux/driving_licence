@@ -1,6 +1,7 @@
 ---
 id: ch02-l05
 chapterId: ch02
+unitId: ch02-u1
 slug: payer-une-amende
 order: 5
 title: "Payer une amende : les étapes"
@@ -16,6 +17,13 @@ coreQuestionIds:
   - ch02-q034
   - ch02-q035
   - ch02-q036
+sectionChecks:
+  - section: 1-la-perception-immediate
+    questionIds:
+      - ch02-q033
+  - section: 3-l-ordre-de-paiement
+    questionIds:
+      - ch02-q035
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 14

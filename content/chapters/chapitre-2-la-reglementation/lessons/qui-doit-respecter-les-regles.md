@@ -1,6 +1,7 @@
 ---
 id: ch02-l01
 chapterId: ch02
+unitId: ch02-u1
 slug: qui-doit-respecter-les-regles
 order: 1
 title: "Qui doit respecter les règles ?"
@@ -16,6 +17,13 @@ coreQuestionIds:
   - ch02-q002
   - ch02-q003
   - ch02-q004
+sectionChecks:
+  - section: les-passagers
+    questionIds:
+      - ch02-q004
+  - section: les-pietons
+    questionIds:
+      - ch02-q002
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 10

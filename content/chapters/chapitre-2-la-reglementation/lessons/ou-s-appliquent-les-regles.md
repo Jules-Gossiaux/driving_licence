@@ -1,6 +1,7 @@
 ---
 id: ch02-l02
 chapterId: ch02
+unitId: ch02-u1
 slug: ou-s-appliquent-les-regles
 order: 2
 title: "Où s'appliquent les règles ?"
@@ -16,6 +17,13 @@ coreQuestionIds:
   - ch02-q010
   - ch02-q011
   - ch02-q012
+sectionChecks:
+  - section: de-facade-a-facade
+    questionIds:
+      - ch02-q010
+  - section: les-parkings-de-grande-surface
+    questionIds:
+      - ch02-q012
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 11

@@ -5,6 +5,13 @@ title: "Chapitre 2 — La réglementation"
 summary: >-
   Qui doit respecter le Code de la route, où il s'applique, à qui obéir, les
   quatre degrés d'infraction et les sanctions qui en découlent.
+units:
+  - id: ch02-u1
+    slug: usagers-et-reglementation
+    order: 1
+    label: "2.1"
+    title: "Les usagers et la réglementation"
+    summary: "Le champ d'application du Code, les personnes qui donnent des ordres et les sanctions encourues."
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 10

@@ -47,11 +47,12 @@ src/
   application/            cas d'usage et ports
     exam.ts               démarrer, ouvrir, répondre, finaliser un examen
     practice.ts           entraînement, révision, correction immédiate
+    lesson-runs.ts        parcours de leçon : sections, vérifications, reprise
     queries.ts            projections pour le tableau de bord et les résultats
     content-views.ts      type des dépendances et projections de contenu
     ports.ts              contrat LearningRepository
   domain/                 logique pure, testable sans I/O
-    content/              schémas Zod, catalogue, erreurs
+    content/              schémas Zod, catalogue, sections Markdown, erreurs
     exam/                 scoring, sélection aléatoire, temps
     learning/             types de tentative, snapshots, erreurs
     clock.ts, profile.ts
@@ -75,18 +76,19 @@ var/                      base locale, ignorée par Git
 
 ## Routes
 
-| Route                                   | Rôle                                                        |
-| --------------------------------------- | ----------------------------------------------------------- |
-| `/`                                     | Tableau de bord : statistiques, reprise, chapitres, presets |
-| `/chapitres`                            | Liste des chapitres                                         |
-| `/chapitres/[slug]`                     | Détail d'un chapitre et de ses leçons                       |
-| `/chapitres/[slug]/lecons/[lessonSlug]` | Leçon Markdown, points clés, sources, entraînement dédié    |
-| `/entrainement`                         | Choix d'un entraînement par chapitre ou d'une révision      |
-| `/entrainement/[attemptId]`             | Runner d'entraînement ou de révision, correction immédiate  |
-| `/examen`                               | Presets disponibles, verrouillés ou non                     |
-| `/examen/[attemptId]`                   | Runner d'examen chronométré                                 |
-| `/resultats/[attemptId]`                | Résultat, détail par question, explications et sources      |
-| `/revision`                             | Questions dont la dernière réponse est fausse               |
+| Route                                                        | Rôle                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `/`                                                          | Tableau de bord : statistiques, reprise, chapitres, presets  |
+| `/chapitres`                                                 | Liste des chapitres                                          |
+| `/chapitres/[slug]`                                          | Détail d'un chapitre, unités, leçons verrouillées ou lues    |
+| `/chapitres/[slug]/lecons/[lessonSlug]`                      | Leçon : programme, sources, démarrage ou reprise du parcours |
+| `/chapitres/[slug]/lecons/[lessonSlug]/parcours/[attemptId]` | Runner de micro-leçon : sections et questions mêlées         |
+| `/entrainement`                                              | Choix d'un entraînement par chapitre ou d'une révision       |
+| `/entrainement/[attemptId]`                                  | Runner d'entraînement ou de révision, correction immédiate   |
+| `/examen`                                                    | Presets disponibles, verrouillés ou non                      |
+| `/examen/[attemptId]`                                        | Runner d'examen chronométré                                  |
+| `/resultats/[attemptId]`                                     | Résultat, détail par question, explications et sources       |
+| `/revision`                                                  | Questions dont la dernière réponse est fausse                |
 
 Toutes les pages sont rendues dynamiquement (`force-dynamic` dans le layout racine) : la
 progression et les tentatives ne doivent jamais être servies depuis un cache statique.
@@ -97,6 +99,8 @@ progression et les tentatives ne doivent jamais être servies depuis un cache st
 | ---------------------------- | --------------------------------------------------------------- |
 | `startPracticeAction`        | Crée une tentative `practice` pour un chapitre                  |
 | `startLessonPracticeAction`  | Crée un entraînement à partir des questions cœur d'une leçon    |
+| `startLessonRunAction`       | Crée ou reprend le parcours d'une leçon débloquée               |
+| `saveLessonRunStepAction`    | Mémorise l'étape courante du parcours (progression seule)       |
 | `startReviewAction`          | Crée une tentative `review` à partir des dernières erreurs      |
 | `startExamAction`            | Crée ou reprend l'examen actif d'un preset                      |
 | `submitTrainingAnswerAction` | Enregistre une réponse et renvoie la correction immédiate       |
@@ -147,8 +151,17 @@ serveur recalcule le temps restant à chaque ouverture. Le dépôt sait marquer 
 
 - Entraînement : jusqu'à 10 questions du chapitre, sans chronomètre, correction immédiate après
   chaque réponse, score final = nombre de bonnes réponses, sans seuil de réussite.
-- Entraînement de leçon : mêmes règles, à partir des `coreQuestionIds` de la leçon (4 ou 5
-  questions), accessible depuis la page de la leçon.
+- Parcours de leçon : le corps Markdown est découpé en sections (`##`). Une ou deux questions cœur
+  peuvent être intercalées après certaines sections (`sectionChecks`) ; les questions restantes
+  forment le quiz final. L'ordre est conservé, les options sont mélangées, et l'étape courante est
+  mémorisée dans `attempts.lesson_step`. Reprendre un parcours actif ne crée pas de tentative.
+- Les parcours sont persistés comme des tentatives `practice` avec `lesson_id` ; le mode `exam`
+  n'est pas réutilisé. Terminer le parcours marque la leçon lue, ce qui débloque la suivante.
+- Déblocage linéaire : une leçon non lue exige que la précédente soit lue. Une leçon terminée reste
+  accessible pour révision.
+- Une leçon sans questions cœur conserve l'ancien affichage de lecture et le marquage manuel.
+- Entraînement de leçon : mêmes règles qu'un entraînement, à partir des `coreQuestionIds` (4 ou 5
+  questions), accessible séparément du parcours.
 - Révision : sélection des questions dont la **dernière** réponse en tentative terminée est fausse,
   éventuellement filtrées par chapitre, puis mêmes règles qu'un entraînement.
 - Une tentative d'entraînement terminée ne peut plus recevoir de réponse.
@@ -182,10 +195,16 @@ Chaque question référence au moins un document source traçable (`sourceRefs`)
 vivent sous `/media/` et doivent exister dans `public/` ; les scans de `data/` ne sont jamais
 référencés.
 
+Un chapitre peut déclarer des `units` (identifiant, slug, ordre, label, titre). Chaque leçon peut
+être rattachée à une unité via `unitId` ; si un chapitre déclare des unités, toutes ses leçons
+doivent en référencer une.
+
 Une leçon peut déclarer `coreQuestionIds` (4 ou 5 à la publication) ; ces questions alimentent son
-entraînement dédié. Une option de question peut référencer un `mediaId` déclaré dans un manifeste
-média global ou de chapitre. Le lien est conservé dans le snapshot JSON, ce qui rend les réponses
-illustrées compatibles avec les tentatives existantes.
+parcours et son entraînement dédié. `sectionChecks` associe une section Markdown à une ou deux
+questions cœur ; au moins une question cœur doit rester pour le quiz final. Les sections sont
+dérivées du corps (`##`), sans stockage séparé. Une option de question peut référencer un `mediaId`
+déclaré dans un manifeste média global ou de chapitre. Le lien est conservé dans le snapshot JSON,
+ce qui rend les réponses illustrées compatibles avec les tentatives existantes.
 
 ## Modèle SQLite
 
@@ -195,19 +214,21 @@ profiles 1 ─── N attempts 1 ─── N attempt_questions
     └───── N lesson_progress
 ```
 
-| Table               | Rôle                                                                           |
-| ------------------- | ------------------------------------------------------------------------------ |
-| `profiles`          | Profil local unique (`local`) ; prépare un futur multi-profils                 |
-| `lesson_progress`   | Date de lecture par leçon                                                      |
-| `attempts`          | Mode, statut, configuration de notation, score, dates, position courante       |
-| `attempt_questions` | Snapshot JSON, dates de présentation/échéance/réponse, correction, temps passé |
-| `schema_migrations` | Version, checksum SHA-256, date d'application                                  |
+| Table               | Rôle                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| `profiles`          | Profil local unique (`local`) ; prépare un futur multi-profils                     |
+| `lesson_progress`   | Date de lecture par leçon                                                          |
+| `attempts`          | Mode, statut, configuration de notation, score, dates, position, parcours de leçon |
+| `attempt_questions` | Snapshot JSON, dates de présentation/échéance/réponse, correction, temps passé     |
+| `schema_migrations` | Version, checksum SHA-256, date d'application                                      |
 
 Invariants principaux :
 
 - `question_count > 0`, pénalités strictement positives, seuil de réussite positif ou nul.
 - `UNIQUE (attempt_id, question_id)` : une question n'apparaît qu'une fois par tentative.
 - Index partiel `attempts_one_active_exam_per_profile` : au plus un examen `in_progress` par profil.
+- `lesson_id` identifie un parcours de leçon ; `lesson_step` mémorise l'étape courante et ne recule
+  jamais. Un parcours actif est unique par profil et par leçon.
 - Les dates sont stockées en ISO 8601 UTC (`...Z`).
 - Le score d'examen vaut `max(0, question_count − pénalités)` ; le score d'entraînement vaut le
   nombre de bonnes réponses.

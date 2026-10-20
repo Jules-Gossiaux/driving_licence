@@ -130,7 +130,8 @@ export default function DashboardPage() {
                       <div>
                         <p className="text-sm font-semibold text-slate-950">{attempt.title}</p>
                         <p className="text-xs text-slate-500">
-                          {modeLabel(attempt.mode)} · {formatDateTime(attempt.completedAt)}
+                          {attempt.kind === "lesson" ? "Leçon" : modeLabel(attempt.mode)} ·{" "}
+                          {formatDateTime(attempt.completedAt)}
                         </p>
                       </div>
                       <div className="flex items-center gap-3 text-sm">
