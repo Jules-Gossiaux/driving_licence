@@ -193,3 +193,20 @@ correction et n'ont pas de reprise dédiée. L'examen de chapitre réutilise le 
 les snapshots, mais accepte les brouillons pour rendre le pilote testable avant publication ; il
 partage l'unicité de l'examen actif avec les presets. Le seuil de 41/50 est cohérent avec le format
 belge et ne s'applique qu'à cette évaluation finale.
+
+## D-017 — Parcours visuel dérivé de la progression, sans état dédié (2026-10-20)
+
+**Contexte** : la page chapitre présentait les leçons comme une liste ; l'objectif est un parcours
+ludique de type Duolingo, lisible d'un coup d'œil, avec une notion claire d'étape courante.
+
+**Décision** : remplacer la liste par un chemin serpentin rendu côté serveur. Les nœuds alternent
+gauche, centre et droite ; un tracé SVG décoratif les relie. L'état est entièrement dérivé des
+données existantes : `readAt` pour terminé, `locked` pour verrouillé, sinon courant. Les leçons
+terminées restent des liens « Revoir » ; les nœuds verrouillés ne sont pas interactifs. Le défi
+d'unité est le dernier nœud de l'unité et l'examen de chapitre une carte d'évaluation finale. Aucun
+nouvel état de parcours n'est stocké.
+
+**Conséquences** : la progression reste une seule source de vérité (`lesson_progress`). La mise en
+page est calculée à partir du nombre de leçons et s'allonge avec les unités ; elle ne dépend
+d'aucune bibliothèque d'animation ni de composant client. Les tests E2E vérifient le nœud courant,
+le verrouillage et l'accès de révision.

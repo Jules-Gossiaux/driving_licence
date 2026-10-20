@@ -24,6 +24,9 @@ versionnage sémantique.
 - Examen de chapitre : 50 questions, 15 s par question, seuil de 41 sur 50, débloqué quand toutes
   les leçons du chapitre sont terminées et que la banque compte assez de questions éligibles.
   Reprise d'un examen actif et pénalités identiques au format officiel.
+- Parcours visuel Duolingo sur la page chapitre : chemin serpentin chapitre → unité → leçons, avec
+  nœuds verrouillés, courant et terminés, accès de révision aux leçons terminées, défi d'unité en
+  jalon de fin d'unité et examen de chapitre en évaluation finale.
 - Cycle de publication `draft` / `in_review` / `published` avec relecture obligatoire.
 - Chapitre 1 de démonstration : 2 leçons et 5 questions en brouillon.
 - Pilote du chapitre 2.1 : 7 leçons, 56 questions et 4 questions cœur par leçon, toutes en

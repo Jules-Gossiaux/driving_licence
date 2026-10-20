@@ -63,7 +63,7 @@ src/
     db/repository.ts      implémentation SQLite du port
     db/client.ts          instance unique côté serveur
     container.ts          assemblage des dépendances
-  components/             composants d'interface (runner, navigation, UI)
+  components/             composants d'interface (runner, navigation, parcours, UI)
   lib/format.ts           formats d'affichage français
 content/                  source de vérité du contenu (versionnée)
 public/media/             médias servis par l'application
@@ -80,7 +80,7 @@ var/                      base locale, ignorée par Git
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `/`                                                          | Tableau de bord : statistiques, reprise, chapitres, presets  |
 | `/chapitres`                                                 | Liste des chapitres                                          |
-| `/chapitres/[slug]`                                          | Détail d'un chapitre, unités, leçons et évaluations          |
+| `/chapitres/[slug]`                                          | Parcours visuel : unités, leçons et évaluations              |
 | `/chapitres/[slug]/lecons/[lessonSlug]`                      | Leçon : programme, sources, démarrage ou reprise du parcours |
 | `/chapitres/[slug]/lecons/[lessonSlug]/parcours/[attemptId]` | Runner de micro-leçon : sections et questions mêlées         |
 | `/entrainement`                                              | Choix d'un entraînement par chapitre ou d'une révision       |
@@ -185,6 +185,21 @@ serveur recalcule le temps restant à chaque ouverture. Le dépôt sait marquer 
   les leçons requises ne sont pas lues, même si le bouton est contourné.
 - Un chapitre sans unités (chapitre 1 de démonstration) n'affiche pas d'examen de chapitre ; son
   entraînement et le preset démo restent disponibles.
+
+### Parcours visuel
+
+La page chapitre rend un chemin serpentin (`src/components/learning-path.tsx`) : un tracé SVG
+décoratif relie des nœuds espacés régulièrement, dont la position alterne entre le centre, la
+droite et la gauche. Chaque nœud de leçon est dérivé des données de progression :
+
+- **terminé** : `readAt` renseigné, pastille verte et lien « Revoir » vers la leçon ;
+- **courant** : première leçon non verrouillée, pastille indigo et `aria-current="step"` ;
+- **verrouillé** : `locked`, pastille grise non interactive avec libellé « Verrouillée ».
+
+Le défi d'unité forme le dernier nœud du chemin et l'examen de chapitre une évaluation finale
+distincte, avec les mêmes règles de déblocage que les cas d'usage. Le parcours est rendu côté
+serveur ; seules les actions de lancement sont des formulaires. Aucun état de parcours
+supplémentaire n'est stocké : la vérité reste `lesson_progress` et les tentatives.
 
 ### Statistiques et révision des erreurs
 

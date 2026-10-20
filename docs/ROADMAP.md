@@ -13,6 +13,8 @@
   quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
 - Défi d'unité (20 questions, sans seuil) et examen de chapitre (50 questions / 15 s / 41 sur 50),
   débloqués par la lecture des leçons et vérifiés côté serveur.
+- Parcours visuel type Duolingo : chemin chapitre → unité → leçons, états verrouillé, courant et
+  terminé, accès de révision aux leçons terminées, défi et examen intégrés comme jalons.
 - Entraînement par chapitre avec correction immédiate (10 questions maximum) et entraînement dédié
   aux questions cœur d'une leçon.
 - Questions à options illustrées par des SVG originaux.
@@ -39,13 +41,7 @@
 
 ## Prochaines étapes
 
-### 1. Parcours visuel du chapitre 2.1
-
-- chemin chapitre → unité → leçons, avec états verrouillé, courant et terminé ;
-- accès de révision aux leçons déjà terminées ;
-- intégration du défi d'unité et de l'examen de chapitre comme jalons du chemin.
-
-### 2. Relire le pilote 2.1, puis poursuivre le chapitre 2
+### 1. Relire le pilote 2.1, puis poursuivre le chapitre 2
 
 - relire les 7 leçons et 56 questions du pilote, corriger puis publier ;
 - rédiger le point 2.2 selon le même format ;
@@ -53,14 +49,14 @@
 - vérifier chaque règle sur les sources officielles belges, renseigner sources et médias ;
 - atteindre au moins 50 questions publiées pour débloquer le preset officiel.
 
-### 3. Renforcer l'outillage de contenu
+### 2. Renforcer l'outillage de contenu
 
 - Aide à la saisie ou import contrôlé depuis les documents de `data/`.
 - Statistiques par chapitre et par difficulté.
 - Prévisualisation d'une question avant publication.
 - Détection des questions jamais utilisées ou trop souvent échouées.
 
-### 4. Compléter l'application
+### 3. Compléter l'application
 
 - Action d'abandon explicite d'un examen.
 - Page d'historique complet des tentatives.
@@ -68,7 +64,7 @@
 - Réinitialisation guidée de la progression.
 - Amélioration de l'accessibilité (navigation clavier, annonces du chronomètre).
 
-### 5. Envisager la suite « produit »
+### 4. Envisager la suite « produit »
 
 - Répétition espacée, si les données d'usage montrent un besoin.
 - Multi-profils puis synchronisation en ligne.

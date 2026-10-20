@@ -66,15 +66,16 @@ Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et
 1. **Leçon** : marquer lue puis non lue, continuer vers la suivante et vérifier le marquage
    automatique.
 2. **Entraînement** : démarrer une session de 5 questions, répondre, lire la correction, terminer.
-3. **Micro-leçon du chapitre 2** : vérifier le verrouillage de la deuxième leçon, suivre les
-   sections et les vérifications de la première, terminer le parcours, constater le déblocage et
-   l'ouverture de la leçon suivante.
+3. **Micro-leçon du chapitre 2** : vérifier sur le parcours visuel le nœud courant et la deuxième
+   leçon verrouillée, suivre les sections et les vérifications de la première, terminer le
+   parcours, constater le déblocage, le lien « Revoir » et l'ouverture de la leçon suivante.
 4. **Examen** : vérifier le verrouillage du preset officiel, démarrer le preset démo, laisser la
    première question expirer, répondre aux suivantes, vérifier le résultat, la mention « Temps
    écoulé » et le lien vers la révision des erreurs.
-5. **Défi et examen de chapitre** : vérifier les boutons verrouillés, marquer directement les
-   leçons du chapitre 2 comme lues dans la base E2E isolée, lancer le défi de 20 questions,
-   vérifier le dernier score, puis démarrer l'examen de chapitre et son chronomètre.
+5. **Défi et examen de chapitre** : vérifier les boutons verrouillés et le nœud courant, marquer
+   directement les leçons du chapitre 2 comme lues dans la base E2E isolée, constater que le défi
+   devient le seul nœud courant, lancer ses 20 questions, vérifier le dernier score, puis démarrer
+   l'examen de chapitre et son chronomètre.
 
 L'examen E2E attend une expiration réelle de 15 s (plus la grâce de 2 s), d'où une durée totale
 d'environ 30 s.
@@ -96,8 +97,9 @@ En complément des tests automatisés :
 
 1. `pnpm content:validate` ne signale aucune erreur ; lire les avertissements.
 2. Tableau de bord : statistiques, reprise d'examen, presets verrouillés/disponibles.
-3. Leçon : parcours de micro-sections, reprise après rechargement, verrouillage linéaire, sources
-   affichées, rendu Markdown, entraînement de leçon ; leçon sans questions cœur en lecture simple.
+3. Leçon et parcours visuel : chemin serpentin, états verrouillé/courant/terminé, accès « Revoir »,
+   défi et examen en jalons, reprise après rechargement, sources affichées, rendu Markdown,
+   entraînement de leçon ; leçon sans questions cœur en lecture simple.
 4. Entraînement : correction immédiate, explication, médias, options illustrées, fin de session.
 5. Examen : compte à rebours, passage automatique après expiration, résultat et détail.
 6. Défi d'unité : verrouillage puis lancement après lecture des leçons, 20 questions sans seuil,
