@@ -14,9 +14,7 @@ export default function ReviewPage() {
   return (
     <div>
       <PageHeader
-        eyebrow="Révision"
         title="Vos dernières erreurs"
-        description="Pour chaque question, la dernière tentative terminée fait foi. Les corrections restent affichées ici pour être relues sans pression de temps."
         actions={
           items.length > 0 ? (
             <form action={startReviewAction}>
@@ -34,7 +32,7 @@ export default function ReviewPage() {
       {items.length === 0 ? (
         <EmptyState
           title="Aucune erreur à réviser"
-          description="Terminez un entraînement ou un examen pour alimenter cette page. Les questions répondues correctement lors de votre dernière tentative n'y apparaissent pas."
+          description="Terminez une session pour alimenter cette page."
           action={
             <Link
               href="/entrainement"

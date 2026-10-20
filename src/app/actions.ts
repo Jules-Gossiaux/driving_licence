@@ -90,6 +90,42 @@ export async function submitExamAnswerAction(input: {
   redirect(`/examen/${input.attemptId}`);
 }
 
+export async function continueLessonAction(formData: FormData): Promise<void> {
+  const lessonId = formData.get("lessonId");
+  const chapterSlug = formData.get("chapterSlug");
+  const nextLessonSlug = formData.get("nextLessonSlug");
+
+  if (typeof lessonId !== "string" || typeof chapterSlug !== "string") {
+    throw new Error("Informations de leçon incomplètes.");
+  }
+
+  const deps = getAppDependencies();
+  const chapterContent = deps.catalog.chapterBySlug.get(chapterSlug);
+  const entry = deps.catalog.lessonById.get(lessonId);
+
+  if (!chapterContent || !entry || entry.chapter.chapter.id !== chapterContent.chapter.id) {
+    throw new Error(`Leçon inconnue : ${lessonId}.`);
+  }
+
+  deps.repository.setLessonRead(LOCAL_PROFILE_ID, lessonId, true, deps.clock.now().toISOString());
+
+  revalidatePath(`/chapitres/${chapterContent.chapter.slug}/lecons/${entry.lesson.slug}`);
+  revalidatePath(`/chapitres/${chapterContent.chapter.slug}`);
+  revalidatePath("/");
+
+  if (typeof nextLessonSlug === "string" && nextLessonSlug.length > 0) {
+    const nextLesson = chapterContent.lessons.find((lesson) => lesson.slug === nextLessonSlug);
+
+    if (!nextLesson) {
+      throw new Error(`Leçon suivante inconnue : ${nextLessonSlug}.`);
+    }
+
+    redirect(`/chapitres/${chapterContent.chapter.slug}/lecons/${nextLesson.slug}`);
+  }
+
+  redirect(`/chapitres/${chapterContent.chapter.slug}`);
+}
+
 export async function markLessonReadAction(formData: FormData): Promise<void> {
   const lessonId = formData.get("lessonId");
   const chapterSlug = formData.get("chapterSlug");

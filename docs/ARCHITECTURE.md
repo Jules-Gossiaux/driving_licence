@@ -102,6 +102,7 @@ progression et les tentatives ne doivent jamais être servies depuis un cache st
 | `submitTrainingAnswerAction` | Enregistre une réponse et renvoie la correction immédiate       |
 | `submitExamAnswerAction`     | Enregistre une réponse, passe à la question suivante ou termine |
 | `markLessonReadAction`       | Met à jour la progression de lecture d'une leçon                |
+| `continueLessonAction`       | Marque la leçon lue et ouvre la suivante ou le chapitre         |
 
 Les entrées `FormData` sont validées avant usage. Les mutations ne se produisent que sur une
 action explicite, jamais sur un GET.

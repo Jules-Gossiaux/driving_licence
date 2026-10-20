@@ -28,12 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 >
                   B
                 </span>
-                <span className="leading-tight">
-                  <span className="block text-sm font-semibold text-slate-950">Permis B</span>
-                  <span className="block text-xs text-slate-500">
-                    Théorie · Belgique francophone
-                  </span>
-                </span>
+                <span className="text-sm font-semibold text-slate-950">Permis B</span>
               </Link>
               <NavLinks />
             </div>
@@ -42,12 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <footer className="border-t border-slate-200 bg-white">
-            <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs leading-relaxed text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-              <p>
-                Projet d&apos;apprentissage personnel. Les contenus de démonstration doivent être
-                relus avant d&apos;être considérés comme fiables.
-              </p>
-              <p>Données enregistrées localement, sans compte en ligne.</p>
+            <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-slate-500 sm:px-6">
+              Contenu de démonstration à relire · données locales
             </div>
           </footer>
         </div>

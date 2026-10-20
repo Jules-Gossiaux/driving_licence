@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {
+  continueLessonAction,
   markLessonReadAction,
   startLessonPracticeAction,
   startPracticeAction,
 } from "@/app/actions";
 import { ContentNotFoundError } from "@/application/errors";
 import { getChapterDetail, getLessonDetail } from "@/application/queries";
-import { PageHeader, StatusBadge } from "@/components/ui";
+import { PageHeader } from "@/components/ui";
 import { getAppDependencies } from "@/infrastructure/container";
 import { formatDateTime } from "@/lib/format";
 
@@ -53,22 +54,16 @@ export default async function LessonPage({ params }: PageProps) {
 
   return (
     <div>
-      <nav aria-label="Fil d'Ariane" className="mb-4 text-sm text-slate-500">
-        <Link href="/chapitres" className="hover:text-slate-900 hover:underline">
-          Chapitres
-        </Link>
-        <span aria-hidden="true"> / </span>
-        <Link href={`/chapitres/${chapter.slug}`} className="hover:text-slate-900 hover:underline">
-          {chapter.title}
-        </Link>
-        <span aria-hidden="true"> / </span>
-        <span className="text-slate-700">{detail.lesson.title}</span>
-      </nav>
+      <Link
+        href={`/chapitres/${chapter.slug}`}
+        className="mb-4 inline-flex text-sm font-medium text-slate-500 hover:text-slate-900"
+      >
+        ← Chapitre {chapter.order}
+      </Link>
 
       <PageHeader
         eyebrow={`Leçon ${detail.lesson.order}`}
         title={detail.lesson.title}
-        description={detail.lesson.summary}
         actions={
           <>
             <form action={markLessonReadAction}>
@@ -112,16 +107,11 @@ export default async function LessonPage({ params }: PageProps) {
         }
       />
 
-      <div className="mb-5 flex flex-wrap items-center gap-2 text-sm">
-        <StatusBadge status={detail.lesson.status} />
-        {detail.readAt ? (
-          <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200 ring-inset">
-            Lue le {formatDateTime(detail.readAt)}
-          </span>
-        ) : (
-          <span className="text-xs text-slate-500">Pas encore marquée comme lue</span>
-        )}
-      </div>
+      {detail.readAt ? (
+        <p className="mb-5 inline-flex rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200 ring-inset">
+          Lue le {formatDateTime(detail.readAt)}
+        </p>
+      ) : null}
 
       <div className="grid gap-6 lg:grid-cols-3">
         <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:col-span-2">
@@ -172,17 +162,31 @@ export default async function LessonPage({ params }: PageProps) {
                 </Link>
               ) : null}
               {nextLesson ? (
-                <Link
-                  href={`/chapitres/${chapter.slug}/lecons/${nextLesson.slug}`}
-                  className="block rounded-lg border border-slate-200 p-3 text-slate-700 hover:bg-slate-50"
-                >
-                  <span className="block text-xs text-slate-500">Leçon suivante</span>
-                  {nextLesson.title}
-                </Link>
-              ) : null}
-              {!previousLesson && !nextLesson ? (
-                <p className="text-slate-500">Cette leçon est la seule du chapitre.</p>
-              ) : null}
+                <form action={continueLessonAction}>
+                  <input type="hidden" name="lessonId" value={detail.lesson.id} />
+                  <input type="hidden" name="chapterSlug" value={chapter.slug} />
+                  <input type="hidden" name="nextLessonSlug" value={nextLesson.slug} />
+                  <button
+                    type="submit"
+                    className="block w-full rounded-lg border border-slate-200 p-3 text-left text-slate-700 hover:bg-slate-50"
+                  >
+                    <span className="block text-xs text-slate-500">Leçon suivante</span>
+                    {nextLesson.title}
+                  </button>
+                </form>
+              ) : (
+                <form action={continueLessonAction}>
+                  <input type="hidden" name="lessonId" value={detail.lesson.id} />
+                  <input type="hidden" name="chapterSlug" value={chapter.slug} />
+                  <button
+                    type="submit"
+                    className="block w-full rounded-lg border border-slate-200 p-3 text-left text-slate-700 hover:bg-slate-50"
+                  >
+                    <span className="block text-xs text-slate-500">Dernière leçon</span>
+                    Terminer le chapitre
+                  </button>
+                </form>
+              )}
             </div>
           </nav>
         </aside>

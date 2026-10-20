@@ -15,13 +15,16 @@ test("parcourt une leçon et met à jour sa progression", async ({ page }) => {
 
   await page.getByRole("button", { name: "Marquer comme non lue" }).click();
   await expect(page.getByRole("button", { name: "Marquer comme lue" })).toBeVisible();
+
+  await page.getByRole("button", { name: /Leçon suivante/ }).click();
+  await expect(page).toHaveURL(/lecons\/tracter-une-remorque$/);
+  await page.goto("/chapitres/chapitre-1-permis-b/lecons/le-permis-b-et-ses-limites");
+  await expect(page.getByText(/^Lue le /)).toBeVisible();
 });
 
 test("termine un entraînement et affiche la correction", async ({ page }) => {
   await page.goto("/entrainement");
-  await expect(
-    page.getByRole("heading", { level: 1, name: "Vérifier ce que vous avez retenu" }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Entraînement" })).toBeVisible();
 
   await page.getByRole("button", { name: /S'entraîner \(5\)/ }).click();
   await expect(page).toHaveURL(/\/entrainement\/.+/);
@@ -49,9 +52,7 @@ test("termine un entraînement et affiche la correction", async ({ page }) => {
 
 test("termine un examen chronométré et alimente la révision", async ({ page }) => {
   await page.goto("/examen");
-  await expect(
-    page.getByRole("heading", { level: 1, name: "Se mesurer au format de l'examen" }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Examen blanc" })).toBeVisible();
   await expect(page.getByText("Verrouillé", { exact: true })).toBeVisible();
 
   await page.getByRole("button", { name: "Démarrer l'examen" }).click();

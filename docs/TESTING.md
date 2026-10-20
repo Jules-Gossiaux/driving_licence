@@ -58,7 +58,8 @@ Vérifié lors de la dernière exécution : **13 fichiers, 99 tests Vitest** et 
 
 `tests/e2e/learning-flow.spec.ts`, exécuté en série :
 
-1. **Leçon** : marquer lue puis non lue, vérifier le changement d'état.
+1. **Leçon** : marquer lue puis non lue, continuer vers la suivante et vérifier le marquage
+   automatique.
 2. **Entraînement** : démarrer une session de 5 questions, répondre, lire la correction, terminer.
 3. **Examen** : vérifier le verrouillage du preset officiel, démarrer le preset démo, laisser la
    première question expirer, répondre aux suivantes, vérifier le résultat, la mention « Temps

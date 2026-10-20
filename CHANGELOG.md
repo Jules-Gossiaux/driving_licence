@@ -32,6 +32,13 @@ versionnage sémantique.
 - Documentation : README, règles de travail, contribution, architecture, développement, tests,
   contenu, décisions et feuille de route.
 
+### Modifié
+
+- La leçon en cours est marquée lue automatiquement quand on ouvre la leçon suivante ou que l'on
+  termine le chapitre.
+- Interface allégée : header, footer et descriptions secondaires réduits ; pictogrammes du
+  conducteur et du tram redessinés.
+
 ### Sécurité
 
 - Les DTO publics d'examen n'exposent ni la bonne réponse ni l'explication.
