@@ -11,6 +11,8 @@
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
 - Unités de chapitre et parcours de micro-leçons : sections Markdown, vérifications intercalées,
   quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
+- Défi d'unité (20 questions, sans seuil) et examen de chapitre (50 questions / 15 s / 41 sur 50),
+  débloqués par la lecture des leçons et vérifiés côté serveur.
 - Entraînement par chapitre avec correction immédiate (10 questions maximum) et entraînement dédié
   aux questions cœur d'une leçon.
 - Questions à options illustrées par des SVG originaux.
@@ -20,7 +22,7 @@
   insuffisant ; preset de démonstration (5 questions, brouillons autorisés).
 - Résultats détaillés avec explications, médias et sources.
 - Persistance SQLite avec migrations versionnées et snapshots des questions.
-- Tests : 119 tests Vitest (15 fichiers) et 4 parcours Playwright.
+- Tests : 135 tests Vitest (18 fichiers) et 5 parcours Playwright.
 - Documentation d'architecture, de développement, de test, de contenu et de décisions.
 
 ### Limites connues
@@ -37,11 +39,11 @@
 
 ## Prochaines étapes
 
-### 1. Compléter les parcours 2.1
+### 1. Parcours visuel du chapitre 2.1
 
-- défi d'unité sans seuil, construit sur les questions du parcours ;
-- examen de chapitre avec seuil, débloqué après les unités ;
-- parcours visuel chapitre → unité → leçons, avec états verrouillé, courant et terminé.
+- chemin chapitre → unité → leçons, avec états verrouillé, courant et terminé ;
+- accès de révision aux leçons déjà terminées ;
+- intégration du défi d'unité et de l'examen de chapitre comme jalons du chemin.
 
 ### 2. Relire le pilote 2.1, puis poursuivre le chapitre 2
 

@@ -1,11 +1,21 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { startPracticeAction } from "@/app/actions";
-import type { LessonSummary } from "@/application/content-views";
+import {
+  startChapterExamAction,
+  startPracticeAction,
+  startUnitChallengeAction,
+} from "@/app/actions";
+import type {
+  ChapterDetail,
+  ChapterExamOverview,
+  LessonSummary,
+  UnitOverview,
+} from "@/application/content-views";
 import { ContentNotFoundError } from "@/application/errors";
 import { getChapterDetail } from "@/application/queries";
 import { PageHeader, ProgressBar } from "@/components/ui";
 import { getAppDependencies } from "@/infrastructure/container";
+import { formatDateTime, formatScore } from "@/lib/format";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -58,6 +68,112 @@ function LessonRow({ chapterSlug, lesson }: { chapterSlug: string; lesson: Lesso
     >
       {content}
     </Link>
+  );
+}
+
+function UnitChallengeCard({ chapterId, unit }: { chapterId: string; unit: UnitOverview }) {
+  const { challenge } = unit;
+  const locked = !challenge.unlocked;
+  const latest = challenge.latestCompleted;
+
+  return (
+    <div className="mt-3 flex flex-col gap-4 rounded-2xl border border-indigo-200 bg-indigo-50/60 p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-[11px] font-semibold text-indigo-800">
+            Défi
+          </span>
+          <h4 className="text-sm font-semibold text-slate-950">Défi {unit.label}</h4>
+        </div>
+        <p className="mt-1 text-xs text-slate-600">
+          {challenge.questionCount} question{challenge.questionCount > 1 ? "s" : ""} mélangée
+          {challenge.questionCount > 1 ? "s" : ""} · sans seuil
+        </p>
+        {latest ? (
+          <p className="mt-1 text-xs text-slate-600">
+            Dernier score : {formatScore(latest.score, latest.questionCount)} ·{" "}
+            {formatDateTime(latest.completedAt)}
+          </p>
+        ) : null}
+        {locked ? (
+          <p className="mt-2 text-xs font-medium text-slate-500">
+            Terminez les {unit.lessonCount} leçons de l&apos;unité pour le débloquer (
+            {unit.readLessonCount}/{unit.lessonCount}).
+          </p>
+        ) : null}
+      </div>
+      <form action={startUnitChallengeAction}>
+        <input type="hidden" name="chapterId" value={chapterId} />
+        <input type="hidden" name="unitId" value={unit.id} />
+        <button
+          type="submit"
+          disabled={locked || challenge.questionCount === 0}
+          className="w-full rounded-xl bg-indigo-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
+        >
+          {locked
+            ? "Défi verrouillé"
+            : challenge.questionCount === 0
+              ? "Aucune question"
+              : latest
+                ? "Refaire le défi"
+                : "Lancer le défi"}
+        </button>
+      </form>
+    </div>
+  );
+}
+
+function ChapterExamCard({ chapter, exam }: { chapter: ChapterDetail; exam: ChapterExamOverview }) {
+  const locked = !exam.unlocked;
+  const latest = exam.latestCompleted;
+  const missingLessons = chapter.readLessonCount < chapter.lessonCount;
+  const missingQuestions = exam.availableQuestions < exam.questionCount;
+
+  return (
+    <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p className="text-xs font-semibold tracking-wide text-slate-500 uppercase">
+            Évaluation finale
+          </p>
+          <h2 className="mt-1 text-lg font-semibold text-slate-950">Examen du chapitre</h2>
+          <p className="mt-1 text-sm text-slate-600">
+            {exam.questionCount} questions · {exam.secondsPerQuestion} s · seuil {exam.passingScore}
+            /{exam.questionCount}
+          </p>
+          {chapter.units.length === 1 ? (
+            <p className="mt-1 text-xs text-slate-500">
+              Périmètre actuel : unité {chapter.units[0]?.label}.
+            </p>
+          ) : null}
+          {latest ? (
+            <p className="mt-2 text-xs font-medium text-slate-600">
+              Dernier essai : {formatScore(latest.score, latest.questionCount)} ·{" "}
+              {latest.passed ? "réussi" : "échoué"} le {formatDateTime(latest.completedAt)}
+            </p>
+          ) : null}
+          {locked ? (
+            <p className="mt-2 text-xs font-medium text-slate-500">
+              {missingLessons
+                ? `Terminez toutes les leçons du chapitre (${chapter.readLessonCount}/${chapter.lessonCount}).`
+                : missingQuestions
+                  ? `Banque insuffisante : ${exam.availableQuestions}/${exam.questionCount} questions.`
+                  : "Examen indisponible."}
+            </p>
+          ) : null}
+        </div>
+        <form action={startChapterExamAction}>
+          <input type="hidden" name="chapterId" value={chapter.id} />
+          <button
+            type="submit"
+            disabled={locked}
+            className="w-full rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
+          >
+            {locked ? "Examen verrouillé" : latest ? "Repasser l'examen" : "Passer l'examen"}
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }
 
@@ -147,6 +263,7 @@ export default async function ChapterPage({ params }: PageProps) {
                       </li>
                     ))}
                   </ol>
+                  <UnitChallengeCard chapterId={chapter.id} unit={unit} />
                 </section>
               ))}
             </div>
@@ -159,6 +276,8 @@ export default async function ChapterPage({ params }: PageProps) {
               ))}
             </ol>
           )}
+
+          {chapter.exam ? <ChapterExamCard chapter={chapter} exam={chapter.exam} /> : null}
         </section>
 
         <aside className="space-y-6">

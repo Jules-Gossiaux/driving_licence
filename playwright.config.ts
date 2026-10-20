@@ -1,7 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const port = 3100;
-const databasePath = `./var/e2e-${Date.now()}.db`;
+const databasePath = process.env.E2E_DATABASE_PATH ?? `./var/e2e-${Date.now()}.db`;
+process.env.E2E_DATABASE_PATH = databasePath;
 
 export default defineConfig({
   testDir: "./tests/e2e",

@@ -25,3 +25,10 @@ export class LessonLockedError extends Error {
     this.name = "LessonLockedError";
   }
 }
+
+export class ProgressionLockedError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "ProgressionLockedError";
+  }
+}

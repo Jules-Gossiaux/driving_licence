@@ -5,9 +5,15 @@ import {
   type PublicQuestion,
 } from "@/domain/learning/snapshot";
 import type { Attempt, AttemptMode } from "@/domain/learning/types";
+import { UNIT_CHALLENGE_QUESTION_COUNT } from "@/domain/learning/progression";
 import { shuffle } from "@/domain/exam/selection";
 import type { Question } from "@/domain/content/schemas";
-import { ContentNotFoundError, InvalidAnswerError, PracticeUnavailableError } from "./errors";
+import {
+  ContentNotFoundError,
+  InvalidAnswerError,
+  PracticeUnavailableError,
+  ProgressionLockedError,
+} from "./errors";
 import { AttemptConflictError, AttemptNotFoundError } from "@/domain/learning/errors";
 import {
   resolveMedia,
@@ -27,6 +33,7 @@ export type TrainingQuestionView = Omit<PublicQuestion, "options"> & {
 export type TrainingSessionView = {
   attemptId: string;
   mode: Extract<AttemptMode, "practice" | "review">;
+  eyebrow: string;
   title: string;
   questions: TrainingQuestionView[];
   initialPosition: number;
@@ -83,6 +90,7 @@ export function createTrainingAttempt(
   input: {
     mode: Extract<AttemptMode, "practice" | "review">;
     chapterId: string | null;
+    unitId?: string | null;
     lessonId?: string | null;
     questions: Question[];
     shuffleQuestions?: boolean;
@@ -106,6 +114,7 @@ export function createTrainingAttempt(
     mode: input.mode,
     presetId: null,
     chapterId: input.chapterId,
+    unitId: input.unitId ?? null,
     lessonId: input.lessonId ?? null,
     questionCount: snapshots.length,
     secondsPerQuestion: null,
@@ -169,6 +178,49 @@ export function startLessonPractice(
   });
 }
 
+export function startUnitChallenge(
+  deps: AppDependencies,
+  chapterId: string,
+  unitId: string,
+): { attemptId: string } {
+  const entry = resolveChapter(deps, chapterId);
+  const unit = entry.chapter.units?.find((candidate) => candidate.id === unitId);
+
+  if (!unit) {
+    throw new ContentNotFoundError(`unité ${unitId}`);
+  }
+
+  const unitLessons = entry.lessons.filter((lesson) => lesson.unitId === unit.id);
+  const readLessonIds = new Set(
+    deps.repository.getLessonProgress(LOCAL_PROFILE_ID).map((progress) => progress.lessonId),
+  );
+
+  if (unitLessons.length === 0 || unitLessons.some((lesson) => !readLessonIds.has(lesson.id))) {
+    throw new ProgressionLockedError(
+      "Terminez toutes les leçons de l'unité avant de lancer son défi.",
+    );
+  }
+
+  const lessonIds = new Set(unitLessons.map((lesson) => lesson.id));
+  const questions = entry.questions.filter((question) =>
+    question.lessonIds.some((lessonId) => lessonIds.has(lessonId)),
+  );
+
+  if (questions.length === 0) {
+    throw new PracticeUnavailableError("Aucune question n'est disponible pour cette unité.");
+  }
+
+  const selected = shuffle(questions, deps.random).slice(0, UNIT_CHALLENGE_QUESTION_COUNT);
+
+  return createTrainingAttempt(deps, {
+    mode: "practice",
+    chapterId,
+    unitId: unit.id,
+    questions: selected,
+    shuffleQuestions: false,
+  });
+}
+
 export function startReviewSession(
   deps: AppDependencies,
   chapterId?: string,
@@ -206,6 +258,9 @@ export function getTrainingSession(deps: AppDependencies, attemptId: string): Tr
   const chapterEntry = attempt.chapterId
     ? deps.catalog.chapterById.get(attempt.chapterId)
     : undefined;
+  const unitEntry = attempt.unitId
+    ? chapterEntry?.chapter.units?.find((unit) => unit.id === attempt.unitId)
+    : undefined;
 
   const initialPosition =
     attempt.status === "completed"
@@ -215,7 +270,10 @@ export function getTrainingSession(deps: AppDependencies, attemptId: string): Tr
   return {
     attemptId: attempt.id,
     mode: attempt.mode,
-    title: chapterEntry?.chapter.title ?? "Révision des erreurs",
+    eyebrow: unitEntry ? "Défi" : attempt.mode === "review" ? "Révision" : "Entraînement",
+    title: unitEntry
+      ? `${unitEntry.label} — ${unitEntry.title}`
+      : (chapterEntry?.chapter.title ?? "Révision des erreurs"),
     questions: attempt.questions.map((question) => toTrainingQuestion(deps, question.snapshot)),
     initialPosition,
     alreadyCompleted: attempt.status === "completed",

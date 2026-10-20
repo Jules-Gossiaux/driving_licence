@@ -173,3 +173,23 @@ terminée reste consultable.
 dans une transaction). Les sections restent dérivées du Markdown, donc un renommage de titre change
 les identifiants utilisés par `sectionChecks` : la validation le signale. Le mode `practice` existant
 reste compatible avec les écrans d'entraînement et de résultats.
+
+## D-016 — Défi d'unité sans seuil, examen de chapitre avec seuil (2026-10-20)
+
+**Contexte** : le parcours linéaire des leçons manquait d'un jalon de fin d'unité et d'une
+évaluation finale de chapitre capable de valider les acquis avant de poursuivre.
+
+**Décision** : après lecture de toutes les leçons d'une unité, proposer un défi de 20 questions
+mélangées issues de l'unité, en mode entraînement (sans chronomètre ni seuil), avec affichage du
+dernier score. Après lecture de toutes les leçons du chapitre, proposer un examen de chapitre au
+format officiel (50 questions, 15 s, seuil 41/50, pénalités 1 et 5). Ajouter `attempts.unit_id`
+(migration `0004`) pour identifier les défis sans créer de nouveau `mode` ; identifier l'examen de
+chapitre par `mode = 'exam'`, `preset_id IS NULL` et `chapter_id`. Le déblocage est vérifié côté
+serveur et non seulement dans l'interface. Un chapitre sans unités n'obtient pas d'examen de
+chapitre.
+
+**Conséquences** : les défis restent des tentatives d'entraînement, réutilisent les écrans de
+correction et n'ont pas de reprise dédiée. L'examen de chapitre réutilise le moteur chronométré et
+les snapshots, mais accepte les brouillons pour rendre le pilote testable avant publication ; il
+partage l'unicité de l'examen actif avec les presets. Le seuil de 41/50 est cohérent avec le format
+belge et ne s'applique qu'à cette évaluation finale.

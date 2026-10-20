@@ -29,7 +29,7 @@ pnpm check:full                                  # check + build + E2E
 
 ## Inventaire actuel
 
-Vérifié lors de la dernière exécution : **15 fichiers, 119 tests Vitest** et **4 tests Playwright**.
+Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et **5 tests Playwright**.
 
 ### Unitaires
 
@@ -42,19 +42,22 @@ Vérifié lors de la dernière exécution : **15 fichiers, 119 tests Vitest** et
 | `tests/unit/domain/catalog.test.ts`               | Éligibilité, avertissements, tri, doublons, références inconnues, images, unités, sectionChecks |
 | `tests/unit/domain/sections.test.ts`              | Découpage `##`, introduction, blocs de code, slugs et doublons                                  |
 | `tests/unit/domain/snapshot.test.ts`              | Média d'option conservé, média nul pour une réponse non illustrée                               |
+| `tests/unit/domain/progression.test.ts`           | Déblocage du défi (toutes les leçons), de l'examen (pool suffisant), format officiel            |
 | `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 9 leçons, 61 questions, avertissement de pool                       |
 | `tests/unit/infrastructure/database-path.test.ts` | Chemins mémoire/relatifs, refus de `public/` et `data/`                                         |
 
 ### Intégration
 
-| Fichier                                               | Couverture                                                                                                                        |
-| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `tests/integration/migrations.test.ts`                | Application unique, checksum modifié, rollback sur SQL invalide, répertoire absent                                                |
-| `tests/integration/repository.test.ts`                | Snapshots, conflits de réponse, clôture, unicité de l'examen actif, statistiques, progression, parcours de leçon, snapshot altéré |
-| `tests/integration/application/exam-flow.test.ts`     | Démarrage/reprise, DTO publics, temps serveur, réponses invalides, temps écoulé, grâce, clôture, pool insuffisant                 |
-| `tests/integration/application/practice-flow.test.ts` | Session publique, entraînement de leçon, correction, complétion, plafond de 10, révision, absence d'erreurs                       |
-| `tests/integration/application/lesson-runs.test.ts`   | Ordre sections/questions, reprise sans recul, verrouillage, complétion et déblocage, corrections après réponse                    |
-| `tests/integration/application/queries.test.ts`       | Résultat complet, tentative en cours, tableau de bord, révision, chapitres/leçons, unités et verrous                              |
+| Fichier                                                | Couverture                                                                                                                        |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| `tests/integration/migrations.test.ts`                 | Application unique, checksum modifié, rollback sur SQL invalide, répertoire absent                                                |
+| `tests/integration/repository.test.ts`                 | Snapshots, conflits de réponse, clôture, unicité de l'examen actif, statistiques, progression, parcours de leçon, snapshot altéré |
+| `tests/integration/application/exam-flow.test.ts`      | Démarrage/reprise, DTO publics, temps serveur, réponses invalides, temps écoulé, grâce, clôture, pool insuffisant                 |
+| `tests/integration/application/practice-flow.test.ts`  | Session publique, entraînement de leçon, correction, complétion, plafond de 10, révision, absence d'erreurs                       |
+| `tests/integration/application/lesson-runs.test.ts`    | Ordre sections/questions, reprise sans recul, verrouillage, complétion et déblocage, corrections après réponse                    |
+| `tests/integration/application/unit-challenge.test.ts` | Verrouillage, tirage de 20 questions, en-tête du défi, complétion et dernier résultat, unité inconnue                             |
+| `tests/integration/application/chapter-exam.test.ts`   | Verrouillage, pool insuffisant, format 50/15/41, reprise, seuil et complétion, chapitre inconnu                                   |
+| `tests/integration/application/queries.test.ts`        | Résultat complet, tentative en cours, tableau de bord, révision, chapitres/leçons, unités, défis et examen de chapitre            |
 
 ### E2E
 
@@ -69,6 +72,9 @@ Vérifié lors de la dernière exécution : **15 fichiers, 119 tests Vitest** et
 4. **Examen** : vérifier le verrouillage du preset officiel, démarrer le preset démo, laisser la
    première question expirer, répondre aux suivantes, vérifier le résultat, la mention « Temps
    écoulé » et le lien vers la révision des erreurs.
+5. **Défi et examen de chapitre** : vérifier les boutons verrouillés, marquer directement les
+   leçons du chapitre 2 comme lues dans la base E2E isolée, lancer le défi de 20 questions,
+   vérifier le dernier score, puis démarrer l'examen de chapitre et son chronomètre.
 
 L'examen E2E attend une expiration réelle de 15 s (plus la grâce de 2 s), d'où une durée totale
 d'environ 30 s.
@@ -78,8 +84,10 @@ d'environ 30 s.
 - Les tests d'intégration ouvrent une base `:memory:` et appliquent les migrations réelles.
 - `tests/helpers/fixtures.ts` fournit le contenu de test, l'horloge, le générateur aléatoire et
   `createTestDependencies()`.
-- Les E2E utilisent une base neuve `var/e2e-<timestamp>.db`, le build `.next-e2e`, le port 3100 et
-  un seul worker. Ils ne modifient jamais `var/app.db`.
+- Les E2E utilisent une base neuve `var/e2e-<timestamp>.db` (chemin exposé par
+  `E2E_DATABASE_PATH`), le build `.next-e2e`, le port 3100 et un seul worker. Ils ne modifient
+  jamais `var/app.db`. Le parcours défi/examen écrit directement les lectures de leçons dans cette
+  base isolée pour éviter de rejouer sept micro-parcours.
 - Playwright ne réutilise pas un serveur existant (`reuseExistingServer: false`).
 
 ## Vérifications manuelles avant livraison
@@ -92,9 +100,11 @@ En complément des tests automatisés :
    affichées, rendu Markdown, entraînement de leçon ; leçon sans questions cœur en lecture simple.
 4. Entraînement : correction immédiate, explication, médias, options illustrées, fin de session.
 5. Examen : compte à rebours, passage automatique après expiration, résultat et détail.
-6. Révision : une erreur récente apparaît ; une bonne réponse ultérieure la retire.
-7. Rafraîchissement en cours d'examen : la tentative reprend sans réinitialiser le temps.
-8. Affichage mobile : navigation, runner, résultats.
+6. Défi d'unité : verrouillage puis lancement après lecture des leçons, 20 questions sans seuil,
+   score affiché sur la page du chapitre ; examen de chapitre : seuil 41/50 et reprise.
+7. Révision : une erreur récente apparaît ; une bonne réponse ultérieure la retire.
+8. Rafraîchissement en cours d'examen : la tentative reprend sans réinitialiser le temps.
+9. Affichage mobile : navigation, runner, résultats.
 
 ## Limites connues
 

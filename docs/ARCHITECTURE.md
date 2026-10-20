@@ -54,7 +54,7 @@ src/
   domain/                 logique pure, testable sans I/O
     content/              schémas Zod, catalogue, sections Markdown, erreurs
     exam/                 scoring, sélection aléatoire, temps
-    learning/             types de tentative, snapshots, erreurs
+    learning/             types de tentative, snapshots, erreurs, progression
     clock.ts, profile.ts
   infrastructure/
     content/loader.ts     lecture et validation de content/
@@ -80,13 +80,13 @@ var/                      base locale, ignorée par Git
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `/`                                                          | Tableau de bord : statistiques, reprise, chapitres, presets  |
 | `/chapitres`                                                 | Liste des chapitres                                          |
-| `/chapitres/[slug]`                                          | Détail d'un chapitre, unités, leçons verrouillées ou lues    |
+| `/chapitres/[slug]`                                          | Détail d'un chapitre, unités, leçons et évaluations          |
 | `/chapitres/[slug]/lecons/[lessonSlug]`                      | Leçon : programme, sources, démarrage ou reprise du parcours |
 | `/chapitres/[slug]/lecons/[lessonSlug]/parcours/[attemptId]` | Runner de micro-leçon : sections et questions mêlées         |
 | `/entrainement`                                              | Choix d'un entraînement par chapitre ou d'une révision       |
-| `/entrainement/[attemptId]`                                  | Runner d'entraînement ou de révision, correction immédiate   |
+| `/entrainement/[attemptId]`                                  | Runner d'entraînement, de défi ou de révision                |
 | `/examen`                                                    | Presets disponibles, verrouillés ou non                      |
-| `/examen/[attemptId]`                                        | Runner d'examen chronométré                                  |
+| `/examen/[attemptId]`                                        | Runner d'examen blanc ou d'examen de chapitre                |
 | `/resultats/[attemptId]`                                     | Résultat, détail par question, explications et sources       |
 | `/revision`                                                  | Questions dont la dernière réponse est fausse                |
 
@@ -102,7 +102,9 @@ progression et les tentatives ne doivent jamais être servies depuis un cache st
 | `startLessonRunAction`       | Crée ou reprend le parcours d'une leçon débloquée               |
 | `saveLessonRunStepAction`    | Mémorise l'étape courante du parcours (progression seule)       |
 | `startReviewAction`          | Crée une tentative `review` à partir des dernières erreurs      |
+| `startUnitChallengeAction`   | Crée un défi `practice` rattaché à une unité                    |
 | `startExamAction`            | Crée ou reprend l'examen actif d'un preset                      |
+| `startChapterExamAction`     | Crée ou reprend l'examen actif d'un chapitre                    |
 | `submitTrainingAnswerAction` | Enregistre une réponse et renvoie la correction immédiate       |
 | `submitExamAnswerAction`     | Enregistre une réponse, passe à la question suivante ou termine |
 | `markLessonReadAction`       | Met à jour la progression de lecture d'une leçon                |
@@ -166,6 +168,24 @@ serveur recalcule le temps restant à chaque ouverture. Le dépôt sait marquer 
   éventuellement filtrées par chapitre, puis mêmes règles qu'un entraînement.
 - Une tentative d'entraînement terminée ne peut plus recevoir de réponse.
 
+### Défi d'unité et examen de chapitre
+
+- Défi d'unité : accessible quand toutes les leçons de l'unité sont lues. Il tire 20 questions
+  parmi celles référencées par les leçons de l'unité, les mélange, et se déroule comme un
+  entraînement (`practice` avec `unit_id`) : sans chronomètre, correction immédiate, sans seuil.
+  Le dernier défi terminé est affiché sur la page du chapitre. Un nouveau défi peut être lancé
+  sans reprendre le précédent.
+- Examen de chapitre : accessible quand toutes les leçons du chapitre sont lues, que le chapitre
+  déclare des unités et que la banque contient au moins 50 questions `examEligible`. Il utilise le
+  moteur d'examen (`exam` sans `preset_id`, avec `chapter_id`) : 50 questions, 15 s par question,
+  seuil 41/50, pénalités 1 et 5. Un seul examen actif par profil, tous types confondus ; un examen
+  en cours est repris au lieu d'en créer un autre. Contrairement au preset officiel, il accepte les
+  questions en brouillon afin de rendre le pilote testable avant publication.
+- Les deux fonctionnalités vérifient le déblocage côté serveur : l'action refuse une tentative si
+  les leçons requises ne sont pas lues, même si le bouton est contourné.
+- Un chapitre sans unités (chapitre 1 de démonstration) n'affiche pas d'examen de chapitre ; son
+  entraînement et le preset démo restent disponibles.
+
 ### Statistiques et révision des erreurs
 
 `getCompletedStats` ignore les tentatives `abandoned` et les questions sans réponse.
@@ -214,13 +234,13 @@ profiles 1 ─── N attempts 1 ─── N attempt_questions
     └───── N lesson_progress
 ```
 
-| Table               | Rôle                                                                               |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| `profiles`          | Profil local unique (`local`) ; prépare un futur multi-profils                     |
-| `lesson_progress`   | Date de lecture par leçon                                                          |
-| `attempts`          | Mode, statut, configuration de notation, score, dates, position, parcours de leçon |
-| `attempt_questions` | Snapshot JSON, dates de présentation/échéance/réponse, correction, temps passé     |
-| `schema_migrations` | Version, checksum SHA-256, date d'application                                      |
+| Table               | Rôle                                                                           |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `profiles`          | Profil local unique (`local`) ; prépare un futur multi-profils                 |
+| `lesson_progress`   | Date de lecture par leçon                                                      |
+| `attempts`          | Mode, statut, configuration, score, dates, position, leçon ou unité            |
+| `attempt_questions` | Snapshot JSON, dates de présentation/échéance/réponse, correction, temps passé |
+| `schema_migrations` | Version, checksum SHA-256, date d'application                                  |
 
 Invariants principaux :
 
@@ -229,6 +249,9 @@ Invariants principaux :
 - Index partiel `attempts_one_active_exam_per_profile` : au plus un examen `in_progress` par profil.
 - `lesson_id` identifie un parcours de leçon ; `lesson_step` mémorise l'étape courante et ne recule
   jamais. Un parcours actif est unique par profil et par leçon.
+- `unit_id` identifie un défi d'unité terminé ; il est indépendant de `lesson_id` et ne crée pas de
+  reprise dédiée. L'examen de chapitre se reconnaît à `mode = 'exam'`, `preset_id IS NULL` et
+  `chapter_id` renseigné.
 - Les dates sont stockées en ISO 8601 UTC (`...Z`).
 - Le score d'examen vaut `max(0, question_count − pénalités)` ; le score d'entraînement vaut le
   nombre de bonnes réponses.

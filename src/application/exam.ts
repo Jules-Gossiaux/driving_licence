@@ -1,6 +1,7 @@
 import { getEligibleQuestionsForPreset } from "@/domain/content/catalog";
 import type { Question } from "@/domain/content/schemas";
 import { AttemptConflictError, AttemptNotFoundError } from "@/domain/learning/errors";
+import { CHAPTER_EXAM } from "@/domain/learning/progression";
 import {
   createQuestionSnapshot,
   toPublicQuestion,
@@ -22,7 +23,7 @@ import {
   isDeadlineExpired,
   remainingSeconds,
 } from "@/domain/exam/time";
-import { ContentNotFoundError, InvalidAnswerError } from "./errors";
+import { ContentNotFoundError, InvalidAnswerError, ProgressionLockedError } from "./errors";
 import {
   resolveMedia,
   resolveOptionViews,
@@ -153,6 +154,87 @@ export function startExam(
   }
 
   const selected = selectExamQuestions(pool, preset.questionCount, deps.random);
+
+  return {
+    attemptId: createExamAttempt(deps, {
+      presetId: preset.id,
+      chapterId: null,
+      questions: selected,
+      secondsPerQuestion: preset.secondsPerQuestion,
+      passingScore: preset.passingScore,
+      errorPenalty: preset.errorPenalty,
+      severeErrorPenalty: preset.severeErrorPenalty,
+    }),
+    resumed: false,
+  };
+}
+
+export function startChapterExam(
+  deps: AppDependencies,
+  chapterId: string,
+): { attemptId: string; resumed: boolean } {
+  const entry = deps.catalog.chapterById.get(chapterId);
+
+  if (!entry) {
+    throw new ContentNotFoundError(`chapitre ${chapterId}`);
+  }
+
+  if ((entry.chapter.units?.length ?? 0) === 0) {
+    throw new ProgressionLockedError("Ce chapitre ne contient pas encore d'unités.");
+  }
+
+  const active = deps.repository.getActiveExam(LOCAL_PROFILE_ID);
+
+  if (active) {
+    return { attemptId: active.id, resumed: true };
+  }
+
+  const readLessonIds = new Set(
+    deps.repository.getLessonProgress(LOCAL_PROFILE_ID).map((progress) => progress.lessonId),
+  );
+  const allLessonsRead =
+    entry.lessons.length > 0 && entry.lessons.every((lesson) => readLessonIds.has(lesson.id));
+
+  if (!allLessonsRead) {
+    throw new ProgressionLockedError(
+      "Terminez toutes les leçons du chapitre avant de passer son examen.",
+    );
+  }
+
+  const pool = entry.questions.filter((question) => question.examEligible);
+
+  if (pool.length < CHAPTER_EXAM.questionCount) {
+    throw new InsufficientQuestionPoolError(pool.length, CHAPTER_EXAM.questionCount);
+  }
+
+  const selected = selectExamQuestions(pool, CHAPTER_EXAM.questionCount, deps.random);
+
+  return {
+    attemptId: createExamAttempt(deps, {
+      presetId: null,
+      chapterId,
+      questions: selected,
+      secondsPerQuestion: CHAPTER_EXAM.secondsPerQuestion,
+      passingScore: CHAPTER_EXAM.passingScore,
+      errorPenalty: CHAPTER_EXAM.errorPenalty,
+      severeErrorPenalty: CHAPTER_EXAM.severeErrorPenalty,
+    }),
+    resumed: false,
+  };
+}
+
+function createExamAttempt(
+  deps: AppDependencies,
+  input: {
+    presetId: string | null;
+    chapterId: string | null;
+    questions: Question[];
+    secondsPerQuestion: number;
+    passingScore: number;
+    errorPenalty: number;
+    severeErrorPenalty: number;
+  },
+): string {
   const attemptId = deps.newId();
   const now = deps.clock.now();
 
@@ -160,15 +242,15 @@ export function startExam(
     id: attemptId,
     profileId: LOCAL_PROFILE_ID,
     mode: "exam",
-    presetId: preset.id,
-    chapterId: null,
-    questionCount: selected.length,
-    secondsPerQuestion: preset.secondsPerQuestion,
-    passingScore: preset.passingScore,
-    errorPenalty: preset.errorPenalty,
-    severeErrorPenalty: preset.severeErrorPenalty,
+    presetId: input.presetId,
+    chapterId: input.chapterId,
+    questionCount: input.questions.length,
+    secondsPerQuestion: input.secondsPerQuestion,
+    passingScore: input.passingScore,
+    errorPenalty: input.errorPenalty,
+    severeErrorPenalty: input.severeErrorPenalty,
     startedAt: now.toISOString(),
-    questions: selected.map((question, index) => ({
+    questions: input.questions.map((question, index) => ({
       position: index,
       snapshot: createExamSnapshot(question, deps.random),
     })),
@@ -178,10 +260,10 @@ export function startExam(
     attemptId,
     position: 0,
     presentedAt: now.toISOString(),
-    deadlineAt: addSeconds(now, preset.secondsPerQuestion).toISOString(),
+    deadlineAt: addSeconds(now, input.secondsPerQuestion).toISOString(),
   });
 
-  return { attemptId, resumed: false };
+  return attemptId;
 }
 
 export function openExamSession(deps: AppDependencies, attemptId: string): OpenExamResult {
@@ -245,7 +327,7 @@ export function openExamSession(deps: AppDependencies, attemptId: string): OpenE
     kind: "session",
     session: {
       attemptId: attempt.id,
-      title: preset?.title ?? "Examen blanc",
+      title: preset?.title ?? (chapterTitle ? `Examen · ${chapterTitle}` : "Examen blanc"),
       chapterTitle,
       questionNumber: current.position + 1,
       questionCount: attempt.questionCount,

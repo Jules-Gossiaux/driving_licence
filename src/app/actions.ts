@@ -3,12 +3,13 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { InvalidAnswerError } from "@/application/errors";
-import { submitExamAnswer, startExam } from "@/application/exam";
+import { submitExamAnswer, startChapterExam, startExam } from "@/application/exam";
 import { saveLessonRunStep, startLessonRun } from "@/application/lesson-runs";
 import {
   startChapterPractice,
   startLessonPractice,
   startReviewSession,
+  startUnitChallenge,
   submitTrainingAnswer,
   type TrainingAnswerActionResult,
 } from "@/application/practice";
@@ -33,6 +34,32 @@ export async function startLessonPracticeAction(formData: FormData): Promise<voi
 
   const { attemptId } = startLessonPractice(getAppDependencies(), lessonId);
   redirect(`/entrainement/${attemptId}`);
+}
+
+export async function startUnitChallengeAction(formData: FormData): Promise<void> {
+  const chapterId = formData.get("chapterId");
+  const unitId = formData.get("unitId");
+
+  if (typeof chapterId !== "string" || chapterId.length === 0) {
+    throw new Error("Chapitre manquant pour démarrer le défi.");
+  }
+  if (typeof unitId !== "string" || unitId.length === 0) {
+    throw new Error("Unité manquante pour démarrer le défi.");
+  }
+
+  const { attemptId } = startUnitChallenge(getAppDependencies(), chapterId, unitId);
+  redirect(`/entrainement/${attemptId}`);
+}
+
+export async function startChapterExamAction(formData: FormData): Promise<void> {
+  const chapterId = formData.get("chapterId");
+
+  if (typeof chapterId !== "string" || chapterId.length === 0) {
+    throw new Error("Chapitre manquant pour démarrer l'examen.");
+  }
+
+  const { attemptId } = startChapterExam(getAppDependencies(), chapterId);
+  redirect(`/examen/${attemptId}`);
 }
 
 export async function startReviewAction(): Promise<void> {

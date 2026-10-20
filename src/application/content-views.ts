@@ -63,6 +63,30 @@ export type LessonSummary = {
   locked: boolean;
 };
 
+export type LatestAttemptResult = {
+  attemptId: string;
+  score: number;
+  questionCount: number;
+  passed: boolean | null;
+  completedAt: string | null;
+};
+
+export type UnitChallengeOverview = {
+  questionCount: number;
+  availableQuestions: number;
+  unlocked: boolean;
+  latestCompleted: LatestAttemptResult | null;
+};
+
+export type ChapterExamOverview = {
+  questionCount: number;
+  secondsPerQuestion: number;
+  passingScore: number;
+  availableQuestions: number;
+  unlocked: boolean;
+  latestCompleted: LatestAttemptResult | null;
+};
+
 export type UnitOverview = {
   id: string;
   slug: string;
@@ -73,11 +97,13 @@ export type UnitOverview = {
   lessonCount: number;
   readLessonCount: number;
   lessons: LessonSummary[];
+  challenge: UnitChallengeOverview;
 };
 
 export type ChapterDetail = ChapterOverview & {
   lessons: LessonSummary[];
   units: UnitOverview[];
+  exam: ChapterExamOverview | null;
 };
 
 export type LessonNavigation = {

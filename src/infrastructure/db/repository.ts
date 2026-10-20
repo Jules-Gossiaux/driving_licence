@@ -25,6 +25,7 @@ type AttemptRow = {
   status: string;
   preset_id: string | null;
   chapter_id: string | null;
+  unit_id: string | null;
   lesson_id: string | null;
   lesson_step: number;
   question_count: number;
@@ -72,14 +73,14 @@ type QuestionIdRow = {
 };
 
 const ATTEMPT_COLUMNS = `
-  id, profile_id, mode, status, preset_id, chapter_id, lesson_id, lesson_step,
+  id, profile_id, mode, status, preset_id, chapter_id, unit_id, lesson_id, lesson_step,
   question_count, seconds_per_question, passing_score, error_penalty,
   severe_error_penalty, started_at, completed_at, score, passed, duration_ms,
   current_position
 `;
 
 const SUMMARY_COLUMNS = `
-  id, mode, status, preset_id, chapter_id, lesson_id, question_count,
+  id, mode, status, preset_id, chapter_id, unit_id, lesson_id, question_count,
   passing_score, started_at, completed_at, score, passed
 `;
 
@@ -144,6 +145,7 @@ function toAttemptSummary(row: {
   status: string;
   preset_id: string | null;
   chapter_id: string | null;
+  unit_id: string | null;
   lesson_id: string | null;
   question_count: number;
   passing_score: number | null;
@@ -158,6 +160,7 @@ function toAttemptSummary(row: {
     status: parseStatus(row.status),
     presetId: row.preset_id,
     chapterId: row.chapter_id,
+    unitId: row.unit_id,
     lessonId: row.lesson_id,
     questionCount: row.question_count,
     passingScore: row.passing_score,
@@ -231,10 +234,10 @@ export class SqliteLearningRepository implements LearningRepository {
       this.db
         .prepare(
           `INSERT INTO attempts (
-            id, profile_id, mode, status, preset_id, chapter_id, lesson_id,
+            id, profile_id, mode, status, preset_id, chapter_id, unit_id, lesson_id,
             question_count, seconds_per_question, passing_score, error_penalty,
             severe_error_penalty, started_at, lesson_step, current_position
-          ) VALUES (?, ?, ?, 'in_progress', ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0)`,
+          ) VALUES (?, ?, ?, 'in_progress', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0)`,
         )
         .run(
           attempt.id,
@@ -242,6 +245,7 @@ export class SqliteLearningRepository implements LearningRepository {
           attempt.mode,
           attempt.presetId,
           attempt.chapterId,
+          attempt.unitId ?? null,
           attempt.lessonId ?? null,
           attempt.questionCount,
           attempt.secondsPerQuestion,
@@ -293,6 +297,7 @@ export class SqliteLearningRepository implements LearningRepository {
       status: parseStatus(row.status),
       presetId: row.preset_id,
       chapterId: row.chapter_id,
+      unitId: row.unit_id,
       lessonId: row.lesson_id,
       lessonStep: row.lesson_step,
       questionCount: row.question_count,
@@ -330,6 +335,30 @@ export class SqliteLearningRepository implements LearningRepository {
           "ORDER BY started_at DESC, id DESC LIMIT 1",
       )
       .get(profileId, lessonId) as unknown as AttemptRow | undefined;
+
+    return row ? toAttemptSummary(row) : null;
+  }
+
+  getLatestCompletedUnitChallenge(profileId: string, unitId: string): AttemptSummary | null {
+    const row = this.db
+      .prepare(
+        `SELECT ${SUMMARY_COLUMNS} FROM attempts ` +
+          "WHERE profile_id = ? AND unit_id = ? AND mode = 'practice' AND status = 'completed' " +
+          "ORDER BY completed_at DESC, id DESC LIMIT 1",
+      )
+      .get(profileId, unitId) as unknown as AttemptRow | undefined;
+
+    return row ? toAttemptSummary(row) : null;
+  }
+
+  getLatestCompletedChapterExam(profileId: string, chapterId: string): AttemptSummary | null {
+    const row = this.db
+      .prepare(
+        `SELECT ${SUMMARY_COLUMNS} FROM attempts ` +
+          "WHERE profile_id = ? AND chapter_id = ? AND mode = 'exam' AND preset_id IS NULL " +
+          "AND status = 'completed' ORDER BY completed_at DESC, id DESC LIMIT 1",
+      )
+      .get(profileId, chapterId) as unknown as AttemptRow | undefined;
 
     return row ? toAttemptSummary(row) : null;
   }

@@ -53,6 +53,14 @@ export default async function ResultPage({ params }: PageProps) {
   const result = lookup.result;
   const isExam = result.mode === "exam";
   const success = isExam ? result.passed === true : true;
+  const eyebrow =
+    result.kind === "lesson"
+      ? "Leçon"
+      : result.kind === "unit"
+        ? "Défi"
+        : result.kind === "chapter-exam"
+          ? "Examen de chapitre"
+          : modeLabel(result.mode);
   const severeFaultCount = result.questions.filter(
     (question) => !question.isCorrect && !question.timedOut && question.severity === "severe",
   ).length;
@@ -60,8 +68,16 @@ export default async function ResultPage({ params }: PageProps) {
   return (
     <div>
       <PageHeader
-        eyebrow={modeLabel(result.mode)}
-        title={isExam ? (success ? "Examen réussi" : "Examen échoué") : "Session terminée"}
+        eyebrow={eyebrow}
+        title={
+          isExam
+            ? success
+              ? "Examen réussi"
+              : "Examen échoué"
+            : result.kind === "unit"
+              ? "Défi terminé"
+              : "Session terminée"
+        }
         description={`${result.title} · terminé le ${formatDateTime(result.completedAt)}`}
       />
 

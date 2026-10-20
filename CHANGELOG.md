@@ -18,6 +18,12 @@ versionnage sémantique.
   intercalées, quiz final, reprise à l'étape enregistrée et déblocage linéaire.
 - Migration `0003_lesson_runs.sql` : rattachement d'une tentative à une leçon et mémorisation de
   l'étape courante.
+- Migration `0004_attempt_units.sql` : rattachement d'une tentative à une unité pour les défis.
+- Défi d'unité : 20 questions mélangées issues des leçons de l'unité, sans chronomètre ni seuil,
+  débloqué quand toutes les leçons de l'unité sont terminées. Le dernier score reste affiché.
+- Examen de chapitre : 50 questions, 15 s par question, seuil de 41 sur 50, débloqué quand toutes
+  les leçons du chapitre sont terminées et que la banque compte assez de questions éligibles.
+  Reprise d'un examen actif et pénalités identiques au format officiel.
 - Cycle de publication `draft` / `in_review` / `published` avec relecture obligatoire.
 - Chapitre 1 de démonstration : 2 leçons et 5 questions en brouillon.
 - Pilote du chapitre 2.1 : 7 leçons, 56 questions et 4 questions cœur par leçon, toutes en
@@ -31,8 +37,8 @@ versionnage sémantique.
   détaillés et révision des dernières erreurs.
 - Contrôle du temps côté serveur avec délai de grâce de 2 secondes et protection contre les
   réponses hors délai.
-- Suite de tests : 119 tests Vitest (domaine, contenu, migrations, repository, cas d'usage) et
-  4 parcours Playwright avec base et build isolés.
+- Suite de tests : 135 tests Vitest (domaine, contenu, migrations, repository, cas d'usage) et
+  5 parcours Playwright avec base et build isolés.
 - Documentation : README, règles de travail, contribution, architecture, développement, tests,
   contenu, décisions et feuille de route.
 

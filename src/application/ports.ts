@@ -40,6 +40,8 @@ export interface LearningRepository {
   getAttempt(profileId: string, attemptId: string): Attempt | null;
   getActiveExam(profileId: string): AttemptSummary | null;
   getActiveLessonRun(profileId: string, lessonId: string): AttemptSummary | null;
+  getLatestCompletedUnitChallenge(profileId: string, unitId: string): AttemptSummary | null;
+  getLatestCompletedChapterExam(profileId: string, chapterId: string): AttemptSummary | null;
   listRecentCompletedAttempts(profileId: string, limit: number): AttemptSummary[];
   recordQuestionPresented(input: RecordQuestionPresentedInput): void;
   recordAnswer(input: RecordAnswerInput): void;
