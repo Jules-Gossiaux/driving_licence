@@ -124,10 +124,10 @@ button:disabled,
 
 .lesson-body table {
   width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  font-size: 0.925rem;
+  min-width: 36rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9375rem;
 }
 
 .lesson-body th {
@@ -139,16 +139,109 @@ button:disabled,
 
 .lesson-body th,
 .lesson-body td {
-  border: 1px solid #e2e8f0;
-  padding: 0.6rem 0.75rem;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.7rem 0.85rem;
   vertical-align: top;
+}
+
+.lesson-body tr > :last-child {
+  border-right: 0;
+}
+
+.lesson-body tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.lesson-table-scroll {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lesson-table-scroll:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .lesson-body img {
   height: auto;
   max-width: 100%;
-  border: 1px solid #e2e8f0;
   border-radius: 0.75rem;
+}
+
+.lesson-body figure {
+  margin: 0;
+}
+
+.media-dialog {
+  width: min(96vw, 1400px);
+  max-width: none;
+  max-height: 92dvh;
+  margin: auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #0f172a;
+}
+
+.media-dialog::backdrop {
+  background: rgb(15 23 42 / 80%);
+}
+
+.media-dialog-wide {
+  width: min(96vw, 1200px);
+}
+
+.media-dialog-card {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 25px 50px -12px rgb(15 23 42 / 45%);
+}
+
+.media-dialog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.6rem 0.75rem 0.6rem 1rem;
+}
+
+.media-dialog-button {
+  display: inline-grid;
+  height: 2.25rem;
+  min-width: 2.25rem;
+  place-items: center;
+  border-radius: 0.6rem;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.media-dialog-button:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.media-dialog-button:disabled {
+  opacity: 0.4;
+}
+
+.media-dialog-scroll {
+  max-height: calc(92dvh - 8rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 1rem;
+}
+
+.media-dialog-caption {
+  border-top: 1px solid #e2e8f0;
+  padding: 0.65rem 1rem;
+  color: #64748b;
+  font-size: 0.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,6 +1,7 @@
 ---
 # Gabarit de leçon. Le fichier doit s'appeler <slug>.md et rester en draft ou in_review.
-# Une leçon publiée doit déclarer 4 ou 5 questions cœur ; au moins une doit rester pour le quiz final.
+# 4 ou 5 questions cœur, dont au plus 2 dans l'unique vérification de section.
+# Les autres forment le quiz final ; le moteur repose ensuite les questions ratées.
 id: chxx-l01
 chapterId: chxx
 unitId: chxx-u1
@@ -19,12 +20,9 @@ coreQuestionIds:
   - chxx-q003
   - chxx-q004
 sectionChecks:
-  - section: premiere-section
+  - section: section-la-plus-dense
     questionIds:
       - chxx-q001
-  - section: deuxieme-section
-    questionIds:
-      - chxx-q002
 sourceRefs:
   - documentId: source-a-declarer
     page: 1
@@ -35,23 +33,17 @@ origin: ai_assisted
 
 ## Première section
 
-Écrire ici la règle générale, avec le sujet concerné et la situation. Deux ou trois phrases
-suffisent pour une idée.
+Poser la situation concrète et la règle générale, avec le sujet concerné et la valeur exacte. Deux
+ou trois phrases suffisent pour une idée.
+
+## Section la plus dense
+
+Développer l'exception, l'acteur ou le seuil qui prête à confusion. Utiliser une liste courte
+seulement si elle aide à comparer des cas. La vérification de section vient après cette section.
 
 ![Description utile de l'image](/media/chxx/fichier-a-remplacer.svg)
 
-## Deuxième section
+## Dernière section
 
-Développer une seule idée : une exception, un acteur, une procédure ou un seuil. Utiliser une liste
-seulement si elle aide à comparer des cas.
-
-> **Piège d'examen** — Décrire la confusion réelle et la règle qui permet de la trancher. Supprimer
-> ce bloc s'il n'y a pas de piège documenté.
-
-## Troisième section
-
-Terminer par le cas concret ou la conséquence pratique. Ne pas ajouter de section de remplissage.
-
-## À retenir
-
-Formuler une règle de décision utilisable en situation, en une ou deux phrases.
+Terminer par la conséquence pratique ou la décision à retenir en situation. Ne pas ajouter de
+section de résumé ni de bloc « Piège d'examen ».

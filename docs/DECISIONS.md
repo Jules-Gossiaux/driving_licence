@@ -210,3 +210,42 @@ nouvel état de parcours n'est stocké.
 page est calculée à partir du nombre de leçons et s'allonge avec les unités ; elle ne dépend
 d'aucune bibliothèque d'animation ni de composant client. Les tests E2E vérifient le nœud courant,
 le verrouillage et l'accès de révision.
+
+## D-018 — Défi court et enchaînement après résultat (2026-10-21)
+
+**Contexte** : un défi de 20 questions allongeait inutilement une unité. Le résultat ne proposait
+aucune étape suivante et affichait « Revoir mes erreurs » même après une tentative sans faute.
+
+**Décision** : ramener le défi d'unité à 10 questions, sans changer son mode ni son absence de
+seuil. Afficher « Leçon suivante » sur le résultat d'un défi lorsque l'unité est suivie d'une autre
+leçon. Masquer « Revoir mes erreurs » quand la tentative ne contient aucune réponse incorrecte.
+Ce format remplace celui de 20 questions de la D-016.
+
+**Conséquences** : le défi sous-échantillonne davantage les pools d'unité, ce qui renforce l'intérêt
+d'un pool d'au moins 20 questions par unité. Le défi de la dernière unité n'affiche pas de leçon
+suivante. La révision reste accessible depuis la navigation principale et depuis les résultats qui
+contiennent des erreurs.
+
+## D-019 — Audit éditorial, leçons sans pièges et reprise des erreurs (2026-10-21)
+
+**Contexte** : les leçons accumulaient des blocs « Piège d'examen » et « À retenir » qui répétaient
+la théorie, des schémas larges illisibles sur mobile et des tableaux mal rendus sur ordinateur. Les
+questions ratées en cours de leçon n'étaient pas retravaillées, et certaines explications restaient
+trop proches du manuel.
+
+**Décision** : une seule vérification de section par leçon, placée après la section la plus dense ;
+les questions cœur restantes forment le quiz final. Les erreurs du premier passage sont reposées à
+la fin, dans l'ordre, avec un score de reprise distinct ; le score initial reste la référence. Elles
+sont enregistrées comme des réponses de reprise sur `attempt_questions` (migration `0005`) et non
+comme de nouvelles lignes. Les blocs « Piège d'examen » et « À retenir » sont supprimés : une
+confusion déjà couverte par une question disparaît, une confusion non couverte devient une question,
+une nuance mineure est fondue dans la règle concernée. Le skill `reviser-contenu-permis-b` audite la
+longueur, la redondance, la réappropriation et la couverture. Trois leçons pilotes du point 2.1
+appliquent le format ; les schémas sont zoomables, les tableaux responsives et les schémas textuels
+remplacés par des cartes HTML.
+
+**Conséquences** : le runner gère une phase de reprise après le quiz et ne marque la leçon terminée
+qu'à la fin de cette phase. Une leçon conserve 4 ou 5 questions cœur, mais une seule est consommée
+par la vérification de section. Les blocs de piège restants seront retirés au fil des audits sans
+perte de couverture : chaque règle retirée doit rester vérifiable par une question. La migration
+`0005` ajoute des colonnes de reprise sans dupliquer les tentatives.

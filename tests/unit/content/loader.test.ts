@@ -8,7 +8,7 @@ describe("contenu du projet", () => {
     expect(issues.filter((issue) => issue.level === "error")).toEqual([]);
     expect(catalog.chapters).toHaveLength(2);
     expect(catalog.lessons).toHaveLength(34);
-    expect(catalog.questions).toHaveLength(274);
+    expect(catalog.questions).toHaveLength(275);
 
     const chapterOne = catalog.chapterBySlug.get("chapitre-1-permis-b");
     expect(chapterOne?.chapter.id).toBe("ch01");

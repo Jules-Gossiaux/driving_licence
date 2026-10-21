@@ -99,11 +99,17 @@ Avertissements à ne pas ignorer :
   questions de révision.
 - Chaque question du pool référence au moins une leçon. Une question peut servir plusieurs leçons
   si elle est réellement transversale.
+- **Une seule vérification de section par leçon**, placée après la section la plus dense, avec 1 ou
+  2 questions. Les autres questions cœur forment le quiz final (2 à 4 questions). Le schéma autorise
+  plusieurs `sectionChecks` ; la règle éditoriale n'en veut qu'un. Les leçons existantes sont
+  migrées progressivement.
+- Le moteur repose automatiquement les questions ratées à la fin de la leçon. Ne pas créer de
+  questions de consolidation ni dupliquer une question dans le quiz.
 - `sectionChecks` : au plus une vérification par section, 1 ou 2 questions, et au moins une
   question cœur hors vérifications pour le quiz final.
-- Défi d'unité : 20 questions maximum, tirées des questions dont au moins une `lessonIds` appartient
+- Défi d'unité : 10 questions maximum, tirées des questions dont au moins une `lessonIds` appartient
   à l'unité. Il se débloque quand toutes les leçons de l'unité sont lues. Le défi utilise
-  `min(20, pool)` : une unité avec moins de 20 questions fonctionne, mais le format est incomplet.
+  `min(10, pool)` : une unité avec moins de 10 questions fonctionne, mais le format est incomplet.
 - Examen de chapitre : **50 questions, 15 s, seuil 41/50, pénalités 1 et 5**. Il n'apparaît que si
   le chapitre déclare au moins une unité. Il se débloque quand toutes les leçons du chapitre sont
   lues et que le chapitre compte au moins 50 questions `examEligible`. Les brouillons comptent pour
@@ -123,7 +129,9 @@ comptage sans l'avoir mesuré avec `pnpm content:validate` et le test de chargem
 - [ ] Chaque fichier est au bon emplacement et porte le bon nom.
 - [ ] Aucun champ hors schéma.
 - [ ] Toutes les références croisées existent et pointent dans le bon chapitre.
-- [ ] Les 4 ou 5 questions cœur sont présentes et au moins une reste pour le quiz final.
+- [ ] Les 4 ou 5 questions cœur sont présentes, avec une seule vérification de section et 2 à 4
+      questions finales.
+- [ ] Aucun bloc « Piège d'examen » ni section « À retenir » ; les confusions utiles sont testées.
 - [ ] Les médias sont déclarés, présents sous `public/` et les SVG sont originaux.
 - [ ] Les sources sont déclarées et les pages vérifiées.
 - [ ] Le statut est `draft` ou `in_review`, sans relecture inventée.

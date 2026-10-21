@@ -92,6 +92,7 @@ describe("getAttemptResult", () => {
       score: 0,
       passingScore: 2,
       passed: false,
+      nextLesson: null,
     });
     expect(result.questions[0]?.isCorrect).toBe(true);
     expect(result.questions[1]?.severity).toBe("severe");
@@ -100,6 +101,67 @@ describe("getAttemptResult", () => {
     expect(result.questions[2]?.selectedOptionId).toBeNull();
     expect(result.questions[0]?.explanation).not.toHaveLength(0);
     expect(result.questions[0]?.sources[0]?.title).toBe("Source officielle de test");
+  });
+
+  it("propose la leçon suivante après un défi d'unité sans erreur", () => {
+    const raw = testRawContent();
+    raw.presets = [];
+    raw.chapters[0]!.chapter = testChapter({
+      units: [
+        { id: "ch01-u1", slug: "unite-1", order: 1, label: "1.1", title: "Unité 1" },
+        { id: "ch01-u2", slug: "unite-2", order: 2, label: "1.2", title: "Unité 2" },
+      ],
+    });
+    raw.chapters[0]!.lessons = [
+      testLesson({ unitId: "ch01-u1" }),
+      testLesson({
+        id: "ch01-l02",
+        slug: "lecon-2",
+        order: 2,
+        title: "Leçon suivante",
+        unitId: "ch01-u2",
+      }),
+    ];
+    raw.chapters[0]!.questions = Array.from({ length: 12 }, (_, index) =>
+      testQuestion({ id: `ch01-q${String(index + 1).padStart(3, "0")}` }),
+    );
+
+    const custom = createTestDependencies({ catalog: buildContentCatalog(raw).catalog });
+
+    try {
+      custom.deps.repository.setLessonRead(LOCAL_PROFILE_ID, "ch01-l01", true, TEST_STARTED_AT);
+      const { attemptId } = startUnitChallenge(custom.deps, "ch01", "ch01-u1");
+      const attempt = custom.deps.repository.getAttempt(LOCAL_PROFILE_ID, attemptId);
+      if (!attempt) {
+        throw new Error("Défi absent.");
+      }
+
+      for (const question of attempt.questions) {
+        submitTrainingAnswer(custom.deps, {
+          attemptId,
+          position: question.position,
+          optionId: question.snapshot.correctOptionId,
+        });
+      }
+
+      const lookup = getAttemptResult(custom.deps, attemptId);
+      expect(lookup.kind).toBe("completed");
+      if (lookup.kind !== "completed") {
+        return;
+      }
+
+      expect(lookup.result).toMatchObject({
+        kind: "unit",
+        incorrectCount: 0,
+        nextLesson: {
+          chapterSlug: "chapitre-1",
+          lessonSlug: "lecon-2",
+          title: "Leçon suivante",
+        },
+      });
+    } finally {
+      custom.close();
+    }
   });
 
   it("signale une tentative encore en cours", () => {

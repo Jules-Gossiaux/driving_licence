@@ -335,8 +335,10 @@ export function submitTrainingAnswer(
   }
 
   const nextPosition = firstUnansweredPosition(updated);
+  const retriesPending =
+    updated.lessonId !== null && updated.questions.some((entry) => entry.isCorrect === false);
 
-  if (nextPosition === null) {
+  if (nextPosition === null && !retriesPending) {
     const correctCount = updated.questions.filter((entry) => entry.isCorrect === true).length;
     deps.repository.completeAttempt({
       attemptId: updated.id,
@@ -349,7 +351,7 @@ export function submitTrainingAnswer(
     if (updated.lessonId) {
       deps.repository.setLessonRead(LOCAL_PROFILE_ID, updated.lessonId, true, now.toISOString());
     }
-  } else {
+  } else if (nextPosition !== null) {
     deps.repository.recordQuestionPresented({
       attemptId: updated.id,
       position: nextPosition,
@@ -366,6 +368,6 @@ export function submitTrainingAnswer(
     isCorrect,
     explanation: question.snapshot.explanation,
     nextPosition,
-    completed: nextPosition === null,
+    completed: nextPosition === null && !retriesPending,
   };
 }

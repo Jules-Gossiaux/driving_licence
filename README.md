@@ -9,7 +9,7 @@ révision des dernières erreurs.
 - Parcours fonctionnels : tableau de bord, parcours visuel type Duolingo (chapitre → unité →
   leçons), micro-leçons avec déblocage linéaire, défi d'unité, examen de chapitre avec seuil,
   entraînement par chapitre ou par leçon, examen blanc, résultats détaillés, révision des erreurs.
-- Contenu de démonstration : **2 chapitres, 34 leçons, 274 questions en brouillon**. Le
+- Contenu de démonstration : **2 chapitres, 34 leçons, 275 questions en brouillon**. Le
   chapitre 1 (6 micro-leçons, 50 questions, deux unités) et le chapitre 2 (28 micro-leçons,
   224 questions, cinq unités) suivent le même format de parcours. Certaines questions utilisent
   des options illustrées. Ces contenus ne constituent pas encore une banque fiable pour l'examen.

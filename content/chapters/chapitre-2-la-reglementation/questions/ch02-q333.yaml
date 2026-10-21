@@ -1,0 +1,33 @@
+id: ch02-q333
+chapterId: ch02
+lessonIds:
+  - ch02-l04
+prompt: Un agent vous fait face et balance une torche à embout rouge. Vous ne vous arrêtez pas. À quel degré appartient cette infraction ?
+options:
+  - id: a
+    label: 4e degré
+  - id: b
+    label: 3e degré
+  - id: c
+    label: 2e degré
+  - id: d
+    label: 1er degré
+correctOptionId: a
+explanation: "Ignorer une injonction d'agent est en principe une infraction de 3e degré. Mais ignorer le signal d'arrêt — bras tendus horizontalement ou balancement d'un feu rouge — fait partie des sept infractions de 4e degré."
+difficulty: hard
+severity: severe
+tags:
+  - degres
+  - agents
+  - injonctions
+sourceRefs:
+  - documentId: feu-vert-chap2-1
+    page: 13
+  - documentId: feu-vert-chap2-1
+    page: 14
+  - documentId: feu-vert-chap2-synthese
+    page: 42
+  - documentId: official-ar-2005-degres
+version: 1
+status: draft
+origin: ai_assisted

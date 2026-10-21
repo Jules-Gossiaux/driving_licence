@@ -29,7 +29,7 @@ pnpm check:full                                  # check + build + E2E
 
 ## Inventaire actuel
 
-Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et **5 tests Playwright**.
+Vérifié lors de la dernière exécution : **18 fichiers, 141 tests Vitest** et **5 tests Playwright**.
 
 ### Unitaires
 
@@ -43,7 +43,7 @@ Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et
 | `tests/unit/domain/sections.test.ts`              | Découpage `##`, introduction, blocs de code, slugs et doublons                                       |
 | `tests/unit/domain/snapshot.test.ts`              | Média d'option conservé, média nul pour une réponse non illustrée                                    |
 | `tests/unit/domain/progression.test.ts`           | Déblocage du défi (toutes les leçons), de l'examen (pool suffisant), format officiel                 |
-| `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 34 leçons, 274 questions, structure du chapitre 1, avertissement de pool |
+| `tests/unit/content/loader.test.ts`               | Contenu réel : 2 chapitres, 34 leçons, 275 questions, structure du chapitre 1, avertissement de pool |
 | `tests/unit/infrastructure/database-path.test.ts` | Chemins mémoire/relatifs, refus de `public/` et `data/`                                              |
 
 ### Intégration
@@ -55,7 +55,7 @@ Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et
 | `tests/integration/application/exam-flow.test.ts`      | Démarrage/reprise, DTO publics, temps serveur, réponses invalides, temps écoulé, grâce, clôture, pool insuffisant                 |
 | `tests/integration/application/practice-flow.test.ts`  | Session publique, entraînement de leçon, correction, complétion, plafond de 10, révision, absence d'erreurs                       |
 | `tests/integration/application/lesson-runs.test.ts`    | Ordre sections/questions, reprise sans recul, verrouillage, complétion et déblocage, corrections après réponse                    |
-| `tests/integration/application/unit-challenge.test.ts` | Verrouillage, tirage de 20 questions, en-tête du défi, complétion et dernier résultat, unité inconnue                             |
+| `tests/integration/application/unit-challenge.test.ts` | Verrouillage, tirage de 10 questions, en-tête du défi, complétion et dernier résultat, unité inconnue                             |
 | `tests/integration/application/chapter-exam.test.ts`   | Verrouillage, pool insuffisant, format 50/15/41, reprise, seuil et complétion, chapitre inconnu                                   |
 | `tests/integration/application/queries.test.ts`        | Résultat complet, tentative en cours, tableau de bord, révision, chapitres/leçons, unités, défis et examen de chapitre            |
 
@@ -74,8 +74,8 @@ Vérifié lors de la dernière exécution : **18 fichiers, 135 tests Vitest** et
    écoulé » et le lien vers la révision des erreurs.
 5. **Défi et examen de chapitre** : vérifier les boutons verrouillés et le nœud courant, marquer
    directement les leçons du chapitre 2 comme lues dans la base E2E isolée, constater que le défi
-   devient le seul nœud courant, lancer ses 20 questions, vérifier le dernier score, puis démarrer
-   l'examen de chapitre et son chronomètre.
+   devient le seul nœud courant, lancer ses 10 questions, vérifier le dernier score et le lien vers
+   la leçon suivante, puis démarrer l'examen de chapitre et son chronomètre.
 
 L'examen E2E attend une expiration réelle de 15 s (plus la grâce de 2 s), d'où une durée totale
 d'environ 30 s.
@@ -102,8 +102,9 @@ En complément des tests automatisés :
    entraînement de leçon ; leçon sans questions cœur en lecture simple.
 4. Entraînement : correction immédiate, explication, médias, options illustrées, fin de session.
 5. Examen : compte à rebours, passage automatique après expiration, résultat et détail.
-6. Défi d'unité : verrouillage puis lancement après lecture des leçons, 20 questions sans seuil,
-   score affiché sur la page du chapitre ; examen de chapitre : seuil 41/50 et reprise.
+6. Défi d'unité : verrouillage puis lancement après lecture des leçons, 10 questions sans seuil,
+   score affiché sur la page du chapitre et lien vers la leçon suivante ; examen de chapitre :
+   seuil 41/50 et reprise.
 7. Révision : une erreur récente apparaît ; une bonne réponse ultérieure la retire.
 8. Rafraîchissement en cours d'examen : la tentative reprend sans réinitialiser le temps.
 9. Affichage mobile : navigation, runner, résultats.
@@ -114,7 +115,7 @@ En complément des tests automatisés :
 - Pas de tests de régression visuelle ni d'audit d'accessibilité automatisé.
 - Pas de test multi-profils ni d'authentification : ces fonctionnalités n'existent pas.
 - Pas de test de montée en charge : l'application est locale et mono-utilisateur.
-- Le contenu réel se limite à 2 chapitres, 34 leçons et 274 questions, toutes en brouillon ; le
+- Le contenu réel se limite à 2 chapitres, 34 leçons et 275 questions, toutes en brouillon ; le
   chapitre 1 compte deux unités, le chapitre 2 cinq unités.
 - L'abandon de tentative n'est pas exposé dans l'interface ; seul le repository le couvre.
 - Les avertissements Turbopack du build sont attendus et ne sont pas traités comme des échecs.

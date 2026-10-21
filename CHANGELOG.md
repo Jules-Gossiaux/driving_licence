@@ -19,8 +19,9 @@ versionnage sémantique.
 - Migration `0003_lesson_runs.sql` : rattachement d'une tentative à une leçon et mémorisation de
   l'étape courante.
 - Migration `0004_attempt_units.sql` : rattachement d'une tentative à une unité pour les défis.
-- Défi d'unité : 20 questions mélangées issues des leçons de l'unité, sans chronomètre ni seuil,
-  débloqué quand toutes les leçons de l'unité sont terminées. Le dernier score reste affiché.
+- Défi d'unité : 10 questions mélangées issues des leçons de l'unité, sans chronomètre ni seuil,
+  débloqué quand toutes les leçons de l'unité sont terminées. Le dernier score reste affiché, avec
+  un accès direct à la leçon suivante ; la révision n'est proposée qu'en cas d'erreur.
 - Examen de chapitre : 50 questions, 15 s par question, seuil de 41 sur 50, débloqué quand toutes
   les leçons du chapitre sont terminées et que la banque compte assez de questions éligibles.
   Reprise d'un examen actif et pénalités identiques au format officiel.
@@ -46,12 +47,18 @@ versionnage sémantique.
   détaillés et révision des dernières erreurs.
 - Contrôle du temps côté serveur avec délai de grâce de 2 secondes et protection contre les
   réponses hors délai.
-- Suite de tests : 135 tests Vitest (domaine, contenu, migrations, repository, cas d'usage) et
+- Suite de tests : 141 tests Vitest (domaine, contenu, migrations, repository, cas d'usage) et
   5 parcours Playwright avec base et build isolés.
 - Documentation : README, règles de travail, contribution, architecture, développement, tests,
   contenu, décisions et feuille de route.
 - Skill projet `produire-contenu-permis-b` : pipeline de production du contenu (cadrage, sources,
   rédaction, médias, validation), contrôles de publication et gabarits de fichiers.
+- Skill projet `reviser-contenu-permis-b` : audit de longueur, de redondance, de réappropriation et
+  de couverture des questions, sans publication automatique.
+- Zoom plein écran des schémas et des tableaux ; les tableaux larges défilent horizontalement sur
+  mobile et les schémas textuels passent en cartes empilées.
+- Reprise des questions ratées à la fin d'une leçon : le score initial reste affiché, les erreurs
+  sont reposées après le quiz et la leçon n'est marquée terminée qu'après la reprise.
 
 ### Modifié
 
@@ -61,6 +68,12 @@ versionnage sémantique.
   termine le chapitre.
 - Interface allégée : header, footer et descriptions secondaires réduits ; pictogrammes du
   conducteur et du tram redessinés.
+- Leçons pilotes du point 2.1 (`a-qui-obeir`, `les-quatre-degres-d-infraction`,
+  `payer-une-amende`) réécrites en micro-parcours : une seule vérification de section, un quiz
+  final, suppression des blocs « Piège d'examen » et « À retenir ». La nuance sur le signal
+  d'arrêt devient la question `ch02-q333`.
+- Agents et schéma des trois positions redessinés en SVG original.
+- La banque compte 275 questions, dont 57 pour le point 2.1.
 
 ### Sécurité
 

@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { InvalidAnswerError } from "@/application/errors";
 import { submitExamAnswer, startChapterExam, startExam } from "@/application/exam";
-import { saveLessonRunStep, startLessonRun } from "@/application/lesson-runs";
+import { saveLessonRunStep, startLessonRun, submitLessonRetry } from "@/application/lesson-runs";
 import {
   startChapterPractice,
   startLessonPractice,
@@ -123,6 +123,24 @@ export async function submitTrainingAnswerAction(input: {
     return {
       ok: false,
       message: error instanceof Error ? error.message : "Impossible d'enregistrer la réponse.",
+    };
+  }
+}
+
+export async function submitLessonRetryAction(input: {
+  attemptId: string;
+  position: number;
+  optionId: string;
+}): Promise<TrainingAnswerActionResult> {
+  try {
+    return {
+      ok: true,
+      feedback: submitLessonRetry(getAppDependencies(), input),
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: error instanceof Error ? error.message : "Impossible d'enregistrer la reprise.",
     };
   }
 }

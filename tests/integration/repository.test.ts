@@ -121,6 +121,56 @@ describe("SqliteLearningRepository", () => {
     );
   });
 
+  it("enregistre une reprise unique pour une question ratée", () => {
+    createAttempt("attempt-1", [q1], { lessonId: "ch01-l01" });
+    answer("attempt-1", q1, 0, false);
+
+    repository.recordRetryAnswer({
+      attemptId: "attempt-1",
+      position: 0,
+      questionId: q1.id,
+      selectedOptionId: q1.correctOptionId,
+      isCorrect: true,
+      answeredAt: "2026-10-19T10:02:00.000Z",
+    });
+
+    const question = repository.getAttempt(LOCAL_PROFILE_ID, "attempt-1")?.questions[0];
+    expect(question).toMatchObject({
+      isCorrect: false,
+      selectedOptionId: "b",
+      retrySelectedOptionId: q1.correctOptionId,
+      retryIsCorrect: true,
+      retryAnsweredAt: "2026-10-19T10:02:00.000Z",
+    });
+
+    expect(() =>
+      repository.recordRetryAnswer({
+        attemptId: "attempt-1",
+        position: 0,
+        questionId: q1.id,
+        selectedOptionId: q1.correctOptionId,
+        isCorrect: true,
+        answeredAt: "2026-10-19T10:03:00.000Z",
+      }),
+    ).toThrow(AttemptConflictError);
+  });
+
+  it("refuse de reprendre une question réussie", () => {
+    createAttempt("attempt-1", [q1], { lessonId: "ch01-l01" });
+    answer("attempt-1", q1, 0, true);
+
+    expect(() =>
+      repository.recordRetryAnswer({
+        attemptId: "attempt-1",
+        position: 0,
+        questionId: q1.id,
+        selectedOptionId: "b",
+        isCorrect: false,
+        answeredAt: "2026-10-19T10:02:00.000Z",
+      }),
+    ).toThrow(AttemptConflictError);
+  });
+
   it("termine une tentative et libère l'examen actif", () => {
     createAttempt("exam-1", [q1], { mode: "exam" });
     expect(repository.getActiveExam(LOCAL_PROFILE_ID)?.id).toBe("exam-1");

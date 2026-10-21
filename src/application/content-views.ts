@@ -27,6 +27,13 @@ export type QuestionMediaView = {
   height: number;
 };
 
+export type LessonMediaView = {
+  alt: string;
+  caption: string | null;
+  width: number;
+  height: number;
+};
+
 export type SourceLabel = {
   documentId: string;
   title: string;
@@ -124,6 +131,7 @@ export type LessonDetail = {
   previousLesson: LessonNavigation | null;
   nextLesson: LessonNavigation | null;
   sources: SourceLabel[];
+  mediaByFile: Record<string, LessonMediaView>;
 };
 
 export type QuestionMedia = QuestionMediaView;
@@ -176,6 +184,20 @@ export function resolveMedia(
     width: asset.width,
     height: asset.height,
   };
+}
+
+export function listMediaByFile(catalog: ContentCatalog): Record<string, LessonMediaView> {
+  return Object.fromEntries(
+    [...catalog.mediaByFile].map(([file, asset]) => [
+      file,
+      {
+        alt: asset.alt,
+        caption: asset.caption ?? null,
+        width: asset.width,
+        height: asset.height,
+      },
+    ]),
+  );
 }
 
 export function resolveOptionViews(

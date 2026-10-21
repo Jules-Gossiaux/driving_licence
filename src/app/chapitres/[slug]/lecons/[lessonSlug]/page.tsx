@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import {
   continueLessonAction,
   markLessonReadAction,
@@ -11,6 +9,7 @@ import {
 } from "@/app/actions";
 import { ContentNotFoundError } from "@/application/errors";
 import { getChapterDetail, getLessonDetail } from "@/application/queries";
+import { MarkdownContent } from "@/components/markdown-content";
 import { PageHeader } from "@/components/ui";
 import { getAppDependencies } from "@/infrastructure/container";
 import { formatDateTime } from "@/lib/format";
@@ -205,8 +204,8 @@ export default async function LessonPage({ params }: PageProps) {
                 </ul>
               </div>
 
-              <div className="lesson-body mt-7">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{detail.lesson.body}</ReactMarkdown>
+              <div className="mt-7">
+                <MarkdownContent body={detail.lesson.body} mediaByFile={detail.mediaByFile} />
               </div>
             </>
           )}

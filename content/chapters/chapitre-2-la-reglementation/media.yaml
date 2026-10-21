@@ -35,7 +35,7 @@
 - id: ch02-agent-positions
   file: /media/ch02/agent-positions.svg
   alt: >-
-    Trois panneaux comparant la position de l'agent qualifié aux feux : de
+    Trois cartes comparant la position de l'agent qualifié aux feux : de
     profil pour le feu vert, bras levé pour le feu orange, de face ou de dos
     pour le feu rouge.
   caption: "Les positions de l'agent et leurs équivalents lumineux."
@@ -97,6 +97,9 @@
   height: 360
   rights: original
   credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 12
 
 - id: ch02-agent-bras-leve
   file: /media/ch02/agent-bras-leve.svg
@@ -106,6 +109,9 @@
   height: 360
   rights: original
   credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 12
 
 - id: ch02-agent-face
   file: /media/ch02/agent-face.svg
@@ -115,6 +121,9 @@
   height: 360
   rights: original
   credit: "Projet Permis B"
+  sourceRefs:
+    - documentId: feu-vert-chap2-1
+      page: 13
 
 - id: ch02-feux-cercles
   file: /media/ch02/signaux/feux-cercles.svg

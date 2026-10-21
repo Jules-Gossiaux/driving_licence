@@ -1,78 +1,170 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre agents">
-  <title id="titre">Les trois positions de l'agent qualifié et leurs équivalents lumineux</title>
-  <desc id="agents">De profil, l'agent équivaut au feu vert. Bras levé, il équivaut au feu orange. De face ou de dos, il équivaut au feu rouge.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="titre desc">
+  <title id="titre">Les trois positions de l'agent qualifié</title>
+  <desc id="desc">De profil, l'agent correspond au feu vert. Bras levé, il correspond au feu orange. De face ou de dos, il correspond au feu rouge.</desc>
   <rect width="960" height="540" fill="#f8fafc"/>
-  <text x="40" y="50" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Obéir aux positions de l'agent</text>
-  <text x="40" y="78" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Les gestes de l'agent qualifié priment sur les feux et la signalisation.</text>
+  <text x="40" y="54" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Les trois positions de l'agent</text>
+  <text x="40" y="82" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Chaque position correspond à un feu.</text>
 
   <g>
-    <rect x="40" y="108" width="280" height="380" rx="18" fill="#ffffff" stroke="#a7f3d0"/>
-    <rect x="40" y="108" width="280" height="8" rx="4" fill="#16a34a"/>
-    <text x="60" y="148" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Agent de profil</text>
-    <text x="60" y="180" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#15803d">= FEU VERT</text>
+    <rect x="30" y="100" width="280" height="404" rx="18" fill="#ffffff" stroke="#bbf7d0"/>
+    <rect x="30" y="100" width="280" height="8" rx="4" fill="#16a34a"/>
+    <text x="52" y="138" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">De profil</text>
+    <text x="52" y="166" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#15803d">= Feu vert</text>
 
-    <circle cx="140" cy="232" r="16" fill="#f1c7a5"/>
-    <path d="M124 226h34" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
-    <rect x="130" y="214" width="22" height="9" rx="3" fill="#1e3a8a"/>
-    <path d="M140 248v38" stroke="#1d4ed8" stroke-width="18" stroke-linecap="round"/>
-    <path d="M140 258l-18 20" stroke="#1d4ed8" stroke-width="9" stroke-linecap="round"/>
-    <path d="M140 286l-12 32m12-32l12 32" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+    <g transform="translate(31 205) scale(0.58)">
+      <ellipse cx="240" cy="322" rx="62" ry="8" fill="#e2e8f0"/>
+      <path d="M226 228h18l-10 84h-18z" fill="#16304e"/>
+      <rect x="202" y="311" width="50" height="11" rx="5" fill="#0f172a"/>
+      <path d="M240 228h18l4 84h-18z" fill="#1d3557"/>
+      <rect x="222" y="311" width="52" height="11" rx="5" fill="#0f172a"/>
+      <path d="M232 140c16 2 27 10 31 24l3 62c-14 9-32 11-46 5l-4-67c1-14 7-24 16-24z" fill="#1d3557"/>
+      <path d="M240 142l12 4-5 9-9-7z" fill="#f8fafc"/>
+      <path d="M255 154l2 72" stroke="#16304e" stroke-width="2" opacity="0.6"/>
+      <rect x="218" y="188" width="47" height="7" rx="3.5" fill="#cbd5e1"/>
+      <rect x="216" y="220" width="50" height="15" rx="4" fill="#f8fafc"/>
+      <rect x="254" y="222" width="12" height="11" rx="2" fill="#cbd5e1"/>
+      <path d="M248 160c5 20 4 43 0 62" fill="none" stroke="#1d3557" stroke-width="17" stroke-linecap="round"/>
+      <path d="M239 164c-1 20 0 38 3 52" fill="none" stroke="#16304e" stroke-width="1.8" opacity="0.8"/>
+      <rect x="239" y="216" width="17" height="7" rx="2.5" fill="#f8fafc"/>
+      <ellipse cx="248" cy="231" rx="8" ry="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <ellipse cx="241" cy="226" rx="3.5" ry="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <rect x="240" y="173" width="12" height="4" rx="2" fill="#f8fafc" opacity="0.75"/>
+      <path d="M234 126h16v18h-16z" fill="#dda87f"/>
+      <ellipse cx="240" cy="110" rx="23" ry="27" fill="#e8b990"/>
+      <path d="M260 102c6 2 9 6 8 10-1 3-5 4-9 4z" fill="#e8b990"/>
+      <circle cx="251" cy="108" r="2.4" fill="#1f2937"/>
+      <path d="M246 101h9" stroke="#3f2a1d" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M252 122q5 2 8-1" fill="none" stroke="#b06a52" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="234" cy="112" r="5.5" fill="#e8b990" stroke="#c98f68" stroke-width="1"/>
+      <path d="M234 109q3 3 0 6" fill="none" stroke="#c98f68" stroke-width="1.2"/>
+      <path d="M219 105q-3 9 1 15" fill="none" stroke="#3f2a1d" stroke-width="5" stroke-linecap="round"/>
+      <path d="M216 88c0-17 10-25 24-25s24 8 24 25z" fill="#1d3557"/>
+      <rect x="214" y="84" width="50" height="9" rx="4" fill="#0f172a"/>
+      <path d="M244 93q22 0 32 6-12 7-32 4z" fill="#0f172a"/>
+      <circle cx="234" cy="76" r="5" fill="#eab308"/>
+      <circle cx="234" cy="76" r="2" fill="#a16207"/>
+    </g>
 
-    <rect x="242" y="190" width="26" height="72" rx="6" fill="#1f2937"/>
-    <circle cx="255" cy="205" r="7" fill="#16a34a"/>
-    <circle cx="255" cy="226" r="7" fill="#374151"/>
-    <circle cx="255" cy="247" r="7" fill="#374151"/>
+    <rect x="238" y="236" width="28" height="76" rx="7" fill="#1f2937"/>
+    <circle cx="252" cy="252" r="13" fill="#22c55e" opacity="0.18"/>
+    <circle cx="252" cy="252" r="7" fill="#374151"/>
+    <circle cx="252" cy="274" r="7" fill="#374151"/>
+    <circle cx="252" cy="296" r="9" fill="#22c55e"/>
 
-    <text x="60" y="360" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Vous êtes autorisé à passer :</text>
-    <text x="60" y="382" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">tout droit, à gauche ou à droite.</text>
-    <text x="60" y="416" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">Position vue de côté.</text>
+    <text x="170" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">Passage autorisé</text>
   </g>
 
   <g>
-    <rect x="340" y="108" width="280" height="380" rx="18" fill="#ffffff" stroke="#fde68a"/>
-    <rect x="340" y="108" width="280" height="8" rx="4" fill="#f59e0b"/>
-    <text x="360" y="148" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Agent au bras levé</text>
-    <text x="360" y="180" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#b45309">= FEU ORANGE</text>
+    <rect x="340" y="100" width="280" height="404" rx="18" fill="#ffffff" stroke="#fde68a"/>
+    <rect x="340" y="100" width="280" height="8" rx="4" fill="#f59e0b"/>
+    <text x="362" y="138" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Bras levé</text>
+    <text x="362" y="166" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#b45309">= Feu orange</text>
 
-    <circle cx="440" cy="232" r="16" fill="#f1c7a5"/>
-    <path d="M424 224h32" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
-    <rect x="430" y="214" width="22" height="9" rx="3" fill="#1e3a8a"/>
-    <path d="M440 248v38" stroke="#1d4ed8" stroke-width="18" stroke-linecap="round"/>
-    <path d="M432 252v-56" stroke="#1d4ed8" stroke-width="9" stroke-linecap="round"/>
-    <path d="M448 256v22" stroke="#1d4ed8" stroke-width="9" stroke-linecap="round"/>
-    <path d="M436 286l-8 32m20-32l8 32" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+    <g transform="translate(341 205) scale(0.58)">
+      <ellipse cx="240" cy="322" rx="66" ry="8" fill="#e2e8f0"/>
+      <path d="M213 228h20l-4 84h-20z" fill="#1d3557"/>
+      <path d="M247 228h20l4 84h-20z" fill="#1d3557"/>
+      <path d="M200 310h38a6 6 0 0 1 6 6v5h-50v-5a6 6 0 0 1 6-6z" fill="#0f172a"/>
+      <path d="M242 310h38a6 6 0 0 1 6 6v5h-50v-5a6 6 0 0 1 6-6z" fill="#0f172a"/>
+      <path d="M240 140c-19 0-31 8-34 22l-6 64c13 8 27 11 40 11s27-3 40-11l-6-64c-3-14-15-22-34-22z" fill="#1d3557"/>
+      <path d="M229 143l11 18 11-18-11-3z" fill="#f8fafc"/>
+      <path d="M240 158l5 8-2 21h-6l-2-21z" fill="#0f172a"/>
+      <path d="M229 143l11 18-6 5-12-18z" fill="#16304e"/>
+      <path d="M251 143l-11 18 6 5 12-18z" fill="#16304e"/>
+      <rect x="202" y="188" width="76" height="7" rx="3.5" fill="#cbd5e1"/>
+      <rect x="200" y="221" width="80" height="15" rx="4" fill="#f8fafc"/>
+      <rect x="231" y="223" width="18" height="11" rx="2" fill="#cbd5e1"/>
+      <rect x="237" y="226" width="6" height="5" rx="1" fill="#94a3b8"/>
+      <circle cx="223" cy="173" r="4" fill="#eab308"/>
+      <path d="M211 162c-9-18-11-44-10-62" fill="none" stroke="#1d3557" stroke-width="19" stroke-linecap="round"/>
+      <rect x="192" y="91" width="18" height="8" rx="3" fill="#f8fafc"/>
+      <ellipse cx="201" cy="74" rx="10" ry="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <path d="M197 60v10m5-12v12m5-10v10" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+      <ellipse cx="190" cy="82" rx="4" ry="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" transform="rotate(-18 190 82)"/>
+      <path d="M271 162c9 16 11 42 8 66" fill="none" stroke="#1d3557" stroke-width="19" stroke-linecap="round"/>
+      <rect x="269" y="224" width="18" height="8" rx="3" fill="#f8fafc" transform="rotate(-6 278 228)"/>
+      <ellipse cx="280" cy="242" rx="8" ry="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <path d="M231 126h18v18h-18z" fill="#dda87f"/>
+      <ellipse cx="240" cy="110" rx="23" ry="27" fill="#e8b990"/>
+      <circle cx="217" cy="112" r="5" fill="#e8b990"/>
+      <circle cx="263" cy="112" r="5" fill="#e8b990"/>
+      <circle cx="232" cy="109" r="2.4" fill="#1f2937"/>
+      <circle cx="248" cy="109" r="2.4" fill="#1f2937"/>
+      <path d="M227 102q4-2 8 0M245 102q4-2 8 0" fill="none" stroke="#3f2a1d" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M240 115v7" stroke="#c98f68" stroke-width="2" stroke-linecap="round"/>
+      <path d="M235 127q5 3 10 0" fill="none" stroke="#b06a52" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M217 88c0-17 10-25 23-25s23 8 23 25z" fill="#1d3557"/>
+      <rect x="215" y="84" width="50" height="9" rx="4" fill="#0f172a"/>
+      <path d="M214 93q26 12 52 0l-3 7q-23 10-46 0z" fill="#0f172a"/>
+      <circle cx="240" cy="76" r="5" fill="#eab308"/>
+      <circle cx="240" cy="76" r="2" fill="#a16207"/>
+    </g>
 
-    <rect x="542" y="190" width="26" height="72" rx="6" fill="#1f2937"/>
-    <circle cx="555" cy="205" r="7" fill="#374151"/>
-    <circle cx="555" cy="226" r="7" fill="#f59e0b"/>
-    <circle cx="555" cy="247" r="7" fill="#374151"/>
+    <rect x="548" y="236" width="28" height="76" rx="7" fill="#1f2937"/>
+    <circle cx="562" cy="274" r="13" fill="#f59e0b" opacity="0.22"/>
+    <circle cx="562" cy="252" r="7" fill="#374151"/>
+    <circle cx="562" cy="274" r="9" fill="#f59e0b"/>
+    <circle cx="562" cy="296" r="7" fill="#374151"/>
 
-    <text x="360" y="360" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Arrêt dans toutes les directions.</text>
-    <text x="360" y="382" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Ne pas s'engager dans le carrefour.</text>
-    <text x="360" y="404" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Si vous y êtes déjà, dégagez-le.</text>
+    <text x="480" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">Arrêt dans toutes</text>
+    <text x="480" y="452" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">les directions</text>
   </g>
 
   <g>
-    <rect x="640" y="108" width="280" height="380" rx="18" fill="#ffffff" stroke="#fecaca"/>
-    <rect x="640" y="108" width="280" height="8" rx="4" fill="#dc2626"/>
-    <text x="660" y="148" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Agent de face ou de dos</text>
-    <text x="660" y="180" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#b91c1c">= FEU ROUGE</text>
+    <rect x="650" y="100" width="280" height="404" rx="18" fill="#ffffff" stroke="#fecaca"/>
+    <rect x="650" y="100" width="280" height="8" rx="4" fill="#dc2626"/>
+    <text x="672" y="138" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">De face ou de dos</text>
+    <text x="672" y="166" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#b91c1c">= Feu rouge</text>
 
-    <circle cx="740" cy="232" r="16" fill="#f1c7a5"/>
-    <path d="M724 224h32" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
-    <rect x="730" y="214" width="22" height="9" rx="3" fill="#1e3a8a"/>
-    <path d="M740 248v38" stroke="#1d4ed8" stroke-width="18" stroke-linecap="round"/>
-    <path d="M732 256h-42m58 0h42" stroke="#1d4ed8" stroke-width="9" stroke-linecap="round"/>
-    <path d="M736 286l-8 32m20-32l8 32" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+    <g transform="translate(651 205) scale(0.58)">
+      <ellipse cx="240" cy="322" rx="66" ry="8" fill="#e2e8f0"/>
+      <path d="M213 228h20l-4 84h-20z" fill="#1d3557"/>
+      <path d="M247 228h20l4 84h-20z" fill="#1d3557"/>
+      <path d="M200 310h38a6 6 0 0 1 6 6v5h-50v-5a6 6 0 0 1 6-6z" fill="#0f172a"/>
+      <path d="M242 310h38a6 6 0 0 1 6 6v5h-50v-5a6 6 0 0 1 6-6z" fill="#0f172a"/>
+      <path d="M240 140c-19 0-31 8-34 22l-6 64c13 8 27 11 40 11s27-3 40-11l-6-64c-3-14-15-22-34-22z" fill="#1d3557"/>
+      <path d="M229 143l11 18 11-18-11-3z" fill="#f8fafc"/>
+      <path d="M240 158l5 8-2 21h-6l-2-21z" fill="#0f172a"/>
+      <path d="M229 143l11 18-6 5-12-18z" fill="#16304e"/>
+      <path d="M251 143l-11 18 6 5 12-18z" fill="#16304e"/>
+      <rect x="202" y="188" width="76" height="7" rx="3.5" fill="#cbd5e1"/>
+      <rect x="200" y="221" width="80" height="15" rx="4" fill="#f8fafc"/>
+      <rect x="231" y="223" width="18" height="11" rx="2" fill="#cbd5e1"/>
+      <rect x="237" y="226" width="6" height="5" rx="1" fill="#94a3b8"/>
+      <circle cx="223" cy="173" r="4" fill="#eab308"/>
+      <path d="M212 160h-56" fill="none" stroke="#1d3557" stroke-width="19" stroke-linecap="round"/>
+      <rect x="146" y="151" width="8" height="18" rx="3" fill="#f8fafc"/>
+      <ellipse cx="135" cy="160" rx="15" ry="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <ellipse cx="143" cy="150" rx="4" ry="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" transform="rotate(-30 143 150)"/>
+      <path d="M126 156v8m5-9v8m5-8v7" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M268 160h56" fill="none" stroke="#1d3557" stroke-width="19" stroke-linecap="round"/>
+      <rect x="326" y="151" width="8" height="18" rx="3" fill="#f8fafc"/>
+      <ellipse cx="345" cy="160" rx="15" ry="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <ellipse cx="337" cy="150" rx="4" ry="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" transform="rotate(30 337 150)"/>
+      <path d="M349 156v8m5-9v8m5-8v7" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M231 126h18v18h-18z" fill="#dda87f"/>
+      <ellipse cx="240" cy="110" rx="23" ry="27" fill="#e8b990"/>
+      <circle cx="217" cy="112" r="5" fill="#e8b990"/>
+      <circle cx="263" cy="112" r="5" fill="#e8b990"/>
+      <circle cx="232" cy="109" r="2.4" fill="#1f2937"/>
+      <circle cx="248" cy="109" r="2.4" fill="#1f2937"/>
+      <path d="M227 102q4-2 8 0M245 102q4-2 8 0" fill="none" stroke="#3f2a1d" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M240 115v7" stroke="#c98f68" stroke-width="2" stroke-linecap="round"/>
+      <path d="M235 127q5 3 10 0" fill="none" stroke="#b06a52" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M217 88c0-17 10-25 23-25s23 8 23 25z" fill="#1d3557"/>
+      <rect x="215" y="84" width="50" height="9" rx="4" fill="#0f172a"/>
+      <path d="M214 93q26 12 52 0l-3 7q-23 10-46 0z" fill="#0f172a"/>
+      <circle cx="240" cy="76" r="5" fill="#eab308"/>
+      <circle cx="240" cy="76" r="2" fill="#a16207"/>
+    </g>
 
-    <rect x="842" y="190" width="26" height="72" rx="6" fill="#1f2937"/>
-    <circle cx="855" cy="205" r="7" fill="#374151"/>
-    <circle cx="855" cy="226" r="7" fill="#374151"/>
-    <circle cx="855" cy="247" r="7" fill="#dc2626"/>
+    <rect x="858" y="236" width="28" height="76" rx="7" fill="#1f2937"/>
+    <circle cx="872" cy="252" r="13" fill="#ef4444" opacity="0.2"/>
+    <circle cx="872" cy="252" r="9" fill="#ef4444"/>
+    <circle cx="872" cy="274" r="7" fill="#374151"/>
+    <circle cx="872" cy="296" r="7" fill="#374151"/>
 
-    <text x="660" y="360" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">Arrêt obligatoire, même pour</text>
-    <text x="660" y="382" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#334155">tourner à droite.</text>
-    <text x="660" y="416" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">De face ou de dos, avec ou sans</text>
-    <text x="660" y="436" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">bras tendus : toujours l'arrêt.</text>
+    <text x="790" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">Arrêt obligatoire</text>
+    <text x="790" y="452" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">même à droite</text>
   </g>
 </svg>

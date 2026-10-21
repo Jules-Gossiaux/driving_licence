@@ -2,12 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { saveLessonRunStepAction, submitTrainingAnswerAction } from "@/app/actions";
+import {
+  saveLessonRunStepAction,
+  submitLessonRetryAction,
+  submitTrainingAnswerAction,
+} from "@/app/actions";
 import type { LessonRunQuestionStep, LessonRunView } from "@/application/lesson-runs";
 import type { TrainingFeedback } from "@/application/practice";
+import { MarkdownContent } from "./markdown-content";
 import { OptionContent } from "./option-content";
 
 type Props = Pick<
@@ -23,7 +27,10 @@ type Props = Pick<
   | "completed"
   | "correctCount"
   | "questionCount"
+  | "retryCount"
+  | "retryCorrectCount"
   | "nextLesson"
+  | "mediaByFile"
 >;
 
 type AnsweredView = {
@@ -63,21 +70,49 @@ export function LessonRunner(props: Props) {
     completed: initiallyCompleted,
     correctCount: initialCorrectCount,
     questionCount,
+    retryCount,
+    retryCorrectCount: initialRetryCorrectCount,
     nextLesson,
+    mediaByFile,
   } = props;
 
+  const router = useRouter();
   const [stepIndex, setStepIndex] = useState(Math.min(initialStepIndex, Math.max(0, steps.length)));
   const [selected, setSelected] = useState<string | null>(null);
   const [submittedFeedback, setSubmittedFeedback] = useState<TrainingFeedback | null>(null);
   const [correctCount, setCorrectCount] = useState(initialCorrectCount);
+  const [retryCorrectCount, setRetryCorrectCount] = useState(initialRetryCorrectCount);
+  const [retriesPending, setRetriesPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
   const lessonHref = `/chapitres/${chapterSlug}/lecons/${lessonSlug}`;
   const completed = initiallyCompleted || stepIndex >= steps.length;
   const step = steps[stepIndex];
+  const retryStartIndex = steps.findIndex(
+    (candidate) => candidate.kind === "question" && candidate.purpose === "retry",
+  );
   const contentStepCount = steps.filter((candidate) => candidate.kind === "content").length;
   const progress = steps.length > 0 ? Math.min(100, ((stepIndex + 1) / steps.length) * 100) : 0;
+
+  function continueAfterFeedback(feedback: AnsweredView) {
+    if (feedback.completed) {
+      goToStep(steps.length);
+      return;
+    }
+
+    if (retriesPending) {
+      if (retryStartIndex >= 0) {
+        setRetriesPending(false);
+        goToStep(retryStartIndex);
+      } else {
+        startTransition(() => router.refresh());
+      }
+      return;
+    }
+
+    goToStep(stepIndex + 1);
+  }
 
   function persistStep(nextIndex: number) {
     startTransition(async () => {
@@ -103,7 +138,9 @@ export function LessonRunner(props: Props) {
     setError(null);
 
     startTransition(async () => {
-      const result = await submitTrainingAnswerAction({
+      const action =
+        questionStep.purpose === "retry" ? submitLessonRetryAction : submitTrainingAnswerAction;
+      const result = await action({
         attemptId,
         position: questionStep.position,
         optionId,
@@ -111,8 +148,18 @@ export function LessonRunner(props: Props) {
 
       if (result.ok) {
         setSubmittedFeedback(result.feedback);
-        if (result.feedback.isCorrect) {
-          setCorrectCount((count) => count + 1);
+        if (questionStep.purpose === "retry") {
+          if (result.feedback.isCorrect) {
+            setRetryCorrectCount((count) => count + 1);
+          }
+        } else {
+          if (result.feedback.isCorrect) {
+            setCorrectCount((count) => count + 1);
+          }
+          if (result.feedback.nextPosition === null && !result.feedback.completed) {
+            setRetriesPending(true);
+            router.refresh();
+          }
         }
       } else {
         setError(result.message);
@@ -151,8 +198,25 @@ export function LessonRunner(props: Props) {
             Leçon terminée
           </h1>
           <p className="mt-3 text-sm text-slate-600">
-            {correctCount} réponse{correctCount > 1 ? "s" : ""} correcte
-            {correctCount > 1 ? "s" : ""} sur {questionCount}. {lessonTitle} est validée.
+            {retryCount > 0 ? (
+              <>
+                Score initial :{" "}
+                <strong>
+                  {correctCount}/{questionCount}
+                </strong>
+                . Reprise des erreurs :{" "}
+                <strong>
+                  {retryCorrectCount}/{retryCount}
+                </strong>{" "}
+                corrigée
+                {retryCorrectCount > 1 ? "s" : ""}. {lessonTitle} est validée.
+              </>
+            ) : (
+              <>
+                {correctCount} réponse{correctCount > 1 ? "s" : ""} correcte
+                {correctCount > 1 ? "s" : ""} sur {questionCount}. {lessonTitle} est validée.
+              </>
+            )}
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
@@ -265,8 +329,8 @@ export function LessonRunner(props: Props) {
           <h1 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
             {step.title}
           </h1>
-          <div className="lesson-body mt-6">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{step.body}</ReactMarkdown>
+          <div className="mt-6">
+            <MarkdownContent body={step.body} mediaByFile={mediaByFile} />
           </div>
           <div className="mt-8 flex justify-end">
             <button
@@ -281,8 +345,15 @@ export function LessonRunner(props: Props) {
       ) : questionStep ? (
         <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-9">
           <p className="text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase">
-            {questionStep.purpose === "check" ? "Vérification" : "Question finale"} ·{" "}
-            {questionStep.questionNumber}/{questionCount}
+            {questionStep.purpose === "check"
+              ? "Vérification"
+              : questionStep.purpose === "retry"
+                ? "Reprise des erreurs"
+                : "Question finale"}{" "}
+            ·{" "}
+            {questionStep.purpose === "retry"
+              ? `${questionStep.questionNumber}/${retryCount}`
+              : `${questionStep.questionNumber}/${questionCount}`}
           </p>
           <h1 className="mt-2 text-xl leading-relaxed font-semibold text-slate-950 sm:text-2xl">
             {questionStep.question.prompt}
@@ -372,12 +443,15 @@ export function LessonRunner(props: Props) {
             {feedback ? (
               <button
                 type="button"
-                onClick={() =>
-                  feedback.completed ? goToStep(steps.length) : goToStep(stepIndex + 1)
-                }
-                className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-700"
+                onClick={() => continueAfterFeedback(feedback)}
+                disabled={pending && retriesPending && retryStartIndex < 0}
+                className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-700 disabled:cursor-wait disabled:bg-slate-400"
               >
-                {feedback.completed ? "Terminer la leçon" : "Continuer"}
+                {feedback.completed
+                  ? "Terminer la leçon"
+                  : retriesPending && retryStartIndex < 0
+                    ? "Préparation de la reprise…"
+                    : "Continuer"}
               </button>
             ) : (
               <button

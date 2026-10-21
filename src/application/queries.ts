@@ -12,6 +12,7 @@ import { LOCAL_PROFILE_ID } from "@/domain/profile";
 import {
   listChapterOverviews,
   listExamPresetOverviews,
+  listMediaByFile,
   resolveMedia,
   resolveOptionViews,
   resolveSourceLabels,
@@ -105,6 +106,7 @@ export type AttemptResultView = {
   passingScore: number | null;
   passed: boolean | null;
   durationMs: number;
+  nextLesson: NextLessonLink | null;
   questions: ResultQuestion[];
 };
 
@@ -150,6 +152,37 @@ function attemptKind(
     return "chapter-exam" as const;
   }
   return attempt.mode;
+}
+
+function nextLessonAfterUnit(
+  deps: AppDependencies,
+  attempt: Pick<Attempt, "chapterId" | "unitId">,
+): NextLessonLink | null {
+  if (!attempt.chapterId || !attempt.unitId) {
+    return null;
+  }
+
+  const entry = deps.catalog.chapterById.get(attempt.chapterId);
+  if (!entry) {
+    return null;
+  }
+
+  const unitLessons = entry.lessons.filter((lesson) => lesson.unitId === attempt.unitId);
+  const lastUnitLesson = unitLessons[unitLessons.length - 1];
+  if (!lastUnitLesson) {
+    return null;
+  }
+
+  const lastUnitLessonIndex = entry.lessons.findIndex((lesson) => lesson.id === lastUnitLesson.id);
+  const nextLesson = entry.lessons[lastUnitLessonIndex + 1];
+
+  return nextLesson
+    ? {
+        chapterSlug: entry.chapter.slug,
+        lessonSlug: nextLesson.slug,
+        title: nextLesson.title,
+      }
+    : null;
 }
 
 function toLatestAttemptResult(attempt: AttemptSummary | null): LatestAttemptResult | null {
@@ -365,6 +398,7 @@ export function getLessonDetail(
       : null,
     nextLesson: nextLesson ? { slug: nextLesson.slug, title: nextLesson.title } : null,
     sources: resolveSourceLabels(deps.catalog, lesson.sourceRefs),
+    mediaByFile: listMediaByFile(deps.catalog),
   };
 }
 
@@ -451,6 +485,7 @@ export function getAttemptResult(deps: AppDependencies, attemptId: string): Atte
       passingScore: attempt.passingScore,
       passed: attempt.passed,
       durationMs: attempt.durationMs ?? 0,
+      nextLesson: nextLessonAfterUnit(deps, attempt),
       questions: attempt.questions.map((question) => ({
         position: question.position,
         questionId: question.snapshot.questionId,

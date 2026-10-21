@@ -1,14 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="titre">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="titre desc">
   <title id="titre">Agent qualifié de face, les deux bras tendus horizontalement</title>
+  <desc id="desc">Agent en uniforme bleu marine, gants blancs et casquette, vu de face. Ses deux bras sont tendus horizontalement, paumes ouvertes.</desc>
   <rect width="480" height="360" fill="#f1f5f9"/>
-  <line x1="90" y1="320" x2="390" y2="320" stroke="#94a3b8" stroke-width="3"/>
-  <circle cx="240" cy="96" r="24" fill="#f1c7a5"/>
-  <path d="M216 86h48" stroke="#1e293b" stroke-width="8" stroke-linecap="round"/>
-  <rect x="223" y="68" width="34" height="13" rx="4" fill="#1e3a8a"/>
-  <path d="M240 120v86" stroke="#1d4ed8" stroke-width="30" stroke-linecap="round"/>
-  <path d="M226 138h-70m88 0h70" stroke="#1d4ed8" stroke-width="12" stroke-linecap="round"/>
-  <circle cx="154" cy="138" r="8" fill="#f1c7a5"/>
-  <circle cx="326" cy="138" r="8" fill="#f1c7a5"/>
-  <path d="M240 206l-18 66m18-66l18 66" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
-  <path d="M222 272h-18m54-18h18" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+  <path d="M70 322h340" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="240" cy="322" rx="66" ry="8" fill="#e2e8f0"/>
+
+  <path d="M213 228h20l-4 84h-20z" fill="#1d3557"/>
+  <path d="M247 228h20l4 84h-20z" fill="#1d3557"/>
+  <path d="M200 310h38a6 6 0 0 1 6 6v5h-50v-5a6 6 0 0 1 6-6z" fill="#0f172a"/>
+  <path d="M242 310h38a6 6 0 0 1 6 6v5h-50v-5a6 6 0 0 1 6-6z" fill="#0f172a"/>
+
+  <path d="M240 140c-19 0-31 8-34 22l-6 64c13 8 27 11 40 11s27-3 40-11l-6-64c-3-14-15-22-34-22z" fill="#1d3557"/>
+  <path d="M229 143l11 18 11-18-11-3z" fill="#f8fafc"/>
+  <path d="M240 158l5 8-2 21h-6l-2-21z" fill="#0f172a"/>
+  <path d="M229 143l11 18-6 5-12-18z" fill="#16304e"/>
+  <path d="M251 143l-11 18 6 5 12-18z" fill="#16304e"/>
+  <rect x="202" y="188" width="76" height="7" rx="3.5" fill="#cbd5e1"/>
+  <rect x="200" y="221" width="80" height="15" rx="4" fill="#f8fafc"/>
+  <rect x="231" y="223" width="18" height="11" rx="2" fill="#cbd5e1"/>
+  <rect x="237" y="226" width="6" height="5" rx="1" fill="#94a3b8"/>
+  <circle cx="223" cy="173" r="4" fill="#eab308"/>
+
+  <path d="M212 160h-56" fill="none" stroke="#1d3557" stroke-width="19" stroke-linecap="round"/>
+  <rect x="146" y="151" width="8" height="18" rx="3" fill="#f8fafc"/>
+  <ellipse cx="135" cy="160" rx="15" ry="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <ellipse cx="143" cy="150" rx="4" ry="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" transform="rotate(-30 143 150)"/>
+  <path d="M126 156v8m5-9v8m5-8v7" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+
+  <path d="M268 160h56" fill="none" stroke="#1d3557" stroke-width="19" stroke-linecap="round"/>
+  <rect x="326" y="151" width="8" height="18" rx="3" fill="#f8fafc"/>
+  <ellipse cx="345" cy="160" rx="15" ry="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <ellipse cx="337" cy="150" rx="4" ry="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" transform="rotate(30 337 150)"/>
+  <path d="M349 156v8m5-9v8m5-8v7" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+
+  <path d="M231 126h18v18h-18z" fill="#dda87f"/>
+  <ellipse cx="240" cy="110" rx="23" ry="27" fill="#e8b990"/>
+  <circle cx="217" cy="112" r="5" fill="#e8b990"/>
+  <circle cx="263" cy="112" r="5" fill="#e8b990"/>
+  <circle cx="232" cy="109" r="2.4" fill="#1f2937"/>
+  <circle cx="248" cy="109" r="2.4" fill="#1f2937"/>
+  <path d="M227 102q4-2 8 0M245 102q4-2 8 0" fill="none" stroke="#3f2a1d" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M240 115v7" stroke="#c98f68" stroke-width="2" stroke-linecap="round"/>
+  <path d="M235 127q5 3 10 0" fill="none" stroke="#b06a52" stroke-width="2.2" stroke-linecap="round"/>
+
+  <path d="M217 88c0-17 10-25 23-25s23 8 23 25z" fill="#1d3557"/>
+  <rect x="215" y="84" width="50" height="9" rx="4" fill="#0f172a"/>
+  <path d="M214 93q26 12 52 0l-3 7q-23 10-46 0z" fill="#0f172a"/>
+  <circle cx="240" cy="76" r="5" fill="#eab308"/>
+  <circle cx="240" cy="76" r="2" fill="#a16207"/>
 </svg>

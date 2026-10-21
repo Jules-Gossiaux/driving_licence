@@ -4,6 +4,7 @@ import type {
   LearningRepository,
   RecordAnswerInput,
   RecordQuestionPresentedInput,
+  RecordRetryAnswerInput,
 } from "@/application/ports";
 import { AttemptConflictError, AttemptNotFoundError } from "@/domain/learning/errors";
 import { questionSnapshotSchema, type QuestionSnapshot } from "@/domain/learning/snapshot";
@@ -53,6 +54,9 @@ type AttemptQuestionRow = {
   is_correct: number | null;
   timed_out: number;
   time_spent_ms: number | null;
+  retry_answered_at: string | null;
+  retry_selected_option_id: string | null;
+  retry_is_correct: number | null;
 };
 
 type LessonProgressRow = {
@@ -136,6 +140,9 @@ function toAttemptQuestion(row: AttemptQuestionRow, attemptId: string): AttemptQ
     isCorrect: row.is_correct === null ? null : row.is_correct === 1,
     timedOut: row.timed_out === 1,
     timeSpentMs: row.time_spent_ms,
+    retryAnsweredAt: row.retry_answered_at,
+    retrySelectedOptionId: row.retry_selected_option_id,
+    retryIsCorrect: row.retry_is_correct === null ? null : row.retry_is_correct === 1,
   };
 }
 
@@ -285,7 +292,8 @@ export class SqliteLearningRepository implements LearningRepository {
     const questionRows = this.db
       .prepare(
         "SELECT position, question_id, question_version, snapshot_json, presented_at, " +
-          "deadline_at, answered_at, selected_option_id, is_correct, timed_out, time_spent_ms " +
+          "deadline_at, answered_at, selected_option_id, is_correct, timed_out, time_spent_ms, " +
+          "retry_answered_at, retry_selected_option_id, retry_is_correct " +
           "FROM attempt_questions WHERE attempt_id = ? ORDER BY position",
       )
       .all(attemptId) as unknown as AttemptQuestionRow[];
@@ -439,6 +447,34 @@ export class SqliteLearningRepository implements LearningRepository {
           "WHERE id = ? AND status = 'in_progress'",
       )
       .run(input.position + 1, input.attemptId);
+  }
+
+  recordRetryAnswer(input: RecordRetryAnswerInput): void {
+    const result = this.db
+      .prepare(
+        "UPDATE attempt_questions SET retry_answered_at = ?, retry_selected_option_id = ?, " +
+          "retry_is_correct = ? " +
+          "WHERE attempt_id = ? AND position = ? AND question_id = ? " +
+          "AND answered_at IS NOT NULL AND is_correct = 0 AND retry_answered_at IS NULL " +
+          "AND EXISTS (SELECT 1 FROM attempts WHERE id = ? AND status = 'in_progress')",
+      )
+      .run(
+        input.answeredAt,
+        input.selectedOptionId,
+        input.isCorrect ? 1 : 0,
+        input.attemptId,
+        input.position,
+        input.questionId,
+        input.attemptId,
+      );
+
+    if (result.changes === 0) {
+      this.assertQuestionExists(input.attemptId, input.position);
+      throw new AttemptConflictError(
+        `La question ${input.position} de la tentative ${input.attemptId} ` +
+          "ne peut pas être reprise.",
+      );
+    }
   }
 
   completeAttempt(input: CompleteAttemptInput): void {

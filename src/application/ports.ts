@@ -24,6 +24,15 @@ export type RecordAnswerInput = {
   timeSpentMs: number;
 };
 
+export type RecordRetryAnswerInput = {
+  attemptId: string;
+  position: number;
+  questionId: string;
+  selectedOptionId: string;
+  isCorrect: boolean;
+  answeredAt: string;
+};
+
 export type CompleteAttemptInput = {
   attemptId: string;
   completedAt: string;
@@ -45,6 +54,7 @@ export interface LearningRepository {
   listRecentCompletedAttempts(profileId: string, limit: number): AttemptSummary[];
   recordQuestionPresented(input: RecordQuestionPresentedInput): void;
   recordAnswer(input: RecordAnswerInput): void;
+  recordRetryAnswer(input: RecordRetryAnswerInput): void;
   setLessonStep(profileId: string, attemptId: string, step: number): void;
   completeAttempt(input: CompleteAttemptInput): void;
   abandonAttempt(profileId: string, attemptId: string, at: string): void;

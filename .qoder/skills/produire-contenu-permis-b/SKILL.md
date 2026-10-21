@@ -1,6 +1,6 @@
 ---
 name: produire-contenu-permis-b
-description: Produire, corriger ou auditer le contenu pédagogique original du projet Permis B belge (leçons Markdown, questions YAML, médias, sources, chapitres, presets) dans content/. Utiliser dès qu'il faut ajouter ou réviser une leçon, une question, une illustration ou un chapitre, vérifier une règle belge, préparer des questions d'examen, ou traiter des scans de data/. Ne pas utiliser pour du code applicatif sans lien avec le contenu.
+description: Créer ou compléter le contenu pédagogique original du projet Permis B belge (leçons Markdown, questions YAML, médias, sources, chapitres, presets) dans content/. Utiliser dès qu'il faut ajouter une leçon, une question, une illustration ou un chapitre, vérifier une règle belge, préparer des questions d'examen, ou traiter des scans de data/. Pour auditer, simplifier ou réécrire du contenu existant, utiliser plutôt reviser-contenu-permis-b. Ne pas utiliser pour du code applicatif sans lien avec le contenu.
 ---
 
 # Produire du contenu pour le permis B
@@ -49,8 +49,8 @@ Voir `references/sources-et-verification.md`.
 ### 3. Planifier
 
 1. Décrire la structure : chapitre → unités → leçons → sections `##`.
-2. Prévoir 4 ou 5 questions cœur par leçon, chacune rattachée à la leçon. Le pool par leçon doit permettre l'entraînement et, à terme, l'examen : viser 8 questions par leçon sauf justification.
-3. Placer au plus 2 questions par `sectionChecks`, sans épuiser les questions cœur : au moins une doit rester pour le quiz final.
+2. Prévoir 3 ou 4 sections courtes par leçon et 4 ou 5 questions cœur, chacune rattachée à la leçon. Le pool par leçon doit permettre l'entraînement et, à terme, l'examen : viser 8 questions par leçon sauf justification.
+3. Placer **une seule vérification de section** (1 ou 2 questions) après la section la plus dense. Les autres questions cœur forment le quiz final. Le moteur repose ensuite les questions ratées : ne pas prévoir de questions de consolidation.
 4. Équilibrer difficulté (`easy`, `medium`, `hard`), sévérité (`normal`, `severe` rare), `examEligible` et tags. Prévoir les questions illustrées avec leurs médias dès le plan.
 5. Pour un chapitre destiné à l'examen de chapitre, viser au moins 50 questions `examEligible` et au moins 20 questions par unité. Un chapitre sans unité n'aura ni défi ni examen de chapitre.
 6. Faire valider le plan avant la rédaction d'un lot important.
@@ -58,19 +58,21 @@ Voir `references/sources-et-verification.md`.
 ### 4. Rédiger
 
 1. Utiliser `assets/templates/lecon.md` et `references/style-editorial.md`.
-2. Écrire une leçon originale, en français belge, avec des sections courtes, des points clés et un piège d'examen justifié.
-3. Rédiger les questions avec des distracteurs plausibles, une explication de règle et sans référence à la position des options.
-4. Ne pas introduire de champ absent du schéma. Ne pas ajouter de difficulté, de tag ou de média décoratif sans utilité pédagogique.
-5. Incrémenter `version` et repasser en `in_review` pour toute modification de fond d'un contenu déjà publié ; ne jamais laisser un contenu modifié en `published` sans nouvelle relecture.
+2. Écrire une leçon originale en français belge, de 250 à 450 mots, avec 3 ou 4 sections et 3 ou 4 points clés. Supprimer toute redondance entre `summary`, points clés et corps.
+3. Ne jamais écrire de bloc « Piège d'examen » ni de section « À retenir ». Une confusion utile devient une question ; une nuance mineure est intégrée à la règle.
+4. Rédiger les questions avec des distracteurs plausibles, une explication de règle et sans référence à la position des options.
+5. Ne pas introduire de champ absent du schéma. Ne pas ajouter de difficulté, de tag ou de média décoratif sans utilité pédagogique.
+6. Incrémenter `version` et repasser en `in_review` pour toute modification de fond d'un contenu déjà publié ; ne jamais laisser un contenu modifié en `published` sans nouvelle relecture.
 
 ### 5. Produire les médias
 
 1. Lire `references/media-pipeline.md`.
 2. Pour un panneau : créer un SVG original et fidèle aux formes et couleurs officielles, jamais un scan vectorisé ni un fichier trouvé en ligne.
-3. Pour une scène photoréaliste : décrire d'abord la situation de conduite (point de vue, voie, usagers, météo, absence de texte, panneau ou logo), faire valider ce brief, puis générer. Vérifier le résultat.
-4. Si un panneau doit apparaître, l'ajouter après génération à partir du SVG validé. Ne jamais laisser l'IA dessiner un panneau.
-5. Déclarer le média dans le bon `media.yaml` : `alt`, `kind`, dimensions, `rights`, `credit`, `sourceRefs` et, pour une image générée, `generator` (outil, prompt, date).
-6. Vérifier que le fichier existe sous `public/media/` et que l'`alt` décrit l'information utile.
+3. Pour un schéma : privilégier une liste ou des cartes HTML dès que le visuel contient des phrases. Un SVG ne porte que des libellés courts, lisibles à 320 px.
+4. Pour une scène photoréaliste : décrire d'abord la situation de conduite (point de vue, voie, usagers, météo, absence de texte, panneau ou logo), faire valider ce brief, puis générer. Vérifier le résultat.
+5. Si un panneau doit apparaître, l'ajouter après génération à partir du SVG validé. Ne jamais laisser l'IA dessiner un panneau.
+6. Déclarer le média dans le bon `media.yaml` : `alt`, `kind`, dimensions, `rights`, `credit`, `sourceRefs` et, pour une image générée, `generator` (outil, prompt, date).
+7. Vérifier que le fichier existe sous `public/media/` et que l'`alt` décrit l'information utile.
 
 ### 6. Enregistrer
 
@@ -99,8 +101,10 @@ Voir `references/sources-et-verification.md`.
 - [ ] Le plan et les sources sont tracés.
 - [ ] Les fichiers respectent strictement les schémas.
 - [ ] Les identifiants sont stables et les références croisées valides.
-- [ ] Chaque leçon a 4 ou 5 questions cœur, sauf justification.
+- [ ] Chaque leçon a 4 ou 5 questions cœur, une seule vérification de section et 2 à 4 questions finales.
+- [ ] Aucun bloc « Piège d'examen » ni section « À retenir » ; les confusions utiles sont couvertes par des questions.
 - [ ] Les questions ont des explications de règle et des distracteurs plausibles.
+- [ ] Les tableaux ne contiennent que des valeurs courtes ; les schémas restent lisibles à 320 px.
 - [ ] Les médias sont déclarés, originaux et accessibles.
 - [ ] `pnpm content:validate` passe ; les avertissements sont expliqués.
 - [ ] Le contrat de test et les comptages documentaires sont à jour si nécessaire.
@@ -120,7 +124,7 @@ Voir `references/sources-et-verification.md`.
 ## Ressources
 
 - `references/contrat-contenu.md` : contraintes réelles, références croisées, tests à mettre à jour.
-- `references/style-editorial.md` : structure des leçons et rédaction des questions.
+- `references/style-editorial.md` : référence commune (structure, rédaction, tableaux, originalité), partagée avec `reviser-contenu-permis-b`.
 - `references/sources-et-verification.md` : hiérarchie des sources, incertitudes, droits.
 - `references/media-pipeline.md` : SVG de panneaux, scènes photoréalistes, manifestes.
 - `assets/templates/` : gabarits de chapitre, leçon, question et média.

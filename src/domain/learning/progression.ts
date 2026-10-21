@@ -1,4 +1,4 @@
-export const UNIT_CHALLENGE_QUESTION_COUNT = 20;
+export const UNIT_CHALLENGE_QUESTION_COUNT = 10;
 
 export const CHAPTER_EXAM = {
   questionCount: 50,

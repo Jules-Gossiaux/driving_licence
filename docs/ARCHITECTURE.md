@@ -170,7 +170,7 @@ serveur recalcule le temps restant à chaque ouverture. Le dépôt sait marquer 
 
 ### Défi d'unité et examen de chapitre
 
-- Défi d'unité : accessible quand toutes les leçons de l'unité sont lues. Il tire 20 questions
+- Défi d'unité : accessible quand toutes les leçons de l'unité sont lues. Il tire 10 questions
   parmi celles référencées par les leçons de l'unité, les mélange, et se déroule comme un
   entraînement (`practice` avec `unit_id`) : sans chronomètre, correction immédiate, sans seuil.
   Le dernier défi terminé est affiché sur la page du chapitre. Un nouveau défi peut être lancé

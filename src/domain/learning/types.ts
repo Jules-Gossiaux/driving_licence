@@ -13,6 +13,9 @@ export type AttemptQuestion = {
   isCorrect: boolean | null;
   timedOut: boolean;
   timeSpentMs: number | null;
+  retryAnsweredAt: string | null;
+  retrySelectedOptionId: string | null;
+  retryIsCorrect: boolean | null;
 };
 
 export type Attempt = {

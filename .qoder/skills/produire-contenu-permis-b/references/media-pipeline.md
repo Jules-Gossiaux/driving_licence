@@ -95,10 +95,14 @@ Pour une image composite, garder le brief et mentionner l'outil de composition d
 - Privilégier un schéma clair à une scène réaliste quand la règle est abstraite.
 - Dimensions usuelles : 960 × 540 pour un schéma, 480 × 360 pour une illustration. Les dimensions
   déclarées doivent correspondre au fichier réel.
+- Dès qu'un visuel contient des phrases ou un tableau, le construire en HTML/CSS dans la leçon
+  plutôt qu'en SVG. Un SVG ne porte que des libellés courts.
 - Pas de texte incrusté superflu : si un libellé est nécessaire, il doit être lisible, contrasté et
-  cohérent avec le vocabulaire de la leçon.
+  cohérent avec le vocabulaire de la leçon, y compris à 320 px de large.
 - Ne pas coder une information par la couleur seule ; ajouter une forme, un symbole ou un libellé.
 - Vérifier le contraste et la lisibilité en niveaux de gris.
+- L'interface ouvre les images en grand au clic et permet de zoomer : cela ne dispense pas de les
+  concevoir lisibles à taille normale.
 
 ## Utilisation dans les contenus
 

@@ -140,6 +140,43 @@
     vérifiée sur le règlement belge. Les mentions non confirmées par le code
     n'ont pas été reprises.
 
+- id: official-code-route-1975-article-4
+  title: "Injonctions des agents qualifiés — règlement général sur la police de la circulation routière"
+  kind: official
+  publisher: "Service public de Wallonie — Wallex"
+  url: https://wallex.wallonie.be/eli/arrete/1975/12/01/1975120109
+  accessedAt: 2026-10-21T00:00:00Z
+  rights: external_reference
+  note: >-
+    Article 4 : les agents qualifiés portant les insignes de leur fonction
+    règlent la circulation par des injonctions qui priment sur la signalisation
+    et sur les règles de circulation. Texte applicable jusqu'au 31 mai 2027.
+
+- id: official-ar-2005-degres
+  title: "Arrêté royal du 30 septembre 2005 désignant les infractions par degré"
+  kind: official
+  publisher: "Service public de Wallonie — Wallex"
+  url: https://wallex.wallonie.be/eli/arrete/2005/09/30/2005014182/2006/03/31
+  accessedAt: 2026-10-21T00:00:00Z
+  rights: external_reference
+  note: >-
+    Classe les infractions aux règlements de circulation en quatre degrés. Le
+    quatrième degré réunit les infractions qui mettent directement en danger la
+    sécurité des personnes et qui provoquent presque toujours des dommages
+    physiques.
+
+- id: official-loi-1968
+  title: "Loi du 16 mars 1968 relative à la police de la circulation routière"
+  kind: official
+  publisher: "Service public de Wallonie — Wallex"
+  url: https://wallex.wallonie.be/eli/loi-decret/1968/03/16/1968031601
+  accessedAt: 2026-10-21T00:00:00Z
+  rights: external_reference
+  note: >-
+    Articles 65 et 65/1 : perception immédiate, transaction et ordre de
+    paiement. Les durées de suspension après un ordre de paiement impayé
+    (8 jours, 15 jours, 1 mois) proviennent du manuel, page 14.
+
 - id: official-signaux-routiers
   title: "Signaux routiers — règlement général sur la police de la circulation routière"
   kind: official

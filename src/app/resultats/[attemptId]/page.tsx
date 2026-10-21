@@ -64,6 +64,11 @@ export default async function ResultPage({ params }: PageProps) {
   const severeFaultCount = result.questions.filter(
     (question) => !question.isCorrect && !question.timedOut && question.severity === "severe",
   ).length;
+  const hasErrors = result.incorrectCount > 0;
+  const primaryButtonClass =
+    "rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700";
+  const secondaryButtonClass =
+    "rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50";
 
   return (
     <div>
@@ -142,22 +147,26 @@ export default async function ResultPage({ params }: PageProps) {
       </section>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link
-          href="/revision"
-          className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700"
-        >
-          Revoir mes erreurs
-        </Link>
-        <Link
-          href={isExam ? "/examen" : "/entrainement"}
-          className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-        >
+        {result.nextLesson ? (
+          <Link
+            href={`/chapitres/${result.nextLesson.chapterSlug}/lecons/${result.nextLesson.lessonSlug}`}
+            className={primaryButtonClass}
+          >
+            Leçon suivante
+          </Link>
+        ) : null}
+        {hasErrors ? (
+          <Link
+            href="/revision"
+            className={result.nextLesson ? secondaryButtonClass : primaryButtonClass}
+          >
+            Revoir mes erreurs
+          </Link>
+        ) : null}
+        <Link href={isExam ? "/examen" : "/entrainement"} className={secondaryButtonClass}>
           {isExam ? "Passer un autre examen" : "Nouvel entraînement"}
         </Link>
-        <Link
-          href="/"
-          className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-        >
+        <Link href="/" className={secondaryButtonClass}>
           Accueil
         </Link>
       </div>

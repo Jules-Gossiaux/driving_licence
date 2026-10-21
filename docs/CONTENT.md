@@ -5,7 +5,7 @@
 `content/` est la source de vérité du contenu pédagogique. Tout est versionné avec le code. Aucun
 contenu n'est stocké en base : seules la progression et les tentatives le sont.
 
-Le contenu actuel est une **démonstration** : 2 chapitres, 34 leçons et 274 questions en brouillon.
+Le contenu actuel est une **démonstration** : 2 chapitres, 34 leçons et 275 questions en brouillon.
 Il permet de tester les parcours et les sept unités (deux pour le chapitre 1, cinq pour le
 chapitre 2), pas de préparer sérieusement l'examen.
 
@@ -167,6 +167,13 @@ leçon à parcours, `sectionChecks` place une ou deux questions cœur juste apr�
 identifiant de slug (par exemple `les-categories`). Au moins une question cœur doit rester pour le
 quiz final. Les questions cœur restantes sont posées à la fin, dans l'ordre de `coreQuestionIds`.
 
+Le style cible est **une seule vérification de section**, placée après la section la plus dense,
+puis 2 à 4 questions de quiz final. Les questions ratées durant la leçon sont reposées à la fin,
+après le quiz, sans modifier le score initial. Une leçon ne contient ni bloc « Piège d'examen » ni
+section « À retenir » : une confusion est convertie en question, ou intégrée en une phrase dans la
+règle concernée. Les trois leçons pilotes du point 2.1 appliquent déjà ce format ; les autres
+leçons conservent encore leurs deux vérifications et leurs blocs de synthèse jusqu'à révision.
+
 ## Question
 
 ```yaml
@@ -234,11 +241,13 @@ manuel et demande une confirmation sur une source officielle.
 Le chapitre 2 couvre cinq unités : `ch02-u1` (« Les usagers et la réglementation »),
 `ch02-u2` (« Les signaux lumineux de circulation »), `ch02-u3` (« Les signaux routiers »),
 `ch02-u4` (« Le marquage au sol ») et `ch02-u5` (« L'ordre hiérarchique et les priorités »).
-Il compte 28 leçons et 224 questions, toutes en `draft` et
-`ai_assisted` : 56 questions pour 2.1, 48 pour 2.2, 64 pour 2.3, 32 pour 2.4 et 24 pour 2.5.
+Il compte 28 leçons et 225 questions, toutes en `draft` et
+`ai_assisted` : 57 questions pour 2.1, 48 pour 2.2, 64 pour 2.3, 32 pour 2.4 et 24 pour 2.5.
 Chaque leçon déclare
-4 questions cœur (par exemple `ch02-q001` à `ch02-q004` pour la première), deux vérifications de
-section et propose un parcours linéaire ; le reste du pool alimente l'entraînement du chapitre.
+4 ou 5 questions cœur (par exemple `ch02-q001` à `ch02-q004` pour la première) et propose un
+parcours linéaire ; le reste du pool alimente l'entraînement du chapitre. Les trois leçons pilotes
+`a-qui-obeir`, `les-quatre-degres-d-infraction` et `payer-une-amende` déclarent une seule
+vérification de section et un quiz final, sans bloc de piège ni de récapitulatif.
 
 Les faits du point 2.1 sont tirés des pages 10 à 16 du manuel et recoupés avec la synthèse des pages
 42 à 44. Ceux du point 2.2 viennent des pages 17 à 20 et sont vérifiés sur les articles 61 à 64 du
@@ -340,6 +349,12 @@ Le pipeline de production est aussi encapsulé dans le skill projet
 [`.qoder/skills/produire-contenu-permis-b/SKILL.md`](../.qoder/skills/produire-contenu-permis-b/SKILL.md).
 Il sert à cadrer un lot, extraire et vérifier les faits, rédiger leçons et questions, produire les
 médias, puis valider avant livraison. Il ne publie jamais : il s'arrête à `draft` ou `in_review`.
+
+Le skill [`.qoder/skills/reviser-contenu-permis-b/SKILL.md`](../.qoder/skills/reviser-contenu-permis-b/SKILL.md)
+réécrit un contenu existant avec deux objectifs : garantir l'originalité, sans aucune formulation
+reprise du manuel, et maximiser la clarté en supprimant tout texte inutile. Il vérifie ensuite
+l'exactitude des règles, la couverture par les questions et les médias. Il s'appuie sur les mêmes
+références éditoriales et ne publie pas.
 
 Ses références opérationnelles sont le contrat de contenu, le style éditorial, la vérification des
 sources et le pipeline média. Les gabarits de chapitre, leçon, question et média se trouvent dans

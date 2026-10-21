@@ -19,7 +19,7 @@ severity: severe
 tags:
   - agents
   - injonctions
-  - piege
+  - stop
 sourceRefs:
   - documentId: feu-vert-chap2-1
     page: 12

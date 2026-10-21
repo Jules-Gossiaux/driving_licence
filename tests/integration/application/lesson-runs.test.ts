@@ -1,6 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { LessonLockedError, PracticeUnavailableError } from "@/application/errors";
-import { getLessonRunView, saveLessonRunStep, startLessonRun } from "@/application/lesson-runs";
+import {
+  getLessonRunView,
+  saveLessonRunStep,
+  startLessonRun,
+  submitLessonRetry,
+} from "@/application/lesson-runs";
 import { startChapterPractice, submitTrainingAnswer } from "@/application/practice";
 import { buildContentCatalog } from "@/domain/content/catalog";
 import { AttemptConflictError } from "@/domain/learning/errors";
@@ -207,6 +212,153 @@ describe("parcours de leçon", () => {
     const replay = startLessonRun(context.deps, "ch01-l01");
     expect(replay.resumed).toBe(false);
     expect(replay.attemptId).not.toBe(run.attemptId);
+  });
+
+  it("repose à la fin les questions ratées et conserve le score initial", () => {
+    const run = startLessonRun(context.deps, "ch01-l01");
+    const started = getAttempt(run.attemptId);
+
+    for (const question of started.questions) {
+      submitTrainingAnswer(context.deps, {
+        attemptId: run.attemptId,
+        position: question.position,
+        optionId: question.position === 0 ? "b" : question.snapshot.correctOptionId,
+      });
+    }
+
+    expect(getAttempt(run.attemptId).status).toBe("in_progress");
+    expect(context.deps.repository.getLessonProgress(LOCAL_PROFILE_ID)).toEqual([]);
+
+    const pendingView = getLessonRunView(context.deps, run.attemptId);
+    expect(pendingView).toMatchObject({
+      completed: false,
+      retryCount: 1,
+      retryCorrectCount: 0,
+    });
+    const retryStep = pendingView.steps.at(-1);
+    expect(retryStep).toMatchObject({
+      kind: "question",
+      purpose: "retry",
+      questionId: started.questions[0]!.snapshot.questionId,
+      questionNumber: 1,
+      answered: false,
+      correctOptionId: null,
+      explanation: null,
+    });
+
+    if (!retryStep || retryStep.kind !== "question") {
+      throw new Error("Étape de reprise absente.");
+    }
+
+    const feedback = submitLessonRetry(context.deps, {
+      attemptId: run.attemptId,
+      position: retryStep.position,
+      optionId: started.questions[0]!.snapshot.correctOptionId,
+    });
+
+    expect(feedback.completed).toBe(true);
+    const completed = getAttempt(run.attemptId);
+    expect(completed.status).toBe("completed");
+    expect(completed.score).toBe(3);
+    expect(completed.questions[0]).toMatchObject({
+      isCorrect: false,
+      retryIsCorrect: true,
+      retrySelectedOptionId: completed.questions[0]!.snapshot.correctOptionId,
+    });
+    expect(context.deps.repository.getLessonProgress(LOCAL_PROFILE_ID)).toEqual([
+      expect.objectContaining({ lessonId: "ch01-l01" }),
+    ]);
+    expect(getLessonRunView(context.deps, run.attemptId)).toMatchObject({
+      completed: true,
+      correctCount: 3,
+      retryCount: 1,
+      retryCorrectCount: 1,
+    });
+  });
+
+  it("reprend une erreur à l'étape enregistrée et termine même si elle reste fausse", () => {
+    const run = startLessonRun(context.deps, "ch01-l01");
+    const started = getAttempt(run.attemptId);
+
+    for (const question of started.questions) {
+      submitTrainingAnswer(context.deps, {
+        attemptId: run.attemptId,
+        position: question.position,
+        optionId: question.position === 0 ? "b" : question.snapshot.correctOptionId,
+      });
+    }
+
+    const pendingView = getLessonRunView(context.deps, run.attemptId);
+    const retryIndex = pendingView.steps.length - 1;
+    saveLessonRunStep(context.deps, { attemptId: run.attemptId, stepIndex: retryIndex });
+
+    expect(getLessonRunView(context.deps, run.attemptId).initialStepIndex).toBe(retryIndex);
+
+    const retryStep = pendingView.steps[retryIndex];
+    if (!retryStep || retryStep.kind !== "question") {
+      throw new Error("Étape de reprise absente.");
+    }
+
+    const feedback = submitLessonRetry(context.deps, {
+      attemptId: run.attemptId,
+      position: retryStep.position,
+      optionId: "b",
+    });
+
+    expect(feedback.completed).toBe(true);
+    expect(feedback.isCorrect).toBe(false);
+    expect(getAttempt(run.attemptId).status).toBe("completed");
+    expect(getLessonRunView(context.deps, run.attemptId)).toMatchObject({
+      completed: true,
+      retryCorrectCount: 0,
+    });
+  });
+
+  it("protège la phase de reprise", () => {
+    const run = startLessonRun(context.deps, "ch01-l01");
+    const started = getAttempt(run.attemptId);
+    const first = started.questions[0]!;
+
+    submitTrainingAnswer(context.deps, {
+      attemptId: run.attemptId,
+      position: first.position,
+      optionId: "b",
+    });
+
+    expect(() =>
+      submitLessonRetry(context.deps, {
+        attemptId: run.attemptId,
+        position: first.position,
+        optionId: first.snapshot.correctOptionId,
+      }),
+    ).toThrow(AttemptConflictError);
+
+    for (const question of getAttempt(run.attemptId).questions) {
+      if (question.answeredAt === null) {
+        submitTrainingAnswer(context.deps, {
+          attemptId: run.attemptId,
+          position: question.position,
+          optionId: question.snapshot.correctOptionId,
+        });
+      }
+    }
+
+    const second = getAttempt(run.attemptId).questions[1]!;
+    expect(() =>
+      submitLessonRetry(context.deps, {
+        attemptId: run.attemptId,
+        position: second.position,
+        optionId: second.snapshot.correctOptionId,
+      }),
+    ).toThrow(AttemptConflictError);
+
+    submitLessonRetry(context.deps, {
+      attemptId: run.attemptId,
+      position: first.position,
+      optionId: first.snapshot.correctOptionId,
+    });
+
+    expect(getAttempt(run.attemptId).status).toBe("completed");
   });
 
   it("refuse une leçon sans questions cœur", () => {

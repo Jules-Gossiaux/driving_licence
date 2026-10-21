@@ -1,9 +1,11 @@
 # Style éditorial
 
+Référence commune à `produire-contenu-permis-b` et `reviser-contenu-permis-b`.
+
 ## Voix et public
 
 Le contenu s'adresse à un candidat adulte au permis B belge francophone. Il doit pouvoir lire une
-leçon en quelques minutes, comprendre une règle et répondre à une question sans revenir au texte.
+leçon en deux ou trois minutes, comprendre une règle et répondre à une question sans revenir au texte.
 
 - Vouvoiement, phrases courtes, voix active, présent de l'indicatif.
 - Ton calme et précis. Pas de dramatisation, pas de blague sur les sanctions ou les accidents.
@@ -16,22 +18,49 @@ leçon en quelques minutes, comprendre une règle et répondre à une question s
 
 ## Structure d'une leçon
 
-Une leçon est un micro-parcours, pas un chapitre de manuel.
+Une leçon est un micro-parcours, pas un chapitre de manuel. Tout ce qui n'aide pas à trancher une
+situation ou à répondre à une question est supprimé.
 
 - **Titre** : question ou groupe nominal court, sans point final. Éviter « Introduction à… ».
 - **Summary** : une phrase qui annonce la décision ou la règle principale.
-- **Key points** : 3 à 5 entrées, chacune formulée comme une règle actionnable. Le schéma en accepte
-  jusqu'à 6 ; au-delà de 5, la leçon est probablement trop large.
+- **Key points** : 3 ou 4 entrées, chacune formulée comme une règle actionnable. Cinq au maximum.
 - **Ouverture** (avant le premier `##`) : 2 ou 3 phrases qui posent la situation concrète. Ne pas
   commencer par « Dans cette leçon, nous allons voir… ».
-- **Sections `##`** : 3 à 6 sections, une seule idée par section. Titre court et explicite. Deux à
-  quatre paragraphes courts, ou une phrase suivie d'une liste.
-- **Piège d'examen** : bloc `>` avec le préfixe `**Piège d'examen** —`, uniquement s'il existe une
-  confusion réelle et documentée. Un seul par leçon.
-- **À retenir** : dernière section facultative, avec une règle de décision utilisable en situation.
+- **Sections `##`** : 3 ou 4 sections, une seule idée par section. Titre court et explicite. Deux ou
+  trois paragraphes courts, ou une phrase suivie d'une liste.
+- **Longueur cible** : 250 à 450 mots hors front matter. Une leçon de catalogue de panneaux peut
+  descendre à 150 mots ; au-delà de 600 mots, supprimer ou découper.
+- **Pas de section « À retenir »** : la règle de décision est déjà dans les key points et dans la
+  dernière section. Un résumé final qui répète la leçon est supprimé.
+- **Pas de bloc « Piège d'examen »** : voir la section suivante.
 
-Longueur cible : 350 à 650 mots hors front matter. Une leçon de catalogue de panneaux peut être plus
-courte ; une leçon qui couvre plusieurs exceptions ne doit pas dépasser 900 mots, sinon la découper.
+## Supprimer la redondance
+
+Le défaut le plus fréquent n'est pas la longueur brute, c'est la répétition. Une même idée ne doit
+apparaître qu'à un seul endroit :
+
+- le `summary` annonce la règle, il ne la démontre pas ;
+- les `keyPoints` donnent les valeurs et les réflexes, ils ne racontent pas la situation ;
+- le corps explique, illustre et tranche ;
+- les questions vérifient, elles ne réintroduisent pas un paragraphe de cours.
+
+Si une phrase peut être supprimée sans qu'une question devienne impossible à répondre, elle est
+probablement décorative.
+
+## Transformer un piège en question
+
+Un piège n'est conservé que s'il change une décision. Il ne reste jamais sous forme de bloc séparé.
+
+1. **Confusion réelle et non testée** : créer ou réutiliser une question qui met la confusion en
+   situation, avec une explication qui tranche. La question peut être une vérification de section si
+   le piège se rattache à une section dense, sinon une question du quiz final.
+2. **Confusion déjà couverte par une question** : supprimer le bloc sans rien ajouter.
+3. **Nuance mineure** (un mot, une condition de forme) : l'intégrer en une phrase dans la règle
+   concernée, sans lui consacrer une section.
+4. **Fausse exception ou formulation ambiguë** : supprimer purement et simplement.
+
+Avant de retirer un piège, vérifier la couverture : `grep` du sujet dans les questions de la leçon
+et lecture des explications. Un piège ne disparaît jamais sans que la règle reste vérifiable.
 
 ## Rédiger une règle
 
@@ -93,11 +122,51 @@ générale, ou hors du programme visé. Une question de brouillon peut rester é
 2 à 4 tags en kebab-case, réutilisés d'une question à l'autre : `priorites`, `panneaux-danger`,
 `alcool`, `sanctions`, `usagers`. Ne pas créer un tag pour une seule question sans raison.
 
+## Vérifications de section et reprises
+
+- Une leçon ne contient **qu'une seule vérification de section**, placée après la section la plus
+  dense, avec 1 ou 2 questions. C'est un contrôle de compréhension, pas un quiz au fil du texte.
+- Les autres questions cœur forment le **quiz final** (2 à 4 questions, 4 ou 5 au total avec la
+  vérification).
+- Le moteur de leçon repose automatiquement, à la fin, **les questions ratées**. Ne pas dupliquer
+  ces questions dans le contenu et ne pas prévoir de session de consolidation séparée.
+- Choisir comme vérification une question qui révèle une incompréhension utile, pas la plus facile.
+
+## Tableaux et schémas
+
+- Un tableau sert à comparer des **valeurs courtes** (seuils, durées, catégories). Maximum 3 ou 4
+  colonnes, cellules de quelques mots.
+- Une cellule ne contient jamais une phrase complète ni un paragraphe. Si c'est le cas, convertir le
+  tableau en liste ou en cartes HTML.
+- Un schéma doit rester lisible sur un écran de 320 px de large. L'information ne repose jamais sur
+  la couleur seule.
+- Ne pas incruster de paragraphes de texte dans une image : les explications vont dans le Markdown.
+  Un SVG ne porte que des libellés courts.
+- Les images sont déclarées avec leurs dimensions réelles et un `alt` utile. L'interface les ouvre en
+  grand au clic ; cela ne dispense pas de les concevoir lisibles à taille normale.
+- Pour une comparaison de plusieurs cas, préférer une liste ou des cartes HTML à un schéma large.
+
+## Originalité et réappropriation
+
+Un contenu original reprend des **faits**, pas une formulation, une structure ni des exemples.
+
+1. Construire une fiche de faits : règle, valeur, portée, exception, source officielle, page.
+2. Quitter la source et expliquer la règle à voix haute, avec ses propres mots et un exemple concret.
+3. Rédiger depuis cette explication, sans rouvrir le manuel.
+4. Confronter ensuite la rédaction à la fiche, pas au texte source : chaque fait doit être exact et
+   chaque valeur sourcée.
+5. Chercher les séquences de six mots ou plus qui ressemblent à la source ; reformuler toute
+   coïncidence. Vérifier aussi que l'ordre des sections et les exemples ne recopient pas le manuel.
+
+Une reformulation mot à mot reste un plagiat. Changer trois mots ou déplacer une phrase ne suffit
+pas : il faut reconstruire l'explication autour de la décision à prendre.
+
 ## Ce qui est refusé
 
 - Recopier une phrase du manuel ou d'un scan, même courte.
 - Une règle présentée sans source ou avec une source qui ne dit pas cela.
 - Une question dont la bonne réponse dépend d'une convention locale non précisée.
-- Un piège fondé sur une formulation ambiguë plutôt que sur une règle.
+- Un bloc « Piège d'examen » ou une section « À retenir » qui répète la leçon.
+- Un tableau de phrases complètes.
 - Une image décorative qui n'apporte aucune information à la question.
 - Un ton moralisateur, infantilisant ou anxiogène.

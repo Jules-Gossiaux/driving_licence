@@ -11,7 +11,7 @@
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
 - Unités de chapitre et parcours de micro-leçons : sections Markdown, vérifications intercalées,
   quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
-- Défi d'unité (20 questions, sans seuil) et examen de chapitre (50 questions / 15 s / 41 sur 50),
+- Défi d'unité (10 questions, sans seuil) et examen de chapitre (50 questions / 15 s / 41 sur 50),
   débloqués par la lecture des leçons et vérifiés côté serveur.
 - Parcours visuel type Duolingo : chemin chapitre → unité → leçons, états verrouillé, courant et
   terminé, accès de révision aux leçons terminées, défi et examen intégrés comme jalons.
@@ -24,12 +24,12 @@
   insuffisant ; preset de démonstration (5 questions, brouillons autorisés).
 - Résultats détaillés avec explications, médias et sources.
 - Persistance SQLite avec migrations versionnées et snapshots des questions.
-- Tests : 135 tests Vitest (18 fichiers) et 5 parcours Playwright.
+- Tests : 141 tests Vitest (18 fichiers) et 5 parcours Playwright.
 - Documentation d'architecture, de développement, de test, de contenu et de décisions.
 
 ### Limites connues
 
-- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (274 brouillons).
+- Le preset officiel est **verrouillé** : aucune question publiée pour 50 requises (275 brouillons).
 - Le contenu n'a pas été relu par un spécialiste et ne doit pas servir de seule préparation.
 - Pas d'interface pour abandonner un examen commencé.
 - Pas d'historique complet des tentatives au-delà des cinq dernières du tableau de bord.

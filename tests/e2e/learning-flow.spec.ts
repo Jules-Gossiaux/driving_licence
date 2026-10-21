@@ -3,8 +3,39 @@ import { resolve } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { expect, test } from "@playwright/test";
 import matter from "gray-matter";
+import YAML from "yaml";
 
 test.describe.configure({ mode: "serial" });
+
+function normalizeText(value: string): string {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function exactLabelPattern(label: string): RegExp {
+  return new RegExp(`${label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`);
+}
+
+function loadCorrectOptionLabels(chapterDirectory: string): Map<string, string> {
+  const questionsDirectory = resolve(
+    process.cwd(),
+    "content/chapters",
+    chapterDirectory,
+    "questions",
+  );
+
+  return new Map(
+    readdirSync(questionsDirectory).flatMap((file) => {
+      const data = YAML.parse(readFileSync(resolve(questionsDirectory, file), "utf8")) as {
+        prompt: string;
+        options: Array<{ id: string; label: string }>;
+        correctOptionId: string;
+      };
+      const correctOption = data.options.find((option) => option.id === data.correctOptionId);
+
+      return correctOption ? [[normalizeText(data.prompt), correctOption.label] as const] : [];
+    }),
+  );
+}
 
 function seedChapterTwoProgress(): void {
   const configuredPath = process.env.E2E_DATABASE_PATH;
@@ -66,10 +97,24 @@ test("parcourt une micro-leçon du chapitre 1 et met à jour sa progression", as
     await page.getByRole("button", { name: "Continuer" }).click();
   }
 
+  const correctLabels = loadCorrectOptionLabels("chapitre-1-permis-b");
+
   async function answerQuestion() {
-    await page.locator("fieldset button").first().click();
+    const prompt = normalizeText(await page.getByRole("heading", { level: 1 }).innerText());
+    const correctLabel = correctLabels.get(prompt);
+
+    if (!correctLabel) {
+      throw new Error(`Réponse introuvable pour la question : ${prompt}`);
+    }
+
+    await page
+      .locator("fieldset")
+      .getByRole("button")
+      .filter({ hasText: exactLabelPattern(correctLabel) })
+      .first()
+      .click();
     await page.getByRole("button", { name: "Valider la réponse" }).click();
-    await expect(page.getByText(/^(Bonne réponse|Réponse incorrecte)$/)).toBeVisible();
+    await expect(page.getByText(/^Bonne réponse$/)).toBeVisible();
   }
 
   await continueContent("Introduction");
@@ -130,7 +175,9 @@ test("termine un entraînement et affiche la correction", async ({ page }) => {
   await expect(page.getByText(/réponses? correctes? sur 10/)).toBeVisible();
 });
 
-test("parcourt une micro-leçon du chapitre 2 et débloque la suivante", async ({ page }) => {
+test("parcourt une micro-leçon du chapitre 2, repose l'erreur et débloque la suivante", async ({
+  page,
+}) => {
   await page.goto("/chapitres/chapitre-2-la-reglementation");
   await expect(
     page.getByRole("heading", { name: /Les usagers et la réglementation/ }),
@@ -154,17 +201,47 @@ test("parcourt une micro-leçon du chapitre 2 et débloque la suivante", async (
     await page.getByRole("button", { name: "Continuer" }).click();
   }
 
-  async function answerQuestion() {
-    await page.locator("fieldset button").first().click();
+  const correctLabels = loadCorrectOptionLabels("chapitre-2-la-reglementation");
+
+  async function answerQuestion(expectCorrect = true) {
+    const prompt = normalizeText(await page.getByRole("heading", { level: 1 }).innerText());
+    const correctLabel = correctLabels.get(prompt);
+
+    if (!correctLabel) {
+      throw new Error(`Réponse introuvable pour la question : ${prompt}`);
+    }
+
+    const options = page.locator("fieldset button");
+
+    if (expectCorrect) {
+      await options
+        .filter({ hasText: exactLabelPattern(correctLabel) })
+        .first()
+        .click();
+    } else {
+      const optionCount = await options.count();
+
+      for (let index = 0; index < optionCount; index += 1) {
+        const label = await options.nth(index).innerText();
+
+        if (!exactLabelPattern(correctLabel).test(label)) {
+          await options.nth(index).click();
+          break;
+        }
+      }
+    }
+
     await page.getByRole("button", { name: "Valider la réponse" }).click();
-    await expect(page.getByText(/^(Bonne réponse|Réponse incorrecte)$/)).toBeVisible();
+    await expect(
+      page.getByText(expectCorrect ? /^Bonne réponse$/ : /^Réponse incorrecte$/),
+    ).toBeVisible();
   }
 
   await continueContent("La route ne se résume pas aux voitures");
   await continueContent("Les conducteurs");
   await continueContent("Les passagers");
 
-  await answerQuestion();
+  await answerQuestion(false);
   await page.getByRole("button", { name: "Continuer" }).click();
 
   await continueContent("Les piétons");
@@ -177,10 +254,23 @@ test("parcourt une micro-leçon du chapitre 2 et débloque la suivante", async (
   await answerQuestion();
   await page.getByRole("button", { name: "Continuer" }).click();
   await answerQuestion();
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    if (await page.getByText(/^Reprise des erreurs/).isVisible()) {
+      break;
+    }
+
+    await page.getByRole("button", { name: "Continuer" }).click();
+    await page.waitForTimeout(250);
+  }
+
+  await expect(page.getByText(/^Reprise des erreurs/)).toBeVisible();
+  await answerQuestion();
   await page.getByRole("button", { name: "Terminer la leçon" }).click();
 
   await expect(page.getByRole("heading", { name: "Leçon terminée" })).toBeVisible();
-  await expect(page.getByText(/réponses? correctes? sur 4/)).toBeVisible();
+  await expect(page.getByText(/Score initial : 3\/4/)).toBeVisible();
+  await expect(page.getByText(/Reprise des erreurs : 1\/1 corrigée/)).toBeVisible();
 
   await page.getByRole("link", { name: "Leçon suivante" }).click();
   await expect(
@@ -272,17 +362,30 @@ test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page })
 
   await expect(page).toHaveURL(/\/entrainement\/.+/);
   await expect(page.getByText(/Défi · 2\.1/)).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Question 1 sur 20" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 1 sur 10" })).toBeVisible();
 
-  for (let position = 1; position <= 20; position += 1) {
-    await page.locator("fieldset button").first().click();
+  const correctOptionLabels = loadCorrectOptionLabels("chapitre-2-la-reglementation");
+
+  for (let position = 1; position <= 10; position += 1) {
+    const prompt = normalizeText(await page.getByRole("heading", { level: 2 }).innerText());
+    const correctLabel = correctOptionLabels.get(prompt);
+    if (!correctLabel) {
+      throw new Error(`Réponse introuvable pour la question : ${prompt}`);
+    }
+
+    await page
+      .locator("fieldset")
+      .getByRole("button")
+      .filter({ hasText: exactLabelPattern(correctLabel) })
+      .first()
+      .click();
     await page.getByRole("button", { name: "Valider la réponse" }).click();
     await expect(page.getByText(/^(Bonne réponse|Réponse incorrecte)$/)).toBeVisible();
 
-    if (position < 20) {
+    if (position < 10) {
       await page.getByRole("button", { name: "Question suivante" }).click();
       await expect(
-        page.getByRole("heading", { name: `Question ${position + 1} sur 20` }),
+        page.getByRole("heading", { name: `Question ${position + 1} sur 10` }),
       ).toBeVisible();
     } else {
       await page.getByRole("button", { name: "Voir le résultat" }).click();
@@ -291,7 +394,14 @@ test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page })
 
   await expect(page).toHaveURL(/\/resultats\/.+/);
   await expect(page.getByRole("heading", { level: 1, name: "Défi terminé" })).toBeVisible();
-  await expect(page.getByText(/réponses? correctes? sur 20/)).toBeVisible();
+  await expect(page.getByText("10 réponses correctes sur 10.")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Revoir mes erreurs" })).toHaveCount(0);
+  const nextLessonLink = page.getByRole("link", { name: "Leçon suivante" });
+  await expect(nextLessonLink).toBeVisible();
+  await expect(nextLessonLink).toHaveAttribute(
+    "href",
+    "/chapitres/chapitre-2-la-reglementation/lecons/les-cercles-tricolores",
+  );
 
   await page.goto("/chapitres/chapitre-2-la-reglementation");
   await expect(unit21.getByRole("button", { name: "Refaire le défi" })).toBeVisible();
