@@ -63,8 +63,10 @@ describe("examen de chapitre", () => {
     expect(() => startChapterExam(context.deps, "ch01")).toThrow(ProgressionLockedError);
   });
 
-  it("refuse une banque inférieure au format de cinquante questions", () => {
-    const custom = createTestDependencies({ catalog: buildContent(49) });
+  it("refuse une banque inférieure au format de vingt questions", () => {
+    const custom = createTestDependencies({
+      catalog: buildContent(CHAPTER_EXAM.questionCount - 1),
+    });
 
     try {
       custom.deps.repository.setLessonRead(LOCAL_PROFILE_ID, "ch01-l01", true, TEST_STARTED_AT);
@@ -74,7 +76,7 @@ describe("examen de chapitre", () => {
     }
   });
 
-  it("crée un examen de cinquante questions au format officiel", () => {
+  it("crée un examen de chapitre de vingt questions", () => {
     markChapterRead();
 
     expect(startChapterExam(context.deps, "ch01")).toEqual({

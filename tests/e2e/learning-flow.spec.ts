@@ -415,5 +415,5 @@ test("débloque le défi d'unité puis l'examen du chapitre 2", async ({ page })
   await expect(page).toHaveURL(/\/examen\/.+/);
   await expect(page.getByRole("timer")).toBeVisible();
   await expect(page.getByText(/Examen · Chapitre 2/)).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Question 1 sur 50" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 1 sur 20" })).toBeVisible();
 });

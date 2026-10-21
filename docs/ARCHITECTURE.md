@@ -176,15 +176,16 @@ serveur recalcule le temps restant à chaque ouverture. Le dépôt sait marquer 
   Le dernier défi terminé est affiché sur la page du chapitre. Un nouveau défi peut être lancé
   sans reprendre le précédent.
 - Examen de chapitre : accessible quand toutes les leçons du chapitre sont lues, que le chapitre
-  déclare des unités et que la banque contient au moins 50 questions `examEligible`. Il utilise le
-  moteur d'examen (`exam` sans `preset_id`, avec `chapter_id`) : 50 questions, 15 s par question,
-  seuil 41/50, pénalités 1 et 5. Un seul examen actif par profil, tous types confondus ; un examen
-  en cours est repris au lieu d'en créer un autre. Contrairement au preset officiel, il accepte les
-  questions en brouillon afin de rendre le pilote testable avant publication.
+  déclare des unités et que la banque contient au moins 20 questions `examEligible`. Il utilise le
+  moteur d'examen (`exam` sans `preset_id`, avec `chapter_id`) : 20 questions, 15 s par question,
+  seuil 17/20, pénalités 1 et 5. C'est un jalon de chapitre, distinct du preset officiel de
+  50 questions. Un seul examen actif par profil, tous types confondus ; un examen en cours est
+  repris au lieu d'en créer un autre. Contrairement au preset officiel, il accepte les questions en
+  brouillon afin de rendre le pilote testable avant publication.
 - Les deux fonctionnalités vérifient le déblocage côté serveur : l'action refuse une tentative si
   les leçons requises ne sont pas lues, même si le bouton est contourné.
-- Un chapitre sans unités (chapitre 1 de démonstration) n'affiche pas d'examen de chapitre ; son
-  entraînement et le preset démo restent disponibles.
+- Un chapitre sans unités n'affiche pas d'examen de chapitre ; son entraînement et le preset démo
+  restent disponibles.
 
 ### Parcours visuel
 

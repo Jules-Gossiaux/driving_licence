@@ -104,7 +104,7 @@ En complément des tests automatisés :
 5. Examen : compte à rebours, passage automatique après expiration, résultat et détail.
 6. Défi d'unité : verrouillage puis lancement après lecture des leçons, 10 questions sans seuil,
    score affiché sur la page du chapitre et lien vers la leçon suivante ; examen de chapitre :
-   seuil 41/50 et reprise.
+   20 questions, seuil 17/20 et reprise.
 7. Révision : une erreur récente apparaît ; une bonne réponse ultérieure la retire.
 8. Rafraîchissement en cours d'examen : la tentative reprend sans réinitialiser le temps.
 9. Affichage mobile : navigation, runner, résultats.

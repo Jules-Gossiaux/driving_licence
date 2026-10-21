@@ -110,10 +110,11 @@ Avertissements à ne pas ignorer :
 - Défi d'unité : 10 questions maximum, tirées des questions dont au moins une `lessonIds` appartient
   à l'unité. Il se débloque quand toutes les leçons de l'unité sont lues. Le défi utilise
   `min(10, pool)` : une unité avec moins de 10 questions fonctionne, mais le format est incomplet.
-- Examen de chapitre : **50 questions, 15 s, seuil 41/50, pénalités 1 et 5**. Il n'apparaît que si
+- Examen de chapitre : **20 questions, 15 s, seuil 17/20, pénalités 1 et 5**. Il n'apparaît que si
   le chapitre déclare au moins une unité. Il se débloque quand toutes les leçons du chapitre sont
-  lues et que le chapitre compte au moins 50 questions `examEligible`. Les brouillons comptent pour
-  cet examen de chapitre ; le preset officiel, lui, n'utilise que le contenu publié.
+  lues et que le chapitre compte au moins 20 questions `examEligible`. Les brouillons comptent pour
+  cet examen de chapitre ; le preset officiel, lui, n'utilise que le contenu publié et reste à
+  50 questions / 41 sur 50.
 - Un chapitre sans unité reste valide techniquement, mais n'offre ni défi d'unité ni examen de
   chapitre : ne pas le prévoir pour un parcours complet.
 

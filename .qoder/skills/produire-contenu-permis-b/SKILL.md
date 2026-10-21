@@ -52,7 +52,7 @@ Voir `references/sources-et-verification.md`.
 2. Prévoir 3 ou 4 sections courtes par leçon et 4 ou 5 questions cœur, chacune rattachée à la leçon. Le pool par leçon doit permettre l'entraînement et, à terme, l'examen : viser 8 questions par leçon sauf justification.
 3. Placer **une seule vérification de section** (1 ou 2 questions) après la section la plus dense. Les autres questions cœur forment le quiz final. Le moteur repose ensuite les questions ratées : ne pas prévoir de questions de consolidation.
 4. Équilibrer difficulté (`easy`, `medium`, `hard`), sévérité (`normal`, `severe` rare), `examEligible` et tags. Prévoir les questions illustrées avec leurs médias dès le plan.
-5. Pour un chapitre destiné à l'examen de chapitre, viser au moins 50 questions `examEligible` et au moins 20 questions par unité. Un chapitre sans unité n'aura ni défi ni examen de chapitre.
+5. Pour un chapitre destiné à l'examen de chapitre, viser au moins 20 questions `examEligible` et au moins 20 questions par unité. Un chapitre sans unité n'aura ni défi ni examen de chapitre.
 6. Faire valider le plan avant la rédaction d'un lot important.
 
 ### 4. Rédiger

@@ -249,3 +249,20 @@ qu'à la fin de cette phase. Une leçon conserve 4 ou 5 questions cœur, mais un
 par la vérification de section. Les blocs de piège restants seront retirés au fil des audits sans
 perte de couverture : chaque règle retirée doit rester vérifiable par une question. La migration
 `0005` ajoute des colonnes de reprise sans dupliquer les tentatives.
+
+## D-020 — Examen de chapitre ramené à 20 questions (2026-10-21)
+
+**Contexte** : l'examen de chapitre reprenait le format officiel de 50 questions. Ce volume
+transformait chaque fin de chapitre en examen blanc complet et allongeait inutilement la boucle
+d'apprentissage ; 20 questions suffisent à vérifier les acquis.
+
+**Décision** : ramener l'examen de chapitre à 20 questions, 15 s par question, seuil 17/20
+(environ 82 %, comme 41/50), en conservant les pénalités 1 et 5. Le preset officiel
+`belgique-b-fr` reste à 50 questions / 41 sur 50 : c'est une simulation de l'examen réel, pas un
+jalon de chapitre. Le déblocage exige désormais au moins 20 questions `examEligible` dans le
+chapitre.
+
+**Conséquences** : l'examen de chapitre n'est plus présenté comme le format officiel ; la page du
+chapitre affiche 20 questions et un seuil de 17/20. Un chapitre dont le pool éligible est inférieur
+à 20 questions ne peut pas lancer son examen. Le chapitre 1 (50 questions) et le chapitre 2
+(225 questions) disposent d'un pool suffisant.

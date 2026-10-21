@@ -22,9 +22,9 @@ versionnage sémantique.
 - Défi d'unité : 10 questions mélangées issues des leçons de l'unité, sans chronomètre ni seuil,
   débloqué quand toutes les leçons de l'unité sont terminées. Le dernier score reste affiché, avec
   un accès direct à la leçon suivante ; la révision n'est proposée qu'en cas d'erreur.
-- Examen de chapitre : 50 questions, 15 s par question, seuil de 41 sur 50, débloqué quand toutes
+- Examen de chapitre : 20 questions, 15 s par question, seuil de 17 sur 20, débloqué quand toutes
   les leçons du chapitre sont terminées et que la banque compte assez de questions éligibles.
-  Reprise d'un examen actif et pénalités identiques au format officiel.
+  Reprise d'un examen actif et pénalités 1 et 5 ; le preset officiel reste à 50 questions / 41.
 - Parcours visuel Duolingo sur la page chapitre : chemin serpentin chapitre → unité → leçons, avec
   nœuds verrouillés, courant et terminés, accès de révision aux leçons terminées, défi d'unité en
   jalon de fin d'unité et examen de chapitre en évaluation finale.

@@ -11,7 +11,7 @@
 - Tableau de bord, liste des chapitres, leçon Markdown, progression de lecture.
 - Unités de chapitre et parcours de micro-leçons : sections Markdown, vérifications intercalées,
   quiz final, reprise à l'étape enregistrée et déblocage linéaire des leçons.
-- Défi d'unité (10 questions, sans seuil) et examen de chapitre (50 questions / 15 s / 41 sur 50),
+- Défi d'unité (10 questions, sans seuil) et examen de chapitre (20 questions / 15 s / 17 sur 20),
   débloqués par la lecture des leçons et vérifiés côté serveur.
 - Parcours visuel type Duolingo : chemin chapitre → unité → leçons, états verrouillé, courant et
   terminé, accès de révision aux leçons terminées, défi et examen intégrés comme jalons.

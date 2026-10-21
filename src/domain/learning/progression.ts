@@ -1,9 +1,9 @@
 export const UNIT_CHALLENGE_QUESTION_COUNT = 10;
 
 export const CHAPTER_EXAM = {
-  questionCount: 50,
+  questionCount: 20,
   secondsPerQuestion: 15,
-  passingScore: 41,
+  passingScore: 17,
   errorPenalty: 1,
   severeErrorPenalty: 5,
 } as const;

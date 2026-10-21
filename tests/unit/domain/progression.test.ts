@@ -38,11 +38,11 @@ describe("progression des évaluations", () => {
     ).toBe(true);
   });
 
-  it("conserve le format officiel de l'examen de chapitre", () => {
+  it("garde un examen de chapitre court, distinct du format officiel", () => {
     expect(CHAPTER_EXAM).toMatchObject({
-      questionCount: 50,
+      questionCount: 20,
       secondsPerQuestion: 15,
-      passingScore: 41,
+      passingScore: 17,
     });
   });
 });
