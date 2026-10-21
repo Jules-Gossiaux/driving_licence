@@ -6,7 +6,9 @@ unique : ne pas les dupliquer ici.
 Points non négociables :
 
 - Ne jamais travailler directement sur `main` / `master` : utiliser une branche dédiée.
-- Les actions Git locales (branche, commit, stash) sont autonomes ; push, merge, PR, tags, releases,
+- Aucun commit sans accord explicite : après chaque modification ou lot cohérent, une fois la
+  validation réussie, proposer le message et les fichiers, puis attendre la confirmation.
+- Les actions Git locales de branche et de stash sont autonomes ; push, merge, PR, tags, releases,
   force-push, `reset --hard` et suppressions de branches sont interdits sans demande explicite.
 - Ne jamais commiter `.env`, `data/`, `var/`, `.next*`, `test-results/` ou un artefact de build.
 - Le contenu doit rester exact au regard du code de la route **belge** et des droits d'usage.

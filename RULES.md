@@ -304,9 +304,13 @@ Objectif : retrouver et comprendre n'importe quelle ancienne version en moins de
 - Utiliser un worktree pour les travaux parallèles ; ne jamais toucher aux modifications d'un
   autre worktree ou d'un autre agent.
 
-### Autonomie : local automatique, distant sur demande
+### Autonomie : branches libres, commit sur accord
 
-- L'agent gère librement et sans validation : création de branches, commits, stash local.
+- L'agent gère librement et sans validation : création de branches, stash local.
+- Aucun commit sans accord explicite de l'utilisateur.
+- Après chaque modification ou lot cohérent, une fois les validations réussies, l'agent propose le
+  commit : message Conventional Commits et liste des fichiers. Il attend la confirmation avant de
+  créer le commit.
 - L'agent ne fait **jamais** sans demande explicite : push, merge, ouverture ou mise à jour de PR,
   création de tag, publication de release, force-push, `reset --hard`, suppression de branche ou
   de worktree distant.
@@ -363,7 +367,8 @@ Objectif : retrouver et comprendre n'importe quelle ancienne version en moins de
 7. Exécuter les validations proportionnées ; suite complète et build si nécessaire.
 8. Relire le diff entier : rechercher fichiers et changements accidentels.
 9. Mettre à jour la documentation et le changelog dans le même commit que le code.
-10. Créer un commit ciblé sur la bonne branche de session.
+10. Proposer un commit ciblé (message + fichiers) et attendre l'accord explicite ; créer le commit
+    sur la bonne branche de session après confirmation.
 11. Sur demande explicite uniquement : push, PR, tag, release.
 12. Donner un compte rendu exact : changements, commandes exécutées, résultats, limites, prochaine
     étape.
@@ -377,6 +382,6 @@ Une tâche n'est terminée que si :
 - typage, lint et formatage sont validés ;
 - la documentation reflète le comportement réel, limites comprises ;
 - le diff ne contient aucun changement sans rapport ;
-- le commit est créé sur la bonne branche ;
+- le commit est proposé puis créé sur la bonne branche après accord explicite ;
 - la PR est prête à être relue si une livraison a été demandée ;
 - aucun résultat n'est présenté comme vérifié sans avoir été réellement exécuté.
